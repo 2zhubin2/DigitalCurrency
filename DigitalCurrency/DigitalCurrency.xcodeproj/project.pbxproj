@@ -1,0 +1,703 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6071AADE181F1B0629CA68AC /* libPods-DigitalCurrency.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E304F0CFAC6D36BF916C20D4 /* libPods-DigitalCurrency.a */; };
+		B34AC3D324A9C97B00BFA9D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */; };
+		B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D824A9C97B00BFA9D5 /* ViewController.m */; };
+		B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34AC3DA24A9C97B00BFA9D5 /* Main.storyboard */; };
+		B34AC3DE24A9C97D00BFA9D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B34AC3DD24A9C97D00BFA9D5 /* Assets.xcassets */; };
+		B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34AC3DF24A9C97D00BFA9D5 /* LaunchScreen.storyboard */; };
+		B34AC3E424A9C97D00BFA9D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3E324A9C97D00BFA9D5 /* main.m */; };
+		B34AC40224A9CB8100BFA9D5 /* ZBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC40024A9CB8100BFA9D5 /* ZBHomeViewController.m */; };
+		B34AC40324A9CB8100BFA9D5 /* ZBHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC40124A9CB8100BFA9D5 /* ZBHomeViewController.xib */; };
+		B34AC40724A9CB9C00BFA9D5 /* ZBInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC40524A9CB9C00BFA9D5 /* ZBInformationViewController.m */; };
+		B34AC40824A9CB9C00BFA9D5 /* ZBInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC40624A9CB9C00BFA9D5 /* ZBInformationViewController.xib */; };
+		B34AC40C24A9CBAC00BFA9D5 /* ZBMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC40A24A9CBAC00BFA9D5 /* ZBMineViewController.m */; };
+		B34AC40D24A9CBAC00BFA9D5 /* ZBMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC40B24A9CBAC00BFA9D5 /* ZBMineViewController.xib */; };
+		B34AC41124A9CBBF00BFA9D5 /* ZBIndustryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC40F24A9CBBF00BFA9D5 /* ZBIndustryViewController.m */; };
+		B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC41024A9CBBF00BFA9D5 /* ZBIndustryViewController.xib */; };
+		B34AC41A24A9D1B800BFA9D5 /* ZBFabuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC41824A9D1B800BFA9D5 /* ZBFabuViewController.m */; };
+		B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */; };
+		B34AC42424A9E15E00BFA9D5 /* ZBloginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC42224A9E15E00BFA9D5 /* ZBloginViewController.m */; };
+		B34AC42524A9E15E00BFA9D5 /* ZBloginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC42324A9E15E00BFA9D5 /* ZBloginViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		88BFB1DBF177BF1C0B3A75E0 /* Pods-DigitalCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCurrency.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency.debug.xcconfig"; sourceTree = "<group>"; };
+		B34AC3CE24A9C97B00BFA9D5 /* DigitalCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B34AC3D124A9C97B00BFA9D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B34AC3D724A9C97B00BFA9D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B34AC3D824A9C97B00BFA9D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B34AC3DB24A9C97B00BFA9D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B34AC3DD24A9C97D00BFA9D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B34AC3E024A9C97D00BFA9D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B34AC3E224A9C97D00BFA9D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B34AC3E324A9C97D00BFA9D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B34AC3FF24A9CB8100BFA9D5 /* ZBHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBHomeViewController.h; sourceTree = "<group>"; };
+		B34AC40024A9CB8100BFA9D5 /* ZBHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBHomeViewController.m; sourceTree = "<group>"; };
+		B34AC40124A9CB8100BFA9D5 /* ZBHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBHomeViewController.xib; sourceTree = "<group>"; };
+		B34AC40424A9CB9C00BFA9D5 /* ZBInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBInformationViewController.h; sourceTree = "<group>"; };
+		B34AC40524A9CB9C00BFA9D5 /* ZBInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBInformationViewController.m; sourceTree = "<group>"; };
+		B34AC40624A9CB9C00BFA9D5 /* ZBInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBInformationViewController.xib; sourceTree = "<group>"; };
+		B34AC40924A9CBAC00BFA9D5 /* ZBMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBMineViewController.h; sourceTree = "<group>"; };
+		B34AC40A24A9CBAC00BFA9D5 /* ZBMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBMineViewController.m; sourceTree = "<group>"; };
+		B34AC40B24A9CBAC00BFA9D5 /* ZBMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBMineViewController.xib; sourceTree = "<group>"; };
+		B34AC40E24A9CBBF00BFA9D5 /* ZBIndustryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBIndustryViewController.h; sourceTree = "<group>"; };
+		B34AC40F24A9CBBF00BFA9D5 /* ZBIndustryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBIndustryViewController.m; sourceTree = "<group>"; };
+		B34AC41024A9CBBF00BFA9D5 /* ZBIndustryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBIndustryViewController.xib; sourceTree = "<group>"; };
+		B34AC41724A9D1B800BFA9D5 /* ZBFabuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBFabuViewController.h; sourceTree = "<group>"; };
+		B34AC41824A9D1B800BFA9D5 /* ZBFabuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBFabuViewController.m; sourceTree = "<group>"; };
+		B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBFabuViewController.xib; sourceTree = "<group>"; };
+		B34AC41C24A9D47900BFA9D5 /* DigitalCurrency.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DigitalCurrency.pch; sourceTree = "<group>"; };
+		B34AC42124A9E15E00BFA9D5 /* ZBloginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBloginViewController.h; sourceTree = "<group>"; };
+		B34AC42224A9E15E00BFA9D5 /* ZBloginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBloginViewController.m; sourceTree = "<group>"; };
+		B34AC42324A9E15E00BFA9D5 /* ZBloginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBloginViewController.xib; sourceTree = "<group>"; };
+		E304F0CFAC6D36BF916C20D4 /* libPods-DigitalCurrency.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalCurrency.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E12C486B3CE90D409B7178 /* Pods-DigitalCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCurrency.release.xcconfig"; path = "Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B34AC3CB24A9C97B00BFA9D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6071AADE181F1B0629CA68AC /* libPods-DigitalCurrency.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3852E27B67D210E3DA00C602 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E304F0CFAC6D36BF916C20D4 /* libPods-DigitalCurrency.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B34AC3C524A9C97B00BFA9D5 = {
+			isa = PBXGroup;
+			children = (
+				B34AC3D024A9C97B00BFA9D5 /* DigitalCurrency */,
+				B34AC3CF24A9C97B00BFA9D5 /* Products */,
+				3852E27B67D210E3DA00C602 /* Frameworks */,
+				E8E471492EA7607C843BFABC /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		B34AC3CF24A9C97B00BFA9D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3CE24A9C97B00BFA9D5 /* DigitalCurrency.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B34AC3D024A9C97B00BFA9D5 /* DigitalCurrency */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3EA24A9CA8500BFA9D5 /* classes */,
+				B34AC3D124A9C97B00BFA9D5 /* AppDelegate.h */,
+				B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */,
+				B34AC3D724A9C97B00BFA9D5 /* ViewController.h */,
+				B34AC3D824A9C97B00BFA9D5 /* ViewController.m */,
+				B34AC3DA24A9C97B00BFA9D5 /* Main.storyboard */,
+				B34AC3DD24A9C97D00BFA9D5 /* Assets.xcassets */,
+				B34AC3DF24A9C97D00BFA9D5 /* LaunchScreen.storyboard */,
+				B34AC3E224A9C97D00BFA9D5 /* Info.plist */,
+				B34AC3E324A9C97D00BFA9D5 /* main.m */,
+				B34AC41C24A9D47900BFA9D5 /* DigitalCurrency.pch */,
+			);
+			path = DigitalCurrency;
+			sourceTree = "<group>";
+		};
+		B34AC3EA24A9CA8500BFA9D5 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC41D24A9E14500BFA9D5 /* login */,
+				B34AC41324A9D1A300BFA9D5 /* Fabu */,
+				B34AC3FB24A9CAC300BFA9D5 /* main */,
+				B34AC3EB24A9CA8500BFA9D5 /* Home */,
+				B34AC3EF24A9CA8500BFA9D5 /* Information */,
+				B34AC3F324A9CA8500BFA9D5 /* Mine */,
+				B34AC3F724A9CA8500BFA9D5 /* Industry */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		B34AC3EB24A9CA8500BFA9D5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3EC24A9CA8500BFA9D5 /* Controller */,
+				B34AC3ED24A9CA8500BFA9D5 /* Model */,
+				B34AC3EE24A9CA8500BFA9D5 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B34AC3EC24A9CA8500BFA9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3FF24A9CB8100BFA9D5 /* ZBHomeViewController.h */,
+				B34AC40024A9CB8100BFA9D5 /* ZBHomeViewController.m */,
+				B34AC40124A9CB8100BFA9D5 /* ZBHomeViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B34AC3ED24A9CA8500BFA9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34AC3EE24A9CA8500BFA9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34AC3EF24A9CA8500BFA9D5 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3F024A9CA8500BFA9D5 /* Controller */,
+				B34AC3F124A9CA8500BFA9D5 /* Model */,
+				B34AC3F224A9CA8500BFA9D5 /* View */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		B34AC3F024A9CA8500BFA9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC40424A9CB9C00BFA9D5 /* ZBInformationViewController.h */,
+				B34AC40524A9CB9C00BFA9D5 /* ZBInformationViewController.m */,
+				B34AC40624A9CB9C00BFA9D5 /* ZBInformationViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B34AC3F124A9CA8500BFA9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34AC3F224A9CA8500BFA9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34AC3F324A9CA8500BFA9D5 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3F424A9CA8500BFA9D5 /* Controller */,
+				B34AC3F524A9CA8500BFA9D5 /* Model */,
+				B34AC3F624A9CA8500BFA9D5 /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		B34AC3F424A9CA8500BFA9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC40924A9CBAC00BFA9D5 /* ZBMineViewController.h */,
+				B34AC40A24A9CBAC00BFA9D5 /* ZBMineViewController.m */,
+				B34AC40B24A9CBAC00BFA9D5 /* ZBMineViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B34AC3F524A9CA8500BFA9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34AC3F624A9CA8500BFA9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34AC3F724A9CA8500BFA9D5 /* Industry */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3F824A9CA8500BFA9D5 /* Controller */,
+				B34AC3F924A9CA8500BFA9D5 /* Model */,
+				B34AC3FA24A9CA8500BFA9D5 /* View */,
+			);
+			path = Industry;
+			sourceTree = "<group>";
+		};
+		B34AC3F824A9CA8500BFA9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC40E24A9CBBF00BFA9D5 /* ZBIndustryViewController.h */,
+				B34AC40F24A9CBBF00BFA9D5 /* ZBIndustryViewController.m */,
+				B34AC41024A9CBBF00BFA9D5 /* ZBIndustryViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B34AC3F924A9CA8500BFA9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34AC3FA24A9CA8500BFA9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34AC3FB24A9CAC300BFA9D5 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC3FC24A9CAC300BFA9D5 /* Controller */,
+				B34AC3FD24A9CAC300BFA9D5 /* Model */,
+				B34AC3FE24A9CAC300BFA9D5 /* View */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		B34AC3FC24A9CAC300BFA9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B34AC3FD24A9CAC300BFA9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34AC3FE24A9CAC300BFA9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34AC41324A9D1A300BFA9D5 /* Fabu */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC41424A9D1A300BFA9D5 /* Controller */,
+				B34AC41524A9D1A300BFA9D5 /* Model */,
+				B34AC41624A9D1A300BFA9D5 /* View */,
+			);
+			path = Fabu;
+			sourceTree = "<group>";
+		};
+		B34AC41424A9D1A300BFA9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC41724A9D1B800BFA9D5 /* ZBFabuViewController.h */,
+				B34AC41824A9D1B800BFA9D5 /* ZBFabuViewController.m */,
+				B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B34AC41524A9D1A300BFA9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34AC41624A9D1A300BFA9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B34AC41D24A9E14500BFA9D5 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC41E24A9E14500BFA9D5 /* Controller */,
+				B34AC41F24A9E14500BFA9D5 /* Model */,
+				B34AC42024A9E14500BFA9D5 /* View */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		B34AC41E24A9E14500BFA9D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B34AC42124A9E15E00BFA9D5 /* ZBloginViewController.h */,
+				B34AC42224A9E15E00BFA9D5 /* ZBloginViewController.m */,
+				B34AC42324A9E15E00BFA9D5 /* ZBloginViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B34AC41F24A9E14500BFA9D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B34AC42024A9E14500BFA9D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E8E471492EA7607C843BFABC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88BFB1DBF177BF1C0B3A75E0 /* Pods-DigitalCurrency.debug.xcconfig */,
+				E5E12C486B3CE90D409B7178 /* Pods-DigitalCurrency.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B34AC3CD24A9C97B00BFA9D5 /* DigitalCurrency */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B34AC3E724A9C97D00BFA9D5 /* Build configuration list for PBXNativeTarget "DigitalCurrency" */;
+			buildPhases = (
+				EA3C6DC10063C656AD67AAF4 /* [CP] Check Pods Manifest.lock */,
+				B34AC3CA24A9C97B00BFA9D5 /* Sources */,
+				B34AC3CB24A9C97B00BFA9D5 /* Frameworks */,
+				B34AC3CC24A9C97B00BFA9D5 /* Resources */,
+				CA3D218005128D65BBE7EF62 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DigitalCurrency;
+			productName = DigitalCurrency;
+			productReference = B34AC3CE24A9C97B00BFA9D5 /* DigitalCurrency.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B34AC3C624A9C97B00BFA9D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ZB;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "朱彬";
+				TargetAttributes = {
+					B34AC3CD24A9C97B00BFA9D5 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = B34AC3C924A9C97B00BFA9D5 /* Build configuration list for PBXProject "DigitalCurrency" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B34AC3C524A9C97B00BFA9D5;
+			productRefGroup = B34AC3CF24A9C97B00BFA9D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B34AC3CD24A9C97B00BFA9D5 /* DigitalCurrency */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B34AC3CC24A9C97B00BFA9D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */,
+				B34AC40D24A9CBAC00BFA9D5 /* ZBMineViewController.xib in Resources */,
+				B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */,
+				B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */,
+				B34AC40324A9CB8100BFA9D5 /* ZBHomeViewController.xib in Resources */,
+				B34AC3DE24A9C97D00BFA9D5 /* Assets.xcassets in Resources */,
+				B34AC42524A9E15E00BFA9D5 /* ZBloginViewController.xib in Resources */,
+				B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */,
+				B34AC40824A9CB9C00BFA9D5 /* ZBInformationViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA3D218005128D65BBE7EF62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA3C6DC10063C656AD67AAF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DigitalCurrency-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B34AC3CA24A9C97B00BFA9D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */,
+				B34AC41124A9CBBF00BFA9D5 /* ZBIndustryViewController.m in Sources */,
+				B34AC41A24A9D1B800BFA9D5 /* ZBFabuViewController.m in Sources */,
+				B34AC40224A9CB8100BFA9D5 /* ZBHomeViewController.m in Sources */,
+				B34AC3D324A9C97B00BFA9D5 /* AppDelegate.m in Sources */,
+				B34AC40724A9CB9C00BFA9D5 /* ZBInformationViewController.m in Sources */,
+				B34AC3E424A9C97D00BFA9D5 /* main.m in Sources */,
+				B34AC42424A9E15E00BFA9D5 /* ZBloginViewController.m in Sources */,
+				B34AC40C24A9CBAC00BFA9D5 /* ZBMineViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B34AC3DA24A9C97B00BFA9D5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B34AC3DB24A9C97B00BFA9D5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B34AC3DF24A9C97D00BFA9D5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B34AC3E024A9C97D00BFA9D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B34AC3E524A9C97D00BFA9D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B34AC3E624A9C97D00BFA9D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B34AC3E824A9C97D00BFA9D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88BFB1DBF177BF1C0B3A75E0 /* Pods-DigitalCurrency.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DigitalCurrency/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = scrb.DigitalCurrency;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B34AC3E924A9C97D00BFA9D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E12C486B3CE90D409B7178 /* Pods-DigitalCurrency.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DigitalCurrency/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = scrb.DigitalCurrency;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B34AC3C924A9C97B00BFA9D5 /* Build configuration list for PBXProject "DigitalCurrency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B34AC3E524A9C97D00BFA9D5 /* Debug */,
+				B34AC3E624A9C97D00BFA9D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B34AC3E724A9C97D00BFA9D5 /* Build configuration list for PBXNativeTarget "DigitalCurrency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B34AC3E824A9C97D00BFA9D5 /* Debug */,
+				B34AC3E924A9C97D00BFA9D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B34AC3C624A9C97B00BFA9D5 /* Project object */;
+}

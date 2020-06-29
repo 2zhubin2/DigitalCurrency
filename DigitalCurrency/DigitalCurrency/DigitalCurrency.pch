@@ -1,0 +1,18 @@
+//
+//  DigitalCurrency.pch
+//  DigitalCurrency
+//
+//  Created by 朱彬 on 2020/6/29.
+//  Copyright © 2020 朱彬. All rights reserved.
+//
+
+#ifndef DigitalCurrency_pch
+#define DigitalCurrency_pch
+#define ZBScreenW  [UIScreen mainScreen].bounds.size.width
+#define ZBScreenH  [UIScreen mainScreen].bounds.size.height
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* DigitalCurrency_pch */
