@@ -96,9 +96,9 @@
                             <state key="normal" backgroundImage="btn_login"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有账号?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCZ-9w-6Te">
-                            <rect key="frame" x="106.5" y="213" width="55" height="15"/>
+                            <rect key="frame" x="104" y="213" width="60" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="55" id="ZI0-ws-1CG"/>
+                                <constraint firstAttribute="width" constant="60" id="ZI0-ws-1CG"/>
                                 <constraint firstAttribute="height" constant="15" id="uOJ-qS-q3X"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -106,7 +106,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdR-sL-pxv">
-                            <rect key="frame" x="166.5" y="213" width="37" height="15"/>
+                            <rect key="frame" x="169" y="213" width="37" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="OYd-Wx-ZaJ"/>
                                 <constraint firstAttribute="width" constant="37" id="fHK-lG-ISd"/>

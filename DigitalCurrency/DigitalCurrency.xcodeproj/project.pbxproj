@@ -26,6 +26,16 @@
 		B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */; };
 		B34AC42424A9E15E00BFA9D5 /* ZBloginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC42224A9E15E00BFA9D5 /* ZBloginViewController.m */; };
 		B34AC42524A9E15E00BFA9D5 /* ZBloginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC42324A9E15E00BFA9D5 /* ZBloginViewController.xib */; };
+		C788C21F24AA0E150011FB17 /* ZBFreepwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C788C21D24AA0E150011FB17 /* ZBFreepwViewController.m */; };
+		C788C22024AA0E150011FB17 /* ZBFreepwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C788C21E24AA0E150011FB17 /* ZBFreepwViewController.xib */; };
+		C788C22424AA144A0011FB17 /* ZBimageCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C788C22224AA144A0011FB17 /* ZBimageCodeViewController.m */; };
+		C788C22524AA144A0011FB17 /* ZBimageCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C788C22324AA144A0011FB17 /* ZBimageCodeViewController.xib */; };
+		C788C22924AA1FF80011FB17 /* ZBResetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C788C22724AA1FF80011FB17 /* ZBResetPassWordViewController.m */; };
+		C788C22A24AA1FF80011FB17 /* ZBResetPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C788C22824AA1FF80011FB17 /* ZBResetPassWordViewController.xib */; };
+		C788C22E24AA28940011FB17 /* ZBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C788C22C24AA28940011FB17 /* ZBRegisterViewController.m */; };
+		C788C22F24AA28940011FB17 /* ZBRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C788C22D24AA28940011FB17 /* ZBRegisterViewController.xib */; };
+		C788C23324AA334E0011FB17 /* ZBHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C788C23124AA334E0011FB17 /* ZBHomeTableViewCell.m */; };
+		C788C23424AA334E0011FB17 /* ZBHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C788C23224AA334E0011FB17 /* ZBHomeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +69,21 @@
 		B34AC42124A9E15E00BFA9D5 /* ZBloginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBloginViewController.h; sourceTree = "<group>"; };
 		B34AC42224A9E15E00BFA9D5 /* ZBloginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBloginViewController.m; sourceTree = "<group>"; };
 		B34AC42324A9E15E00BFA9D5 /* ZBloginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBloginViewController.xib; sourceTree = "<group>"; };
+		C788C21C24AA0E150011FB17 /* ZBFreepwViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBFreepwViewController.h; sourceTree = "<group>"; };
+		C788C21D24AA0E150011FB17 /* ZBFreepwViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBFreepwViewController.m; sourceTree = "<group>"; };
+		C788C21E24AA0E150011FB17 /* ZBFreepwViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBFreepwViewController.xib; sourceTree = "<group>"; };
+		C788C22124AA144A0011FB17 /* ZBimageCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBimageCodeViewController.h; sourceTree = "<group>"; };
+		C788C22224AA144A0011FB17 /* ZBimageCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBimageCodeViewController.m; sourceTree = "<group>"; };
+		C788C22324AA144A0011FB17 /* ZBimageCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBimageCodeViewController.xib; sourceTree = "<group>"; };
+		C788C22624AA1FF80011FB17 /* ZBResetPassWordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBResetPassWordViewController.h; sourceTree = "<group>"; };
+		C788C22724AA1FF80011FB17 /* ZBResetPassWordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBResetPassWordViewController.m; sourceTree = "<group>"; };
+		C788C22824AA1FF80011FB17 /* ZBResetPassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBResetPassWordViewController.xib; sourceTree = "<group>"; };
+		C788C22B24AA28940011FB17 /* ZBRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBRegisterViewController.h; sourceTree = "<group>"; };
+		C788C22C24AA28940011FB17 /* ZBRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBRegisterViewController.m; sourceTree = "<group>"; };
+		C788C22D24AA28940011FB17 /* ZBRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRegisterViewController.xib; sourceTree = "<group>"; };
+		C788C23024AA334E0011FB17 /* ZBHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZBHomeTableViewCell.h; path = DigitalCurrency/classes/login/Controller/ZBHomeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		C788C23124AA334E0011FB17 /* ZBHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZBHomeTableViewCell.m; path = DigitalCurrency/classes/login/Controller/ZBHomeTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		C788C23224AA334E0011FB17 /* ZBHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZBHomeTableViewCell.xib; path = DigitalCurrency/classes/login/Controller/ZBHomeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		E304F0CFAC6D36BF916C20D4 /* libPods-DigitalCurrency.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalCurrency.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E12C486B3CE90D409B7178 /* Pods-DigitalCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCurrency.release.xcconfig"; path = "Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +188,9 @@
 		B34AC3EE24A9CA8500BFA9D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C788C23024AA334E0011FB17 /* ZBHomeTableViewCell.h */,
+				C788C23124AA334E0011FB17 /* ZBHomeTableViewCell.m */,
+				C788C23224AA334E0011FB17 /* ZBHomeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +378,18 @@
 				B34AC42124A9E15E00BFA9D5 /* ZBloginViewController.h */,
 				B34AC42224A9E15E00BFA9D5 /* ZBloginViewController.m */,
 				B34AC42324A9E15E00BFA9D5 /* ZBloginViewController.xib */,
+				C788C21C24AA0E150011FB17 /* ZBFreepwViewController.h */,
+				C788C21D24AA0E150011FB17 /* ZBFreepwViewController.m */,
+				C788C21E24AA0E150011FB17 /* ZBFreepwViewController.xib */,
+				C788C22124AA144A0011FB17 /* ZBimageCodeViewController.h */,
+				C788C22224AA144A0011FB17 /* ZBimageCodeViewController.m */,
+				C788C22324AA144A0011FB17 /* ZBimageCodeViewController.xib */,
+				C788C22624AA1FF80011FB17 /* ZBResetPassWordViewController.h */,
+				C788C22724AA1FF80011FB17 /* ZBResetPassWordViewController.m */,
+				C788C22824AA1FF80011FB17 /* ZBResetPassWordViewController.xib */,
+				C788C22B24AA28940011FB17 /* ZBRegisterViewController.h */,
+				C788C22C24AA28940011FB17 /* ZBRegisterViewController.m */,
+				C788C22D24AA28940011FB17 /* ZBRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -437,9 +477,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C788C22F24AA28940011FB17 /* ZBRegisterViewController.xib in Resources */,
 				B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */,
+				C788C22524AA144A0011FB17 /* ZBimageCodeViewController.xib in Resources */,
+				C788C22024AA0E150011FB17 /* ZBFreepwViewController.xib in Resources */,
 				B34AC40D24A9CBAC00BFA9D5 /* ZBMineViewController.xib in Resources */,
 				B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */,
+				C788C23424AA334E0011FB17 /* ZBHomeTableViewCell.xib in Resources */,
+				C788C22A24AA1FF80011FB17 /* ZBResetPassWordViewController.xib in Resources */,
 				B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */,
 				B34AC40324A9CB8100BFA9D5 /* ZBHomeViewController.xib in Resources */,
 				B34AC3DE24A9C97D00BFA9D5 /* Assets.xcassets in Resources */,
@@ -501,11 +546,16 @@
 				B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */,
 				B34AC41124A9CBBF00BFA9D5 /* ZBIndustryViewController.m in Sources */,
 				B34AC41A24A9D1B800BFA9D5 /* ZBFabuViewController.m in Sources */,
+				C788C22E24AA28940011FB17 /* ZBRegisterViewController.m in Sources */,
 				B34AC40224A9CB8100BFA9D5 /* ZBHomeViewController.m in Sources */,
 				B34AC3D324A9C97B00BFA9D5 /* AppDelegate.m in Sources */,
+				C788C23324AA334E0011FB17 /* ZBHomeTableViewCell.m in Sources */,
 				B34AC40724A9CB9C00BFA9D5 /* ZBInformationViewController.m in Sources */,
 				B34AC3E424A9C97D00BFA9D5 /* main.m in Sources */,
+				C788C22924AA1FF80011FB17 /* ZBResetPassWordViewController.m in Sources */,
+				C788C21F24AA0E150011FB17 /* ZBFreepwViewController.m in Sources */,
 				B34AC42424A9E15E00BFA9D5 /* ZBloginViewController.m in Sources */,
+				C788C22424AA144A0011FB17 /* ZBimageCodeViewController.m in Sources */,
 				B34AC40C24A9CBAC00BFA9D5 /* ZBMineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

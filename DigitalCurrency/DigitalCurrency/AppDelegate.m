@@ -13,6 +13,7 @@
 #import "ZBInformationViewController.h"
 #import "ZBFabuViewController.h"
 #import "ZBloginViewController.h"
+#import "ZBFreepwViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,10 +26,14 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    ZBloginViewController *login_vc = [[ZBloginViewController alloc] init];
-    self.window.rootViewController = login_vc;
+    //test VC
+//    ZBloginViewController *login_vc = [[ZBloginViewController alloc] init];
+//    self.window.rootViewController = login_vc;
+//    ZBFreepwViewController *freepw_vc = [[ZBFreepwViewController alloc] init];
+//    self.window.rootViewController = freepw_vc;
     
-   /*
+    
+   
     UITabBarController *tabVC = [[UITabBarController alloc] init];
     self.window.rootViewController = tabVC;
     [[UITabBarItem appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0],NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
@@ -62,7 +67,7 @@
     mine_vc.tabBarItem.title = @"我的";
     mine_vc.tabBarItem.image = [UIImage imageNamed:@"wode_unselected"];
     mine_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"wode_selected"];
-    [tabVC addChildViewController:mine_vc];*/
+    [tabVC addChildViewController:mine_vc];
      
  
     

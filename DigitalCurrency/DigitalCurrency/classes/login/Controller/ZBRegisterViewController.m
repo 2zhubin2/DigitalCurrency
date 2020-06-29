@@ -1,31 +1,22 @@
 //
-//  ZBloginViewController.m
+//  ZBRegisterViewController.m
 //  DigitalCurrency
 //
-//  Created by 朱彬 on 2020/6/29.
+//  Created by HFY on 2020/6/29.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
-#import "ZBloginViewController.h"
+#import "ZBRegisterViewController.h"
 
-@interface ZBloginViewController ()
-@property (strong, nonatomic) IBOutlet UIView *loginView;
+@interface ZBRegisterViewController ()
 
 @end
 
-@implementation ZBloginViewController
+@implementation ZBRegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    _loginView.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0].CGColor;
-    _loginView.layer.shadowOffset = CGSizeMake(2, 2);
-    _loginView.layer.shadowOpacity = 1;
-    _loginView.layer.shadowRadius = 5;
-    _loginView.layer.cornerRadius = 10;
-    
-    
 }
 
 /*
