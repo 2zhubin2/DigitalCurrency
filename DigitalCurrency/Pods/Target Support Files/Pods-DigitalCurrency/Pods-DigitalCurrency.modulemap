@@ -1,0 +1,6 @@
+module Pods_DigitalCurrency {
+  umbrella header "Pods-DigitalCurrency-umbrella.h"
+
+  export *
+  module * { export * }
+}
