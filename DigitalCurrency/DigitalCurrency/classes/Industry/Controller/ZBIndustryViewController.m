@@ -7,6 +7,7 @@
 //
 
 #import "ZBIndustryViewController.h"
+#import "CZ_NEWMarketVC.h"
 
 @interface ZBIndustryViewController ()
 
@@ -17,7 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor orangeColor];
+//    self.view.backgroundColor = [UIColor orangeColor];
+    CZ_NEWMarketVC *industry_vc_child = [[CZ_NEWMarketVC alloc] init];
+    [self addChildViewController:industry_vc_child];
+    [self.view addSubview:industry_vc_child.view];
+    industry_vc_child.view.frame = self.view.bounds;
 }
 
 /*

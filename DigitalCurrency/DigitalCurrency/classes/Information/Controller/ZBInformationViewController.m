@@ -7,27 +7,175 @@
 //
 
 #import "ZBInformationViewController.h"
+#import "ZBNewInformationViewController.h"
+#import "ZBSelectedArticlesViewController.h"
+#import "ZBIndustryStormViewController.h"
+#import "ZBCommunityViewController.h"
 
-@interface ZBInformationViewController ()
+
+@interface ZBInformationViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property(nonatomic,weak)UIScrollView *scrollView;
+@property(nonatomic,weak)UICollectionView *collectionView;
+@property(nonatomic,strong)UIButton *selectBtn;
+@property(nonatomic,strong)NSMutableArray *btns;
+
 
 @end
 
 @implementation ZBInformationViewController
 
+static NSString *ID = @"colCell";
+
+- (NSMutableArray *)btns{
+    if (_btns == nil) {
+        _btns = [NSMutableArray array];
+    }
+    return _btns;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor blueColor];
+//    self.view.backgroundColor = [UIColor blueColor];
+    
+    
+    
+    //添加底部内容View
+    [self setupBottomContaninerView];
+    
+    //添加顶部标题view
+    [self setupTopTitleView];
+    
+    //添加所有子控制器
+    [self setupAllChildViewController];
+    
+    //添加所有标题按钮
+    [self setupAllTitleButton];
+    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)setupAllTitleButton{
+    
+    NSInteger count = self.childViewControllers.count;
+    
+    CGFloat btnX = 0;
+    CGFloat btnW = ZBScreenW / count;
+    CGFloat btnH = _scrollView.bounds.size.height;
+    
+    for (int i=0; i<count; i++) {
+        btnX = i * btnW;
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIViewController *vc = self.childViewControllers[i];
+//        [btn setTitle:vc.title forState:UIControlStateNormal];
+        btn.frame = CGRectMake(btnX, 0, btnW, btnH);
+        [_scrollView addSubview:btn];
+        btn.tag = 1000 + i;
+        
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:vc.title attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0]}];
+        [btn setAttributedTitle:string forState:UIControlStateNormal];
+        
+        NSMutableAttributedString *string_s = [[NSMutableAttributedString alloc] initWithString:vc.title attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0]}];
+        [btn setAttributedTitle:string_s forState:UIControlStateSelected];
+        
+        [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [self.btns addObject:btn];
+        
+    }
+    self.selectBtn = self.scrollView.subviews[0];
+    self.selectBtn.selected = YES;
 }
-*/
+
+-(void)clickBtn:(UIButton *)btn{
+    
+    [self selButton:btn];
+    _collectionView.contentOffset = CGPointMake(ZBScreenW * (btn.tag - 1000), 0);
+}
+
+#pragma mark - 选中标题
+-(void)selButton:(UIButton *)btn{
+    
+    
+    self.selectBtn.selected = !self.selectBtn.isSelected;
+    btn.selected = YES;
+    self.selectBtn = btn;
+}
+
+-(void)setupAllChildViewController{
+    
+    ZBNewInformationViewController *newInformation_vc = [[ZBNewInformationViewController alloc] init];
+    newInformation_vc.title = @"最新资讯";
+    [self addChildViewController:newInformation_vc];
+    
+    ZBSelectedArticlesViewController *selectedArticles_vc = [[ZBSelectedArticlesViewController alloc] init];
+    selectedArticles_vc.title = @"精选好文";
+    [self addChildViewController:selectedArticles_vc];
+    
+    ZBIndustryStormViewController *industryStorm_vc = [[ZBIndustryStormViewController alloc] init];
+    industryStorm_vc.title = @"行业风暴";
+    [self addChildViewController:industryStorm_vc];
+    
+    ZBCommunityViewController *community_vc = [[ZBCommunityViewController alloc] init];
+    community_vc.title = @"社区";
+    [self addChildViewController:community_vc];
+    
+    
+}
+
+-(void)setupBottomContaninerView{
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH);
+    layout.minimumLineSpacing = 0;
+    layout.minimumInteritemSpacing = 0;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    //UIcollectionView
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, zbStatuBarH + 44,zbStatuBarW , ZBScreenH) collectionViewLayout:layout];
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+    [self.view addSubview:collectionView];
+    collectionView.backgroundColor = [UIColor redColor];
+    _collectionView = collectionView;
+    collectionView.showsVerticalScrollIndicator = NO;
+    collectionView.showsHorizontalScrollIndicator = NO;
+    collectionView.bounces = NO;
+    collectionView.pagingEnabled = YES;
+    
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+}
+-(void)setupTopTitleView{
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width, 44)];
+//    scrollView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:scrollView];
+    _scrollView = scrollView;
+}
+
+#pragma mark - CollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.childViewControllers.count;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    [cell.contentView.subviews.firstObject removeFromSuperview];
+    [cell.contentView addSubview:self.childViewControllers[indexPath.row].view];
+    return cell;
+}
+
+#pragma mark - CollectionViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    NSInteger page = _collectionView.contentOffset.x / zbStatuBarW;
+    UIButton *btn = self.btns[page];
+    [self selButton:btn];
+    
+}
 
 @end

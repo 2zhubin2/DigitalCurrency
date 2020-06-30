@@ -15,6 +15,7 @@
 #import "ZBloginViewController.h"
 #import "ZBFreepwViewController.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -44,6 +45,9 @@
     home_vc.tabBarItem.image = [UIImage imageNamed:@"shouye_unselected"];
     home_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"shouye_selected"];
     [tabVC addChildViewController:home_vc];
+    
+    
+
     
     ZBIndustryViewController *industry_vc = [[ZBIndustryViewController alloc] init];
     industry_vc.tabBarItem.title = @"行情";

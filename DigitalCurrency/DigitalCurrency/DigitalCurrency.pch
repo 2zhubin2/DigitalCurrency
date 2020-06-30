@@ -6,10 +6,24 @@
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
+
+
 #ifndef DigitalCurrency_pch
 #define DigitalCurrency_pch
+
+#import <UIKit/UIKit.h>
+#import <AFNetworking/AFNetworking.h>
+#import "MacroQiHuo.h"
+#import "MacroHeader.h"
+#import "MacroStringHeader.h"
+#import "BusinessProcess.h"
+#import "MBProgressHUD+XMG.h"
+#import "Masonry.h"
+
 #define ZBScreenW  [UIScreen mainScreen].bounds.size.width
 #define ZBScreenH  [UIScreen mainScreen].bounds.size.height
+#define zbStatuBarH [UIApplication sharedApplication].statusBarFrame.size.height
+#define zbStatuBarW [UIApplication sharedApplication].statusBarFrame.size.width
 
 
 // Include any system framework and library headers here that should be included in all compilation units.
