@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBCommunityViewController">
             <connections>
+                <outlet property="title_view" destination="GMA-6K-FDs" id="GO9-YC-inv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,10 +17,24 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMA-6K-FDs">
+                    <rect key="frame" x="10" y="62" width="394" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="fzx-ZK-bkB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="GMA-6K-FDs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="-10" id="Ntd-Wm-OVv"/>
+                <constraint firstItem="GMA-6K-FDs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="18" id="Ulr-uK-A5M"/>
+                <constraint firstAttribute="trailing" secondItem="GMA-6K-FDs" secondAttribute="trailingMargin" constant="18" id="dNa-x5-TyK"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="132" y="134"/>
+            <point key="canvasLocation" x="131.8840579710145" y="133.92857142857142"/>
         </view>
     </objects>
 </document>

@@ -25,12 +25,13 @@ static NSString *ID = @"CommunityTuiJianCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupTableView];
+    
 }
 
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
-    tableView.frame = CGRectMake(0, zbStatuBarH, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
+    tableView.frame = CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
        
     [tableView registerNib:[UINib nibWithNibName:@"ZBCommunityTuiJianTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
        
