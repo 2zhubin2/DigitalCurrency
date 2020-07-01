@@ -7,8 +7,11 @@
 //
 
 #import "ZBCommunityViewController.h"
+#import "ZBCommunityTuiJianViewController.h"
 
 @interface ZBCommunityViewController ()
+
+@property(nonatomic,weak)UIView *tuijian_view;
 
 @end
 
@@ -18,6 +21,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
         self.view.backgroundColor = [UIColor orangeColor];
+    
+    ZBCommunityTuiJianViewController *tuijian_vc = [[ZBCommunityTuiJianViewController alloc] init];
+    [self addChildViewController:tuijian_vc];
+    [self.view addSubview:tuijian_vc.view];
+    tuijian_vc.view.frame = CGRectMake(0, zbStatuBarH , zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
+    _tuijian_view = tuijian_vc.view;
 }
 
 /*

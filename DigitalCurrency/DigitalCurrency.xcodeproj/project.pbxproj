@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		6071AADE181F1B0629CA68AC /* libPods-DigitalCurrency.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E304F0CFAC6D36BF916C20D4 /* libPods-DigitalCurrency.a */; };
+		B34884FC24AC508C00A23201 /* ZBDongTaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884FA24AC508C00A23201 /* ZBDongTaiTableViewCell.m */; };
+		B34884FD24AC508C00A23201 /* ZBDongTaiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34884FB24AC508C00A23201 /* ZBDongTaiTableViewCell.xib */; };
+		B348850124AC6D7D00A23201 /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884FF24AC6D7D00A23201 /* ZBViewController.m */; };
+		B348850224AC6D7D00A23201 /* ZBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348850024AC6D7D00A23201 /* ZBViewController.xib */; };
+		B348850624AC737D00A23201 /* ZBNewInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B348850424AC737D00A23201 /* ZBNewInformationTableViewCell.m */; };
+		B348850724AC737D00A23201 /* ZBNewInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348850524AC737D00A23201 /* ZBNewInformationTableViewCell.xib */; };
+		B348850B24AC811700A23201 /* ZBIndustryStormTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B348850924AC811700A23201 /* ZBIndustryStormTableViewCell.m */; };
+		B348850C24AC811700A23201 /* ZBIndustryStormTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348850A24AC811700A23201 /* ZBIndustryStormTableViewCell.xib */; };
+		B348851524AC8F5C00A23201 /* ZBCommunityTuiJianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B348851324AC8F5C00A23201 /* ZBCommunityTuiJianViewController.m */; };
+		B348851624AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348851424AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib */; };
+		B348851A24AC8F7600A23201 /* ZBCommunityGuanZhuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B348851824AC8F7600A23201 /* ZBCommunityGuanZhuViewController.m */; };
+		B348851B24AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348851924AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib */; };
+		B348851F24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B348851D24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m */; };
+		B348852024AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348851E24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib */; };
 		B34AC3D324A9C97B00BFA9D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */; };
 		B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D824A9C97B00BFA9D5 /* ViewController.m */; };
 		B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34AC3DA24A9C97B00BFA9D5 /* Main.storyboard */; };
@@ -99,6 +113,27 @@
 
 /* Begin PBXFileReference section */
 		88BFB1DBF177BF1C0B3A75E0 /* Pods-DigitalCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCurrency.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency.debug.xcconfig"; sourceTree = "<group>"; };
+		B34884F924AC508C00A23201 /* ZBDongTaiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBDongTaiTableViewCell.h; sourceTree = "<group>"; };
+		B34884FA24AC508C00A23201 /* ZBDongTaiTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBDongTaiTableViewCell.m; sourceTree = "<group>"; };
+		B34884FB24AC508C00A23201 /* ZBDongTaiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBDongTaiTableViewCell.xib; sourceTree = "<group>"; };
+		B34884FE24AC6D7D00A23201 /* ZBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
+		B34884FF24AC6D7D00A23201 /* ZBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
+		B348850024AC6D7D00A23201 /* ZBViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBViewController.xib; sourceTree = "<group>"; };
+		B348850324AC737D00A23201 /* ZBNewInformationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBNewInformationTableViewCell.h; sourceTree = "<group>"; };
+		B348850424AC737D00A23201 /* ZBNewInformationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBNewInformationTableViewCell.m; sourceTree = "<group>"; };
+		B348850524AC737D00A23201 /* ZBNewInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBNewInformationTableViewCell.xib; sourceTree = "<group>"; };
+		B348850824AC811700A23201 /* ZBIndustryStormTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBIndustryStormTableViewCell.h; sourceTree = "<group>"; };
+		B348850924AC811700A23201 /* ZBIndustryStormTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBIndustryStormTableViewCell.m; sourceTree = "<group>"; };
+		B348850A24AC811700A23201 /* ZBIndustryStormTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBIndustryStormTableViewCell.xib; sourceTree = "<group>"; };
+		B348851224AC8F5C00A23201 /* ZBCommunityTuiJianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommunityTuiJianViewController.h; sourceTree = "<group>"; };
+		B348851324AC8F5C00A23201 /* ZBCommunityTuiJianViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommunityTuiJianViewController.m; sourceTree = "<group>"; };
+		B348851424AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCommunityTuiJianViewController.xib; sourceTree = "<group>"; };
+		B348851724AC8F7600A23201 /* ZBCommunityGuanZhuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommunityGuanZhuViewController.h; sourceTree = "<group>"; };
+		B348851824AC8F7600A23201 /* ZBCommunityGuanZhuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommunityGuanZhuViewController.m; sourceTree = "<group>"; };
+		B348851924AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCommunityGuanZhuViewController.xib; sourceTree = "<group>"; };
+		B348851C24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommunityTuiJianTableViewCell.h; sourceTree = "<group>"; };
+		B348851D24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommunityTuiJianTableViewCell.m; sourceTree = "<group>"; };
+		B348851E24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCommunityTuiJianTableViewCell.xib; sourceTree = "<group>"; };
 		B34AC3CE24A9C97B00BFA9D5 /* DigitalCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34AC3D124A9C97B00BFA9D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -421,6 +456,24 @@
 		B34AC3F224A9CA8500BFA9D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B34884FE24AC6D7D00A23201 /* ZBViewController.h */,
+				B34884FF24AC6D7D00A23201 /* ZBViewController.m */,
+				B348850024AC6D7D00A23201 /* ZBViewController.xib */,
+				B348850324AC737D00A23201 /* ZBNewInformationTableViewCell.h */,
+				B348850424AC737D00A23201 /* ZBNewInformationTableViewCell.m */,
+				B348850524AC737D00A23201 /* ZBNewInformationTableViewCell.xib */,
+				B348850824AC811700A23201 /* ZBIndustryStormTableViewCell.h */,
+				B348850924AC811700A23201 /* ZBIndustryStormTableViewCell.m */,
+				B348850A24AC811700A23201 /* ZBIndustryStormTableViewCell.xib */,
+				B348851224AC8F5C00A23201 /* ZBCommunityTuiJianViewController.h */,
+				B348851324AC8F5C00A23201 /* ZBCommunityTuiJianViewController.m */,
+				B348851424AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib */,
+				B348851724AC8F7600A23201 /* ZBCommunityGuanZhuViewController.h */,
+				B348851824AC8F7600A23201 /* ZBCommunityGuanZhuViewController.m */,
+				B348851924AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib */,
+				B348851C24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.h */,
+				B348851D24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m */,
+				B348851E24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -458,6 +511,9 @@
 				C7788DE724AB96E400669EDC /* ZBMineGuanZhuTableViewCell.h */,
 				C7788DE824AB96E400669EDC /* ZBMineGuanZhuTableViewCell.m */,
 				C7788DE924AB96E400669EDC /* ZBMineGuanZhuTableViewCell.xib */,
+				B34884F924AC508C00A23201 /* ZBDongTaiTableViewCell.h */,
+				B34884FA24AC508C00A23201 /* ZBDongTaiTableViewCell.m */,
+				B34884FB24AC508C00A23201 /* ZBDongTaiTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -866,15 +922,20 @@
 			files = (
 				C788C22F24AA28940011FB17 /* ZBRegisterViewController.xib in Resources */,
 				B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */,
+				B348850224AC6D7D00A23201 /* ZBViewController.xib in Resources */,
 				C7788DE124AB5EAD00669EDC /* ZBIndustryStormViewController.xib in Resources */,
 				C7788DAE24AB4D7600669EDC /* MBProgressHUD.bundle in Resources */,
 				C788C22524AA144A0011FB17 /* ZBimageCodeViewController.xib in Resources */,
 				C788C22024AA0E150011FB17 /* ZBFreepwViewController.xib in Resources */,
 				B34AC40D24A9CBAC00BFA9D5 /* ZBMineViewController.xib in Resources */,
+				B348850724AC737D00A23201 /* ZBNewInformationTableViewCell.xib in Resources */,
 				C7788DD724AB5E3E00669EDC /* ZBNewInformationViewController.xib in Resources */,
 				B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */,
+				B348851624AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib in Resources */,
 				C7788DEB24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.xib in Resources */,
+				B348852024AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib in Resources */,
 				C788C23424AA334E0011FB17 /* ZBHomeTableViewCell.xib in Resources */,
+				B34884FD24AC508C00A23201 /* ZBDongTaiTableViewCell.xib in Resources */,
 				C788C22A24AA1FF80011FB17 /* ZBResetPassWordViewController.xib in Resources */,
 				B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */,
 				C7788DE624AB5EDA00669EDC /* ZBCommunityViewController.xib in Resources */,
@@ -883,7 +944,9 @@
 				B34AC42524A9E15E00BFA9D5 /* ZBloginViewController.xib in Resources */,
 				B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */,
 				B34AC40824A9CB9C00BFA9D5 /* ZBInformationViewController.xib in Resources */,
+				B348850C24AC811700A23201 /* ZBIndustryStormTableViewCell.xib in Resources */,
 				C7788DDC24AB5E8400669EDC /* ZBSelectedArticlesViewController.xib in Resources */,
+				B348851B24AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +1007,7 @@
 				C7788DE024AB5EAD00669EDC /* ZBIndustryStormViewController.m in Sources */,
 				C7788D9824AB493800669EDC /* QHDataCollectionViewCell.m in Sources */,
 				C7788D8824AB493800669EDC /* EGHViewsTool.m in Sources */,
+				B34884FC24AC508C00A23201 /* ZBDongTaiTableViewCell.m in Sources */,
 				B34AC41124A9CBBF00BFA9D5 /* ZBIndustryViewController.m in Sources */,
 				C7788DAC24AB4D7600669EDC /* MBProgressHUD.m in Sources */,
 				C7788D8424AB493800669EDC /* ZCBaseView.m in Sources */,
@@ -953,9 +1017,11 @@
 				C7788D9C24AB493800669EDC /* LCPNetWorkPUT.m in Sources */,
 				C7788DC924AB50F100669EDC /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C7788DA024AB493800669EDC /* LCPNetWorkGET.m in Sources */,
+				B348851F24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m in Sources */,
 				C7788DD624AB5E3E00669EDC /* ZBNewInformationViewController.m in Sources */,
 				C7788D8324AB493800669EDC /* NetWork.m in Sources */,
 				B34AC40224A9CB8100BFA9D5 /* ZBHomeViewController.m in Sources */,
+				B348850624AC737D00A23201 /* ZBNewInformationTableViewCell.m in Sources */,
 				C7788D9124AB493800669EDC /* ZCMakeTableViewCell.m in Sources */,
 				C7788D9924AB493800669EDC /* CZ_NEWMarketVC.m in Sources */,
 				C7788D8E24AB493800669EDC /* QHDHHeadCollectionViewCell.m in Sources */,
@@ -974,6 +1040,8 @@
 				C7788D8924AB493800669EDC /* StringAndLabelDealTool.m in Sources */,
 				C7788D9E24AB493800669EDC /* LCPNetWorkPOST.m in Sources */,
 				C7788D8F24AB493800669EDC /* YKViewBase.m in Sources */,
+				B348850124AC6D7D00A23201 /* ZBViewController.m in Sources */,
+				B348850B24AC811700A23201 /* ZBIndustryStormTableViewCell.m in Sources */,
 				B34AC3E424A9C97D00BFA9D5 /* main.m in Sources */,
 				C7788DEA24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.m in Sources */,
 				C788C22924AA1FF80011FB17 /* ZBResetPassWordViewController.m in Sources */,
@@ -1001,8 +1069,10 @@
 				C7788D9724AB493800669EDC /* LCPReachability.m in Sources */,
 				C7788DCA24AB50F100669EDC /* ViewController+MASAdditions.m in Sources */,
 				C7788DA324AB493800669EDC /* MVPKlineView.m in Sources */,
+				B348851524AC8F5C00A23201 /* ZBCommunityTuiJianViewController.m in Sources */,
 				C7788D9624AB493800669EDC /* Reachability.m in Sources */,
 				B34AC40C24A9CBAC00BFA9D5 /* ZBMineViewController.m in Sources */,
+				B348851A24AC8F7600A23201 /* ZBCommunityGuanZhuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

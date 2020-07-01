@@ -24,17 +24,10 @@
     [super awakeFromNib];
     // Initialization code
     _iconImageView.layer.cornerRadius = 20;
-    
+    [self setupshadowColor];
+//    _view.backgroundColor = [UIColor colorWithRed:249/255.0 green:249/255.0 blue:249/255.0 alpha:1.0];
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self setupshadowColor];
-    }
-    return self;
-}
 -(void)setupshadowColor{
     _view.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
     _view.layer.shadowOffset = CGSizeMake(2,2);
@@ -47,6 +40,9 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (IBAction)clickGuanZhu:(UIButton *)sender {
+    NSLog(@"123");
 }
 
 @end

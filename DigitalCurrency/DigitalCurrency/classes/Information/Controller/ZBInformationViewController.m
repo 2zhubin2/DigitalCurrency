@@ -81,6 +81,7 @@ static NSString *ID = @"colCell";
         
         NSMutableAttributedString *string_s = [[NSMutableAttributedString alloc] initWithString:vc.title attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0]}];
         [btn setAttributedTitle:string_s forState:UIControlStateSelected];
+        [btn setBackgroundImage:[UIImage imageNamed:@"zixun_bg"] forState:UIControlStateSelected];
         
         [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.btns addObject:btn];
@@ -129,13 +130,13 @@ static NSString *ID = @"colCell";
 -(void)setupBottomContaninerView{
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH);
+    layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH - zbStatuBarH - 44 );
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     //UIcollectionView
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, zbStatuBarH + 44,zbStatuBarW , ZBScreenH) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, zbStatuBarH + 44,zbStatuBarW , ZBScreenH - zbStatuBarH - 44 - 49) collectionViewLayout:layout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
     [self.view addSubview:collectionView];
