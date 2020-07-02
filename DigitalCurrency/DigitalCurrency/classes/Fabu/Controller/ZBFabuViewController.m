@@ -8,7 +8,9 @@
 
 #import "ZBFabuViewController.h"
 
-@interface ZBFabuViewController ()
+@interface ZBFabuViewController ()<UITextViewDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *TiShiLabel;
+@property (strong, nonatomic) IBOutlet UITextView *text_FV;
 
 @end
 
@@ -17,6 +19,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
+                self.navigationItem.leftBarButtonItem = leftItem;
+                self.navigationItem.title = @"发布";
+    
+    self.text_FV.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = NO;
+       self.tabBarController.tabBar.hidden = YES;
+}
+
+-(void)backSetting{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    NSLog(@"开始编辑");
+    _TiShiLabel.hidden = YES;
+}
+- (void)textViewDidChange:(UITextView *)textView{
+    //
 }
 
 /*

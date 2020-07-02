@@ -14,6 +14,7 @@
 #import "ZBFabuViewController.h"
 #import "ZBloginViewController.h"
 #import "ZBFreepwViewController.h"
+#import "ZBFaBuBaseViewController.h"
 
 
 @interface AppDelegate ()
@@ -59,10 +60,11 @@
     industry_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"hangqing_selected"];
     [tabVC addChildViewController:industry_vc];
     
-    ZBFabuViewController *fabu_vc = [[ZBFabuViewController alloc] init];
-    fabu_vc.tabBarItem.image = [UIImage imageNamed:@"fabu"];
-    fabu_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"fabu"];
-    [tabVC addChildViewController:fabu_vc];
+    ZBFaBuBaseViewController *fabu_vc = [[ZBFaBuBaseViewController alloc] init];
+    UINavigationController *nav_fabu = [[UINavigationController alloc] initWithRootViewController:fabu_vc];
+    nav_fabu.tabBarItem.image = [UIImage imageNamed:@"fabu"];
+    nav_fabu.tabBarItem.selectedImage = [UIImage imageNamed:@"fabu"];
+    [tabVC addChildViewController:nav_fabu];
     
     
     ZBInformationViewController *information_vc = [[ZBInformationViewController alloc] init];

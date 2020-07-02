@@ -27,6 +27,7 @@ static NSString *ID_dongtai = @"DongTaiCell";
 
 - (void)viewWillAppear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MineShow" object:nil];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 

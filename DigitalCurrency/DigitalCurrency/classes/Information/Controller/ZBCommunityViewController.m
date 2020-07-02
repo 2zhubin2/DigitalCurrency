@@ -63,6 +63,9 @@
     
     
 }
+//- (void)viewWillAppear:(BOOL)animated{
+//    self.tabBarController.tabBar.hidden = YES;
+//}
 
 -(void)setupAllTitleButton:(UIView *)view{
     

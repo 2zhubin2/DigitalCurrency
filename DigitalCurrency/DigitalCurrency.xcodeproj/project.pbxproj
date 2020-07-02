@@ -117,6 +117,12 @@
 		C7788DE624AB5EDA00669EDC /* ZBCommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7788DE424AB5EDA00669EDC /* ZBCommunityViewController.xib */; };
 		C7788DEA24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7788DE824AB96E400669EDC /* ZBMineGuanZhuTableViewCell.m */; };
 		C7788DEB24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7788DE924AB96E400669EDC /* ZBMineGuanZhuTableViewCell.xib */; };
+		C783386224AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C783386024AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.m */; };
+		C783386324AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C783386124AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.xib */; };
+		C783386724AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C783386524AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.m */; };
+		C783386824AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C783386624AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.xib */; };
+		C783386C24AE340100DCF4FA /* ZBFaBuBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C783386A24AE340100DCF4FA /* ZBFaBuBaseViewController.m */; };
+		C783386D24AE340100DCF4FA /* ZBFaBuBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C783386B24AE340100DCF4FA /* ZBFaBuBaseViewController.xib */; };
 		C788C21F24AA0E150011FB17 /* ZBFreepwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C788C21D24AA0E150011FB17 /* ZBFreepwViewController.m */; };
 		C788C22024AA0E150011FB17 /* ZBFreepwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C788C21E24AA0E150011FB17 /* ZBFreepwViewController.xib */; };
 		C788C22424AA144A0011FB17 /* ZBimageCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C788C22224AA144A0011FB17 /* ZBimageCodeViewController.m */; };
@@ -336,6 +342,15 @@
 		C7788DE724AB96E400669EDC /* ZBMineGuanZhuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZBMineGuanZhuTableViewCell.h; path = DigitalCurrency/classes/Information/Controller/ZBMineGuanZhuTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		C7788DE824AB96E400669EDC /* ZBMineGuanZhuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZBMineGuanZhuTableViewCell.m; path = DigitalCurrency/classes/Information/Controller/ZBMineGuanZhuTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		C7788DE924AB96E400669EDC /* ZBMineGuanZhuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZBMineGuanZhuTableViewCell.xib; path = DigitalCurrency/classes/Information/Controller/ZBMineGuanZhuTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		C783385F24AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBQieHuanZhangHaoViewController.h; sourceTree = "<group>"; };
+		C783386024AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBQieHuanZhangHaoViewController.m; sourceTree = "<group>"; };
+		C783386124AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBQieHuanZhangHaoViewController.xib; sourceTree = "<group>"; };
+		C783386424AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBBianJiZiLiaoViewController.h; sourceTree = "<group>"; };
+		C783386524AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBBianJiZiLiaoViewController.m; sourceTree = "<group>"; };
+		C783386624AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBBianJiZiLiaoViewController.xib; sourceTree = "<group>"; };
+		C783386924AE340100DCF4FA /* ZBFaBuBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBFaBuBaseViewController.h; sourceTree = "<group>"; };
+		C783386A24AE340100DCF4FA /* ZBFaBuBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBFaBuBaseViewController.m; sourceTree = "<group>"; };
+		C783386B24AE340100DCF4FA /* ZBFaBuBaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBFaBuBaseViewController.xib; sourceTree = "<group>"; };
 		C788C21C24AA0E150011FB17 /* ZBFreepwViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBFreepwViewController.h; sourceTree = "<group>"; };
 		C788C21D24AA0E150011FB17 /* ZBFreepwViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBFreepwViewController.m; sourceTree = "<group>"; };
 		C788C21E24AA0E150011FB17 /* ZBFreepwViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBFreepwViewController.xib; sourceTree = "<group>"; };
@@ -441,6 +456,12 @@
 				B349743224ADDBF2001005A4 /* ZBFanKuiZXViewController.h */,
 				B349743324ADDBF2001005A4 /* ZBFanKuiZXViewController.m */,
 				B349743424ADDBF2001005A4 /* ZBFanKuiZXViewController.xib */,
+				C783385F24AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.h */,
+				C783386024AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.m */,
+				C783386124AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.xib */,
+				C783386424AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.h */,
+				C783386524AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.m */,
+				C783386624AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -752,6 +773,9 @@
 				B34AC41724A9D1B800BFA9D5 /* ZBFabuViewController.h */,
 				B34AC41824A9D1B800BFA9D5 /* ZBFabuViewController.m */,
 				B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */,
+				C783386924AE340100DCF4FA /* ZBFaBuBaseViewController.h */,
+				C783386A24AE340100DCF4FA /* ZBFaBuBaseViewController.m */,
+				C783386B24AE340100DCF4FA /* ZBFaBuBaseViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1074,6 +1098,7 @@
 			files = (
 				B349742724ADCD5F001005A4 /* ZBZhuXiaoViewController.xib in Resources */,
 				C788C22F24AA28940011FB17 /* ZBRegisterViewController.xib in Resources */,
+				C783386824AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.xib in Resources */,
 				B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */,
 				C7CC03A824ACD7AE00EBA000 /* ZBCommunityGuanZhuHeaderCell.xib in Resources */,
 				B348850224AC6D7D00A23201 /* ZBViewController.xib in Resources */,
@@ -1086,8 +1111,10 @@
 				B348850724AC737D00A23201 /* ZBNewInformationTableViewCell.xib in Resources */,
 				B349741E24ADAB37001005A4 /* ZBSettingViewController.xib in Resources */,
 				C7788DD724AB5E3E00669EDC /* ZBNewInformationViewController.xib in Resources */,
+				C783386D24AE340100DCF4FA /* ZBFaBuBaseViewController.xib in Resources */,
 				B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */,
 				B348851624AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib in Resources */,
+				C783386324AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.xib in Resources */,
 				C7788DEB24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.xib in Resources */,
 				B349742C24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.xib in Resources */,
 				B348852024AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib in Resources */,
@@ -1179,6 +1206,7 @@
 				B34AC41A24A9D1B800BFA9D5 /* ZBFabuViewController.m in Sources */,
 				C788C22E24AA28940011FB17 /* ZBRegisterViewController.m in Sources */,
 				C7788D9C24AB493800669EDC /* LCPNetWorkPUT.m in Sources */,
+				C783386C24AE340100DCF4FA /* ZBFaBuBaseViewController.m in Sources */,
 				C7788DC924AB50F100669EDC /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C7788DA024AB493800669EDC /* LCPNetWorkGET.m in Sources */,
 				C7CC03AC24ACDC4700EBA000 /* ZBCommunityGuanZhuCell.m in Sources */,
@@ -1215,6 +1243,7 @@
 				B348850B24AC811700A23201 /* ZBIndustryStormTableViewCell.m in Sources */,
 				B34AC3E424A9C97D00BFA9D5 /* main.m in Sources */,
 				B349742B24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.m in Sources */,
+				C783386724AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.m in Sources */,
 				C7788DEA24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.m in Sources */,
 				B349741D24ADAB37001005A4 /* ZBSettingViewController.m in Sources */,
 				C788C22924AA1FF80011FB17 /* ZBResetPassWordViewController.m in Sources */,
@@ -1230,6 +1259,7 @@
 				C7788DD024AB50F100669EDC /* MASConstraint.m in Sources */,
 				C7788DCD24AB50F100669EDC /* MASLayoutConstraint.m in Sources */,
 				C7788D8A24AB493800669EDC /* Toast.m in Sources */,
+				C783386224AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.m in Sources */,
 				C7788DCF24AB50F100669EDC /* View+MASAdditions.m in Sources */,
 				C7788DA224AB493800669EDC /* ZCBaseViewController.m in Sources */,
 				C788C22424AA144A0011FB17 /* ZBimageCodeViewController.m in Sources */,

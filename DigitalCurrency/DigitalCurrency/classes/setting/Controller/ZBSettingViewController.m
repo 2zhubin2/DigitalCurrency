@@ -10,6 +10,9 @@
 #import "ZBZhuXiaoViewController.h"
 #import "ZBGuanYuWMViewController.h"
 #import "ZBFanKuiZXViewController.h"
+#import "ZBQieHuanZhangHaoViewController.h"
+#import "ZBBianJiZiLiaoViewController.h"
+#import "ZBResetPassWordViewController.h"
 
 @interface ZBSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *top_view;
@@ -34,16 +37,30 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 -(void)backMine{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 - (IBAction)BianJiZiLiao:(id)sender {
+    
+    ZBBianJiZiLiaoViewController *vc = [ZBBianJiZiLiaoViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)XiuGaiZiLiaoClick:(id)sender {
+    
+    ZBResetPassWordViewController *vc = [ZBResetPassWordViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)QieHuanZhangHaoClick:(id)sender {
+    
+    ZBQieHuanZhangHaoViewController *vc= [[ZBQieHuanZhangHaoViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)ZhuXiaoZhangHaoClick:(id)sender {
