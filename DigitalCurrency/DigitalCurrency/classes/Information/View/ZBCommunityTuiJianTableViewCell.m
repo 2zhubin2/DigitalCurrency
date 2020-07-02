@@ -23,6 +23,7 @@
     [super awakeFromNib];
     // Initialization code
     [self setupImageView];
+    [self setupshadowColor];
     
     if (_view_imagebg.subviews.count == 0) {
         _view_imagebgH.constant = 1;

@@ -34,6 +34,9 @@
                         <constraint firstAttribute="height" constant="15" id="zoW-mh-3dm"/>
                     </constraints>
                     <state key="normal" title="Button" backgroundImage="shezhi"/>
+                    <connections>
+                        <action selector="clickSetting:" destination="-1" eventType="touchUpInside" id="nha-Sd-S5z"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Crg-0Y-zQH">
                     <rect key="frame" x="20" y="92.5" width="66" height="66"/>

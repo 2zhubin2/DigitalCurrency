@@ -9,6 +9,7 @@
 #import "ZBMineViewController.h"
 #import "ZBMineGuanZhuTableViewCell.h"
 #import "ZBDongTaiTableViewCell.h"
+#import "ZBSettingViewController.h"
 
 @interface ZBMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIButton *guanzhu_btn;
@@ -23,6 +24,12 @@
 
 static NSString *ID_guanzhu = @"MineGuanZhuCell";
 static NSString *ID_dongtai = @"DongTaiCell";
+
+- (void)viewWillAppear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MineShow" object:nil];
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +48,15 @@ static NSString *ID_dongtai = @"DongTaiCell";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
    // 告诉tableView所有cell的估算高度
    self.tableView.estimatedRowHeight = 70;
+    
+    
+}
+
+- (IBAction)clickSetting:(id)sender {
+    
+    ZBSettingViewController *vc = [[ZBSettingViewController alloc] init];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterSetter" object:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)guanzhuClick:(UIButton *)sender {

@@ -18,6 +18,8 @@
 
 @interface AppDelegate ()
 
+@property(nonatomic,weak)UINavigationController *nav_mine;
+
 @end
 
 @implementation AppDelegate
@@ -41,10 +43,12 @@
     tabVC.tabBar.backgroundColor = [UIColor whiteColor];
     
     ZBHomeViewController *home_vc = [[ZBHomeViewController alloc] init];
-    home_vc.tabBarItem.title = @"首页";
-    home_vc.tabBarItem.image = [UIImage imageNamed:@"shouye_unselected"];
-    home_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"shouye_selected"];
-    [tabVC addChildViewController:home_vc];
+    UINavigationController *nav_home = [[UINavigationController alloc] initWithRootViewController:home_vc];
+    nav_home.navigationBar.hidden = YES;
+    nav_home.tabBarItem.title = @"首页";
+    nav_home.tabBarItem.image = [UIImage imageNamed:@"shouye_unselected"];
+    nav_home.tabBarItem.selectedImage = [UIImage imageNamed:@"shouye_selected"];
+    [tabVC addChildViewController:nav_home];
     
     
 
@@ -68,16 +72,33 @@
     [tabVC addChildViewController:information_vc];
     
     ZBMineViewController *mine_vc = [[ZBMineViewController alloc] init];
-    mine_vc.tabBarItem.title = @"我的";
-    mine_vc.tabBarItem.image = [UIImage imageNamed:@"wode_unselected"];
-    mine_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"wode_selected"];
-    [tabVC addChildViewController:mine_vc];
+    UINavigationController *nav_mine = [[UINavigationController alloc] initWithRootViewController:mine_vc];
+    nav_mine.navigationBar.hidden = YES;
+    nav_mine.tabBarItem.title = @"我的";
+    nav_mine.tabBarItem.image = [UIImage imageNamed:@"wode_unselected"];
+    nav_mine.tabBarItem.selectedImage = [UIImage imageNamed:@"wode_selected"];
+    [tabVC addChildViewController:nav_mine];
+    _nav_mine = nav_mine;
      
- 
     
-    [self.window makeKeyAndVisible];
+    
+    [self.window makeKeyAndVisible];//MineShow
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterSetter) name:@"enterSetter" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MineShow) name:@"MineShow" object:nil];
     
     return YES;
+}
+-(void)enterSetter{
+    self.nav_mine.navigationBar.hidden = NO;
+}
+
+-(void)MineShow{
+    self.nav_mine.navigationBar.hidden = YES;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

@@ -22,6 +22,24 @@
 		B348851B24AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348851924AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib */; };
 		B348851F24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B348851D24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m */; };
 		B348852024AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B348851E24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib */; };
+		B349740524AD6C88001005A4 /* ZBSearchOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349740324AD6C88001005A4 /* ZBSearchOneViewController.m */; };
+		B349740624AD6C88001005A4 /* ZBSearchOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349740424AD6C88001005A4 /* ZBSearchOneViewController.xib */; };
+		B349740A24AD6D3A001005A4 /* ZBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349740824AD6D3A001005A4 /* ZBSearchViewController.m */; };
+		B349740B24AD6D3A001005A4 /* ZBSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349740924AD6D3A001005A4 /* ZBSearchViewController.xib */; };
+		B349740F24AD731D001005A4 /* ZBSearchOneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B349740D24AD731D001005A4 /* ZBSearchOneCollectionViewCell.m */; };
+		B349741024AD731D001005A4 /* ZBSearchOneCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349740E24AD731D001005A4 /* ZBSearchOneCollectionViewCell.xib */; };
+		B349741424AD7983001005A4 /* ZBSearchTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349741224AD7983001005A4 /* ZBSearchTwoViewController.m */; };
+		B349741524AD7983001005A4 /* ZBSearchTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349741324AD7983001005A4 /* ZBSearchTwoViewController.xib */; };
+		B349741D24ADAB37001005A4 /* ZBSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349741B24ADAB37001005A4 /* ZBSettingViewController.m */; };
+		B349741E24ADAB37001005A4 /* ZBSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349741C24ADAB37001005A4 /* ZBSettingViewController.xib */; };
+		B349742624ADCD5F001005A4 /* ZBZhuXiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349742424ADCD5F001005A4 /* ZBZhuXiaoViewController.m */; };
+		B349742724ADCD5F001005A4 /* ZBZhuXiaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349742524ADCD5F001005A4 /* ZBZhuXiaoViewController.xib */; };
+		B349742B24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349742924ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.m */; };
+		B349742C24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349742A24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.xib */; };
+		B349743024ADDA9F001005A4 /* ZBGuanYuWMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349742E24ADDA9F001005A4 /* ZBGuanYuWMViewController.m */; };
+		B349743124ADDA9F001005A4 /* ZBGuanYuWMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349742F24ADDA9F001005A4 /* ZBGuanYuWMViewController.xib */; };
+		B349743524ADDBF2001005A4 /* ZBFanKuiZXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349743324ADDBF2001005A4 /* ZBFanKuiZXViewController.m */; };
+		B349743624ADDBF2001005A4 /* ZBFanKuiZXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349743424ADDBF2001005A4 /* ZBFanKuiZXViewController.xib */; };
 		B34AC3D324A9C97B00BFA9D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */; };
 		B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D824A9C97B00BFA9D5 /* ViewController.m */; };
 		B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34AC3DA24A9C97B00BFA9D5 /* Main.storyboard */; };
@@ -138,6 +156,33 @@
 		B348851C24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommunityTuiJianTableViewCell.h; sourceTree = "<group>"; };
 		B348851D24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommunityTuiJianTableViewCell.m; sourceTree = "<group>"; };
 		B348851E24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCommunityTuiJianTableViewCell.xib; sourceTree = "<group>"; };
+		B349740224AD6C88001005A4 /* ZBSearchOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSearchOneViewController.h; sourceTree = "<group>"; };
+		B349740324AD6C88001005A4 /* ZBSearchOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSearchOneViewController.m; sourceTree = "<group>"; };
+		B349740424AD6C88001005A4 /* ZBSearchOneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSearchOneViewController.xib; sourceTree = "<group>"; };
+		B349740724AD6D3A001005A4 /* ZBSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSearchViewController.h; sourceTree = "<group>"; };
+		B349740824AD6D3A001005A4 /* ZBSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSearchViewController.m; sourceTree = "<group>"; };
+		B349740924AD6D3A001005A4 /* ZBSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSearchViewController.xib; sourceTree = "<group>"; };
+		B349740C24AD731D001005A4 /* ZBSearchOneCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSearchOneCollectionViewCell.h; sourceTree = "<group>"; };
+		B349740D24AD731D001005A4 /* ZBSearchOneCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSearchOneCollectionViewCell.m; sourceTree = "<group>"; };
+		B349740E24AD731D001005A4 /* ZBSearchOneCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSearchOneCollectionViewCell.xib; sourceTree = "<group>"; };
+		B349741124AD7983001005A4 /* ZBSearchTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSearchTwoViewController.h; sourceTree = "<group>"; };
+		B349741224AD7983001005A4 /* ZBSearchTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSearchTwoViewController.m; sourceTree = "<group>"; };
+		B349741324AD7983001005A4 /* ZBSearchTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSearchTwoViewController.xib; sourceTree = "<group>"; };
+		B349741A24ADAB37001005A4 /* ZBSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSettingViewController.h; sourceTree = "<group>"; };
+		B349741B24ADAB37001005A4 /* ZBSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSettingViewController.m; sourceTree = "<group>"; };
+		B349741C24ADAB37001005A4 /* ZBSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSettingViewController.xib; sourceTree = "<group>"; };
+		B349742324ADCD5F001005A4 /* ZBZhuXiaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBZhuXiaoViewController.h; sourceTree = "<group>"; };
+		B349742424ADCD5F001005A4 /* ZBZhuXiaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBZhuXiaoViewController.m; sourceTree = "<group>"; };
+		B349742524ADCD5F001005A4 /* ZBZhuXiaoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBZhuXiaoViewController.xib; sourceTree = "<group>"; };
+		B349742824ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBZhuXiaoTangChuangViewController.h; sourceTree = "<group>"; };
+		B349742924ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBZhuXiaoTangChuangViewController.m; sourceTree = "<group>"; };
+		B349742A24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBZhuXiaoTangChuangViewController.xib; sourceTree = "<group>"; };
+		B349742D24ADDA9F001005A4 /* ZBGuanYuWMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBGuanYuWMViewController.h; sourceTree = "<group>"; };
+		B349742E24ADDA9F001005A4 /* ZBGuanYuWMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBGuanYuWMViewController.m; sourceTree = "<group>"; };
+		B349742F24ADDA9F001005A4 /* ZBGuanYuWMViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBGuanYuWMViewController.xib; sourceTree = "<group>"; };
+		B349743224ADDBF2001005A4 /* ZBFanKuiZXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBFanKuiZXViewController.h; sourceTree = "<group>"; };
+		B349743324ADDBF2001005A4 /* ZBFanKuiZXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBFanKuiZXViewController.m; sourceTree = "<group>"; };
+		B349743424ADDBF2001005A4 /* ZBFanKuiZXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBFanKuiZXViewController.xib; sourceTree = "<group>"; };
 		B34AC3CE24A9C97B00BFA9D5 /* DigitalCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34AC3D124A9C97B00BFA9D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -336,6 +381,84 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B349741624ADAAFC001005A4 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				B349741F24ADCD3F001005A4 /* Child */,
+				B349741724ADAAFC001005A4 /* Controller */,
+				B349741824ADAAFC001005A4 /* Model */,
+				B349741924ADAAFC001005A4 /* View */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
+		B349741724ADAAFC001005A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B349741A24ADAB37001005A4 /* ZBSettingViewController.h */,
+				B349741B24ADAB37001005A4 /* ZBSettingViewController.m */,
+				B349741C24ADAB37001005A4 /* ZBSettingViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B349741824ADAAFC001005A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B349741924ADAAFC001005A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B349741F24ADCD3F001005A4 /* Child */ = {
+			isa = PBXGroup;
+			children = (
+				B349742024ADCD3F001005A4 /* Controller */,
+				B349742124ADCD3F001005A4 /* Model */,
+				B349742224ADCD3F001005A4 /* View */,
+			);
+			path = Child;
+			sourceTree = "<group>";
+		};
+		B349742024ADCD3F001005A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B349742324ADCD5F001005A4 /* ZBZhuXiaoViewController.h */,
+				B349742424ADCD5F001005A4 /* ZBZhuXiaoViewController.m */,
+				B349742524ADCD5F001005A4 /* ZBZhuXiaoViewController.xib */,
+				B349742824ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.h */,
+				B349742924ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.m */,
+				B349742A24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.xib */,
+				B349742D24ADDA9F001005A4 /* ZBGuanYuWMViewController.h */,
+				B349742E24ADDA9F001005A4 /* ZBGuanYuWMViewController.m */,
+				B349742F24ADDA9F001005A4 /* ZBGuanYuWMViewController.xib */,
+				B349743224ADDBF2001005A4 /* ZBFanKuiZXViewController.h */,
+				B349743324ADDBF2001005A4 /* ZBFanKuiZXViewController.m */,
+				B349743424ADDBF2001005A4 /* ZBFanKuiZXViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B349742124ADCD3F001005A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B349742224ADCD3F001005A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B34AC3C524A9C97B00BFA9D5 = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +498,7 @@
 		B34AC3EA24A9CA8500BFA9D5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				B349741624ADAAFC001005A4 /* setting */,
 				C7788DA524AB4D6200669EDC /* Other */,
 				B34AC41D24A9E14500BFA9D5 /* login */,
 				B34AC41324A9D1A300BFA9D5 /* Fabu */,
@@ -403,6 +527,15 @@
 				B34AC3FF24A9CB8100BFA9D5 /* ZBHomeViewController.h */,
 				B34AC40024A9CB8100BFA9D5 /* ZBHomeViewController.m */,
 				B34AC40124A9CB8100BFA9D5 /* ZBHomeViewController.xib */,
+				B349740224AD6C88001005A4 /* ZBSearchOneViewController.h */,
+				B349740324AD6C88001005A4 /* ZBSearchOneViewController.m */,
+				B349740424AD6C88001005A4 /* ZBSearchOneViewController.xib */,
+				B349740724AD6D3A001005A4 /* ZBSearchViewController.h */,
+				B349740824AD6D3A001005A4 /* ZBSearchViewController.m */,
+				B349740924AD6D3A001005A4 /* ZBSearchViewController.xib */,
+				B349741124AD7983001005A4 /* ZBSearchTwoViewController.h */,
+				B349741224AD7983001005A4 /* ZBSearchTwoViewController.m */,
+				B349741324AD7983001005A4 /* ZBSearchTwoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -420,6 +553,9 @@
 				C788C23024AA334E0011FB17 /* ZBHomeTableViewCell.h */,
 				C788C23124AA334E0011FB17 /* ZBHomeTableViewCell.m */,
 				C788C23224AA334E0011FB17 /* ZBHomeTableViewCell.xib */,
+				B349740C24AD731D001005A4 /* ZBSearchOneCollectionViewCell.h */,
+				B349740D24AD731D001005A4 /* ZBSearchOneCollectionViewCell.m */,
+				B349740E24AD731D001005A4 /* ZBSearchOneCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -936,6 +1072,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B349742724ADCD5F001005A4 /* ZBZhuXiaoViewController.xib in Resources */,
 				C788C22F24AA28940011FB17 /* ZBRegisterViewController.xib in Resources */,
 				B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */,
 				C7CC03A824ACD7AE00EBA000 /* ZBCommunityGuanZhuHeaderCell.xib in Resources */,
@@ -943,27 +1080,35 @@
 				C7788DE124AB5EAD00669EDC /* ZBIndustryStormViewController.xib in Resources */,
 				C7788DAE24AB4D7600669EDC /* MBProgressHUD.bundle in Resources */,
 				C788C22524AA144A0011FB17 /* ZBimageCodeViewController.xib in Resources */,
+				B349741024AD731D001005A4 /* ZBSearchOneCollectionViewCell.xib in Resources */,
 				C788C22024AA0E150011FB17 /* ZBFreepwViewController.xib in Resources */,
 				B34AC40D24A9CBAC00BFA9D5 /* ZBMineViewController.xib in Resources */,
 				B348850724AC737D00A23201 /* ZBNewInformationTableViewCell.xib in Resources */,
+				B349741E24ADAB37001005A4 /* ZBSettingViewController.xib in Resources */,
 				C7788DD724AB5E3E00669EDC /* ZBNewInformationViewController.xib in Resources */,
 				B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */,
 				B348851624AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib in Resources */,
 				C7788DEB24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.xib in Resources */,
+				B349742C24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.xib in Resources */,
 				B348852024AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib in Resources */,
 				C788C23424AA334E0011FB17 /* ZBHomeTableViewCell.xib in Resources */,
 				B34884FD24AC508C00A23201 /* ZBDongTaiTableViewCell.xib in Resources */,
 				C788C22A24AA1FF80011FB17 /* ZBResetPassWordViewController.xib in Resources */,
 				B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */,
+				B349743124ADDA9F001005A4 /* ZBGuanYuWMViewController.xib in Resources */,
 				C7788DE624AB5EDA00669EDC /* ZBCommunityViewController.xib in Resources */,
 				B34AC40324A9CB8100BFA9D5 /* ZBHomeViewController.xib in Resources */,
 				C7CC03AD24ACDC4700EBA000 /* ZBCommunityGuanZhuCell.xib in Resources */,
 				B34AC3DE24A9C97D00BFA9D5 /* Assets.xcassets in Resources */,
 				B34AC42524A9E15E00BFA9D5 /* ZBloginViewController.xib in Resources */,
 				B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */,
+				B349740624AD6C88001005A4 /* ZBSearchOneViewController.xib in Resources */,
+				B349740B24AD6D3A001005A4 /* ZBSearchViewController.xib in Resources */,
 				B34AC40824A9CB9C00BFA9D5 /* ZBInformationViewController.xib in Resources */,
 				B348850C24AC811700A23201 /* ZBIndustryStormTableViewCell.xib in Resources */,
 				C7788DDC24AB5E8400669EDC /* ZBSelectedArticlesViewController.xib in Resources */,
+				B349741524AD7983001005A4 /* ZBSearchTwoViewController.xib in Resources */,
+				B349743624ADDBF2001005A4 /* ZBFanKuiZXViewController.xib in Resources */,
 				B348851B24AC8F7600A23201 /* ZBCommunityGuanZhuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1026,6 +1171,7 @@
 				C7788D9824AB493800669EDC /* QHDataCollectionViewCell.m in Sources */,
 				C7788D8824AB493800669EDC /* EGHViewsTool.m in Sources */,
 				B34884FC24AC508C00A23201 /* ZBDongTaiTableViewCell.m in Sources */,
+				B349740F24AD731D001005A4 /* ZBSearchOneCollectionViewCell.m in Sources */,
 				B34AC41124A9CBBF00BFA9D5 /* ZBIndustryViewController.m in Sources */,
 				C7788DAC24AB4D7600669EDC /* MBProgressHUD.m in Sources */,
 				C7788D8424AB493800669EDC /* ZCBaseView.m in Sources */,
@@ -1041,6 +1187,7 @@
 				C7788D8324AB493800669EDC /* NetWork.m in Sources */,
 				B34AC40224A9CB8100BFA9D5 /* ZBHomeViewController.m in Sources */,
 				B348850624AC737D00A23201 /* ZBNewInformationTableViewCell.m in Sources */,
+				B349740A24AD6D3A001005A4 /* ZBSearchViewController.m in Sources */,
 				C7788D9124AB493800669EDC /* ZCMakeTableViewCell.m in Sources */,
 				C7788D9924AB493800669EDC /* CZ_NEWMarketVC.m in Sources */,
 				C7788D8E24AB493800669EDC /* QHDHHeadCollectionViewCell.m in Sources */,
@@ -1048,7 +1195,11 @@
 				C7788DCC24AB50F100669EDC /* MASConstraintMaker.m in Sources */,
 				C7788DDB24AB5E8400669EDC /* ZBSelectedArticlesViewController.m in Sources */,
 				C7788D9F24AB493800669EDC /* LCPNetWorkERROR.m in Sources */,
+				B349743524ADDBF2001005A4 /* ZBFanKuiZXViewController.m in Sources */,
+				B349743024ADDA9F001005A4 /* ZBGuanYuWMViewController.m in Sources */,
+				B349741424AD7983001005A4 /* ZBSearchTwoViewController.m in Sources */,
 				C7788D9424AB493800669EDC /* ZCManage.m in Sources */,
+				B349742624ADCD5F001005A4 /* ZBZhuXiaoViewController.m in Sources */,
 				C788C23324AA334E0011FB17 /* ZBHomeTableViewCell.m in Sources */,
 				C7788D8724AB493800669EDC /* TimerTool.m in Sources */,
 				C7788D8624AB493800669EDC /* QHLoctionModel.m in Sources */,
@@ -1060,9 +1211,12 @@
 				C7788D9E24AB493800669EDC /* LCPNetWorkPOST.m in Sources */,
 				C7788D8F24AB493800669EDC /* YKViewBase.m in Sources */,
 				B348850124AC6D7D00A23201 /* ZBViewController.m in Sources */,
+				B349740524AD6C88001005A4 /* ZBSearchOneViewController.m in Sources */,
 				B348850B24AC811700A23201 /* ZBIndustryStormTableViewCell.m in Sources */,
 				B34AC3E424A9C97D00BFA9D5 /* main.m in Sources */,
+				B349742B24ADD2C4001005A4 /* ZBZhuXiaoTangChuangViewController.m in Sources */,
 				C7788DEA24AB96E400669EDC /* ZBMineGuanZhuTableViewCell.m in Sources */,
+				B349741D24ADAB37001005A4 /* ZBSettingViewController.m in Sources */,
 				C788C22924AA1FF80011FB17 /* ZBResetPassWordViewController.m in Sources */,
 				C7788DCE24AB50F100669EDC /* NSArray+MASAdditions.m in Sources */,
 				C7788D8124AB493800669EDC /* YKLineChartViewBase.m in Sources */,

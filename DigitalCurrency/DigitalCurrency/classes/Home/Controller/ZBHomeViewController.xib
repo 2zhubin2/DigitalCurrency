@@ -30,15 +30,18 @@
                     <rect key="frame" x="249" y="44" width="150" height="42"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oi5-8O-BrU">
-                            <rect key="frame" x="20" y="20" width="15" height="15"/>
+                            <rect key="frame" x="20" y="15" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="cZp-Wg-pTq"/>
                                 <constraint firstAttribute="width" constant="15" id="g9G-i0-ChM"/>
                             </constraints>
                             <state key="normal" title="Button" image="search"/>
+                            <connections>
+                                <action selector="clickSearchBtn:" destination="-1" eventType="touchUpInside" id="UzW-kf-qcK"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxr-NS-xbk">
-                            <rect key="frame" x="55" y="19.5" width="54" height="16"/>
+                            <rect key="frame" x="55" y="14.5" width="54" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -49,7 +52,7 @@
                         <constraint firstAttribute="height" constant="42" id="JuB-Ar-3XQ"/>
                         <constraint firstItem="Rxr-NS-xbk" firstAttribute="leading" secondItem="oi5-8O-BrU" secondAttribute="trailing" constant="20" id="OAM-HB-KNX"/>
                         <constraint firstItem="Rxr-NS-xbk" firstAttribute="centerY" secondItem="oi5-8O-BrU" secondAttribute="centerY" id="S9s-Up-5DZ"/>
-                        <constraint firstItem="oi5-8O-BrU" firstAttribute="top" secondItem="lrH-g8-OSY" secondAttribute="top" constant="20" id="ZIi-oZ-zwS"/>
+                        <constraint firstItem="oi5-8O-BrU" firstAttribute="top" secondItem="lrH-g8-OSY" secondAttribute="top" constant="15" id="ZIi-oZ-zwS"/>
                         <constraint firstItem="oi5-8O-BrU" firstAttribute="leading" secondItem="lrH-g8-OSY" secondAttribute="leading" constant="20" id="eV2-gT-gUw"/>
                         <constraint firstAttribute="width" constant="150" id="k06-L6-bL9"/>
                     </constraints>

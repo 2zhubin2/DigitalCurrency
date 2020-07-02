@@ -10,6 +10,7 @@
 #import "CZ_NEWMarketVC.h"
 
 @interface ZBIndustryViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *search_bg;
 
 @end
 
@@ -19,6 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 //    self.view.backgroundColor = [UIColor orangeColor];
+    
+    _search_bg.image =  [UIImage imageNamed:@"bg_search1"];
     CZ_NEWMarketVC *industry_vc_child = [[CZ_NEWMarketVC alloc] init];
     [self addChildViewController:industry_vc_child];
     [self.view addSubview:industry_vc_child.view];

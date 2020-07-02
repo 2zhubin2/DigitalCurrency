@@ -8,6 +8,7 @@
 
 #import "ZBHomeViewController.h"
 #import "ZBHomeTableViewCell.h"
+#import "ZBSearchViewController.h"
 
 @interface ZBHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *search_backImageView;
@@ -27,25 +28,6 @@ static NSString *ID = @"HomeCell";
     
     [_tableView registerNib:[UINib nibWithNibName:@"ZBHomeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
-    /*
-     UIView *view = [[UIView alloc] init];
-     view.frame = CGRectMake(15,324,345,446);
-     view.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1.0];
-     view.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
-     view.layer.shadowOffset = CGSizeMake(2,2);
-     view.layer.shadowOpacity = 1;
-     view.layer.shadowRadius = 5;
-     UIView *viewShadow1 = [[UIView alloc] init];
-     viewShadow1.frame = CGRectMake(15,324,345,446);
-     viewShadow1.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1.0];
-     viewShadow1.layer.shadowColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0].CGColor;
-     viewShadow1.layer.shadowOffset = CGSizeMake(-2, -2);
-     viewShadow1.layer.shadowOpacity = 1;
-     viewShadow1.layer.shadowRadius = 5;
-
-     [self.view bringSubviewToFront:view];
-     view.layer.cornerRadius = 10;
-     */
     _tab_back_view.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
     _tab_back_view.layer.shadowOffset = CGSizeMake(2,2);
     _tab_back_view.layer.shadowOpacity = 1;
@@ -86,14 +68,16 @@ static NSString *ID = @"HomeCell";
     return view;
     
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 点击搜索按钮
+
+- (IBAction)clickSearchBtn:(id)sender {
+    ZBSearchViewController *vc = [[ZBSearchViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
-*/
+
+
 
 @end
