@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6071AADE181F1B0629CA68AC /* libPods-DigitalCurrency.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E304F0CFAC6D36BF916C20D4 /* libPods-DigitalCurrency.a */; };
+		B33C5B4C24AF279000B1991C /* ZBInformationDetailHeaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C5B4A24AF279000B1991C /* ZBInformationDetailHeaderVC.m */; };
+		B33C5B4D24AF279000B1991C /* ZBInformationDetailHeaderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33C5B4B24AF279000B1991C /* ZBInformationDetailHeaderVC.xib */; };
+		B33C5B5124AF2C9400B1991C /* ZBInformationDetail_oneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C5B4F24AF2C9400B1991C /* ZBInformationDetail_oneCell.m */; };
+		B33C5B5224AF2C9400B1991C /* ZBInformationDetail_oneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33C5B5024AF2C9400B1991C /* ZBInformationDetail_oneCell.xib */; };
 		B34884FC24AC508C00A23201 /* ZBDongTaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884FA24AC508C00A23201 /* ZBDongTaiTableViewCell.m */; };
 		B34884FD24AC508C00A23201 /* ZBDongTaiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34884FB24AC508C00A23201 /* ZBDongTaiTableViewCell.xib */; };
 		B348850124AC6D7D00A23201 /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884FF24AC6D7D00A23201 /* ZBViewController.m */; };
@@ -40,6 +44,21 @@
 		B349743124ADDA9F001005A4 /* ZBGuanYuWMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349742F24ADDA9F001005A4 /* ZBGuanYuWMViewController.xib */; };
 		B349743524ADDBF2001005A4 /* ZBFanKuiZXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349743324ADDBF2001005A4 /* ZBFanKuiZXViewController.m */; };
 		B349743624ADDBF2001005A4 /* ZBFanKuiZXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349743424ADDBF2001005A4 /* ZBFanKuiZXViewController.xib */; };
+		B349BEC224AED1CE0011CAD4 /* ZBSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BEC024AED1CE0011CAD4 /* ZBSignInViewController.m */; };
+		B349BEC324AED1CE0011CAD4 /* ZBSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349BEC124AED1CE0011CAD4 /* ZBSignInViewController.xib */; };
+		B349BECF24AEDA660011CAD4 /* YXCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BEC724AEDA660011CAD4 /* YXCalendarView.m */; };
+		B349BED024AEDA660011CAD4 /* YXMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BEC824AEDA660011CAD4 /* YXMonthView.m */; };
+		B349BED124AEDA660011CAD4 /* YXDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BEC924AEDA660011CAD4 /* YXDayCell.m */; };
+		B349BED224AEDA660011CAD4 /* YXDateHelpObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BECC24AEDA660011CAD4 /* YXDateHelpObject.m */; };
+		B349BED324AEDA660011CAD4 /* YXDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349BECD24AEDA660011CAD4 /* YXDayCell.xib */; };
+		B349BED724AF04EC0011CAD4 /* ZBSignInSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BED524AF04EC0011CAD4 /* ZBSignInSuccessViewController.m */; };
+		B349BED824AF04EC0011CAD4 /* ZBSignInSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349BED624AF04EC0011CAD4 /* ZBSignInSuccessViewController.xib */; };
+		B349BEE424AF13F80011CAD4 /* ZBDongTaiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BEE224AF13F80011CAD4 /* ZBDongTaiDetailViewController.m */; };
+		B349BEE524AF13F80011CAD4 /* ZBDongTaiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349BEE324AF13F80011CAD4 /* ZBDongTaiDetailViewController.xib */; };
+		B349BEE924AF144A0011CAD4 /* ZBCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BEE724AF144A0011CAD4 /* ZBCommentCell.m */; };
+		B349BEEA24AF144A0011CAD4 /* ZBCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349BEE824AF144A0011CAD4 /* ZBCommentCell.xib */; };
+		B349BEEE24AF18870011CAD4 /* ZBCommentHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B349BEEC24AF18870011CAD4 /* ZBCommentHeaderCell.m */; };
+		B349BEEF24AF18870011CAD4 /* ZBCommentHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B349BEED24AF18870011CAD4 /* ZBCommentHeaderCell.xib */; };
 		B34AC3D324A9C97B00BFA9D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */; };
 		B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC3D824A9C97B00BFA9D5 /* ViewController.m */; };
 		B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34AC3DA24A9C97B00BFA9D5 /* Main.storyboard */; };
@@ -141,6 +160,12 @@
 
 /* Begin PBXFileReference section */
 		88BFB1DBF177BF1C0B3A75E0 /* Pods-DigitalCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCurrency.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCurrency/Pods-DigitalCurrency.debug.xcconfig"; sourceTree = "<group>"; };
+		B33C5B4924AF279000B1991C /* ZBInformationDetailHeaderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBInformationDetailHeaderVC.h; sourceTree = "<group>"; };
+		B33C5B4A24AF279000B1991C /* ZBInformationDetailHeaderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBInformationDetailHeaderVC.m; sourceTree = "<group>"; };
+		B33C5B4B24AF279000B1991C /* ZBInformationDetailHeaderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBInformationDetailHeaderVC.xib; sourceTree = "<group>"; };
+		B33C5B4E24AF2C9400B1991C /* ZBInformationDetail_oneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBInformationDetail_oneCell.h; sourceTree = "<group>"; };
+		B33C5B4F24AF2C9400B1991C /* ZBInformationDetail_oneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBInformationDetail_oneCell.m; sourceTree = "<group>"; };
+		B33C5B5024AF2C9400B1991C /* ZBInformationDetail_oneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBInformationDetail_oneCell.xib; sourceTree = "<group>"; };
 		B34884F924AC508C00A23201 /* ZBDongTaiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBDongTaiTableViewCell.h; sourceTree = "<group>"; };
 		B34884FA24AC508C00A23201 /* ZBDongTaiTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBDongTaiTableViewCell.m; sourceTree = "<group>"; };
 		B34884FB24AC508C00A23201 /* ZBDongTaiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBDongTaiTableViewCell.xib; sourceTree = "<group>"; };
@@ -189,6 +214,30 @@
 		B349743224ADDBF2001005A4 /* ZBFanKuiZXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBFanKuiZXViewController.h; sourceTree = "<group>"; };
 		B349743324ADDBF2001005A4 /* ZBFanKuiZXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBFanKuiZXViewController.m; sourceTree = "<group>"; };
 		B349743424ADDBF2001005A4 /* ZBFanKuiZXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBFanKuiZXViewController.xib; sourceTree = "<group>"; };
+		B349BEBF24AED1CE0011CAD4 /* ZBSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSignInViewController.h; sourceTree = "<group>"; };
+		B349BEC024AED1CE0011CAD4 /* ZBSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSignInViewController.m; sourceTree = "<group>"; };
+		B349BEC124AED1CE0011CAD4 /* ZBSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSignInViewController.xib; sourceTree = "<group>"; };
+		B349BEC524AEDA660011CAD4 /* YXMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXMonthView.h; sourceTree = "<group>"; };
+		B349BEC624AEDA660011CAD4 /* YXDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXDayCell.h; sourceTree = "<group>"; };
+		B349BEC724AEDA660011CAD4 /* YXCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXCalendarView.m; sourceTree = "<group>"; };
+		B349BEC824AEDA660011CAD4 /* YXMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXMonthView.m; sourceTree = "<group>"; };
+		B349BEC924AEDA660011CAD4 /* YXDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXDayCell.m; sourceTree = "<group>"; };
+		B349BECB24AEDA660011CAD4 /* YXDateHelpObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXDateHelpObject.h; sourceTree = "<group>"; };
+		B349BECC24AEDA660011CAD4 /* YXDateHelpObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXDateHelpObject.m; sourceTree = "<group>"; };
+		B349BECD24AEDA660011CAD4 /* YXDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YXDayCell.xib; sourceTree = "<group>"; };
+		B349BECE24AEDA660011CAD4 /* YXCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXCalendarView.h; sourceTree = "<group>"; };
+		B349BED424AF04EC0011CAD4 /* ZBSignInSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSignInSuccessViewController.h; sourceTree = "<group>"; };
+		B349BED524AF04EC0011CAD4 /* ZBSignInSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSignInSuccessViewController.m; sourceTree = "<group>"; };
+		B349BED624AF04EC0011CAD4 /* ZBSignInSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSignInSuccessViewController.xib; sourceTree = "<group>"; };
+		B349BEE124AF13F80011CAD4 /* ZBDongTaiDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBDongTaiDetailViewController.h; sourceTree = "<group>"; };
+		B349BEE224AF13F80011CAD4 /* ZBDongTaiDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBDongTaiDetailViewController.m; sourceTree = "<group>"; };
+		B349BEE324AF13F80011CAD4 /* ZBDongTaiDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBDongTaiDetailViewController.xib; sourceTree = "<group>"; };
+		B349BEE624AF144A0011CAD4 /* ZBCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommentCell.h; sourceTree = "<group>"; };
+		B349BEE724AF144A0011CAD4 /* ZBCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommentCell.m; sourceTree = "<group>"; };
+		B349BEE824AF144A0011CAD4 /* ZBCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCommentCell.xib; sourceTree = "<group>"; };
+		B349BEEB24AF18870011CAD4 /* ZBCommentHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommentHeaderCell.h; sourceTree = "<group>"; };
+		B349BEEC24AF18870011CAD4 /* ZBCommentHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommentHeaderCell.m; sourceTree = "<group>"; };
+		B349BEED24AF18870011CAD4 /* ZBCommentHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCommentHeaderCell.xib; sourceTree = "<group>"; };
 		B34AC3CE24A9C97B00BFA9D5 /* DigitalCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34AC3D124A9C97B00BFA9D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B34AC3D224A9C97B00BFA9D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -480,6 +529,145 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B349BEBB24AED1B40011CAD4 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				B349BEC424AEDA650011CAD4 /* CalendarKJ */,
+				B349BEBC24AED1B40011CAD4 /* Controller */,
+				B349BEBD24AED1B40011CAD4 /* Model */,
+				B349BEBE24AED1B40011CAD4 /* View */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		B349BEBC24AED1B40011CAD4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B349BEBF24AED1CE0011CAD4 /* ZBSignInViewController.h */,
+				B349BEC024AED1CE0011CAD4 /* ZBSignInViewController.m */,
+				B349BEC124AED1CE0011CAD4 /* ZBSignInViewController.xib */,
+				B349BED424AF04EC0011CAD4 /* ZBSignInSuccessViewController.h */,
+				B349BED524AF04EC0011CAD4 /* ZBSignInSuccessViewController.m */,
+				B349BED624AF04EC0011CAD4 /* ZBSignInSuccessViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B349BEBD24AED1B40011CAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B349BEBE24AED1B40011CAD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B349BEC424AEDA650011CAD4 /* CalendarKJ */ = {
+			isa = PBXGroup;
+			children = (
+				B349BECA24AEDA660011CAD4 /* YXCalendar */,
+				B349BECE24AEDA660011CAD4 /* YXCalendarView.h */,
+				B349BEC724AEDA660011CAD4 /* YXCalendarView.m */,
+				B349BEC624AEDA660011CAD4 /* YXDayCell.h */,
+				B349BEC924AEDA660011CAD4 /* YXDayCell.m */,
+				B349BECD24AEDA660011CAD4 /* YXDayCell.xib */,
+				B349BEC524AEDA660011CAD4 /* YXMonthView.h */,
+				B349BEC824AEDA660011CAD4 /* YXMonthView.m */,
+			);
+			path = CalendarKJ;
+			sourceTree = "<group>";
+		};
+		B349BECA24AEDA660011CAD4 /* YXCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				B349BECB24AEDA660011CAD4 /* YXDateHelpObject.h */,
+				B349BECC24AEDA660011CAD4 /* YXDateHelpObject.m */,
+			);
+			path = YXCalendar;
+			sourceTree = "<group>";
+		};
+		B349BED924AF13C40011CAD4 /* DynamicDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B349BEDA24AF13C40011CAD4 /* Controller */,
+				B349BEDB24AF13C40011CAD4 /* Model */,
+				B349BEDC24AF13C40011CAD4 /* View */,
+			);
+			path = DynamicDetail;
+			sourceTree = "<group>";
+		};
+		B349BEDA24AF13C40011CAD4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B349BEE124AF13F80011CAD4 /* ZBDongTaiDetailViewController.h */,
+				B349BEE224AF13F80011CAD4 /* ZBDongTaiDetailViewController.m */,
+				B349BEE324AF13F80011CAD4 /* ZBDongTaiDetailViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B349BEDB24AF13C40011CAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B349BEDC24AF13C40011CAD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B349BEE624AF144A0011CAD4 /* ZBCommentCell.h */,
+				B349BEE724AF144A0011CAD4 /* ZBCommentCell.m */,
+				B349BEE824AF144A0011CAD4 /* ZBCommentCell.xib */,
+				B349BEEB24AF18870011CAD4 /* ZBCommentHeaderCell.h */,
+				B349BEEC24AF18870011CAD4 /* ZBCommentHeaderCell.m */,
+				B349BEED24AF18870011CAD4 /* ZBCommentHeaderCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B349BEDD24AF13CB0011CAD4 /* InformationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B349BEDE24AF13CB0011CAD4 /* Controller */,
+				B349BEDF24AF13CB0011CAD4 /* Model */,
+				B349BEE024AF13CB0011CAD4 /* View */,
+			);
+			path = InformationDetail;
+			sourceTree = "<group>";
+		};
+		B349BEDE24AF13CB0011CAD4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B33C5B4924AF279000B1991C /* ZBInformationDetailHeaderVC.h */,
+				B33C5B4A24AF279000B1991C /* ZBInformationDetailHeaderVC.m */,
+				B33C5B4B24AF279000B1991C /* ZBInformationDetailHeaderVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B349BEDF24AF13CB0011CAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B349BEE024AF13CB0011CAD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B33C5B4E24AF2C9400B1991C /* ZBInformationDetail_oneCell.h */,
+				B33C5B4F24AF2C9400B1991C /* ZBInformationDetail_oneCell.m */,
+				B33C5B5024AF2C9400B1991C /* ZBInformationDetail_oneCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B34AC3C524A9C97B00BFA9D5 = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +707,9 @@
 		B34AC3EA24A9CA8500BFA9D5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				B349BEDD24AF13CB0011CAD4 /* InformationDetail */,
+				B349BED924AF13C40011CAD4 /* DynamicDetail */,
+				B349BEBB24AED1B40011CAD4 /* SignIn */,
 				B349741624ADAAFC001005A4 /* setting */,
 				C7788DA524AB4D6200669EDC /* Other */,
 				B34AC41D24A9E14500BFA9D5 /* login */,
@@ -1096,12 +1287,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B349BED324AEDA660011CAD4 /* YXDayCell.xib in Resources */,
 				B349742724ADCD5F001005A4 /* ZBZhuXiaoViewController.xib in Resources */,
 				C788C22F24AA28940011FB17 /* ZBRegisterViewController.xib in Resources */,
 				C783386824AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.xib in Resources */,
 				B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */,
 				C7CC03A824ACD7AE00EBA000 /* ZBCommunityGuanZhuHeaderCell.xib in Resources */,
 				B348850224AC6D7D00A23201 /* ZBViewController.xib in Resources */,
+				B33C5B5224AF2C9400B1991C /* ZBInformationDetail_oneCell.xib in Resources */,
+				B349BEEA24AF144A0011CAD4 /* ZBCommentCell.xib in Resources */,
+				B349BEC324AED1CE0011CAD4 /* ZBSignInViewController.xib in Resources */,
 				C7788DE124AB5EAD00669EDC /* ZBIndustryStormViewController.xib in Resources */,
 				C7788DAE24AB4D7600669EDC /* MBProgressHUD.bundle in Resources */,
 				C788C22524AA144A0011FB17 /* ZBimageCodeViewController.xib in Resources */,
@@ -1112,6 +1307,7 @@
 				B349741E24ADAB37001005A4 /* ZBSettingViewController.xib in Resources */,
 				C7788DD724AB5E3E00669EDC /* ZBNewInformationViewController.xib in Resources */,
 				C783386D24AE340100DCF4FA /* ZBFaBuBaseViewController.xib in Resources */,
+				B349BED824AF04EC0011CAD4 /* ZBSignInSuccessViewController.xib in Resources */,
 				B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */,
 				B348851624AC8F5C00A23201 /* ZBCommunityTuiJianViewController.xib in Resources */,
 				C783386324AE11E200DCF4FA /* ZBQieHuanZhangHaoViewController.xib in Resources */,
@@ -1120,6 +1316,7 @@
 				B348852024AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.xib in Resources */,
 				C788C23424AA334E0011FB17 /* ZBHomeTableViewCell.xib in Resources */,
 				B34884FD24AC508C00A23201 /* ZBDongTaiTableViewCell.xib in Resources */,
+				B349BEEF24AF18870011CAD4 /* ZBCommentHeaderCell.xib in Resources */,
 				C788C22A24AA1FF80011FB17 /* ZBResetPassWordViewController.xib in Resources */,
 				B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */,
 				B349743124ADDA9F001005A4 /* ZBGuanYuWMViewController.xib in Resources */,
@@ -1130,6 +1327,8 @@
 				B34AC42524A9E15E00BFA9D5 /* ZBloginViewController.xib in Resources */,
 				B34AC3DC24A9C97B00BFA9D5 /* Main.storyboard in Resources */,
 				B349740624AD6C88001005A4 /* ZBSearchOneViewController.xib in Resources */,
+				B33C5B4D24AF279000B1991C /* ZBInformationDetailHeaderVC.xib in Resources */,
+				B349BEE524AF13F80011CAD4 /* ZBDongTaiDetailViewController.xib in Resources */,
 				B349740B24AD6D3A001005A4 /* ZBSearchViewController.xib in Resources */,
 				B34AC40824A9CB9C00BFA9D5 /* ZBInformationViewController.xib in Resources */,
 				B348850C24AC811700A23201 /* ZBIndustryStormTableViewCell.xib in Resources */,
@@ -1196,6 +1395,7 @@
 				B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */,
 				C7788DE024AB5EAD00669EDC /* ZBIndustryStormViewController.m in Sources */,
 				C7788D9824AB493800669EDC /* QHDataCollectionViewCell.m in Sources */,
+				B349BED224AEDA660011CAD4 /* YXDateHelpObject.m in Sources */,
 				C7788D8824AB493800669EDC /* EGHViewsTool.m in Sources */,
 				B34884FC24AC508C00A23201 /* ZBDongTaiTableViewCell.m in Sources */,
 				B349740F24AD731D001005A4 /* ZBSearchOneCollectionViewCell.m in Sources */,
@@ -1206,8 +1406,10 @@
 				B34AC41A24A9D1B800BFA9D5 /* ZBFabuViewController.m in Sources */,
 				C788C22E24AA28940011FB17 /* ZBRegisterViewController.m in Sources */,
 				C7788D9C24AB493800669EDC /* LCPNetWorkPUT.m in Sources */,
+				B349BEEE24AF18870011CAD4 /* ZBCommentHeaderCell.m in Sources */,
 				C783386C24AE340100DCF4FA /* ZBFaBuBaseViewController.m in Sources */,
 				C7788DC924AB50F100669EDC /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				B349BED724AF04EC0011CAD4 /* ZBSignInSuccessViewController.m in Sources */,
 				C7788DA024AB493800669EDC /* LCPNetWorkGET.m in Sources */,
 				C7CC03AC24ACDC4700EBA000 /* ZBCommunityGuanZhuCell.m in Sources */,
 				B348851F24AC8FCC00A23201 /* ZBCommunityTuiJianTableViewCell.m in Sources */,
@@ -1223,6 +1425,7 @@
 				C7788DCC24AB50F100669EDC /* MASConstraintMaker.m in Sources */,
 				C7788DDB24AB5E8400669EDC /* ZBSelectedArticlesViewController.m in Sources */,
 				C7788D9F24AB493800669EDC /* LCPNetWorkERROR.m in Sources */,
+				B33C5B4C24AF279000B1991C /* ZBInformationDetailHeaderVC.m in Sources */,
 				B349743524ADDBF2001005A4 /* ZBFanKuiZXViewController.m in Sources */,
 				B349743024ADDA9F001005A4 /* ZBGuanYuWMViewController.m in Sources */,
 				B349741424AD7983001005A4 /* ZBSearchTwoViewController.m in Sources */,
@@ -1230,12 +1433,15 @@
 				B349742624ADCD5F001005A4 /* ZBZhuXiaoViewController.m in Sources */,
 				C788C23324AA334E0011FB17 /* ZBHomeTableViewCell.m in Sources */,
 				C7788D8724AB493800669EDC /* TimerTool.m in Sources */,
+				B349BED124AEDA660011CAD4 /* YXDayCell.m in Sources */,
 				C7788D8624AB493800669EDC /* QHLoctionModel.m in Sources */,
 				C7788D8524AB493800669EDC /* YKTimeLineView.m in Sources */,
+				B349BED024AEDA660011CAD4 /* YXMonthView.m in Sources */,
 				C7788D8D24AB493800669EDC /* NSString+DealError.m in Sources */,
 				C7788D9B24AB493800669EDC /* LCPNetWorkDELETE.m in Sources */,
 				B34AC40724A9CB9C00BFA9D5 /* ZBInformationViewController.m in Sources */,
 				C7788D8924AB493800669EDC /* StringAndLabelDealTool.m in Sources */,
+				B349BEC224AED1CE0011CAD4 /* ZBSignInViewController.m in Sources */,
 				C7788D9E24AB493800669EDC /* LCPNetWorkPOST.m in Sources */,
 				C7788D8F24AB493800669EDC /* YKViewBase.m in Sources */,
 				B348850124AC6D7D00A23201 /* ZBViewController.m in Sources */,
@@ -1251,8 +1457,10 @@
 				C7788D8124AB493800669EDC /* YKLineChartViewBase.m in Sources */,
 				C7788DE524AB5EDA00669EDC /* ZBCommunityViewController.m in Sources */,
 				C7788D8B24AB493800669EDC /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				B33C5B5124AF2C9400B1991C /* ZBInformationDetail_oneCell.m in Sources */,
 				C788C21F24AA0E150011FB17 /* ZBFreepwViewController.m in Sources */,
 				C7788D8224AB493800669EDC /* YKLineDataSet.m in Sources */,
+				B349BEE424AF13F80011CAD4 /* ZBDongTaiDetailViewController.m in Sources */,
 				C7788D9324AB493800669EDC /* YKLineChartView.m in Sources */,
 				C7788DA424AB493800669EDC /* YKLineEntity.m in Sources */,
 				B34AC42424A9E15E00BFA9D5 /* ZBloginViewController.m in Sources */,
@@ -1272,9 +1480,11 @@
 				C7788DCB24AB50F100669EDC /* MASCompositeConstraint.m in Sources */,
 				C7788D9724AB493800669EDC /* LCPReachability.m in Sources */,
 				C7788DCA24AB50F100669EDC /* ViewController+MASAdditions.m in Sources */,
+				B349BEE924AF144A0011CAD4 /* ZBCommentCell.m in Sources */,
 				C7788DA324AB493800669EDC /* MVPKlineView.m in Sources */,
 				B348851524AC8F5C00A23201 /* ZBCommunityTuiJianViewController.m in Sources */,
 				C7788D9624AB493800669EDC /* Reachability.m in Sources */,
+				B349BECF24AEDA660011CAD4 /* YXCalendarView.m in Sources */,
 				B34AC40C24A9CBAC00BFA9D5 /* ZBMineViewController.m in Sources */,
 				B348851A24AC8F7600A23201 /* ZBCommunityGuanZhuViewController.m in Sources */,
 			);

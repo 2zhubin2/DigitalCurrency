@@ -9,6 +9,7 @@
 #import "ZBNewInformationViewController.h"
 #import "ZBViewController.h"
 #import "ZBNewInformationTableViewCell.h"
+#import "ZBInformationDetailHeaderVC.h"
 
 @interface ZBNewInformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -38,6 +39,9 @@ static NSString *ID = @"NewInformationCell";
    
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
 -(void)setupHeaderView{
     
 //    self.view.backgroundColor = [UIColor blueColor];
@@ -82,6 +86,10 @@ static NSString *ID = @"NewInformationCell";
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ZBInformationDetailHeaderVC *vc = [[ZBInformationDetailHeaderVC alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

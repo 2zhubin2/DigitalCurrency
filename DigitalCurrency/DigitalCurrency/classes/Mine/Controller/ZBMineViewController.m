@@ -10,6 +10,7 @@
 #import "ZBMineGuanZhuTableViewCell.h"
 #import "ZBDongTaiTableViewCell.h"
 #import "ZBSettingViewController.h"
+#import "ZBSignInViewController.h"
 
 @interface ZBMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIButton *guanzhu_btn;
@@ -76,6 +77,12 @@ static NSString *ID_dongtai = @"DongTaiCell";
     
 }
 
+- (IBAction)ClickSignIn:(id)sender {
+    
+    ZBSignInViewController *vc = [[ZBSignInViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 -(void)selButton:(UIButton *)btn{

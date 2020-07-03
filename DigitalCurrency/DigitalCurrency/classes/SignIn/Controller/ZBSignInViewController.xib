@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBSignInViewController">
+            <connections>
+                <outlet property="SIgnInBtn" destination="ZgN-oz-eFW" id="7NR-AV-QGU"/>
+                <outlet property="calender_view" destination="n5q-Cy-i9e" id="hEg-KP-D6u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvF-HJ-xdB">
+                    <rect key="frame" x="10" y="74" width="394" height="537.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qiandaobg" translatesAutoresizingMaskIntoConstraints="NO" id="28l-vT-G1T">
+                            <rect key="frame" x="0.0" y="0.0" width="394" height="537.5"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02F-rn-ced">
+                            <rect key="frame" x="30" y="20" width="73.5" height="43"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已连续签到" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DY-sk-Op9">
+                            <rect key="frame" x="30" y="68" width="74" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgN-oz-eFW">
+                            <rect key="frame" x="254" y="30" width="100" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="HIZ-jD-Jfv"/>
+                                <constraint firstAttribute="height" constant="40" id="uEj-C2-Cg1"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="立即签到">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" title="已签到">
+                                <color key="titleColor" red="0.19607843137254902" green="0.32549019607843138" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cilckSignIn:" destination="-1" eventType="touchUpInside" id="ntA-Ld-LWg"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5q-Cy-i9e">
+                            <rect key="frame" x="20" y="202" width="354" height="377"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="n5q-Cy-i9e" firstAttribute="leading" secondItem="LvF-HJ-xdB" secondAttribute="leading" constant="20" id="0Cu-ez-P2Y"/>
+                        <constraint firstAttribute="bottom" secondItem="n5q-Cy-i9e" secondAttribute="bottom" constant="10" id="Ker-F8-mRH"/>
+                        <constraint firstItem="n5q-Cy-i9e" firstAttribute="height" secondItem="LvF-HJ-xdB" secondAttribute="height" multiplier="0.6" id="Kgl-jA-ZX1"/>
+                        <constraint firstItem="02F-rn-ced" firstAttribute="top" secondItem="LvF-HJ-xdB" secondAttribute="top" constant="20" id="Low-MG-fna"/>
+                        <constraint firstItem="28l-vT-G1T" firstAttribute="leading" secondItem="LvF-HJ-xdB" secondAttribute="leading" id="RGi-4g-qqe"/>
+                        <constraint firstItem="2DY-sk-Op9" firstAttribute="top" secondItem="02F-rn-ced" secondAttribute="bottom" constant="5" id="Wln-ag-um2"/>
+                        <constraint firstAttribute="bottom" secondItem="28l-vT-G1T" secondAttribute="bottom" id="XZz-Bc-2QT"/>
+                        <constraint firstAttribute="trailing" secondItem="ZgN-oz-eFW" secondAttribute="trailing" constant="40" id="b0e-Zy-er8"/>
+                        <constraint firstAttribute="trailing" secondItem="28l-vT-G1T" secondAttribute="trailing" id="cXL-R4-n9y"/>
+                        <constraint firstItem="02F-rn-ced" firstAttribute="leading" secondItem="LvF-HJ-xdB" secondAttribute="leading" constant="30" id="eb1-6d-1Ox"/>
+                        <constraint firstItem="28l-vT-G1T" firstAttribute="top" secondItem="LvF-HJ-xdB" secondAttribute="top" id="f1O-BU-4Vp"/>
+                        <constraint firstItem="2DY-sk-Op9" firstAttribute="centerX" secondItem="02F-rn-ced" secondAttribute="centerX" id="kN5-Mp-6UF"/>
+                        <constraint firstAttribute="trailing" secondItem="n5q-Cy-i9e" secondAttribute="trailing" constant="20" id="ltL-Nz-TnC"/>
+                        <constraint firstItem="ZgN-oz-eFW" firstAttribute="top" secondItem="LvF-HJ-xdB" secondAttribute="top" constant="30" id="q8v-YC-WzW"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="签到说明:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1z-Ln-AWY">
+                    <rect key="frame" x="40" y="641.5" width="61.5" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="1uc-yQ-Efr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPH-KN-tIm">
+                    <rect key="frame" x="40" y="666.5" width="334" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="HDN-gX-9di"/>
+                    </constraints>
+                    <string key="text">1.以30天为一个签到周期，若中途断签后重新签到，则 开始新的周期; 
+2.每个签到周期获得的金币数会有不同;  
+3.每日金币奖品数量有限，先到先得，领完即止。</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LvF-HJ-xdB" secondAttribute="trailing" constant="10" id="1Qc-89-rwJ"/>
+                <constraint firstAttribute="trailing" secondItem="pPH-KN-tIm" secondAttribute="trailing" constant="40" id="2oe-ZJ-DYR"/>
+                <constraint firstItem="pPH-KN-tIm" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="DVm-CE-ctz"/>
+                <constraint firstItem="LvF-HJ-xdB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="FT7-ia-f1D"/>
+                <constraint firstItem="LvF-HJ-xdB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="30" id="GKe-Zg-T9T"/>
+                <constraint firstItem="LvF-HJ-xdB" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="Vlf-V8-Gwd"/>
+                <constraint firstItem="pPH-KN-tIm" firstAttribute="top" secondItem="F1z-Ln-AWY" secondAttribute="bottom" constant="5" id="hCL-1l-I2l"/>
+                <constraint firstItem="F1z-Ln-AWY" firstAttribute="top" secondItem="LvF-HJ-xdB" secondAttribute="bottom" constant="30" id="k52-Z3-7G1"/>
+                <constraint firstItem="F1z-Ln-AWY" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="40" id="pLj-ol-9Gp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="131.8840579710145" y="133.92857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="qiandaobg" width="358.5" height="433.5"/>
+    </resources>
+</document>

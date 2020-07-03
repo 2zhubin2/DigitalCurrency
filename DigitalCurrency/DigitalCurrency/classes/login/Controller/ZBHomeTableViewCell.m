@@ -8,11 +8,19 @@
 
 #import "ZBHomeTableViewCell.h"
 
+@interface ZBHomeTableViewCell ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *image_V_updown;
+
+
+@end
+
 @implementation ZBHomeTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _image_V_updown.image = [UIImage imageNamed:@"pic_down"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

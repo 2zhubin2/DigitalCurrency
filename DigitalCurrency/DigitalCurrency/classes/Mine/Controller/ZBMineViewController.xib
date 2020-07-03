@@ -65,6 +65,9 @@
                         <constraint firstAttribute="height" constant="45.5" id="zco-fI-Yyt"/>
                     </constraints>
                     <state key="normal" backgroundImage="button_qiandao"/>
+                    <connections>
+                        <action selector="ClickSignIn:" destination="-1" eventType="touchUpInside" id="bhg-wG-ai2"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVX-8Q-jSF">
                     <rect key="frame" x="0.0" y="178.5" width="414" height="100"/>

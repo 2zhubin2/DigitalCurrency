@@ -8,6 +8,7 @@
 
 #import "ZBCommunityTuiJianViewController.h"
 #import "ZBCommunityTuiJianTableViewCell.h"
+#import "ZBDongTaiDetailViewController.h"
 
 
 @interface ZBCommunityTuiJianViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -26,6 +27,11 @@ static NSString *ID = @"CommunityTuiJianCell";
     // Do any additional setup after loading the view from its nib.
     [self setupTableView];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 -(void)setupTableView{
@@ -62,6 +68,12 @@ static NSString *ID = @"CommunityTuiJianCell";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ZBDongTaiDetailViewController *vc = [[ZBDongTaiDetailViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 /*
 #pragma mark - Navigation

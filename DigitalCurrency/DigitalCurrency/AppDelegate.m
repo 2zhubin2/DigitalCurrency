@@ -68,10 +68,12 @@
     
     
     ZBInformationViewController *information_vc = [[ZBInformationViewController alloc] init];
-    information_vc.tabBarItem.title = @"资讯";
-    information_vc.tabBarItem.image = [UIImage imageNamed:@"zixun_unselected"];
-    information_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"zixun_selected"];
-    [tabVC addChildViewController:information_vc];
+    UINavigationController *nav_information = [[UINavigationController alloc] initWithRootViewController:information_vc];
+    nav_information.navigationBar.hidden = YES;
+    nav_information.tabBarItem.title = @"资讯";
+    nav_information.tabBarItem.image = [UIImage imageNamed:@"zixun_unselected"];
+    nav_information.tabBarItem.selectedImage = [UIImage imageNamed:@"zixun_selected"];
+    [tabVC addChildViewController:nav_information];
     
     ZBMineViewController *mine_vc = [[ZBMineViewController alloc] init];
     UINavigationController *nav_mine = [[UINavigationController alloc] initWithRootViewController:mine_vc];
