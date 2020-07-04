@@ -7,15 +7,31 @@
 //
 
 #import "ZBIndustryStormTableViewCell.h"
+#import <sys/utsname.h>
 
 @interface ZBIndustryStormTableViewCell ()
 
 @property (strong, nonatomic) IBOutlet UIView *bg_view;
 
+@property (strong, nonatomic) IBOutlet UILabel *content_label;
+@property (strong, nonatomic) IBOutlet UILabel *time_label;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *head_label;
 
 @end
 
 @implementation ZBIndustryStormTableViewCell
+
+- (void)setModel:(ZBIndustryStormModel *)model{
+    
+    _model = model;
+    _content_label.text = model.content;
+    
+    _time_label.text = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
+    
+    _titleLabel.text = @"";
+    
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -38,5 +54,30 @@
 
     // Configure the view for the selected state
 }
+
+-(NSString *)timetampTostring:(NSInteger)timestamp{
+    
+    NSString *tempTime =[[NSNumber numberWithLong:timestamp] stringValue];
+    NSMutableString *getTime = [NSMutableString stringWithFormat:@"%@",tempTime];
+
+      //    NSMutableString *getTime = @"1461896616000";
+     struct utsname systemInfo;
+     uname(&systemInfo);
+
+     [getTime deleteCharactersInRange:NSMakeRange(10,3)];
+     NSDateFormatter *matter = [[NSDateFormatter alloc]init];
+    matter.dateFormat =@"YYYY-MM-dd HH:mm";
+//    matter.dateFormat =@"YYYY-MM-dd";
+    //解决时区问题
+    matter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
+
+      NSString *timeStr = [matter stringFromDate:date];
+//    NSArray *array1 =[timeStr componentsSeparatedByString:@"-"];
+
+    return timeStr;
+}
+
 
 @end

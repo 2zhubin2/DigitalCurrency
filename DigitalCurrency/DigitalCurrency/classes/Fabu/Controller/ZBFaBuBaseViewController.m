@@ -31,6 +31,16 @@
     
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)cilckTuPian:(id)sender {
+    ZBFabuViewController *vc = [[ZBFabuViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)cilckWenZhang:(id)sender {
+    ZBFabuViewController *vc = [[ZBFabuViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
 #pragma mark - Navigation

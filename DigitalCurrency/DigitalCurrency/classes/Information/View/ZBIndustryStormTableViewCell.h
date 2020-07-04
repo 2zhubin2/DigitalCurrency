@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBIndustryStormModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBIndustryStormTableViewCell : UITableViewCell
+
+@property(nonatomic,strong)ZBIndustryStormModel *model;
 
 @end
 

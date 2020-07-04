@@ -83,8 +83,11 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)yonghuxieyiClick:(id)sender {
+    
+    [MBProgressHUD showError:@"未开放此功能"];
 }
 - (IBAction)YingSiZhengCeClick:(id)sender {
+    [MBProgressHUD showError:@"未开放此功能"];
 }
 
 @end

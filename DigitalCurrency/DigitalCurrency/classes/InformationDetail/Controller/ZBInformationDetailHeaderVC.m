@@ -10,9 +10,13 @@
 #import "ZBInformationDetail_oneCell.h"
 #import "ZBNewInformationTableViewCell.h"
 #import "ZBCommentCell.h"
+#import "ZBCommentDetailViewController.h"
+#import "ZBForwardViewController.h"
 
-@interface ZBInformationDetailHeaderVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface ZBInformationDetailHeaderVC ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITextField *sousuoText_F;
+@property (strong, nonatomic) IBOutlet UIView *sousuobg_View;
 
 @end
 
@@ -28,21 +32,38 @@ static NSString *ID_three = @"CommentCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    _sousuobg_View.layer.cornerRadius = 20;
+    
     [self setupTableView];
+    
+    [self add_notifacationObserver];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = YES;
+    self.tabBarController.tabBar.hidden  = YES;
 }
 - (IBAction)ClickBackBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden  = YES;
+- (void)add_notifacationObserver{
+    // 注册键盘弹起收回通知，使输入框位置于键盘上
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    // tableView不会响应touchesBegan，单独添加手势响应
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)];
+    tapGesture.delegate = self;
+//    [_tableView addGestureRecognizer:tapGesture];
 }
+
 
 -(void)setupTableView{
    
         
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:@"pic_zhidingzx"];
+    imageView.image = [UIImage imageNamed:@"pic_dongtai1"];
     imageView.contentMode = UIViewContentModeScaleToFill;
     _tableView.tableHeaderView = imageView;
     _tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 150);
@@ -161,6 +182,94 @@ static NSString *ID_three = @"CommentCell";
     }
     return nil;
 }
+
+- (IBAction)Comment_F:(UITextField *)sender {
+    
+    [sender resignFirstResponder];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.view endEditing:YES];
+    if (indexPath.section == 2) {
+        ZBCommentDetailViewController *vc = [[ZBCommentDetailViewController alloc] init];
+
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
+}
+- (IBAction)cilckFenXiang:(id)sender {
+    
+    ZBForwardViewController *vc = [[ZBForwardViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    //若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+        return NO;
+    }
+    return  YES;
+}
+/*
+ // 注册键盘弹起收回通知，使输入框位置于键盘上
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+   // tableView不会响应touchesBegan，单独添加手势响应
+   UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)]; // 手势类型随你喜欢。
+ */
+
+
+
+ #pragma mark - 键盘弹出
+ - (void)keyboardWillShow:(NSNotification *)notification
+ {
+     NSDictionary *userInfo = [notification userInfo];
+     //获取键盘弹出的时间
+     double duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+     //获取键盘上端Y坐标
+     CGFloat keyboardY = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
+     //获取输入框下端相对于window的Y坐标
+     CGRect rect = [self.sousuobg_View convertRect:self.sousuobg_View.bounds toView:[[[UIApplication sharedApplication] delegate] window]];
+     CGPoint tmp = rect.origin;
+     CGFloat inputBoxY = tmp.y + self.sousuobg_View.frame.size.height;
+     //计算二者差值
+     CGFloat ty = keyboardY - inputBoxY;
+//     NSLog(@"position keyboard: %f, inputbox: %f, ty: %f", keyboardY, inputBoxY, ty);
+     //差值小于0，做平移变换
+     [UIView animateWithDuration:duration animations:^{
+         if (ty < 0) {
+             self.view.transform = CGAffineTransformMakeTranslation(0, ty);
+         }
+     }];
+     
+ }
+
+ #pragma mark - 键盘消失
+ - (void)keyboardWillHide:(NSNotification *)notification
+ {
+     //获取键盘弹出的时间
+     double duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+     //还原
+     [UIView animateWithDuration:duration animations:^{
+         self.view.transform = CGAffineTransformMakeTranslation(0, 0);
+     }];
+ }
+
+ #pragma mark - 点击屏幕其它地方关闭键盘
+ - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+     [self.view endEditing:YES];
+ }
+
+ - (void)tapGesturedDetected:(UITapGestureRecognizer *)recognizer
+
+ {
+     [self.view endEditing:YES];
+ }
+
+
 /*
 #pragma mark - Navigation
 

@@ -9,11 +9,14 @@
 #import "ZBHomeViewController.h"
 #import "ZBHomeTableViewCell.h"
 #import "ZBSearchViewController.h"
+#import "ZBHomeTableViewModel.h"
 
 @interface ZBHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *search_backImageView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *tab_back_view;
+
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
@@ -21,8 +24,19 @@
 
 static NSString *ID = @"HomeCell";
 
+
+- (NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self dataLoad];
+//    NSLog(@"%ld",_dataArray.count);
     // Do any additional setup after loading the view from its nib.
     _search_backImageView.image = [UIImage imageNamed:@"bg_search1"];
     
@@ -40,12 +54,48 @@ static NSString *ID = @"HomeCell";
     
 }
 
+
+/**
+ 加载关注界面网络数据
+ */
+- (void)dataLoad{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://api.yysc.online/share/market" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable result) {
+        
+        
+        NSMutableArray *tempArray = [NSMutableArray new];
+        tempArray = [ZBHomeTableViewModel mj_objectArrayWithKeyValuesArray:result[@"data"]];
+        self.dataArray = tempArray;
+        [self.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+}
+
+- (IBAction)clickbanner:(id)sender {
+    self.navigationController.tabBarController.selectedIndex = 1;
+}
+
+- (IBAction)clickJianxun:(id)sender {
+    self.navigationController.tabBarController.selectedIndex = 3;
+}
+
+#pragma maek - tableViewDelegate
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return 5;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ZBHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
+    cell.row_num = indexPath.row;
+    if (_dataArray.count != 0) {
+            cell.model = self.dataArray[indexPath.row];
+       
+    }
+
     return cell;
 }
 

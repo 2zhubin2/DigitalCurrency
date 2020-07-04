@@ -15,6 +15,7 @@
 
 @property(nonatomic,weak)UIView *headerView;
 @property(nonatomic,weak)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 
 @end
@@ -24,15 +25,26 @@
 //NewInformationCell
 static NSString *ID = @"NewInformationCell";
 
+- (NSMutableArray *)dataArray{
+    if (_dataArray  == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-        
-   //设置头部View
-    [self setupHeaderView];
+    
+    
+    //设置头部View
+     [self setupHeaderView];
+    
+
     
     //设置tableView
     [self setupTableView];
+    
     
     
     
@@ -41,22 +53,24 @@ static NSString *ID = @"NewInformationCell";
 
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = NO;
+    [self ZBLoadData:0];
+    
 }
 -(void)setupHeaderView{
     
-//    self.view.backgroundColor = [UIColor blueColor];
+
     ZBViewController *vc = [[ZBViewController alloc] init];
-    [self addChildViewController:vc];
+//    [self addChildViewController:vc];
     _headerView = vc.view;
     
    
 }
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
-          [self.view addSubview:tableView];
-          tableView.frame = CGRectMake(0, zbStatuBarH, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
+    [self.view addSubview:tableView];
+    tableView.frame = CGRectMake(0, zbStatuBarH, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
        
-       [tableView registerNib:[UINib nibWithNibName:@"ZBNewInformationTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
+    [tableView registerNib:[UINib nibWithNibName:@"ZBNewInformationTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
        
       tableView.separatorStyle = UITableViewCellSelectionStyleNone;
       tableView.showsVerticalScrollIndicator = NO;
@@ -73,15 +87,57 @@ static NSString *ID = @"NewInformationCell";
        _tableView = tableView;
 }
 
+-(void)ZBLoadData:(int )page{
+    
+    
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+ 
+    [par setObject:[NSString stringWithFormat:@"%d",1 + page] forKey:@"pageNum"];
+    [par setObject:@20 forKey:@"pageSize"];
+    [par setObject:[NSDate date] forKey:@"date"];
+    
+  
+    
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+   
+    [manager GET:@"http://api.yysc.online/admin/getFinanceTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+
+       NSMutableArray *tempArray = [NSMutableArray new];
+
+        tempArray = [ZBNewInformationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        self.dataArray = tempArray;
+        
+        [self.tableView reloadData];
+            
+       
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //
+        }];
+        
+    
+}
+
+
+
 #pragma mark - tableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+
+        cell.model = self.dataArray[indexPath.row];
+    cell.log_title = @"热点资讯";
+
+    
+    
     
     return cell;
 }

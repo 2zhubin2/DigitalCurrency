@@ -28,6 +28,7 @@ static NSString *ID_three = @"NewInformationCell";
     // Do any additional setup after loading the view from its nib.
     [self setupTableView];
 }
+
 -(void)setupTableView{
     
     UITableView *tableView = [[UITableView alloc] init];

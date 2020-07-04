@@ -111,6 +111,9 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="bg_view" destination="NeW-ao-ksp" id="i3L-XE-ZcI"/>
+                <outlet property="content_label" destination="8H7-qN-ccK" id="DHM-4a-2qM"/>
+                <outlet property="time_label" destination="ZO1-zx-kbp" id="HZj-fX-Cw0"/>
+                <outlet property="titleLabel" destination="9FX-i4-gR4" id="9tv-Y8-9lD"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="181.80803571428569"/>
         </tableViewCell>

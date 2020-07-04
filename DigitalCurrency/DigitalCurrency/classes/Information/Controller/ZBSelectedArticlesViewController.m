@@ -12,6 +12,7 @@
 @interface ZBSelectedArticlesViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,weak)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
@@ -19,8 +20,16 @@
 
 static NSString *ID = @"NewInformationCell";
 
+- (NSMutableArray *)dataArray{
+    if (_dataArray  == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self ZBLoadData:3];
     // Do any additional setup after loading the view from its nib.
 //        self.view.backgroundColor = [UIColor grayColor];
     [self setupTableView];
@@ -47,16 +56,53 @@ static NSString *ID = @"NewInformationCell";
     _tableView = tableView;
 }
 
+
+-(void)ZBLoadData:(int )page{
+    
+    
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+ 
+    [par setObject:[NSString stringWithFormat:@"%d",1 + page] forKey:@"pageNum"];
+    [par setObject:@10 forKey:@"pageSize"];
+    [par setObject:[NSDate date] forKey:@"date"];
+    
+  
+    
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+   
+    [manager GET:@"http://api.yysc.online/admin/getFinanceTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+
+       NSMutableArray *tempArray = [NSMutableArray new];
+
+        tempArray = [ZBNewInformationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        self.dataArray = tempArray;
+        
+        [self.tableView reloadData];
+            
+       
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //
+        }];
+        
+    
+}
+
+
 #pragma mark - tableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
+    cell.model = self.dataArray[indexPath.row];
+    cell.log_title = @"精选好文";
     return cell;
 }
 

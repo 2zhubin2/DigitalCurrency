@@ -36,13 +36,20 @@
         self.SearchStatu = NO;
         [self loadViewOneOrTwo];
     }else{
+        [self.view endEditing:YES];
         self.SearchStatu = YES;
         [self loadViewOneOrTwo];
     }
     
 
 }
+- (IBAction)SouSuo_F:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
 
+- (IBAction)Edit_end:(id)sender {
+    [sender resignFirstResponder];
+}
 
 -(void)addChildVC{
     

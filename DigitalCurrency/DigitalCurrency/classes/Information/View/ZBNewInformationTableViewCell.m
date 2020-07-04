@@ -7,20 +7,35 @@
 //
 
 #import "ZBNewInformationTableViewCell.h"
+#import <sys/utsname.h>
 
 @interface ZBNewInformationTableViewCell ()
 
 @property (strong, nonatomic) IBOutlet UIView *bg_view;
+@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *time_label;
+@property (strong, nonatomic) IBOutlet UILabel *log_label;
 
 @end
 
 @implementation ZBNewInformationTableViewCell
 
+- (void)setModel:(ZBNewInformationModel *)model{
+    
+    _model = model;
+    _contentLabel.text = model.content;
+//    _time_label.text = [self timetampTostring:model.time.intValue];
+    _time_label.text = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
+    _log_label.text = [NSString stringWithFormat:@"%ld",self.log_title.length];
+    
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     [self setupshadowColor];
+     
     
     /*
      UIView *view = [[UIView alloc] init];
@@ -56,5 +71,30 @@
 
     // Configure the view for the selected state
 }
+-(NSString *)timetampTostring:(NSInteger)timestamp{
+    
+    NSString *tempTime =[[NSNumber numberWithLong:timestamp] stringValue];
+    NSMutableString *getTime = [NSMutableString stringWithFormat:@"%@",tempTime];
+
+      //    NSMutableString *getTime = @"1461896616000";
+     struct utsname systemInfo;
+     uname(&systemInfo);
+
+     [getTime deleteCharactersInRange:NSMakeRange(10,3)];
+     NSDateFormatter *matter = [[NSDateFormatter alloc]init];
+    matter.dateFormat =@"YYYY-MM-dd HH:mm";
+//    matter.dateFormat =@"YYYY-MM-dd";
+    //解决时区问题
+    matter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
+
+      NSString *timeStr = [matter stringFromDate:date];
+//    NSArray *array1 =[timeStr componentsSeparatedByString:@"-"];
+
+    return timeStr;
+}
+
+
 
 @end

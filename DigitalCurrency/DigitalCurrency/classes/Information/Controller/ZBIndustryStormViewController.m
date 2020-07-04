@@ -8,10 +8,13 @@
 
 #import "ZBIndustryStormViewController.h"
 #import "ZBIndustryStormTableViewCell.h"
+#import "ZBIndustryStormModel.h"
 
 @interface ZBIndustryStormViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,weak)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataArray;
+
 
 @end
 
@@ -20,8 +23,17 @@
 //IndustryStormCell
 static NSString *ID = @"IndustryStormCell";
 
+- (NSMutableArray *)dataArray{
+    if (_dataArray  == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self ZBLoadData:6];
     // Do any additional setup after loading the view from its nib.
         self.view.backgroundColor = [UIColor lightGrayColor];
     //设置tableView
@@ -60,7 +72,7 @@ static NSString *ID = @"IndustryStormCell";
      label.numberOfLines = 0;
      [view addSubview:label];
 
-     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"2020年6月16日  今天  星期二" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 11],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:83/255.0 blue:249/255.0 alpha:1.0]}];
+     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@  今天",[self curYearMD]] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 11],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:83/255.0 blue:249/255.0 alpha:1.0]}];
 
      label.attributedText = string;
     
@@ -69,19 +81,67 @@ static NSString *ID = @"IndustryStormCell";
      
 }
 
+-(void)ZBLoadData:(int )page{
+    
+    
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+ 
+    [par setObject:[NSString stringWithFormat:@"%d",1 + page] forKey:@"pageNum"];
+    [par setObject:@10 forKey:@"pageSize"];
+    [par setObject:[NSDate date] forKey:@"date"];
+    
+  
+    
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+   
+    [manager GET:@"http://api.yysc.online/admin/getFinanceTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+
+       NSMutableArray *tempArray = [NSMutableArray new];
+
+        tempArray = [ZBIndustryStormModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        self.dataArray = tempArray;
+        
+        [self.tableView reloadData];
+            
+       
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //
+        }];
+        
+    
+}
+
 #pragma mark - tableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBIndustryStormTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.model = self.dataArray[indexPath.row];
     
     return cell;
 }
 
+
+
+-(NSString *)curYearMD{
+    
+    
+    //获取当前时间日期
+          NSDate *date=[NSDate date];
+          NSDateFormatter *format1=[[NSDateFormatter alloc] init];
+          [format1 setDateFormat:@"yyyy-MM-dd"];
+          NSString *dateStr;
+          dateStr=[format1 stringFromDate:date];
+          return dateStr;
+}
 
 
 /*
