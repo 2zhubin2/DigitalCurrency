@@ -55,10 +55,12 @@
 
     
     ZBIndustryViewController *industry_vc = [[ZBIndustryViewController alloc] init];
-    industry_vc.tabBarItem.title = @"行情";
-    industry_vc.tabBarItem.image = [UIImage imageNamed:@"hangqing_unselected"];
-    industry_vc.tabBarItem.selectedImage = [UIImage imageNamed:@"hangqing_selected"];
-    [tabVC addChildViewController:industry_vc];
+    UINavigationController *nav_industry = [[UINavigationController alloc] initWithRootViewController:industry_vc];
+    nav_industry.navigationBar.hidden = YES;
+   nav_industry.tabBarItem.title = @"行情";
+    nav_industry.tabBarItem.image = [UIImage imageNamed:@"hangqing_unselected"];
+    nav_industry.tabBarItem.selectedImage = [UIImage imageNamed:@"hangqing_selected"];
+    [tabVC addChildViewController:nav_industry];
     
     ZBFaBuBaseViewController *fabu_vc = [[ZBFaBuBaseViewController alloc] init];
     UINavigationController *nav_fabu = [[UINavigationController alloc] initWithRootViewController:fabu_vc];
