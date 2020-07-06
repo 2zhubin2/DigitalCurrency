@@ -8,7 +8,7 @@
 
 #import "ZBSignInViewController.h"
 #import "YXCalendarView.h"
-#import "ZBSignInSuccessViewController.h"
+#import "ZBSignInSuccessView.h"
 
 @interface ZBSignInViewController ()
 
@@ -30,8 +30,6 @@
     self.navigationController.navigationBar.hidden = NO;
     
     _SIgnInBtn.layer.cornerRadius = 20;
-//    _SIgnInBtn.layer.borderColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0].CGColor;
-//    _SIgnInBtn.layer.borderWidth = 1;
     _SIgnInBtn.backgroundColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0];
     
     
@@ -51,10 +49,6 @@
     };
     [self.calender_view addSubview:_calendar];
     
-    ZBSignInSuccessViewController *vc = [[ZBSignInSuccessViewController alloc] init];
-    [self addChildViewController:vc];
-    _SignInSuccessVC = vc;
-    
     
     
 }
@@ -67,16 +61,17 @@
     sender.backgroundColor = [UIColor whiteColor];
     
     
-    UIViewController *vc = self.childViewControllers[0];
-      
-      [self.view addSubview:vc.view];
-      [vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//    UIViewController *vc = self.childViewControllers[0];
+    ZBSignInSuccessView *view = [[ZBSignInSuccessView alloc] init];
+    
+    [self.navigationController.view addSubview:view];
+      [view mas_makeConstraints:^(MASConstraintMaker *make) {
           make.top.equalTo(self.view);
           make.left.equalTo(self.view);
           make.bottom.equalTo(self.view);
           make.right.equalTo(self.view);
       }];
-    vc.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //
 //        [self.SignInSuccessVC.view removeFromSuperview];

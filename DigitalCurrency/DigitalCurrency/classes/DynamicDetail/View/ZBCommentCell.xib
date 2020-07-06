@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="146" id="KGk-i7-Jjw" customClass="ZBCommentCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="304" id="KGk-i7-Jjw" customClass="ZBCommentCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRD-X6-zsE">
@@ -24,13 +24,13 @@
                         </constraints>
                         <state key="normal" backgroundImage="morentouxiang"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="林先生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1m-6W-dFo">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="林先生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1m-6W-dFo">
                         <rect key="frame" x="55" y="15" width="43" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一天前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyd-cF-aZL">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="一天前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyd-cF-aZL">
                         <rect key="frame" x="55" y="37" width="34" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,24 +50,24 @@
                         </constraints>
                         <state key="normal" backgroundImage="ding__clicked"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="截至本稿发稿之时，人类尚未研制成功任何一种 冠状病毒。各种研发公司吹牛倒是屡见不鲜，层出不穷。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPW-9m-1vB">
-                        <rect key="frame" x="26" y="61" width="268" height="47"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="截至本稿发稿之时，人类尚未研制成功任何一种 冠状病毒。各种研发公司吹牛倒是屡见不鲜，层出不穷。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPW-9m-1vB">
+                        <rect key="frame" x="26" y="66" width="268" height="47"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AN-7h-heA">
-                        <rect key="frame" x="10" y="118" width="300" height="1"/>
-                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AN-7h-heA" customClass="UIImageView">
+                        <rect key="frame" x="10" y="127" width="300" height="150"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="h5T-N8-xgS"/>
+                            <constraint firstAttribute="height" constant="150" id="h5T-N8-xgS"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="afd-FN-wyI" firstAttribute="centerY" secondItem="uRD-X6-zsE" secondAttribute="centerY" id="2zg-px-Xso"/>
                     <constraint firstItem="uRD-X6-zsE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3iv-iI-jPj"/>
-                    <constraint firstItem="cPW-9m-1vB" firstAttribute="top" secondItem="cyd-cF-aZL" secondAttribute="bottom" constant="10" id="6h9-Zf-J8T"/>
+                    <constraint firstItem="cPW-9m-1vB" firstAttribute="top" secondItem="cyd-cF-aZL" secondAttribute="bottom" constant="15" id="6h9-Zf-J8T"/>
                     <constraint firstItem="nFY-qn-baL" firstAttribute="centerY" secondItem="afd-FN-wyI" secondAttribute="centerY" id="84X-WE-Krz"/>
                     <constraint firstItem="9AN-7h-heA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9Po-Da-uMI"/>
                     <constraint firstItem="cPW-9m-1vB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="BO6-pQ-urg"/>
@@ -85,7 +85,16 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="131.8840579710145" y="168.08035714285714"/>
+            <connections>
+                <outlet property="conentLabel" destination="cPW-9m-1vB" id="Vd2-An-fEm"/>
+                <outlet property="head_btn" destination="uRD-X6-zsE" id="j5M-Xv-9OX"/>
+                <outlet property="imageV_bgH" destination="h5T-N8-xgS" id="d2b-kF-rYZ"/>
+                <outlet property="image_view" destination="9AN-7h-heA" id="ZNd-o5-hsV"/>
+                <outlet property="nickNameLabel" destination="b1m-6W-dFo" id="OWx-U9-t5I"/>
+                <outlet property="timeLabel" destination="cyd-cF-aZL" id="WUH-ik-k7x"/>
+                <outlet property="zancountLabel" destination="nFY-qn-baL" id="Yt7-fi-iWQ"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="220.98214285714286"/>
         </tableViewCell>
     </objects>
     <resources>

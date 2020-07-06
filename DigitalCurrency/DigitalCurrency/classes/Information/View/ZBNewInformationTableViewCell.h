@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZBNewInformationTableViewCell : UITableViewCell
 
 @property(nonatomic,strong)ZBNewInformationModel *model;
-@property(nonatomic,copy)NSString *log_title;
+@property(nonatomic,assign)Boolean typeFlag;
 
 @end
 

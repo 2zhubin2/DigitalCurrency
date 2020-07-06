@@ -45,6 +45,9 @@
                         <constraint firstAttribute="height" constant="66" id="pB8-ss-GCq"/>
                     </constraints>
                     <state key="normal" backgroundImage="morentouxiang"/>
+                    <connections>
+                        <action selector="clickHead:" destination="-1" eventType="touchUpInside" id="DyR-z8-qw3"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当然是努力的小王" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYC-Bg-xHp">
                     <rect key="frame" x="106" y="102.5" width="131" height="20"/>

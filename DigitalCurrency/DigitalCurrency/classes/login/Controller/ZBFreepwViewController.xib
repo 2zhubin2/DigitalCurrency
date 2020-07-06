@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBFreepwViewController">
             <connections>
+                <outlet property="code_F" destination="Mgh-Dq-VAb" id="Kkr-8Y-06f"/>
+                <outlet property="phone_F" destination="nPe-lh-7cu" id="rsm-Qw-bsl"/>
                 <outlet property="view" destination="X0z-u2-4hW" id="6kL-RT-5OC"/>
             </connections>
         </placeholder>
@@ -17,6 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-Ae-bew">
+                    <rect key="frame" x="50" y="265" width="325" height="402"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBe-Zk-bXW">
                     <rect key="frame" x="20" y="175" width="335" height="250"/>
                     <subviews>
@@ -93,6 +98,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk8-sz-Ggn">
                             <rect key="frame" x="74" y="163" width="187.5" height="40"/>
                             <state key="normal" backgroundImage="btn_login"/>
+                            <connections>
+                                <action selector="clickLogin:" destination="-1" eventType="touchUpInside" id="n0y-Lo-BEO"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有账号?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fko-uc-sUq">
                             <rect key="frame" x="104" y="213" width="60" height="15"/>
@@ -153,9 +161,6 @@
                     <color key="textColor" red="0.1960784314" green="0.32549019610000002" blue="0.98039215690000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="pGh-Ae-bew">
-                    <rect key="frame" x="50" y="265" width="325" height="402"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>

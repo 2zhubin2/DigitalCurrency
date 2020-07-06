@@ -27,7 +27,12 @@
     _contentLabel.text = model.content;
 //    _time_label.text = [self timetampTostring:model.time.intValue];
     _time_label.text = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
-    _log_label.text = [NSString stringWithFormat:@"%ld",self.log_title.length];
+//    _log_label.text = [NSString stringWithFormat:@"%@",self.log_title];
+    if (self.typeFlag == YES) {
+        _log_label.text = @"热点资讯";
+    }else{
+        _log_label.text = @"精选好文";
+    }
     
 }
 

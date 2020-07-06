@@ -102,7 +102,8 @@ static NSString *ID = @"NewInformationCell";
     
     ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.model = self.dataArray[indexPath.row];
-    cell.log_title = @"精选好文";
+    cell.typeFlag = NO;
+    
     return cell;
 }
 

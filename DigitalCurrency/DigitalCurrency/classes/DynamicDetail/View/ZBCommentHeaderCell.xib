@@ -151,8 +151,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="65P-V1-tqC"/>
             <connections>
+                <outlet property="browserCount_label" destination="LZN-Y3-skf" id="zJ8-tG-yzA"/>
+                <outlet property="content_label" destination="CWk-xS-Pu1" id="kBM-8j-goP"/>
+                <outlet property="head_btn" destination="igy-fR-Cea" id="2T9-UN-bG7"/>
+                <outlet property="nickName_label" destination="1AD-1I-mJx" id="NGp-ET-xwi"/>
+                <outlet property="time_label" destination="y90-n8-1XD" id="doH-YI-KbT"/>
                 <outlet property="view_imagebg" destination="n0o-p5-L3e" id="idw-52-AAb"/>
                 <outlet property="view_imagebgH" destination="yKo-xQ-GZR" id="tCb-hy-iIK"/>
+                <outlet property="zanCount_labal" destination="lnB-1H-VRj" id="wW2-yU-QQf"/>
             </connections>
             <point key="canvasLocation" x="196.37681159420291" y="235.71428571428569"/>
         </tableViewCell>

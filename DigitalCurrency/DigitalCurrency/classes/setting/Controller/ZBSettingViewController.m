@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
   
     _top_view.image = [UIImage imageNamed:@"bg_set1"];
     _btm_view.image = [UIImage imageNamed:@"bg_set2"];

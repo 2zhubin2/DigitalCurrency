@@ -9,12 +9,17 @@
 #import "ZBDongTaiDetailViewController.h"
 #import "ZBCommentCell.h"
 #import "ZBCommentHeaderCell.h"
+#import "ZBcommmentModel.h"
+#import "ZBcommentTalkModel.h"
 
 @interface ZBDongTaiDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *sousuobg_View;
+
+@property(nonatomic,strong)NSMutableArray *comment_dataArray;
+
 
 @end
 
@@ -24,15 +29,26 @@
 static NSString *ID_one = @"CommentHeader";
 static NSString *ID_twe = @"CommentCell";
 
+- (NSMutableArray *)comment_dataArray{
+    if (_comment_dataArray == nil) {
+        _comment_dataArray = [NSMutableArray array];
+    }
+    return _comment_dataArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
        self.navigationItem.leftBarButtonItem = leftItem;
        self.navigationItem.title = @"动态详情";
     
+    [self PLJson];
+    
     [self setupTableView];
+//    [self PLJson];
     [self add_notifacationObserver];
     
     _sousuobg_View.layer.cornerRadius = 14;
@@ -79,6 +95,40 @@ static NSString *ID_twe = @"CommentCell";
        _tableView.estimatedRowHeight = 70;
 }
 
+#pragma mark - 加载评论
+-(void)PLJson{
+     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.yysc.online"] sessionConfiguration:configuration];
+    
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    AFJSONResponseSerializer *response   = [AFJSONResponseSerializer serializer];
+    response.removesKeysWithNullValues = YES;
+    response.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/html",@"text/css",@"text/javascript", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"ios" forHTTPHeaderField:@"Referer"];
+    // 设置超时时间
+    
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 20.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+ 
+    //根据用户的talkId加载详情界面的评论
+    [manager POST:@"/user/talk/getCommentList" parameters:@{@"_orderByDesc":@"publishTime",@"talkId": _model.talkId} headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable result) {
+
+
+        self.comment_dataArray = [ZBcommmentModel mj_objectArrayWithKeyValuesArray:result[@"data"][@"list"]];
+
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    
+    }];
+    
+    
+}
+
+
 #pragma mark - tableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -90,7 +140,7 @@ static NSString *ID_twe = @"CommentCell";
     if (section == 0) {
         return 1;
     }else{
-        return 10;
+        return self.comment_dataArray.count;
     }
     return 0;
 }
@@ -102,8 +152,8 @@ static NSString *ID_twe = @"CommentCell";
         label.frame = CGRectMake(15,10,200,14);
         label.numberOfLines = 0;
         [view addSubview:label];
-
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"评论区（30条）" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
+        
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"评论区（%ld条）",self.comment_dataArray.count] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
 
         label.attributedText = string;
         
@@ -126,11 +176,11 @@ static NSString *ID_twe = @"CommentCell";
     
     if (indexPath.section == 0) {
         ZBCommentHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_one];
-        
+        cell.model = self.model;
         return cell;
     }else{
         ZBCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_twe];
-        
+        cell.model = self.comment_dataArray[indexPath.row];
         return cell;
     }
     

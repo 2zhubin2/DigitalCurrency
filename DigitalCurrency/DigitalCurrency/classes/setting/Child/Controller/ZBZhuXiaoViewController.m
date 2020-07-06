@@ -7,7 +7,7 @@
 //
 
 #import "ZBZhuXiaoViewController.h"
-#import "ZBZhuXiaoTangChuangViewController.h"
+#import "ZBZhuXiaoTangChuangView.h"
 
 @interface ZBZhuXiaoViewController ()
 @property (strong, nonatomic) IBOutlet UIView *view_one;
@@ -30,24 +30,26 @@
     _view_two.layer.cornerRadius = 3;
     _view_three.layer.cornerRadius = 3;
     
-    ZBZhuXiaoTangChuangViewController *vc = [[ZBZhuXiaoTangChuangViewController alloc] init];
-    [self addChildViewController:vc];
+//    ZBZhuXiaoTangChuangViewController *vc = [[ZBZhuXiaoTangChuangViewController alloc] init];
+//    [self addChildViewController:vc];
 }
 
 -(void)backSetting{
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)shengqingClick:(id)sender {
-    UIViewController *vc = self.childViewControllers[0];
+//    UIViewController *vc = self.childViewControllers[0];
+//    ZBZhuXiaoTangChuangViewController *vc = [[ZBZhuXiaoTangChuangViewController alloc] init];
+    ZBZhuXiaoTangChuangView *view = [[ZBZhuXiaoTangChuangView alloc] init];
     
-    [self.view addSubview:vc.view];
-    [vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.navigationController.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.left.equalTo(self.view);
         make.bottom.equalTo(self.view);
         make.right.equalTo(self.view);
     }];
-    
+//
 //    [self presentViewController:vc animated:YES completion:nil];
 }
 

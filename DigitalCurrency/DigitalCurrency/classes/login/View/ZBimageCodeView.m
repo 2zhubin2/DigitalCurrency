@@ -1,27 +1,46 @@
 //
-//  ZBimageCodeViewController.m
+//  ZBimageCodeView.m
 //  DigitalCurrency
 //
-//  Created by HFY on 2020/6/29.
+//  Created by 朱彬 on 2020/7/6.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
-#import "ZBimageCodeViewController.h"
+#import "ZBimageCodeView.h"
 
-@interface ZBimageCodeViewController ()
+@interface ZBimageCodeView ()
+
 @property (strong, nonatomic) IBOutlet UITextField *text_F;
 @property (strong, nonatomic) IBOutlet UIButton *refreshBtn;
 @property (strong, nonatomic) IBOutlet UIImageView *imageV;
 
 @end
 
-@implementation ZBimageCodeViewController
+@implementation ZBimageCodeView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setRefreshImage)];
-    [self.imageV addGestureRecognizer:tap];
+           [self.imageV addGestureRecognizer:tap];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        return [[NSBundle mainBundle] loadNibNamed:@"ZBimageCodeView" owner:nil options:nil].lastObject;
+       
+    }
+    return self;
 }
 
 - (IBAction)clickFresh:(id)sender {
@@ -30,7 +49,7 @@
 }
 - (IBAction)ClicktuIchu:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self removeFromSuperview];
     
 }
 - (IBAction)clickqueren:(id)sender {
@@ -40,7 +59,7 @@
 }
 
 -(void)setRefreshImage{
-    /*
+    
     NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/system/sendVerify"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -53,10 +72,10 @@
         }];
         
     }]resume];
-     */
+     
 }
 -(void)sendVerification_code{
-    /*
+   
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:self.phone forKey:@"phone"];
     [par setObject:self.type forKey:@"type"];
@@ -74,7 +93,7 @@
             //延时执行代码
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                  [MBProgressHUD hideHUD];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self removeFromSuperview];
                     
                 });
         }else{
@@ -83,24 +102,15 @@
         }
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failure");
-        }];*/
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showError:@"获取验证码失败"];
+        }];
         
     
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self removeFromSuperview];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBCommunityTuiJianModel.h"
+#import "ZBCommunityTuiJianUserModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBCommentHeaderCell : UITableViewCell
+
+@property(nonatomic,strong)ZBCommunityTuiJianModel *model;
 
 @end
 

@@ -107,6 +107,20 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+    self.mineUserInfoModel = [ZBMineUserInfoModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
+}
+
+
 
 //#pragma mark - UISceneSession lifecycle
 //

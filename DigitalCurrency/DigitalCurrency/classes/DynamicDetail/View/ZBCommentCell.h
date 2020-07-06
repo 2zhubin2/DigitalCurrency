@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBcommmentModel.h"
+#import "ZBcommentTalkModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBCommentCell : UITableViewCell
+
+@property(nonatomic,strong)ZBcommmentModel *model;
 
 @end
 

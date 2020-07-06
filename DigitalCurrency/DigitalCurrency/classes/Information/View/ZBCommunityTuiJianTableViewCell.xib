@@ -39,7 +39,7 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="疫情过后，数字货币有望凭借技术优势获得优先 发展。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-c6-IPn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="疫情过后，数字货币有望凭借技术优势获得优先 发展。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-c6-IPn">
                                 <rect key="frame" x="10" y="80" width="333" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,8 +152,14 @@
             <viewLayoutGuide key="safeArea" id="DKs-PU-nrA"/>
             <connections>
                 <outlet property="bg_view" destination="JFL-2O-dOn" id="HAM-wA-17f"/>
+                <outlet property="commentCount_label" destination="BJh-hg-Jsw" id="Ajl-1p-6EE"/>
+                <outlet property="contentLabel" destination="QLg-c6-IPn" id="HiT-Ar-eu8"/>
+                <outlet property="head_iamgeV" destination="2dN-cX-3lK" id="gJh-rB-pcg"/>
+                <outlet property="nickName_label" destination="Zjf-nd-Voz" id="3fO-r3-JUj"/>
+                <outlet property="time_label" destination="Pit-kV-Ccm" id="CLc-B6-jFA"/>
                 <outlet property="view_imagebg" destination="PUp-Vq-3dc" id="zz2-54-q6Z"/>
                 <outlet property="view_imagebgH" destination="MUh-Zc-xuM" id="Mht-Ks-eHY"/>
+                <outlet property="zanCount_label" destination="rRz-GR-hVq" id="PtW-PO-E6Q"/>
             </connections>
             <point key="canvasLocation" x="196.37681159420291" y="235.71428571428569"/>
         </tableViewCell>

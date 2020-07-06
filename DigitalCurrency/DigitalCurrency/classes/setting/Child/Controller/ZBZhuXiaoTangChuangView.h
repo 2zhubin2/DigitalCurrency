@@ -1,8 +1,8 @@
 //
-//  ZBZhuXiaoTangChuangViewController.h
+//  ZBZhuXiaoTangChuangView.h
 //  DigitalCurrency
 //
-//  Created by 朱彬 on 2020/7/2.
+//  Created by 朱彬 on 2020/7/6.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZBZhuXiaoTangChuangViewController : UIViewController
+@interface ZBZhuXiaoTangChuangView : UIView
 
 @end
 

@@ -21,6 +21,9 @@
 #import "Masonry.h"
 #import <MJExtension.h>
 #import <MJRefresh.h>
+#import <SDWebImage/SDWebImage.h>
+#import <sys/utsname.h>
+#import "ZBMineUserInfoModel.h"
 
 #define ZBScreenW  [UIScreen mainScreen].bounds.size.width
 #define ZBScreenH  [UIScreen mainScreen].bounds.size.height

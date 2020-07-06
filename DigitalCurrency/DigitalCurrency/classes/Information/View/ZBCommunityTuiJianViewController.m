@@ -9,11 +9,14 @@
 #import "ZBCommunityTuiJianViewController.h"
 #import "ZBCommunityTuiJianTableViewCell.h"
 #import "ZBDongTaiDetailViewController.h"
+#import "ZBCommunityTuiJianModel.h"
+#import "ZBCommunityTuiJianUserModel.h"
 
 
 @interface ZBCommunityTuiJianViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,weak)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
@@ -22,8 +25,17 @@
 //CommunityTuiJianCell
 static NSString *ID = @"CommunityTuiJianCell";
 
+- (NSMutableArray *)dataArray{
+    
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self ZBLoadData:0];
     // Do any additional setup after loading the view from its nib.
     [self setupTableView];
     
@@ -55,22 +67,57 @@ static NSString *ID = @"CommunityTuiJianCell";
     _tableView = tableView;
 }
 
+
+
+#pragma mark -加载网络数据
+-(void)ZBLoadData:(int )page{
+    
+    
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+ 
+    [par setObject:[NSString stringWithFormat:@"%d",1 + page] forKey:@"pageNumber"];
+    [par setObject:@10 forKey:@"pageSize"];
+    [par setObject:@"futures" forKey:@"project"];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+   
+    [manager GET:@"http://api.yysc.online/user/talk/getTalkListByProject" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+        NSDictionary *data = responseObject;
+        NSMutableArray *tempArray = [NSMutableArray new];
+        tempArray = [ZBCommunityTuiJianModel mj_objectArrayWithKeyValuesArray:data[@"data"][@"list"]];
+        self.dataArray = tempArray;
+        
+        [self.tableView reloadData];
+            
+       
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            //
+        }];
+        
+    
+}
+
+
+
 #pragma mark - tableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBCommunityTuiJianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
+    cell.model = self.dataArray[indexPath.row];
+//    NSLog(@"%ld",_dataArray.count);
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZBDongTaiDetailViewController *vc = [[ZBDongTaiDetailViewController alloc] init];
-    
+    vc.model = self.dataArray[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

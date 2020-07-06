@@ -11,6 +11,8 @@
 #import "ZBDongTaiTableViewCell.h"
 #import "ZBSettingViewController.h"
 #import "ZBSignInViewController.h"
+#import "ZBloginViewController.h"
+#import "ZBFreepwViewController.h"
 
 @interface ZBMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIButton *guanzhu_btn;
@@ -35,8 +37,10 @@ static NSString *ID_dongtai = @"DongTaiCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-//    self.view.backgroundColor = [UIColor grayColor];
+
+
+    
+    
     self.selectBtn = _guanzhu_btn;
     self.selectBtn.selected = YES;
     
@@ -51,8 +55,22 @@ static NSString *ID_dongtai = @"DongTaiCell";
    // 告诉tableView所有cell的估算高度
    self.tableView.estimatedRowHeight = 70;
     
+   
+    
     
 }
+
+
+
+
+- (IBAction)clickHead:(id)sender {
+    ZBloginViewController *vc= [ZBloginViewController new];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+
 
 - (IBAction)clickSetting:(id)sender {
     
