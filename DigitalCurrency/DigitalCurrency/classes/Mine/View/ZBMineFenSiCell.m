@@ -1,47 +1,47 @@
 //
-//  ZBMineGuanZhuTableViewCell.m
+//  ZBMineFenSiCell.m
 //  DigitalCurrency
 //
-//  Created by HFY on 2020/6/30.
+//  Created by 朱彬 on 2020/7/7.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
-#import "ZBMineGuanZhuTableViewCell.h"
+#import "ZBMineFenSiCell.h"
 
-@interface ZBMineGuanZhuTableViewCell ()
+@interface ZBMineFenSiCell ()
 
 @property (strong, nonatomic) IBOutlet UIView *view;
-@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *head_imageV;
-
 @property (strong, nonatomic) IBOutlet UILabel *name_label;
 @property (strong, nonatomic) IBOutlet UILabel *fansCountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *guanzhuBtn;
 
 @end
 
-@implementation ZBMineGuanZhuTableViewCell
+@implementation ZBMineFenSiCell
+
 
 - (void)setModel:(ZBMineGuanZhuModel *)model{
     _model = model;
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    [_head_imageV sd_setImageWithURL:[NSURL URLWithString:model.head]];
     _name_label.text = model.nickName;
     _fansCountLabel.text = [NSString stringWithFormat:@"%@粉丝",model.fansCount];
     
 
       
-    self.guanzhuBtn.backgroundColor = [UIColor whiteColor];
-    self.guanzhuBtn.layer.cornerRadius = 14;
-
+    
+        self.guanzhuBtn.layer.cornerRadius = 14;
+    self.guanzhuBtn.clipsToBounds = YES;
+        
     
 }
+
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    _iconImageView.layer.cornerRadius = 20;
     [self setupshadowColor];
-//    _view.backgroundColor = [UIColor colorWithRed:249/255.0 green:249/255.0 blue:249/255.0 alpha:1.0];
 }
 
 -(void)setupshadowColor{
@@ -56,9 +56,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-- (IBAction)clickGuanZhu:(UIButton *)sender {
-    NSLog(@"123");
 }
 
 @end

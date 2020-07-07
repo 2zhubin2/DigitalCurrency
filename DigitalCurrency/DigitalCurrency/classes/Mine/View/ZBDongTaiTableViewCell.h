@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBDongTaiModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBDongTaiTableViewCell : UITableViewCell
 
 @property(nonatomic,assign)double *cellH;
+
+@property(nonatomic,strong)ZBDongTaiModel *model;
 
 @end
 

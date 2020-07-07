@@ -89,6 +89,13 @@
         }];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_phoneLabel endEditing:YES];
+    [_code_F endEditing:YES];
+    [_PassWord_F endEditing:YES];
+    [_confirmPassword_F endEditing:YES];
+}
+
 /*
 #pragma mark - Navigation
 

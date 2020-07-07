@@ -10,6 +10,7 @@
 #import "ZBHomeTableViewCell.h"
 #import "ZBSearchViewController.h"
 #import "ZBHomeTableViewModel.h"
+#import "ZBFabuViewController.h"
 
 @interface ZBHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *search_backImageView;
@@ -51,7 +52,13 @@ static NSString *ID = @"HomeCell";
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.showsHorizontalScrollIndicator = NO;
     
+    [self notificationCenterConfig];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 
@@ -127,6 +134,38 @@ static NSString *ID = @"HomeCell";
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+
+#pragma mark - 通知相关
+- (void)notificationCenterConfig{
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:kNotificationMessagePush object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:@"jumpFabu0"object:nil];
+}
+
+- (void)justPush:(NSNotification *) notification {
+    //处理消息
+    
+      AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+      
+      if (appDelegate.login == YES) {
+          ZBFabuViewController *vc = [[ZBFabuViewController alloc] init];
+          
+          [self.navigationController pushViewController:vc animated:YES];
+      }else{
+          ZBloginViewController *vc = [[ZBloginViewController alloc] init];
+          
+          [self.navigationController pushViewController:vc animated:YES];
+      }
+    
+}
+- (void)dealloc {
+    //单条移除观察者
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"%@2",kNotificationMessagePush] object:nil];
+    //移除所有观察者
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 
 

@@ -8,6 +8,7 @@
 
 #import "ZBZhuXiaoViewController.h"
 #import "ZBZhuXiaoTangChuangView.h"
+#import "ZBMineViewController.h"
 
 @interface ZBZhuXiaoViewController ()
 @property (strong, nonatomic) IBOutlet UIView *view_one;
@@ -29,9 +30,15 @@
     _view_one.layer.cornerRadius = 3;
     _view_two.layer.cornerRadius = 3;
     _view_three.layer.cornerRadius = 3;
-    
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"backMe" object:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backMe_go) name:@"backMe" object:nil];
 //    ZBZhuXiaoTangChuangViewController *vc = [[ZBZhuXiaoTangChuangViewController alloc] init];
 //    [self addChildViewController:vc];
+}
+
+-(void)backMe_go{
+    
+    [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
 }
 
 -(void)backSetting{

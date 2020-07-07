@@ -409,6 +409,9 @@
                         <constraint firstAttribute="height" constant="44" id="uT6-fP-Ijl"/>
                     </constraints>
                     <state key="normal" backgroundImage="btn_tuichu"/>
+                    <connections>
+                        <action selector="tuichuLogin:" destination="-1" eventType="touchUpInside" id="GKq-u5-uXM"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

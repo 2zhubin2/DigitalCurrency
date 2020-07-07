@@ -1,8 +1,8 @@
 //
-//  ZBMineGuanZhuTableViewCell.h
+//  ZBMineFenSiCell.h
 //  DigitalCurrency
 //
-//  Created by HFY on 2020/6/30.
+//  Created by 朱彬 on 2020/7/7.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
@@ -11,10 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZBMineGuanZhuTableViewCell : UITableViewCell
+@interface ZBMineFenSiCell : UITableViewCell
 
 @property(nonatomic,strong)ZBMineGuanZhuModel *model;
-//@property(nonatomic,assign)Boolean type;
 
 @end
 

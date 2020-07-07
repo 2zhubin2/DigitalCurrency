@@ -94,5 +94,117 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6125146A-CEAE-4D82-8BB1-3EF6ECF9BE95"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/login/Controller/ZBloginViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-beginLogin"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "123BC52E-3AFA-4863-8F0C-4051AA66BA20"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/login/Controller/ZBloginViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-beginLogin"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B8A8A75-5E3A-4F2A-873C-E8F3C3FBE5D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/login/Controller/ZBloginViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-beginLogin"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4001E30D-A687-4B59-A32B-6E8A297CEDA7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Mine/Controller/ZBMineViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "-ZBLoadData_three:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4E55BA9-1DC0-4AB4-89B4-2D20409113E3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Information/Controller/ZBMineGuanZhuTableViewCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "iconImageView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F4E55BA9-1DC0-4AB4-89B4-2D20409113E3 - cfb12358a365e35e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZBMineGuanZhuTableViewCell iconImageView]"
+                  moduleName = "DigitalCurrency"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhubin/Documents/%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/%E9%A1%B9%E7%9B%AE/DigitalCurrency/DigitalCurrency/DigitalCurrency/classes/Information/Controller/ZBMineGuanZhuTableViewCell.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "F4E55BA9-1DC0-4AB4-89B4-2D20409113E3 - 55ec4469799a6ab4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZBMineGuanZhuTableViewCell setIconImageView:]"
+                  moduleName = "DigitalCurrency"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhubin/Documents/%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/%E9%A1%B9%E7%9B%AE/DigitalCurrency/DigitalCurrency/DigitalCurrency/classes/Information/Controller/ZBMineGuanZhuTableViewCell.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

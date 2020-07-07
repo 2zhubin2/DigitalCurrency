@@ -10,4 +10,8 @@
 
 @implementation ZBMineUserInfoModel
 
++(NSDictionary*)mj_replacedKeyFromPropertyName{
+    return @{@"userID":@"id"};
+}
+
 @end

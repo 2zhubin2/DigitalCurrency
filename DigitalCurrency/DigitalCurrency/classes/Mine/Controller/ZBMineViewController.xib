@@ -9,9 +9,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBMineViewController">
             <connections>
+                <outlet property="NIckNameLabel" destination="OYC-Bg-xHp" id="nv0-hy-nt9"/>
                 <outlet property="dongtai_btn" destination="6YV-Ws-hcI" id="0ux-S9-IEQ"/>
                 <outlet property="fensi_btn" destination="nMj-lU-2ck" id="2OV-FH-OHo"/>
                 <outlet property="guanzhu_btn" destination="7E2-CW-N3m" id="MIj-q0-esJ"/>
+                <outlet property="head_btn" destination="Crg-0Y-zQH" id="Ehg-bk-FNu"/>
+                <outlet property="signatureLabel" destination="AJV-uj-v53" id="pM2-6I-khs"/>
                 <outlet property="tableView" destination="3Bw-Sb-NMF" id="5hX-7p-36b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,7 +59,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一句话介绍自己..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJV-uj-v53">
-                    <rect key="frame" x="106" y="127.5" width="105" height="16"/>
+                    <rect key="frame" x="106" y="127.5" width="200" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="l1E-Ox-rtn"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>

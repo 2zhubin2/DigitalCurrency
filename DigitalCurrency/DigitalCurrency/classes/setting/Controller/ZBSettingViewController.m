@@ -41,6 +41,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 -(void)backMine{
@@ -91,5 +92,23 @@
 - (IBAction)YingSiZhengCeClick:(id)sender {
     [MBProgressHUD showError:@"未开放此功能"];
 }
+
+- (IBAction)tuichuLogin:(UIButton *)sender {
+    //tuichuLogin
+    
+    //清空用户数据
+       NSError *error;
+       NSFileManager *fileMger = [NSFileManager defaultManager];
+       NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+       if ([fileMger removeItemAtPath:path error:&error]) {
+           [[NSNotificationCenter defaultCenter] postNotificationName:@"tuichuLogin" object:self];
+       }else{
+           [[NSNotificationCenter defaultCenter] postNotificationName:@"tuichuLogin" object:self];
+       }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 @end

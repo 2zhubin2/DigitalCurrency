@@ -8,6 +8,7 @@
 
 #import "YXCalendarView.h"
 #import <sys/utsname.h>
+#import "ZBSignInRecordModel.h"
 
 static CGFloat const yearMonthH = 20;   //年月高度
 static CGFloat const weeksH = 20;       //周高度
@@ -27,9 +28,19 @@ static CGFloat const weeksH = 20;       //周高度
 @property (nonatomic, strong) YXMonthView *middleView;  //中间日历
 @property (nonatomic, strong) YXMonthView *rightView;   //右侧日历
 
+@property(nonatomic,strong)NSMutableArray *dataArray;
+
 @end
 
 @implementation YXCalendarView
+
+- (NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame Date:(NSDate *)date Type:(CalendarType)type {
     
@@ -42,6 +53,7 @@ static CGFloat const weeksH = 20;       //周高度
             _currentDate = [[YXDateHelpObject manager] getLastdayOfTheWeek:date];
         }
         [self settingViews];
+        [self RefreshSignIn];
 //        [self addSwipes];
     }
     return self;
@@ -334,12 +346,20 @@ static CGFloat const weeksH = 20;       //周高度
     _scrollV.contentOffset = CGPointMake(ViewW, 0);
 
     //可以在这边进行网络请求获取事件日期数组等,记得取消上个未完成的网络请求
+
     NSMutableArray *array = [NSMutableArray array];
+    
+    /*
     for (int i = 0; i < 4; i++) {
 //        NSString *dateStr = [NSString stringWithFormat:@"%@-%d",[[YXDateHelpObject manager] getStrFromDateFormat:@"MM" Date:_currentDate],1 + arc4random()%28];
 //        NSString *dateStr = [NSString stringWithFormat:@"2020-07-0%d",i];
          NSString *dateStr = [NSString stringWithFormat:@"%@-%d",[[YXDateHelpObject manager] getStrFromDateFormat:@"MM" Date:_currentDate],12+i];
 
+        [array addObject:dateStr];
+    }*/
+    
+    for (ZBSignInRecordModel *model in self.dataArray) {
+        NSString *dateStr = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
         [array addObject:dateStr];
     }
 
@@ -386,4 +406,33 @@ static CGFloat const weeksH = 20;       //周高度
 
     return timeStr;
 }
+
+#pragma mark - 用户签到记录（仅当月）
+-(void)RefreshSignIn{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+    [par setObject:appDelegate.mineUserInfoModel.userID forKey:@"userId"];
+    
+
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://api.yysc.online/user/sign/getSignList" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dict = responseObject;
+        NSString *success = [NSString stringWithFormat:@"%@",dict[@"success"]];
+        NSDictionary *data = dict[@"data"];
+
+               if ([success isEqualToString:@"1"]) {
+                   
+                   self.dataArray = [ZBSignInRecordModel mj_objectArrayWithKeyValuesArray:data];
+//                   self.dataArray = temp;
+                   
+               }else{
+                  
+               }
+    } failure:nil];
+     
+    
+}
+
+
 @end

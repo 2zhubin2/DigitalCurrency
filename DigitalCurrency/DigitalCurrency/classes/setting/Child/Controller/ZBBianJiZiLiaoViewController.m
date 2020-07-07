@@ -30,6 +30,11 @@
     _topImageV.layer.cornerRadius = 50;
     }
 
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = NO;
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 -(void)backSetting{
     [self.navigationController popViewControllerAnimated:YES];
 }

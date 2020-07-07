@@ -100,6 +100,8 @@ CG_INLINE void dispatch_queue_after_S(CGFloat time ,dispatch_block_t block) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     [self.navigationController setNavigationBarHidden:NO];
     //    saveB = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
     //    [saveB setBackgroundImage:UIImageWithName(@"J") forState:UIControlStateNormal];
@@ -166,6 +168,8 @@ CG_INLINE void dispatch_queue_after_S(CGFloat time ,dispatch_block_t block) {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self getBackView:self.navigationController.navigationBar];
+    self.navigationController.navigationBar.hidden = NO;
+    self.tabBarController.tabBar.hidden = YES;
     //    if (Has_Login) {
     
     NSArray *saveArr = [[NSArray alloc]init];

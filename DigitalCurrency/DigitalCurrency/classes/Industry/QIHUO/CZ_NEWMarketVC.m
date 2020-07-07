@@ -16,8 +16,9 @@
 #import "NetWork.h"
 
 
+
 #define ColorBlue [UIColor colorWithRed:113/255.0 green:103/255.0 blue:252/255.0 alpha:1/1.0]
-@interface CZ_NEWMarketVC ()<UITableViewDelegate,UITableViewDataSource,UITabBarControllerDelegate>{
+@interface CZ_NEWMarketVC ()<UITableViewDelegate,UITableViewDataSource>{
     QHLoctionModel *loM;
     
     NSInteger pageIndex;
@@ -80,7 +81,7 @@ static NSString *cellid = @"cellID";
     _dataArr = [NSArray array];
     loM = [[QHLoctionModel alloc]init];
     
-    self.title = _navTitle;
+//    self.title = _navTitle;
 //    self.view.backgroundColor = RGB(255, 255, 255);
     pageIndex = 2;
 
@@ -96,7 +97,7 @@ static NSString *cellid = @"cellID";
             make.bottom.mas_equalTo(self.view.mas_bottom).offset(-10);
         }
     }];
-    self.title = @"行情列表";
+//    self.title = @"行情列表";
 //    [self.view addSubview:self.topDown];
     
 //    [super backNavigationStyle:RGB(150, 174, 255)];
@@ -113,6 +114,8 @@ static NSString *cellid = @"cellID";
 //    [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:RGB(255, 255, 255)] forBarMetrics:UIBarMetricsDefault];
 //    self.navigationController.navigationBar.shadowImage = nil;
     
+ 
+    
 }
 - (UIImage*)createImageWithColor:(UIColor*)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
@@ -127,8 +130,10 @@ static NSString *cellid = @"cellID";
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.whiteColor}];
-    self.tabBarController.delegate = self;
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.whiteColor}];
+//    self.tabBarController.delegate = self;
+    self.navigationController.navigationBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
 
 
 //    [self navigationSetUp];
@@ -240,7 +245,7 @@ static NSString *cellid = @"cellID";
     [detailVC getId:_dataArr[indexPath.row][1]];
 
     [detailVC getZhangD:[_dataArr[indexPath.row][4] floatValue] forName:_dataArr[indexPath.row][0]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:nil];
+
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }
@@ -311,16 +316,9 @@ static NSString *cellid = @"cellID";
     }
 }
 
-//-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-//    NSInteger index = [tabBarController.viewControllers indexOfObject:viewController];
-//    if (index == 3) {
-//        FZN_STUserManager *manger = [FZN_STUserManager defaults];
-//        if (!manger.isLogin) {
-//            FZN_STUserLoginViewController *vc = [FZN_STUserLoginViewController new];
-//            [self.navigationController pushViewController:vc animated:YES];
-//            return NO;
-//        }
-//    }
-//    return YES;
-//}
+
+
+
+
+
 @end

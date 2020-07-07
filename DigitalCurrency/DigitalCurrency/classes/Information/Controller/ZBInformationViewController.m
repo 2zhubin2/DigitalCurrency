@@ -11,6 +11,7 @@
 #import "ZBSelectedArticlesViewController.h"
 #import "ZBIndustryStormViewController.h"
 #import "ZBCommunityViewController.h"
+#import "ZBFabuViewController.h"
 
 
 @interface ZBInformationViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -53,12 +54,20 @@ static NSString *ID = @"colCell";
     //添加所有标题按钮
     [self setupAllTitleButton];
     
+    //添加通知
+    [self notificationCenterConfig];
+    
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 
     
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
+}
 -(void)setupAllTitleButton{
     
     NSInteger count = self.childViewControllers.count;
@@ -177,6 +186,37 @@ static NSString *ID = @"colCell";
     UIButton *btn = self.btns[page];
     [self selButton:btn];
     
+}
+
+
+#pragma mark - 通知相关
+- (void)notificationCenterConfig{
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:kNotificationMessagePush object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:@"jumpFabu2"object:nil];
+}
+
+- (void)justPush:(NSNotification *) notification {
+    //处理消息
+    
+     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+      
+      if (appDelegate.login == YES) {
+          ZBFabuViewController *vc = [[ZBFabuViewController alloc] init];
+          
+          [self.navigationController pushViewController:vc animated:YES];
+      }else{
+          ZBloginViewController *vc = [[ZBloginViewController alloc] init];
+          
+          [self.navigationController pushViewController:vc animated:YES];
+      }
+    
+}
+- (void)dealloc {
+    //单条移除观察者
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"%@2",kNotificationMessagePush] object:nil];
+    //移除所有观察者
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

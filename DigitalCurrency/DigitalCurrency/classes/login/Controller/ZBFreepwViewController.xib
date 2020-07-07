@@ -47,7 +47,7 @@
                                 <constraint firstAttribute="height" constant="34" id="XYC-D1-cIs"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mgh-Dq-VAb">
                             <rect key="frame" x="83" y="63" width="232" height="34"/>
@@ -56,7 +56,7 @@
                                 <constraint firstAttribute="height" constant="34" id="mTO-6r-ekb"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-O0-pvt">
                             <rect key="frame" x="209" y="66.5" width="81" height="27"/>
@@ -94,6 +94,9 @@
                             <state key="normal" title="密码登录">
                                 <color key="titleColor" red="0.1960784314" green="0.32549019610000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="passWordLogin:" destination="-1" eventType="touchUpInside" id="p5h-Ks-ahd"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk8-sz-Ggn">
                             <rect key="frame" x="74" y="163" width="187.5" height="40"/>
@@ -122,6 +125,9 @@
                             <state key="normal" title="去注册">
                                 <color key="titleColor" red="0.1960784314" green="0.32549019610000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="ClickRegister:" destination="-1" eventType="touchUpInside" id="jlA-6Y-GeZ"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

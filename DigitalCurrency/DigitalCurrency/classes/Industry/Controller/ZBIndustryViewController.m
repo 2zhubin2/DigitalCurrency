@@ -8,6 +8,8 @@
 
 #import "ZBIndustryViewController.h"
 #import "CZ_NEWMarketVC.h"
+#import "ZBFabuViewController.h"
+
 
 @interface ZBIndustryViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *search_bg;
@@ -26,6 +28,39 @@
     [self addChildViewController:industry_vc_child];
     [self.view addSubview:industry_vc_child.view];
     industry_vc_child.view.frame = self.view.bounds;
+    
+    [self notificationCenterConfig];
+}
+
+#pragma mark - 通知相关
+- (void)notificationCenterConfig{
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:kNotificationMessagePush object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:@"jumpFabu1"object:nil];
+}
+
+- (void)justPush:(NSNotification *) notification {
+    //处理消息
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+      
+      if (appDelegate.login == YES) {
+          ZBFabuViewController *vc = [[ZBFabuViewController alloc] init];
+          
+          [self.navigationController pushViewController:vc animated:YES];
+      }else{
+          ZBloginViewController *vc = [[ZBloginViewController alloc] init];
+          
+          [self.navigationController pushViewController:vc animated:YES];
+      }
+    
+    
+}
+- (void)dealloc {
+    //单条移除观察者
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"%@2",kNotificationMessagePush] object:nil];
+    //移除所有观察者
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

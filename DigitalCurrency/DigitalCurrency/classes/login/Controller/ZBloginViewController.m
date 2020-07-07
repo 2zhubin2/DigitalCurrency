@@ -35,10 +35,18 @@
     _loginView.layer.cornerRadius = 10;
     
     
+    
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
     self.navigationController.navigationBar.hidden = NO;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.mineUserInfoModel_baseInfo != nil) {
+        _name_F.text = appDelegate.mineUserInfoModel_baseInfo.phone;
+        _password_F.text = appDelegate.mineUserInfoModel_baseInfo.password;
+    }
 }
 
 -(void)backMine{
@@ -98,32 +106,15 @@
                        //延时执行代码
                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                            [MBProgressHUD hideHUD];
+                                   NSLog(@"responseObjrect===%@",responseObject);
                            
                            //存入用户数据
                            NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
                            NSDictionary *tempDic = [mineuserInfoModel mj_keyValues];
                            [tempDic writeToFile:path atomically:YES];
-                           /*
-                           if (self.loginType == NO) {
-                                   //存入用户数据
-                                   NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
-                                   NSDictionary *tempDic = [perModel mj_keyValues];
-                                   [tempDic writeToFile:path atomically:YES];
-                                   
-                               [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
-                           }else{
-                                //存入用户数据
-                                NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
-                                NSDictionary *tempDic = [perModel mj_keyValues];
-                                [tempDic writeToFile:path atomically:YES];
-//                               [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
-//                               [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
-//                               [self.navigationController popViewControllerAnimated:YES];
-                               [self dismissViewControllerAnimated:YES completion:nil];
-                               
-                           }
-                       */
+                           [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+                           [self.navigationController popViewControllerAnimated:YES];
+                          
                        });
                     
                                             
@@ -138,6 +129,11 @@
     }];
      
     
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_name_F endEditing:YES];
+    [_password_F endEditing:YES];
 }
 
 

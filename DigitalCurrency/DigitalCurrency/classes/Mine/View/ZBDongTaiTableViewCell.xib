@@ -39,13 +39,13 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="疫情过后，数字货币有望凭借技术优势获得优先 发展。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-KZ-HqL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="疫情过后，数字货币有望凭借技术优势获得优先 发展。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTP-KZ-HqL">
                                 <rect key="frame" x="10" y="80" width="258" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coS-sI-P3C">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coS-sI-P3C" customClass="UIImageView">
                                 <rect key="frame" x="10" y="111" width="258" height="180"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -139,8 +139,14 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="bgView" destination="PO1-65-J7k" id="j1v-5e-2Xu"/>
-                <outlet property="view_imageSuper" destination="coS-sI-P3C" id="vbY-5y-vsk"/>
+                <outlet property="commentCountLabel" destination="gq0-dH-60K" id="wS7-Zx-GGL"/>
+                <outlet property="contentLabel" destination="FTP-KZ-HqL" id="zIR-tc-cxf"/>
+                <outlet property="head_btn" destination="w6H-9k-ehd" id="2Xs-jP-UbX"/>
+                <outlet property="image_View" destination="coS-sI-P3C" id="hL8-wc-MSI"/>
+                <outlet property="nickName" destination="pkx-vy-ku6" id="jkk-5T-bEF"/>
+                <outlet property="time_label" destination="kNo-Wg-scq" id="IhF-CR-4I6"/>
                 <outlet property="view_imageSuperH" destination="cEk-pA-Z9R" id="WsY-Iy-Ua9"/>
+                <outlet property="zanCountLabel" destination="1wL-Ap-nCd" id="ewF-gq-cHR"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="235.71428571428569"/>
         </tableViewCell>

@@ -103,6 +103,13 @@
         }];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_name_label endEditing:YES];
+    [_code_label endEditing:YES];
+    [_password_label endEditing:YES];
+    [_confirmPassword endEditing:YES];
+}
+
 /*
 #pragma mark - Navigation
 

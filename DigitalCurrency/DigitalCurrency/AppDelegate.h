@@ -18,6 +18,8 @@
 /**全局登录状态*/
 @property (assign, nonatomic, getter=isLogin) BOOL login;
 
+@property (strong, nonatomic) ZBMineUserInfoModel *mineUserInfoModel_baseInfo;
+
  // 获取全局登录状态
 //   AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 

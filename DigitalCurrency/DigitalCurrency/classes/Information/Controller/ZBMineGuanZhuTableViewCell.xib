@@ -41,7 +41,7 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWo-8H-ClC">
                                 <rect key="frame" x="212" y="26" width="66" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="未关注" backgroundImage="button_yiguanzhubg">
+                                <state key="normal" title="已关注" backgroundImage="button_yiguanzhubg">
                                     <color key="titleColor" red="0.19607843137254902" green="0.32549019607843138" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -72,7 +72,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="fansCountLabel" destination="yBs-1p-zBI" id="MF9-3N-bzc"/>
+                <outlet property="guanzhuBtn" destination="sWo-8H-ClC" id="exj-z0-9dA"/>
+                <outlet property="head_imageV" destination="ewp-vS-ueR" id="mBh-v1-lCL"/>
                 <outlet property="iconImageView" destination="ewp-vS-ueR" id="6pV-0h-eWs"/>
+                <outlet property="name_label" destination="rNQ-od-z0a" id="LNJ-M9-giZ"/>
                 <outlet property="view" destination="8k0-zz-zVZ" id="ixi-Lk-zhT"/>
             </connections>
             <point key="canvasLocation" x="127.53623188405798" y="155.35714285714286"/>

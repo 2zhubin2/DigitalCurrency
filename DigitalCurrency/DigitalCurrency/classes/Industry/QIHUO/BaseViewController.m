@@ -30,7 +30,7 @@
     [super viewDidLoad];
 //    self.view.backgroundColor = (UIColor *)TNColor.main_bg_color;// UIColorFromRGB(0xFFFFFF)
     [self setNavigation];
-    self.tabBarController.delegate = self;
+//    self.tabBarController.delegate = self;
     // Do any additional setup after loading the view.
 }
 

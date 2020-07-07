@@ -9,6 +9,8 @@
 #import "ZBFreepwViewController.h"
 #import "ZBimageCodeView.h"
 #import "ZBMineUserInfoModel.h"
+#import "ZBRegisterViewController.h"
+#import "ZBloginViewController.h"
 
 @interface ZBFreepwViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *phone_F;
@@ -29,6 +31,21 @@
 -(void)backSetting{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)passWordLogin:(UIButton *)sender {
+    
+//    ZBloginViewController *vc =[ZBloginViewController new];
+//    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)ClickRegister:(UIButton *)sender {
+    
+    ZBRegisterViewController *vc = [ZBRegisterViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
 - (IBAction)clickLogin:(id)sender {
     [self beginLogin];
 }
@@ -64,36 +81,23 @@
          NSDictionary *data = responseObject;
                NSString *success = [NSString stringWithFormat:@"%@",data[@"success"]];
         NSDictionary *dict = data[@"data"];
-//               NSLog(@"data===%@",data);
-//        NSLog(@"dict===%@",dict);
+
                if ([success isEqualToString:@"1"]) {
                    [MBProgressHUD showMessage:@"登录成功..."];
-//                   ZBPersonModel *perModel = [ZBPersonModel ZBPersonModelWithDict:dict];
-                 
+//                 
+                  ZBMineUserInfoModel *mineuserInfoModel = [ZBMineUserInfoModel mj_objectWithKeyValues:dict];
                        //延时执行代码
                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                            [MBProgressHUD hideHUD];
-                           /*
-                           if (self.loginType == NO) {
-                                   //存入用户数据
-                                   NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
-                                   NSDictionary *tempDic = [perModel mj_keyValues];
-                                   [tempDic writeToFile:path atomically:YES];
-                                   
-                               [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
-                           }else{
-                                //存入用户数据
-                                NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
-                                NSDictionary *tempDic = [perModel mj_keyValues];
-                                [tempDic writeToFile:path atomically:YES];
-//                               [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
-//                               [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
-//                               [self.navigationController popViewControllerAnimated:YES];
-                               [self dismissViewControllerAnimated:YES completion:nil];
-                               
-                           }
-                       */
+                        
+                           //存入用户数据
+                            NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+                            NSDictionary *tempDic = [mineuserInfoModel mj_keyValues];
+                            [tempDic writeToFile:path atomically:YES];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+                           
+                           [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
+                           
                        });
                     
                                             
@@ -108,6 +112,11 @@
     }];
      
     
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_phone_F endEditing:YES];
+    [_code_F endEditing:YES];
 }
 
 
