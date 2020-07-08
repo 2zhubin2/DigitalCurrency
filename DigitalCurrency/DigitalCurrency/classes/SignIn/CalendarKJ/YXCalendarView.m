@@ -45,6 +45,7 @@ static CGFloat const weeksH = 20;       //周高度
 - (instancetype)initWithFrame:(CGRect)frame Date:(NSDate *)date Type:(CalendarType)type {
     
     if (self = [super initWithFrame:frame]) {
+         
         _type = type;
         _currentDate = date;
         _selectDate = date;
@@ -53,10 +54,14 @@ static CGFloat const weeksH = 20;       //周高度
             _currentDate = [[YXDateHelpObject manager] getLastdayOfTheWeek:date];
         }
         [self settingViews];
-        [self RefreshSignIn];
+      
 //        [self addSwipes];
     }
     return self;
+}
+
+-(void)SingInSuccess{
+    [self scrollToCenter];
 }
 
 - (instancetype)initWithDate:(NSDate *)date Type:(CalendarType)type {
@@ -343,8 +348,11 @@ static CGFloat const weeksH = 20;       //周高度
 
 //MARK: - scrollViewMethod
 - (void)scrollToCenter {
+    
+    [self RefreshSignIn];
     _scrollV.contentOffset = CGPointMake(ViewW, 0);
 
+     
     //可以在这边进行网络请求获取事件日期数组等,记得取消上个未完成的网络请求
 
     NSMutableArray *array = [NSMutableArray array];
@@ -354,16 +362,28 @@ static CGFloat const weeksH = 20;       //周高度
 //        NSString *dateStr = [NSString stringWithFormat:@"%@-%d",[[YXDateHelpObject manager] getStrFromDateFormat:@"MM" Date:_currentDate],1 + arc4random()%28];
 //        NSString *dateStr = [NSString stringWithFormat:@"2020-07-0%d",i];
          NSString *dateStr = [NSString stringWithFormat:@"%@-%d",[[YXDateHelpObject manager] getStrFromDateFormat:@"MM" Date:_currentDate],12+i];
+        NSLog(@"%@",dateStr);
 
         [array addObject:dateStr];
     }*/
     
-    for (ZBSignInRecordModel *model in self.dataArray) {
-        NSString *dateStr = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
-        [array addObject:dateStr];
-    }
+    //延时执行代码
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      for (ZBSignInRecordModel *model in self.dataArray) {
+             NSString *dateStr = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
+             NSLog(@"%@",dateStr);
+             [array addObject:dateStr];
+         }
+            self.middleView.eventArray = array;
+    });
+    
+//    for (ZBSignInRecordModel *model in self.dataArray) {
+//        NSString *dateStr = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
+//        NSLog(@"%@",dateStr);
+//        [array addObject:dateStr];
+//    }
 
-    _middleView.eventArray = array;
+   
     
     
 
@@ -395,7 +415,8 @@ static CGFloat const weeksH = 20;       //周高度
      [getTime deleteCharactersInRange:NSMakeRange(10,3)];
      NSDateFormatter *matter = [[NSDateFormatter alloc]init];
 //    matter.dateFormat =@"YYYY-MM-dd HH:mm";
-    matter.dateFormat =@"YYYY-MM-dd";
+//    matter.dateFormat =@"YYYY-MM-dd";
+     matter.dateFormat =@"MM-dd";
     //解决时区问题
     matter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
     

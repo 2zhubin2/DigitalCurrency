@@ -39,7 +39,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="364" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-qn-baL">
                         <rect key="frame" x="285" y="22" width="25" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.8784313725490196" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afd-FN-wyI">
@@ -48,7 +48,7 @@
                             <constraint firstAttribute="width" constant="14" id="bPa-8R-fvz"/>
                             <constraint firstAttribute="height" constant="14" id="vxx-ed-6wv"/>
                         </constraints>
-                        <state key="normal" backgroundImage="ding__clicked"/>
+                        <state key="normal" backgroundImage="dianzan"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="截至本稿发稿之时，人类尚未研制成功任何一种 冠状病毒。各种研发公司吹牛倒是屡见不鲜，层出不穷。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPW-9m-1vB">
                         <rect key="frame" x="26" y="66" width="268" height="47"/>
@@ -98,7 +98,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ding__clicked" width="13" height="13"/>
+        <image name="dianzan" width="13" height="13"/>
         <image name="morentouxiang" width="66" height="66"/>
     </resources>
 </document>

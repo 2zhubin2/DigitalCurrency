@@ -39,19 +39,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKh-xf-pcP">
                     <rect key="frame" x="145" y="274" width="105" height="105"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="xCO-OK-VcM">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8NL-c5-V2j">
                             <rect key="frame" x="37.5" y="39" width="30" height="27.5"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="Imr-di-oJ2"/>
-                                <constraint firstAttribute="height" constant="27.5" id="Ub3-pN-3Lp"/>
+                                <constraint firstAttribute="width" constant="30" id="Y0l-59-q2e"/>
+                                <constraint firstAttribute="height" constant="27.5" id="bcd-pv-viy"/>
                             </constraints>
-                        </imageView>
+                            <state key="normal" backgroundImage="camera"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="xCO-OK-VcM" firstAttribute="centerX" secondItem="NKh-xf-pcP" secondAttribute="centerX" id="9RL-B9-YgZ"/>
+                        <constraint firstItem="8NL-c5-V2j" firstAttribute="centerX" secondItem="NKh-xf-pcP" secondAttribute="centerX" id="8h3-xL-GNd"/>
+                        <constraint firstItem="8NL-c5-V2j" firstAttribute="centerY" secondItem="NKh-xf-pcP" secondAttribute="centerY" id="OaP-fC-US0"/>
                         <constraint firstAttribute="width" constant="105" id="TwD-pb-T9a"/>
-                        <constraint firstItem="xCO-OK-VcM" firstAttribute="centerY" secondItem="NKh-xf-pcP" secondAttribute="centerY" id="mkJ-CU-KTU"/>
                         <constraint firstAttribute="height" constant="105" id="xnS-BO-1ro"/>
                     </constraints>
                 </view>

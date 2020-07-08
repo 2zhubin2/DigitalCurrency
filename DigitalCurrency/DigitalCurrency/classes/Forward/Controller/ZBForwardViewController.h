@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBCommunityTuiJianModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBForwardViewController : UIViewController
+
+@property(nonatomic,strong)ZBCommunityTuiJianModel *model;
 
 @end
 

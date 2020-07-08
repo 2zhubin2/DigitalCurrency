@@ -31,11 +31,16 @@
 - (void)setModel:(ZBCommunityTuiJianModel *)model{
     _model = model;
 
-    [self.head_iamgeV sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal];
+    if (![model.user.head containsString:@"<html>"] && model.user.head.length != 0) {
+           [self.head_iamgeV sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+        
+       }
+    
+    
     _nickName_label.text = model.user.nickName;
     _time_label.text = [self timetampTostring:model.publishTime.integerValue];
     _contentLabel.text = model.content;
-    if (model.picture.length == 0) {
+    if ([model.picture containsString:@"<html>"]  || model.picture.length == 0) {
         _view_imagebgH.constant = 1;
     }else{
         [self.image_V sd_setImageWithURL:[NSURL URLWithString:model.picture]];

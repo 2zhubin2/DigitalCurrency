@@ -27,8 +27,10 @@
 
 - (void)setModel:(ZBcommmentModel *)model{
     _model = model;
-    if (model.user.head.length != 0) {
-        [self.head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal];
+    if (model.user.head.length != 0 && ![model.user.head containsString:@"<html>"]) {
+//        [self.head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal];
+//        [self.head_btn sd_setImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+        [self.head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
     }
     
     _nickNameLabel.text = model.user.nickName;

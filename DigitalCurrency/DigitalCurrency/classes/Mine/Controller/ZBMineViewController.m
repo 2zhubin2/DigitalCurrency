@@ -69,9 +69,21 @@ static NSString *ID_fensi = @"MineFenSiCell";
     self.tabBarController.tabBar.hidden = NO;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.login == YES) {
-        [_head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:appDelegate.mineUserInfoModel.head] forState:UIControlStateNormal];
+        
+        if (![appDelegate.mineUserInfoModel.head containsString:@"<html>"] && appDelegate.mineUserInfoModel.head.length != 0) {
+            [_head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:appDelegate.mineUserInfoModel.head] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+        }
+        
         _NIckNameLabel.text = appDelegate.mineUserInfoModel.nickName;
         _signatureLabel.text = appDelegate.mineUserInfoModel.signature;
+    }else{
+        [_head_btn setImage:nil forState:UIControlStateNormal];
+        _NIckNameLabel.text = @"";
+        _signatureLabel.text = @"";
+        _dataArray_one = nil;
+        _dataArray_two = nil;
+        _dataArray_three = nil;
+        [self.tableView reloadData];
     }
     
 }

@@ -24,7 +24,15 @@
 
 - (void)setModel:(ZBMineGuanZhuModel *)model{
     _model = model;
-    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    
+    if (![model.head containsString:@"<html>"] && model.head.length != 0) {
+//        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.head]];
+        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+        /*
+         placeholderImage:[UIImage imageNamed:@"morentouxiang"
+         */
+    }
+    
     _name_label.text = model.nickName;
     _fansCountLabel.text = [NSString stringWithFormat:@"%@粉丝",model.fansCount];
     

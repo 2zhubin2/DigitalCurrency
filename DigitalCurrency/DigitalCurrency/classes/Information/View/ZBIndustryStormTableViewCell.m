@@ -33,6 +33,14 @@
     
 }
 
+  //各个cell间距值为10
+//- (void)setFrame:(CGRect)frame{
+//    frame.size.height -= 10;
+//    frame.origin.y += 10;
+//    //重写覆盖frame
+//    [super setFrame:frame];
+//}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

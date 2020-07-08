@@ -52,11 +52,18 @@ static NSString *ID_three = @"CommentCell";
     // 注册键盘弹起收回通知，使输入框位置于键盘上
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
     // tableView不会响应touchesBegan，单独添加手势响应
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)];
     tapGesture.delegate = self;
 //    [_tableView addGestureRecognizer:tapGesture];
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 
 -(void)setupTableView{
@@ -89,7 +96,7 @@ static NSString *ID_three = @"CommentCell";
 #pragma mark - tableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 
@@ -108,7 +115,7 @@ static NSString *ID_three = @"CommentCell";
         
         return view;
         
-    }else if (section == 1){
+    }else{
         UIView *view = [[UIView alloc] init];
         
         UILabel *label = [[UILabel alloc] init];
@@ -123,7 +130,8 @@ static NSString *ID_three = @"CommentCell";
          return view;
         
         
-    }else{
+    }
+    /*else{
         UIView *view = [[UIView alloc] init];
         
         UILabel *label = [[UILabel alloc] init];
@@ -137,7 +145,7 @@ static NSString *ID_three = @"CommentCell";
         
          return view;
         
-    }
+    }*/
     
     return nil;
 }
@@ -155,9 +163,9 @@ static NSString *ID_three = @"CommentCell";
         case 1:
             return 2;
             break;
-        case 2:
-            return 10;
-            break;
+//        case 2:
+//            return 10;
+//            break;
         default:
             break;
     }
@@ -171,12 +179,8 @@ static NSString *ID_three = @"CommentCell";
         ZBInformationDetail_oneCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_one];
             
         return cell;
-    }else if (indexPath.section == 1){
-        ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_two];
-        
-        return cell;
     }else{
-        ZBCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_three];
+        ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_two];
         
         return cell;
     }
@@ -190,11 +194,6 @@ static NSString *ID_three = @"CommentCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:YES];
-    if (indexPath.section == 2) {
-        ZBCommentDetailViewController *vc = [[ZBCommentDetailViewController alloc] init];
-
-        [self.navigationController pushViewController:vc animated:YES];
-    }
 
 }
 - (IBAction)cilckFenXiang:(id)sender {

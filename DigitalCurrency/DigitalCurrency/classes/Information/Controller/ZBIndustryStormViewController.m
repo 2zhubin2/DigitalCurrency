@@ -35,7 +35,7 @@ static NSString *ID = @"IndustryStormCell";
     
     [self ZBLoadData:6];
     // Do any additional setup after loading the view from its nib.
-        self.view.backgroundColor = [UIColor lightGrayColor];
+//        self.view.backgroundColor = [UIColor lightGrayColor];
     //设置tableView
     [self setupTableView];
     

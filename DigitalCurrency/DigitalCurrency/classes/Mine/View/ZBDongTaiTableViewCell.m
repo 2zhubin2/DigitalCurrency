@@ -29,14 +29,19 @@
 
 - (void)setModel:(ZBDongTaiModel *)model{
     _model = model;
-    [_head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal];
+    
+    if (![model.user.head containsString:@"<html>"] && model.user.head.length != 0) {
+//        [_head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal];
+        [_head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+    }
+   
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _nickName.text = appDelegate.mineUserInfoModel.nickName;
     _time_label.text = [self timetampTostring:model.publishTime.integerValue];
     _contentLabel.text = model.content;
     _zanCountLabel.text = model.zanCount.stringValue;
     _commentCountLabel.text = model.commentCount.stringValue;
-       if (self.model.picture.length == 0) {
+    if (self.model.picture.length == 0 || [self.model.picture containsString:@"<html>"]) {
        _image_View.image = [UIImage imageNamed:@"pic_dongtai1"];
        }else{
         [_image_View sd_setImageWithURL:[NSURL URLWithString:self.model.picture]];

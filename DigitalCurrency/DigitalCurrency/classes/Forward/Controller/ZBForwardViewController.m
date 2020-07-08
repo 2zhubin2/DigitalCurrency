@@ -11,21 +11,47 @@
 @interface ZBForwardViewController ()<UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextView *text_V;
 @property (strong, nonatomic) IBOutlet UILabel *tishiLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *image_V;
+@property (strong, nonatomic) IBOutlet UILabel *NickNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
 @implementation ZBForwardViewController
 
+- (void)setModel:(ZBCommunityTuiJianModel *)model{
+    _model = model;
+    if (model.picture.length != 0 && ![model.picture containsString:@"<html>"]) {
+        
+        [_image_V sd_setImageWithURL:[NSURL URLWithString:model.picture] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+        }
+    
+    _NickNameLabel.text = model.user.nickName;
+    _contentLabel.text = model.content;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
              self.navigationItem.leftBarButtonItem = leftItem;
              self.navigationItem.title = @"分享";
-    self.navigationItem.rightBarButtonItem.title = @"更多";
-    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(BeginFaSong)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+
+    if (_model.picture.length != 0 && ![_model.picture containsString:@"<html>"]) {
+
+        [_image_V sd_setImageWithURL:[NSURL URLWithString:_model.picture] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+        }
+
+    _NickNameLabel.text = _model.user.nickName;
+    _contentLabel.text = _model.content;
+
     _text_V.delegate = self;
+}
+
+-(void)BeginFaSong{
+    NSLog(@"BeginFaSong");
 }
 
 -(void)backMine{

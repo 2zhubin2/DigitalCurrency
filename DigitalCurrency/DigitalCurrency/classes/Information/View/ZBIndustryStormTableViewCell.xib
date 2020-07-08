@@ -17,21 +17,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeW-ao-ksp">
-                        <rect key="frame" x="10" y="5" width="300" height="159"/>
+                        <rect key="frame" x="10" y="10" width="300" height="144"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2020-04-14 12:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZO1-zx-kbp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-04-14 12:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZO1-zx-kbp">
                                 <rect key="frame" x="10" y="10" width="95" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="产业区块链进场，2020年可能迎来拐点 | 你好 2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FX-i4-gR4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产业区块链进场，2020年可能迎来拐点 | 你好 2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FX-i4-gR4">
                                 <rect key="frame" x="10" y="34" width="280" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="“2020 这一年，产业区块链开始进场，将会看到区块链 跟各个行业的结合，做出了成功的商业应用以后，行业 的拐点我相信不会太远.&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8H7-qN-ccK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“2020 这一年，产业区块链开始进场，将会看到区块链 跟各个行业的结合，做出了成功的商业应用以后，行业 的拐点我相信不会太远.&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8H7-qN-ccK">
                                 <rect key="frame" x="10" y="80" width="280" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.396078431372549" green="0.396078431372549" blue="0.396078431372549" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
@@ -48,15 +48,15 @@
                             <constraint firstItem="ZO1-zx-kbp" firstAttribute="leading" secondItem="NeW-ao-ksp" secondAttribute="leading" constant="10" id="Jhp-Ml-hYy"/>
                             <constraint firstAttribute="trailing" secondItem="9FX-i4-gR4" secondAttribute="trailing" constant="10" id="Obg-0f-8WG"/>
                             <constraint firstItem="8H7-qN-ccK" firstAttribute="leading" secondItem="NeW-ao-ksp" secondAttribute="leading" constant="10" id="aO3-0G-Jgs"/>
+                            <constraint firstAttribute="bottom" secondItem="8H7-qN-ccK" secondAttribute="bottom" constant="17" id="gcf-dK-mI8"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NeW-ao-ksp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="GJo-cG-jQy"/>
+                    <constraint firstItem="NeW-ao-ksp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GJo-cG-jQy"/>
                     <constraint firstAttribute="trailing" secondItem="NeW-ao-ksp" secondAttribute="trailing" constant="10" id="Rba-aG-FAs"/>
                     <constraint firstItem="NeW-ao-ksp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="g0G-0t-sgv"/>
-                    <constraint firstAttribute="bottom" secondItem="8H7-qN-ccK" secondAttribute="bottom" constant="5" id="kyP-Tm-V9w"/>
-                    <constraint firstAttribute="bottom" secondItem="NeW-ao-ksp" secondAttribute="bottom" id="uto-Sw-09W"/>
+                    <constraint firstAttribute="bottom" secondItem="NeW-ao-ksp" secondAttribute="bottom" constant="10" id="zIU-F3-Qzd"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

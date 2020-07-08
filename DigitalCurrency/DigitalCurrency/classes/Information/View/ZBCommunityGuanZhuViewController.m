@@ -9,10 +9,13 @@
 #import "ZBCommunityGuanZhuViewController.h"
 #import "ZBCommunityGuanZhuHeaderCell.h"
 #import "ZBCommunityGuanZhuCell.h"
+#import "ZBCommunityGuanZhuModel.h"
 
 @interface ZBCommunityGuanZhuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,weak)UITableView *tableView;
+
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
@@ -23,6 +26,23 @@
 static NSString *ID_h = @"CommunityGuanZhuHeader";
 static NSString *ID = @"CommunityGuanZhuCell";
 
+- (NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.login == YES) {
+        [self RefreshGuanZhu];
+    }else{
+        self.dataArray = nil;
+        [self.tableView reloadData];
+    }
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib
@@ -33,9 +53,8 @@ static NSString *ID = @"CommunityGuanZhuCell";
 
 
 -(void)setupTableView{
-    UITableView *tableView = [[UITableView alloc] init];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
-    tableView.frame = CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
        
     [tableView registerNib:[UINib nibWithNibName:@"ZBCommunityGuanZhuHeaderCell" bundle:nil] forCellReuseIdentifier:ID_h];
     [tableView registerNib:[UINib nibWithNibName:@"ZBCommunityGuanZhuCell" bundle:nil] forCellReuseIdentifier:ID];
@@ -88,7 +107,7 @@ static NSString *ID = @"CommunityGuanZhuCell";
     if (section == 0) {
         return 1;
     }else{
-        return 10;
+        return _dataArray.count;
     }
     
 }
@@ -100,10 +119,41 @@ static NSString *ID = @"CommunityGuanZhuCell";
         return cell;
     }else{
         ZBCommunityGuanZhuCell *cell_new = [tableView dequeueReusableCellWithIdentifier:ID];
+        cell_new.model = self.dataArray[indexPath.row];
         return cell_new;
         
     }
     return cell;
+}
+
+
+#pragma mark - 获取推荐用户信息
+-(void)RefreshGuanZhu{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+    [par setObject:appDelegate.mineUserInfoModel.userID forKey:@"userId"];
+    
+
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://api.yysc.online/user/follow/getRecommandUserList" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dict = responseObject;
+        NSString *success = [NSString stringWithFormat:@"%@",dict[@"success"]];
+        NSDictionary *data = dict[@"data"];
+
+               if ([success isEqualToString:@"1"]) {
+                   
+                
+                   self.dataArray = [ZBCommunityGuanZhuModel mj_objectArrayWithKeyValuesArray:data];
+            
+                   [self.tableView reloadData];
+                   
+               }else{
+                  [self.tableView reloadData];
+               }
+    } failure:nil];
+     
+    
 }
 
 

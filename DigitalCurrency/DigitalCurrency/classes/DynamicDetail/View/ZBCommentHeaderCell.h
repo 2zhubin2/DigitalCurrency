@@ -11,10 +11,18 @@
 #import "ZBCommunityTuiJianUserModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class ZBCommentHeaderCell;
+@protocol ZBCommentHeaderCellDelegate <NSObject>
+
+@optional
+-(void)CommentHeaderCellClickFenXiang:(ZBCommentHeaderCell *)cell;
+
+@end
 
 @interface ZBCommentHeaderCell : UITableViewCell
 
 @property(nonatomic,strong)ZBCommunityTuiJianModel *model;
+@property(nonatomic,weak)id<ZBCommentHeaderCellDelegate> delegate;
 
 @end
 

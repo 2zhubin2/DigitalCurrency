@@ -40,4 +40,8 @@ typedef void(^RefreshH)(CGFloat viewH);
 - (instancetype)initWithFrame:(CGRect)frame Date:(NSDate *)date Type:(CalendarType)type;
 - (instancetype)initWithDate:(NSDate *)date Type:(CalendarType)type;
 
+
+
+-(void)SingInSuccess;
+
 @end

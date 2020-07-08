@@ -11,8 +11,9 @@
 #import "ZBCommentHeaderCell.h"
 #import "ZBcommmentModel.h"
 #import "ZBcommentTalkModel.h"
+#import "ZBForwardViewController.h"
 
-@interface ZBDongTaiDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
+@interface ZBDongTaiDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate,ZBCommentHeaderCellDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -20,6 +21,7 @@
 
 @property(nonatomic,strong)NSMutableArray *comment_dataArray;
 
+@property (strong, nonatomic) IBOutlet UIButton *CommentBtn;
 
 @end
 
@@ -58,8 +60,10 @@ static NSString *ID_twe = @"CommentCell";
 
 - (void)add_notifacationObserver{
     // 注册键盘弹起收回通知，使输入框位置于键盘上
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];//UIKeyboardDidShowNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];//UIKeyboardDidHideNotification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     // tableView不会响应touchesBegan，单独添加手势响应
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)];
     tapGesture.delegate = self;
@@ -176,6 +180,7 @@ static NSString *ID_twe = @"CommentCell";
     
     if (indexPath.section == 0) {
         ZBCommentHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_one];
+        cell.delegate = self;
         cell.model = self.model;
         return cell;
     }else{
@@ -216,6 +221,28 @@ static NSString *ID_twe = @"CommentCell";
      
  }
 
+-(void)keyboardDidShow:(NSNotification *)notifition{
+    /*
+     UILabel *label = [[UILabel alloc] init];
+     label.frame = CGRectMake(311.5,1204.5,29,14.5);
+     label.numberOfLines = 0;
+     [self.view addSubview:label];
+
+     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"发送" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0]}];
+
+     label.attributedText = string;
+     */
+    [self.CommentBtn setTitleColor:[UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0] forState:UIControlStateNormal];
+    self.CommentBtn.enabled = YES;
+}//keyboardDidHide:
+
+-(void)keyboardDidHide:(NSNotification *)notifition{
+   
+//    [self.CommentBtn setTitleColor:[UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0] forState:UIControlStateNormal];
+    self.CommentBtn.enabled = NO;
+}
+
+
  #pragma mark - 键盘消失
  - (void)keyboardWillHide:(NSNotification *)notification
  {
@@ -238,6 +265,15 @@ static NSString *ID_twe = @"CommentCell";
      [self.view endEditing:YES];
  }
 
+
+#pragma mark - ZBCommentHeaderCellDelegate
+
+- (void)CommentHeaderCellClickFenXiang:(ZBCommentHeaderCell *)cell{
+    
+    ZBForwardViewController *vc = [[ZBForwardViewController alloc] init];
+    vc.model = cell.model;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
 #pragma mark - Navigation

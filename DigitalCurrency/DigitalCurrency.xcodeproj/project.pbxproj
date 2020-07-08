@@ -86,6 +86,7 @@
 		B34FEA4324B4691F00DB54F6 /* ZBMineFenSiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34FEA4124B4691F00DB54F6 /* ZBMineFenSiCell.m */; };
 		B34FEA4424B4691F00DB54F6 /* ZBMineFenSiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34FEA4224B4691F00DB54F6 /* ZBMineFenSiCell.xib */; };
 		B34FEA4724B478C900DB54F6 /* ZBSignInRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B34FEA4624B478C900DB54F6 /* ZBSignInRecordModel.m */; };
+		B352B15624B5A82300CBD930 /* ZBCommunityGuanZhuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B352B15524B5A82300CBD930 /* ZBCommunityGuanZhuModel.m */; };
 		B35B9EF924B2B5ED00BEA360 /* ZBCommunityTuiJianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B35B9EF824B2B5ED00BEA360 /* ZBCommunityTuiJianModel.m */; };
 		B35B9EFC24B2B61600BEA360 /* ZBCommunityTuiJianUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B35B9EFB24B2B61600BEA360 /* ZBCommunityTuiJianUserModel.m */; };
 		B35B9F0124B2CB9100BEA360 /* userModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B35B9EFD24B2CB9100BEA360 /* userModel.m */; };
@@ -304,6 +305,8 @@
 		B34FEA4224B4691F00DB54F6 /* ZBMineFenSiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBMineFenSiCell.xib; sourceTree = "<group>"; };
 		B34FEA4524B478C900DB54F6 /* ZBSignInRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSignInRecordModel.h; sourceTree = "<group>"; };
 		B34FEA4624B478C900DB54F6 /* ZBSignInRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSignInRecordModel.m; sourceTree = "<group>"; };
+		B352B15424B5A82300CBD930 /* ZBCommunityGuanZhuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommunityGuanZhuModel.h; sourceTree = "<group>"; };
+		B352B15524B5A82300CBD930 /* ZBCommunityGuanZhuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommunityGuanZhuModel.m; sourceTree = "<group>"; };
 		B35B9EF724B2B5ED00BEA360 /* ZBCommunityTuiJianModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommunityTuiJianModel.h; sourceTree = "<group>"; };
 		B35B9EF824B2B5ED00BEA360 /* ZBCommunityTuiJianModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommunityTuiJianModel.m; sourceTree = "<group>"; };
 		B35B9EFA24B2B61600BEA360 /* ZBCommunityTuiJianUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommunityTuiJianUserModel.h; sourceTree = "<group>"; };
@@ -954,6 +957,8 @@
 				B35B9EF824B2B5ED00BEA360 /* ZBCommunityTuiJianModel.m */,
 				B35B9EFA24B2B61600BEA360 /* ZBCommunityTuiJianUserModel.h */,
 				B35B9EFB24B2B61600BEA360 /* ZBCommunityTuiJianUserModel.m */,
+				B352B15424B5A82300CBD930 /* ZBCommunityGuanZhuModel.h */,
+				B352B15524B5A82300CBD930 /* ZBCommunityGuanZhuModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1584,6 +1589,7 @@
 				B348850624AC737D00A23201 /* ZBNewInformationTableViewCell.m in Sources */,
 				B349740A24AD6D3A001005A4 /* ZBSearchViewController.m in Sources */,
 				C7788D9124AB493800669EDC /* ZCMakeTableViewCell.m in Sources */,
+				B352B15624B5A82300CBD930 /* ZBCommunityGuanZhuModel.m in Sources */,
 				C7788D9924AB493800669EDC /* CZ_NEWMarketVC.m in Sources */,
 				B35B9EF924B2B5ED00BEA360 /* ZBCommunityTuiJianModel.m in Sources */,
 				C7788D8E24AB493800669EDC /* QHDHHeadCollectionViewCell.m in Sources */,

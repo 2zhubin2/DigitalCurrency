@@ -7,6 +7,7 @@
 //
 
 #import "ZBCommentHeaderCell.h"
+#import "ZBForwardViewController.h"
 
 @interface ZBCommentHeaderCell ()
 
@@ -21,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *head_btn;
 
 @property(nonatomic,weak)UIImageView *iamge_view;
+@property (strong, nonatomic) IBOutlet UIButton *guanzhuBtn;
 
 @end
 
@@ -43,11 +45,15 @@
       _zanCount_label.text = model.zanCount;
       _commentCount_label.text = model.commentCount;
      */
-    [self.head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal];
+    
+    if (![model.user.head containsString:@"<html>"] && model.user.head.length != 0 ) {
+        [self.head_btn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.user.head] forState:UIControlStateNormal];
+    }
+   
     _nickName_label.text = model.user.nickName;
     _time_label.text = [self timetampTostring:model.publishTime.integerValue];
     _content_label.text = model.content;
-    if (model.picture.length == 0) {
+    if (model.picture.length == 0 || [model.picture containsString:@"<html>"]) {
         _view_imagebgH.constant = 1;
     }else{
         [self.iamge_view sd_setImageWithURL:[NSURL URLWithString:model.picture]];
@@ -68,7 +74,27 @@
     if (_view_imagebg.subviews.count == 0) {
             _view_imagebgH.constant = 1;
         }
+    self.guanzhuBtn.layer.cornerRadius = 14;
         
+}
+
+- (IBAction)ClickGuanZhu:(UIButton *)sender {
+    sender.layer.cornerRadius = 14;
+    sender.layer.borderColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0].CGColor;
+    sender.layer.borderWidth = 1;
+//    sender.backgroundColor = [UIColor whiteColor];
+    [sender setBackgroundColor:[UIColor whiteColor]];
+    [sender setTitle:@"已关注" forState:UIControlStateNormal];
+    sender.enabled = NO;
+}
+
+- (IBAction)cilckFenXiang:(UIButton *)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(CommentHeaderCellClickFenXiang:)]) {
+        [self.delegate CommentHeaderCellClickFenXiang:self];
+    }
+    
+    
 }
 
 -(void)setupImageView{
