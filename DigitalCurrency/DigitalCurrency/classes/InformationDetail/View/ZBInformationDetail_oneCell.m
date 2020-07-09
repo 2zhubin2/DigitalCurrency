@@ -8,7 +8,21 @@
 
 #import "ZBInformationDetail_oneCell.h"
 
+@interface ZBInformationDetail_oneCell ()
+
+@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+
+
+@end
+
 @implementation ZBInformationDetail_oneCell
+
+- (void)setModel:(ZBNewInformationModel *)model{
+    
+    _model = model;
+    _contentLabel.text = model.content;
+
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

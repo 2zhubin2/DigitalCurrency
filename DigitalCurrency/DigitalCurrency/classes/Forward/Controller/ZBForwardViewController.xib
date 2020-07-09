@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBForwardViewController">
             <connections>
                 <outlet property="NickNameLabel" destination="Rja-vk-gkf" id="D7A-f2-6ci"/>
+                <outlet property="TSPLBtn" destination="T3I-hb-O5y" id="DYP-ZX-699"/>
                 <outlet property="contentLabel" destination="Tfq-3j-xei" id="Ogg-rQ-0x0"/>
                 <outlet property="image_V" destination="fqD-P4-ndo" id="tAX-7g-0cf"/>
                 <outlet property="text_V" destination="Hmg-8M-74v" id="H0e-8W-3bo"/>
@@ -64,13 +65,17 @@
                         <constraint firstAttribute="height" constant="110" id="rYc-sr-4kh"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3I-hb-O5y">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3I-hb-O5y">
                     <rect key="frame" x="10" y="394" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="EUJ-5x-67V"/>
                         <constraint firstAttribute="height" constant="16" id="Hir-ZG-o1f"/>
                     </constraints>
-                    <state key="normal" backgroundImage="btn_xuanze"/>
+                    <state key="normal" backgroundImage="btn_weixuanze"/>
+                    <state key="selected" backgroundImage="btn_xuanze"/>
+                    <connections>
+                        <action selector="ClickTSPL:" destination="-1" eventType="touchUpInside" id="U62-cj-FkU"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同时评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzQ-xz-sUE">
                     <rect key="frame" x="46" y="393.5" width="58" height="17"/>
@@ -109,6 +114,7 @@
         </view>
     </objects>
     <resources>
+        <image name="btn_weixuanze" width="16" height="16"/>
         <image name="btn_xuanze" width="16" height="16"/>
         <image name="pic_dongtai1" width="315" height="184"/>
     </resources>

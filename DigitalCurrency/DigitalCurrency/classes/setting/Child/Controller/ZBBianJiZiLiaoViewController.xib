@@ -10,7 +10,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBBianJiZiLiaoViewController">
             <connections>
                 <outlet property="bgImageV" destination="acp-ry-6ZM" id="xaJ-AA-ibr"/>
+                <outlet property="nickName_F" destination="0VT-NV-J8P" id="6NI-rF-8lH"/>
                 <outlet property="sex_FV" destination="rpa-Dd-EVf" id="J3p-xA-1FL"/>
+                <outlet property="sigure_F" destination="lLe-iV-YXg" id="dvG-OJ-3qB"/>
                 <outlet property="topImageV" destination="Ex3-pH-Cnd" id="2a0-Hl-FM8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,20 +25,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ex3-pH-Cnd" customClass="UIImageView">
                     <rect key="frame" x="157" y="71" width="100" height="100"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="cB8-MR-Sud">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-rN-rQL">
                             <rect key="frame" x="35" y="36.5" width="30" height="27.5"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="7gj-JI-dBX"/>
-                                <constraint firstAttribute="height" constant="27.5" id="Ww5-rQ-YR5"/>
+                                <constraint firstAttribute="height" constant="27.5" id="C5M-yc-wYq"/>
+                                <constraint firstAttribute="width" constant="30" id="DLp-10-sBL"/>
                             </constraints>
-                        </imageView>
+                            <state key="normal" backgroundImage="camera"/>
+                            <connections>
+                                <action selector="clickCamera:" destination="-1" eventType="touchUpInside" id="PVV-l0-aDu"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="tGS-rN-rQL" firstAttribute="centerY" secondItem="Ex3-pH-Cnd" secondAttribute="centerY" id="89v-Xa-Icq"/>
                         <constraint firstAttribute="height" constant="100" id="8r2-zh-J2S"/>
-                        <constraint firstItem="cB8-MR-Sud" firstAttribute="centerX" secondItem="Ex3-pH-Cnd" secondAttribute="centerX" id="Cmz-zu-Igj"/>
                         <constraint firstAttribute="width" constant="100" id="Ntu-ST-2iJ"/>
-                        <constraint firstItem="cB8-MR-Sud" firstAttribute="centerY" secondItem="Ex3-pH-Cnd" secondAttribute="centerY" id="lVA-aC-cKe"/>
+                        <constraint firstItem="tGS-rN-rQL" firstAttribute="centerX" secondItem="Ex3-pH-Cnd" secondAttribute="centerX" id="rkS-41-qCI"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acp-ry-6ZM" customClass="UIImageView">
@@ -106,6 +112,9 @@
                         <constraint firstAttribute="height" constant="44" id="0sT-12-8Ua"/>
                     </constraints>
                     <state key="normal" backgroundImage="btn_wancheng"/>
+                    <connections>
+                        <action selector="cilckWanChen:" destination="-1" eventType="touchUpInside" id="cQ5-Je-aBE"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

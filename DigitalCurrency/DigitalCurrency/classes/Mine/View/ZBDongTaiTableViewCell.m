@@ -42,9 +42,12 @@
     _zanCountLabel.text = model.zanCount.stringValue;
     _commentCountLabel.text = model.commentCount.stringValue;
     if (self.model.picture.length == 0 || [self.model.picture containsString:@"<html>"]) {
-       _image_View.image = [UIImage imageNamed:@"pic_dongtai1"];
+//       _image_View.image = [UIImage imageNamed:@"pic_dongtai1"];
+        _view_imageSuperH.constant = 0 ;
        }else{
-        [_image_View sd_setImageWithURL:[NSURL URLWithString:self.model.picture]];
+        [_image_View sd_setImageWithURL:[NSURL URLWithString:self.model.picture]];//pic_dongtai1
+           [_image_View sd_setImageWithURL:[NSURL URLWithString:self.model.picture] placeholderImage:[UIImage imageNamed:@"pic_dongtai1"]];
+           
        }
       
        _image_View.contentMode = UIViewContentModeScaleToFill;

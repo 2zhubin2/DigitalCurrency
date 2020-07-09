@@ -80,10 +80,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)fankuizxClick:(id)sender {
-    
+    /*
     ZBFanKuiZXViewController *vc = [ZBFanKuiZXViewController new];
-    
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];*/
+     [MBProgressHUD showError:@"未开放此功能"];
 }
 - (IBAction)yonghuxieyiClick:(id)sender {
     

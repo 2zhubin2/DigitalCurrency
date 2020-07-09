@@ -80,6 +80,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
         [_head_btn setImage:nil forState:UIControlStateNormal];
         _NIckNameLabel.text = @"";
         _signatureLabel.text = @"";
+        [_head_btn setBackgroundImage:[UIImage imageNamed:@"morentouxiang"] forState:UIControlStateNormal];
         _dataArray_one = nil;
         _dataArray_two = nil;
         _dataArray_three = nil;
@@ -247,7 +248,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
        
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            //
+            [MBProgressHUD showError:@"网络错误"];
         }];
         
     
@@ -281,7 +282,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
        
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            //
+            [MBProgressHUD showError:@"网络错误"];
         }];
         
     
@@ -306,11 +307,11 @@ static NSString *ID_fensi = @"MineFenSiCell";
     manager.requestSerializer.timeoutInterval = 20.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     manager.responseSerializer = response;
-    
-    [manager POST:@"http://api.yysc.online/user/talk/getTalkList/0" parameters:@{
+    NSString *url = [NSString stringWithFormat:@"http://api.yysc.online/user/talk/getTalkList/%@",appDelegate.mineUserInfoModel.userID];
+    [manager POST:url parameters:@{
         @"_orderByDesc" : @"publishTime",
         @"userId" : appDelegate.mineUserInfoModel.userID,
-        @"_pageSize" : pageSize
+        @"_pageSize" : @10
     } headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if(responseObject != nil){
 //            weakSelf.dataArray_three = [MTLJSONAdapter modelsOfClass:[PopularNewsModel class] fromJSONArray:responseObject[@"data"][@"list"] error:&error];

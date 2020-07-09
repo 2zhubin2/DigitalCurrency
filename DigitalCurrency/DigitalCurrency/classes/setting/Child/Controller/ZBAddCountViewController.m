@@ -1,46 +1,35 @@
 //
-//  ZBloginViewController.m
+//  ZBAddCountViewController.m
 //  DigitalCurrency
 //
-//  Created by 朱彬 on 2020/6/29.
+//  Created by 朱彬 on 2020/7/9.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
-#import "ZBloginViewController.h"
+#import "ZBAddCountViewController.h"
 #import "ZBRegisterViewController.h"
-#import "ZBFreepwViewController.h"
-#import "ZBResetPassWordViewController.h"
-#import "ZBMineUserInfoModel.h"
 
-@interface ZBloginViewController ()
+@interface ZBAddCountViewController ()
 @property (strong, nonatomic) IBOutlet UIView *loginView;
 @property (strong, nonatomic) IBOutlet UITextField *name_F;
 @property (strong, nonatomic) IBOutlet UITextField *password_F;
 
 @end
 
-@implementation ZBloginViewController
+@implementation ZBAddCountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
-         self.navigationItem.leftBarButtonItem = leftItem;
-//         self.navigationItem.title = @"密码登录";
+    self.navigationItem.leftBarButtonItem = leftItem;
     
     _loginView.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0].CGColor;
-    _loginView.layer.shadowOffset = CGSizeMake(2, 2);
-    _loginView.layer.shadowOpacity = 1;
-    _loginView.layer.shadowRadius = 5;
-    _loginView.layer.cornerRadius = 10;
-    
-    
-    
-    
-}
-- (void)viewWillAppear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = YES;
-    self.navigationController.navigationBar.hidden = NO;
+       _loginView.layer.shadowOffset = CGSizeMake(2, 2);
+       _loginView.layer.shadowOpacity = 1;
+       _loginView.layer.shadowRadius = 5;
+       _loginView.layer.cornerRadius = 10;
     
 }
 
@@ -48,27 +37,16 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)clickWJMM:(id)sender {
-    ZBResetPassWordViewController *vc = [ZBResetPassWordViewController new];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (IBAction)clickMMDL:(id)sender {
-    ZBFreepwViewController *vc = [ZBFreepwViewController new];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (IBAction)cliickGoRegister:(id)sender {
-    ZBRegisterViewController *vc = [ZBRegisterViewController new];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (IBAction)clickBeginLogin:(id)sender {
-    
+
+- (IBAction)clickLogin:(UIButton *)sender {
     [self beginLogin];
-    
 }
 
+- (IBAction)clickRegester:(UIButton *)sender {
+    ZBRegisterViewController *vc = [[ZBRegisterViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 - (IBAction)clickShow:(UIButton *)sender {
     _password_F.secureTextEntry = !_password_F.isSecureTextEntry;
 }
@@ -95,32 +73,28 @@
 //               NSLog(@"data===%@",data);
 //        NSLog(@"dict===%@",dict);
                if ([success isEqualToString:@"1"]) {
-                   [MBProgressHUD showMessage:@"登录成功..."];
-//                   ZBPersonModel *perModel = [ZBPersonModel ZBPersonModelWithDict:dict];
-                   ZBMineUserInfoModel *mineuserInfoModel = [ZBMineUserInfoModel mj_objectWithKeyValues:dict];
+                   [MBProgressHUD showMessage:@"添加账号成功..."];
+
+               
+                   ZBMineUserInfoModel *tempModel = [ZBMineUserInfoModel mj_objectWithKeyValues:dict];
                        //延时执行代码
                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                            [MBProgressHUD hideHUD];
-                                   NSLog(@"responseObjrect===%@",responseObject);
-                           
-                           //存入用户数据
-                           NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
-                           NSDictionary *tempDic = [mineuserInfoModel mj_keyValues];
-                           [tempDic writeToFile:path atomically:YES];
-                           [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+                           if ([self.delegate respondsToSelector:@selector(AddCountViewControllerAddSuccess:)]) {
+                            [self.delegate AddCountViewControllerAddSuccess:tempModel];
+                        }
                            [self.navigationController popViewControllerAnimated:YES];
-                          
                        });
                     
                                             
                     
                }else{
                    [MBProgressHUD hideHUD];
-                   [MBProgressHUD showError:@"登录未成功"];
+                   [MBProgressHUD showError:@"添加账号失败"];
                }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
-        [MBProgressHUD showError:@"登录失败"];
+        [MBProgressHUD showError:@"添加账号失败"];
     }];
      
     
@@ -130,8 +104,6 @@
     [_name_F endEditing:YES];
     [_password_F endEditing:YES];
 }
-
-
 /*
 #pragma mark - Navigation
 

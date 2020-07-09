@@ -12,6 +12,7 @@
                 <outlet property="CommentBtn" destination="xgt-0I-6k1" id="5ha-5N-xHF"/>
                 <outlet property="sousuobg_View" destination="ES3-iF-ThN" id="kPc-Im-hiW"/>
                 <outlet property="tableView" destination="RCe-Mh-0U3" id="fXN-bI-4Aw"/>
+                <outlet property="text_F" destination="3MU-M2-ZpN" id="qgD-e8-DXG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -55,6 +56,9 @@
                             <state key="disabled">
                                 <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="clickComment:" destination="-1" eventType="touchUpInside" id="apB-6w-e9U"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

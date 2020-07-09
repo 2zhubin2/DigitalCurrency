@@ -7,8 +7,9 @@
 //
 
 #import "ZBQieHuanZhangHaoViewController.h"
+#import "ZBAddCountViewController.h"
 
-@interface ZBQieHuanZhangHaoViewController ()
+@interface ZBQieHuanZhangHaoViewController ()<ZBAddCountViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *touxiang_one;
 @property (strong, nonatomic) IBOutlet UIImageView *touxiang_two;
 
@@ -34,6 +35,33 @@
     _preSelectBtn = _btn_one;
     _preSelectBtn.selected = YES;
     
+  
+       
+    
+}
+
+- (void)setTempUserInfoModel:(ZBMineUserInfoModel *)tempUserInfoModel{
+    _tempUserInfoModel = tempUserInfoModel;
+    if (![tempUserInfoModel.head containsString:@"<html>"] && tempUserInfoModel.head.length != 0) {
+        [_touxiang_two sd_setImageWithURL:[NSURL URLWithString:tempUserInfoModel.head] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+    }
+    _nameLabel_two.text = tempUserInfoModel.nickName;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (![appDelegate.mineUserInfoModel.head containsString:@"<html>"] && appDelegate.mineUserInfoModel.head.length != 0) {
+
+        [_touxiang_one sd_setImageWithURL:[NSURL URLWithString:appDelegate.mineUserInfoModel.head] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+    }
+    _nameLabel_one.text = appDelegate.mineUserInfoModel.nickName;
+    
+    if (_tempUserInfoModel != nil) {
+        if (![_tempUserInfoModel.head containsString:@"<html>"] && _tempUserInfoModel.head.length != 0) {
+            [_touxiang_two sd_setImageWithURL:[NSURL URLWithString:_tempUserInfoModel.head] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
+        }
+        _nameLabel_two.text = _tempUserInfoModel.nickName;
+    }
 }
 
 -(void)backSetting{
@@ -46,6 +74,19 @@
     _preSelectBtn.selected = NO;
     sender.selected = !sender.isSelected;
     _preSelectBtn = sender;
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (_tempUserInfoModel != nil) {
+        ZBMineUserInfoModel *temp = appDelegate.mineUserInfoModel;
+        appDelegate.mineUserInfoModel = _tempUserInfoModel;
+        //存入用户数据
+        NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+        NSDictionary *tempDic = [self.tempUserInfoModel mj_keyValues];
+        [tempDic writeToFile:path atomically:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+        _tempUserInfoModel = temp;
+        [MBProgressHUD showSuccess:@"切换账号成功"];
+    }
+    
     
 }
 - (IBAction)clickBtn_two:(UIButton *)sender {
@@ -53,9 +94,31 @@
     _preSelectBtn.selected = NO;
     sender.selected = !sender.isSelected;
     _preSelectBtn = sender;
+     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (_tempUserInfoModel != nil) {
+        ZBMineUserInfoModel *temp = appDelegate.mineUserInfoModel;
+        appDelegate.mineUserInfoModel = _tempUserInfoModel;
+        //存入用户数据
+        NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+        NSDictionary *tempDic = [self.tempUserInfoModel mj_keyValues];
+        [tempDic writeToFile:path atomically:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+        _tempUserInfoModel = temp;
+        [MBProgressHUD showSuccess:@"切换账号成功"];
+    }
+   
+    
 }
 - (IBAction)addClick:(id)sender {
-    //
+    ZBAddCountViewController *vc = [[ZBAddCountViewController alloc] init];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - ZBAddCountViewControllerDelegate
+
+- (void)AddCountViewControllerAddSuccess:(ZBMineUserInfoModel *)model{
+    _tempUserInfoModel = model;
 }
 
 /*

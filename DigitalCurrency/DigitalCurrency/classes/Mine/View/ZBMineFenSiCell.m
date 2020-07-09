@@ -47,6 +47,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _head_imageV.layer.cornerRadius = 20;
     [self setupshadowColor];
 }
 

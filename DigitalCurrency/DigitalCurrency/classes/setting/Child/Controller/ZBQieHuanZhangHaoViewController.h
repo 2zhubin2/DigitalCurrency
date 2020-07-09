@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBMineUserInfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBQieHuanZhangHaoViewController : UIViewController
+
+/**用户信息*/
+@property (strong, nonatomic) ZBMineUserInfoModel *tempUserInfoModel;
 
 @end
 

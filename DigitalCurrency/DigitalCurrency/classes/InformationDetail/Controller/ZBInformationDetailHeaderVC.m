@@ -106,10 +106,17 @@ static NSString *ID_three = @"CommentCell";
         UIView *view = [[UIView alloc] init];
         
         UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake(16.5,10,310,20);
+        label.frame = CGRectMake(16.5,20,310,20);
         label.numberOfLines = 0;
         [view addSubview:label];
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"区块链知识普及：虚拟货币≠数字货币" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 18],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
+        NSString *title = [NSString string];
+        if (self.typeFlag == YES) {
+            title = @"热点资讯";
+        }else{
+            title = @"精选好文";
+        }
+        
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 18],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
 
         label.attributedText = string;
         
@@ -177,7 +184,7 @@ static NSString *ID_three = @"CommentCell";
     
     if (indexPath.section == 0) {
         ZBInformationDetail_oneCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_one];
-            
+        cell.model = self.model;
         return cell;
     }else{
         ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_two];

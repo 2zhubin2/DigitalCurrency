@@ -41,7 +41,7 @@
     _time_label.text = [self timetampTostring:model.publishTime.integerValue];
     _contentLabel.text = model.content;
     if ([model.picture containsString:@"<html>"]  || model.picture.length == 0) {
-        _view_imagebgH.constant = 1;
+        _view_imagebgH.constant = 0;
     }else{
         [self.image_V sd_setImageWithURL:[NSURL URLWithString:model.picture]];
     }

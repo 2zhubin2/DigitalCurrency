@@ -108,6 +108,9 @@
 		B35B9F3524B3194200BEA360 /* ZBimageCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B35B9F3424B3194200BEA360 /* ZBimageCodeView.m */; };
 		B35B9F3724B3194F00BEA360 /* ZBimageCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35B9F3624B3194F00BEA360 /* ZBimageCodeView.xib */; };
 		B35B9F3A24B32B1F00BEA360 /* ZBMineUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B35B9F3924B32B1F00BEA360 /* ZBMineUserInfoModel.m */; };
+		B3B789F624B6F06A00E18C70 /* SelectPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B789F524B6F06A00E18C70 /* SelectPhotoManager.m */; };
+		B3B789FA24B7186D00E18C70 /* ZBAddCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B789F824B7186D00E18C70 /* ZBAddCountViewController.m */; };
+		B3B789FB24B7186D00E18C70 /* ZBAddCountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B789F924B7186D00E18C70 /* ZBAddCountViewController.xib */; };
 		C7788D8124AB493800669EDC /* YKLineChartViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C7788D2C24AB493800669EDC /* YKLineChartViewBase.m */; };
 		C7788D8224AB493800669EDC /* YKLineDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C7788D2D24AB493800669EDC /* YKLineDataSet.m */; };
 		C7788D8324AB493800669EDC /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = C7788D2E24AB493800669EDC /* NetWork.m */; };
@@ -342,6 +345,11 @@
 		B35B9F3624B3194F00BEA360 /* ZBimageCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBimageCodeView.xib; sourceTree = "<group>"; };
 		B35B9F3824B32B1F00BEA360 /* ZBMineUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBMineUserInfoModel.h; sourceTree = "<group>"; };
 		B35B9F3924B32B1F00BEA360 /* ZBMineUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBMineUserInfoModel.m; sourceTree = "<group>"; };
+		B3B789F424B6F06A00E18C70 /* SelectPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoManager.h; sourceTree = "<group>"; };
+		B3B789F524B6F06A00E18C70 /* SelectPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoManager.m; sourceTree = "<group>"; };
+		B3B789F724B7186D00E18C70 /* ZBAddCountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBAddCountViewController.h; sourceTree = "<group>"; };
+		B3B789F824B7186D00E18C70 /* ZBAddCountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBAddCountViewController.m; sourceTree = "<group>"; };
+		B3B789F924B7186D00E18C70 /* ZBAddCountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBAddCountViewController.xib; sourceTree = "<group>"; };
 		C7788D2C24AB493800669EDC /* YKLineChartViewBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKLineChartViewBase.m; sourceTree = "<group>"; };
 		C7788D2D24AB493800669EDC /* YKLineDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKLineDataSet.m; sourceTree = "<group>"; };
 		C7788D2E24AB493800669EDC /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
@@ -571,6 +579,9 @@
 				B35B9F2624B312A000BEA360 /* ZBZhuXiaoTangChuangView.h */,
 				B35B9F2724B312A000BEA360 /* ZBZhuXiaoTangChuangView.m */,
 				B35B9F2924B312C200BEA360 /* ZBZhuXiaoTangChuangView.xib */,
+				B3B789F724B7186D00E18C70 /* ZBAddCountViewController.h */,
+				B3B789F824B7186D00E18C70 /* ZBAddCountViewController.m */,
+				B3B789F924B7186D00E18C70 /* ZBAddCountViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1122,6 +1133,8 @@
 		B34AC41424A9D1A300BFA9D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B3B789F424B6F06A00E18C70 /* SelectPhotoManager.h */,
+				B3B789F524B6F06A00E18C70 /* SelectPhotoManager.m */,
 				B34AC41724A9D1B800BFA9D5 /* ZBFabuViewController.h */,
 				B34AC41824A9D1B800BFA9D5 /* ZBFabuViewController.m */,
 				B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */,
@@ -1482,6 +1495,7 @@
 				B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */,
 				B349743124ADDA9F001005A4 /* ZBGuanYuWMViewController.xib in Resources */,
 				C7788DE624AB5EDA00669EDC /* ZBCommunityViewController.xib in Resources */,
+				B3B789FB24B7186D00E18C70 /* ZBAddCountViewController.xib in Resources */,
 				B35B9F3724B3194F00BEA360 /* ZBimageCodeView.xib in Resources */,
 				B35B9F2324B306EC00BEA360 /* ZBloginViewController.xib in Resources */,
 				B34AC40324A9CB8100BFA9D5 /* ZBHomeViewController.xib in Resources */,
@@ -1586,6 +1600,7 @@
 				C7788DD624AB5E3E00669EDC /* ZBNewInformationViewController.m in Sources */,
 				C7788D8324AB493800669EDC /* NetWork.m in Sources */,
 				B34AC40224A9CB8100BFA9D5 /* ZBHomeViewController.m in Sources */,
+				B3B789FA24B7186D00E18C70 /* ZBAddCountViewController.m in Sources */,
 				B348850624AC737D00A23201 /* ZBNewInformationTableViewCell.m in Sources */,
 				B349740A24AD6D3A001005A4 /* ZBSearchViewController.m in Sources */,
 				C7788D9124AB493800669EDC /* ZCMakeTableViewCell.m in Sources */,
@@ -1622,6 +1637,7 @@
 				C7788D8F24AB493800669EDC /* YKViewBase.m in Sources */,
 				B348850124AC6D7D00A23201 /* ZBViewController.m in Sources */,
 				B349740524AD6C88001005A4 /* ZBSearchOneViewController.m in Sources */,
+				B3B789F624B6F06A00E18C70 /* SelectPhotoManager.m in Sources */,
 				B348850B24AC811700A23201 /* ZBIndustryStormTableViewCell.m in Sources */,
 				B35B9F0124B2CB9100BEA360 /* userModel.m in Sources */,
 				B34AB5F324B01A2E0091FEAC /* ZBCommentDetailViewController.m in Sources */,

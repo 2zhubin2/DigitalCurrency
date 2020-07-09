@@ -33,6 +33,7 @@
 }
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self RefreshSignIn];
@@ -42,7 +43,7 @@
        self.navigationItem.title = @"设置";
     self.navigationController.navigationBar.hidden = NO;
     
-    [self CurIsSignIn];
+//    [self CurIsSignIn];
     
     
     [self steupCalendar];
@@ -92,6 +93,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
+    [self CurIsSignIn];
 }
 
 #pragma mark - 用户签到记录（仅当月）
@@ -139,24 +141,31 @@
     [manager GET:@"http://api.yysc.online/user/sign/hasSign" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dict = responseObject;
         NSString *success = [NSString stringWithFormat:@"%@",dict[@"success"]];
+        NSString *data = [NSString stringWithFormat:@"%@",dict[@"data"]];
 
                if ([success isEqualToString:@"1"]) {
                    
-                   self.SIgnInBtn.layer.cornerRadius = 20;
-                   self.SIgnInBtn.layer.borderColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0].CGColor;
+                   if ([data isEqualToString:@"0"]) {
+                    self.SIgnInBtn.layer.cornerRadius = 20;
+                    [self.SIgnInBtn setTitle:@"立即签到" forState:UIControlStateNormal];
+                    self.SIgnInBtn.backgroundColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0];
+                    [self.SIgnInBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                    self.SIgnInBtn.enabled = YES;
+                       
+                   }else{
+                       
+                    self.SIgnInBtn.layer.cornerRadius = 20;
+                    self.SIgnInBtn.layer.borderColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0].CGColor;
                     self.SIgnInBtn.layer.borderWidth = 1;
                     [self.SIgnInBtn setTitle:@"已签到" forState:UIControlStateNormal];
                     self.SIgnInBtn.enabled = NO;
+                   }
+                 
                    
                 
                    
                }else{
-                  
-                   self.SIgnInBtn.layer.cornerRadius = 20;
-                   [self.SIgnInBtn setTitle:@"立即签到" forState:UIControlStateNormal];
-                    self.SIgnInBtn.backgroundColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0];
-                    [self.SIgnInBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                    self.SIgnInBtn.enabled = YES;
+                  //
                }
     } failure:nil];
      

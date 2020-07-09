@@ -22,6 +22,7 @@
 @property(nonatomic,strong)NSMutableArray *comment_dataArray;
 
 @property (strong, nonatomic) IBOutlet UIButton *CommentBtn;
+@property (strong, nonatomic) IBOutlet UITextField *text_F;
 
 @end
 
@@ -57,6 +58,63 @@ static NSString *ID_twe = @"CommentCell";
 }
 
 
+- (IBAction)clickComment:(UIButton *)sender {
+    
+    if (self.text_F.text.length != 0) {
+        [self ZBbeginFabuPL];
+       
+    }else{
+        [MBProgressHUD showError:@"请输入评论内容"];
+    }
+    
+}
+
+#pragma mark - 发布评论功能
+-(void)ZBbeginFabuPL{
+    
+//    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+//    [par setObject:self.userID forKey:@"userId"];
+ 
+    [par setObject:appDelegate.mineUserInfoModel.userID forKey:@"userId"];
+    [par setObject:self.model.talkId forKey:@"talkId"];
+    [par setObject:self.text_F.text forKey:@"content"];
+    [par setObject:@"" forKey:@"video"];
+    [par setObject:@"" forKey:@"matchId"];
+    
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+   
+    [manager POST:@"http://api.yysc.online/user/talk/commentTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+        NSDictionary *data = responseObject;
+//        NSLog(@"%@",data);
+        NSString *success = [NSString stringWithFormat:@"%@",data[@"success"]];
+        if ([success isEqualToString:@"1"]) {
+            [MBProgressHUD showMessage:@"评论成功..."];
+            
+            //延时执行代码
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [MBProgressHUD hideHUD];
+                self.text_F.text = @"";
+                [self.view endEditing:YES];
+                [self.navigationController popViewControllerAnimated:YES];
+            
+                });
+        }else{
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showError:@"评论失败，重新输入"];
+        }
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [MBProgressHUD showError:@"网络错误"];
+        }];
+        
+    
+}
 
 - (void)add_notifacationObserver{
     // 注册键盘弹起收回通知，使输入框位置于键盘上

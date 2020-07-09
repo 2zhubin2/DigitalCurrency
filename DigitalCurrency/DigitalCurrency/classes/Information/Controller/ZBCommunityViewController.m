@@ -51,14 +51,25 @@
     tuijian_vc.title = @"推荐";
     [self addChildViewController:tuijian_vc];
     [self.scrollView addSubview:tuijian_vc.view];
-    tuijian_vc.view.frame = CGRectMake(0, 0 , zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 -44);
+    tuijian_vc.view.frame = CGRectMake(0, 0 , scrollView.bounds.size.width, scrollView.bounds.size.height);
+//    [tuijian_vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(scrollView);
+//        make.left.equalTo(scrollView);
+//        make.bottom.equalTo(scrollView);
+//        make.right.equalTo(scrollView);
+//    }];
     
     ZBCommunityGuanZhuViewController *guanzhu_vc = [[ZBCommunityGuanZhuViewController alloc] init];
     guanzhu_vc.title = @"关注";
     [self addChildViewController:guanzhu_vc];
     [self.scrollView addSubview:guanzhu_vc.view];
-    guanzhu_vc.view.frame = CGRectMake(zbStatuBarW, 0 , zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 - 44);
-    
+    guanzhu_vc.view.frame = CGRectMake(zbStatuBarW, 0 , scrollView.bounds.size.width, scrollView.bounds.size.height );
+//    [guanzhu_vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(scrollView);
+//        make.left.equalTo(scrollView.mas_right);
+//        make.bottom.equalTo(scrollView);
+//        make.right.equalTo(scrollView.mas_right).multipliedBy(2);
+//    }];
     [self setupAllTitleButton:self.title_view];
     
     
@@ -66,6 +77,8 @@
 //- (void)viewWillAppear:(BOOL)animated{
 //    self.tabBarController.tabBar.hidden = YES;
 //}
+
+
 
 -(void)setupAllTitleButton:(UIView *)view{
     
@@ -136,11 +149,13 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSLog(@"123");
+//    NSLog(@"123");
     NSInteger page = scrollView.contentOffset.x / zbStatuBarW;
        UIButton *btn = self.btns[page];
        [self selButton:btn];
 }
+ 
+
 
 /*
 #pragma mark - Navigation

@@ -12,6 +12,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *topImageV;
 @property (strong, nonatomic) IBOutlet UIImageView *bgImageV;
 @property (strong, nonatomic) IBOutlet UITextField *sex_FV;
+@property (strong, nonatomic) IBOutlet UITextField *nickName_F;
+@property (strong, nonatomic) IBOutlet UITextField *sigure_F;
+
 
 @end
 
@@ -21,14 +24,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
              self.navigationItem.leftBarButtonItem = leftItem;
              self.navigationItem.title = @"编辑资料";
     
-    _topImageV.image = [UIImage imageNamed:@"morentouxiang2"];
+//    _topImageV.image = [UIImage imageNamed:@"morentouxiang2"];
     _bgImageV.image = [UIImage imageNamed:@"bg_bianjiziliao"];
     _topImageV.layer.cornerRadius = 50;
-    }
+    _topImageV.clipsToBounds = YES;
+    [_topImageV sd_setImageWithURL:[NSURL URLWithString:appDelegate.mineUserInfoModel.head] placeholderImage:[UIImage imageNamed:@"morentouxiang2"]];
+    _nickName_F.text = appDelegate.mineUserInfoModel.nickName;
+    _sigure_F.text = appDelegate.mineUserInfoModel.signature;
+    
+}
+- (IBAction)clickCamera:(UIButton *)sender {
+    [MBProgressHUD showError:@"暂不支持修改头像"];
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = NO;
@@ -46,6 +58,19 @@
 }
 - (IBAction)changeEdit:(id)sender {
     [self selectSex];
+}
+
+- (IBAction)cilckWanChen:(UIButton *)sender {
+    if (self.nickName_F.text.length != 0) {
+        if (self.sigure_F.text.length != 0) {
+             [self reSetZiLiao];
+        }else{
+        [MBProgressHUD showError:@"请输入个性签名"];
+        }
+    }else{
+        [MBProgressHUD showError:@"请输入昵称"];
+    }
+   
 }
 
 
@@ -114,6 +139,52 @@
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
+
+-(void)reSetZiLiao{
+    [MBProgressHUD showMessage:@"正在修改..."];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    AFJSONResponseSerializer *response   = [AFJSONResponseSerializer serializer];
+    response.removesKeysWithNullValues = YES;
+    response.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/html",@"text/css",@"text/javascript", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"ios" forHTTPHeaderField:@"Referer"];
+    // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 20.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    manager.responseSerializer = response;
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSDictionary *tempdict = @{
+        @"id" : appDelegate.mineUserInfoModel.userID,
+        @"nickName" : self.nickName_F.text,
+        @"signature":self.sigure_F.text
+    };
+    
+    [manager PUT:@"http://api.yysc.online/user/personal/updateUser" parameters:tempdict headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [MBProgressHUD hideHUD];
+        if ([responseObject[@"success"] isEqualToNumber:@1]) {
+            NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+            NSMutableDictionary *userPlist = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] mutableCopy];
+            [userPlist setObject:self.nickName_F.text forKey:@"nickName"];
+            [userPlist setObject:self.sigure_F.text forKey:@"signature"];
+            [userPlist writeToFile:path atomically:YES];
+            appDelegate.mineUserInfoModel.nickName = self.nickName_F.text;
+            appDelegate.mineUserInfoModel.signature = self.sigure_F.text;
+            [MBProgressHUD showSuccess:@"修改成功" ];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"edit" object:self];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else {
+            [MBProgressHUD showError:@"修改失败"];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showError:@"网络错误"];
+        NSLog(@"%@",error);
+    }];
+}
 
 /*
 #pragma mark - Navigation

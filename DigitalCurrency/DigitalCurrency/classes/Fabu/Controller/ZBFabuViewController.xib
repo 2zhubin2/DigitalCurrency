@@ -10,6 +10,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBFabuViewController">
             <connections>
                 <outlet property="TiShiLabel" destination="cTs-eb-iQO" id="yb6-dJ-Khp"/>
+                <outlet property="deldeteImageVBtn" destination="LV5-Gq-j7q" id="2f4-CT-My4"/>
+                <outlet property="openCaremaBtn" destination="8NL-c5-V2j" id="ALw-f4-esn"/>
+                <outlet property="pic_BgView" destination="IsK-K8-yKm" id="loK-G9-Ulg"/>
                 <outlet property="text_FV" destination="E9e-Uj-dVT" id="7h4-Zr-bCj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,13 +32,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_dongtai1" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-qZ-1Sc">
-                    <rect key="frame" x="20" y="274" width="105" height="105"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="105" id="t4J-Fw-Hzc"/>
-                        <constraint firstAttribute="height" constant="105" id="ydu-rx-JS2"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKh-xf-pcP">
                     <rect key="frame" x="145" y="274" width="105" height="105"/>
                     <subviews>
@@ -46,6 +42,9 @@
                                 <constraint firstAttribute="height" constant="27.5" id="bcd-pv-viy"/>
                             </constraints>
                             <state key="normal" backgroundImage="camera"/>
+                            <connections>
+                                <action selector="clickCamera:" destination="-1" eventType="touchUpInside" id="Mof-T8-lY0"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -73,14 +72,6 @@
                         <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LV5-Gq-j7q">
-                    <rect key="frame" x="101" y="284" width="14" height="14"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="14" id="Jun-4w-PLP"/>
-                        <constraint firstAttribute="width" constant="14" id="doo-p5-7X4"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="qingkong"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-dl-M90">
                     <rect key="frame" x="100" y="435" width="60" height="25"/>
                     <constraints>
@@ -104,6 +95,28 @@
                         <constraint firstAttribute="height" constant="44" id="qOz-S2-mjg"/>
                     </constraints>
                     <state key="normal" backgroundImage="btn_fabuanniu"/>
+                    <connections>
+                        <action selector="clickFaBu:" destination="-1" eventType="touchUpInside" id="Nze-wx-spN"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsK-K8-yKm">
+                    <rect key="frame" x="20" y="274" width="105" height="105"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="105" id="EYZ-Pw-jHE"/>
+                        <constraint firstAttribute="height" constant="105" id="o0s-uj-d6J"/>
+                    </constraints>
+                </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LV5-Gq-j7q">
+                    <rect key="frame" x="101" y="284" width="14" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="KJp-bq-i90"/>
+                        <constraint firstAttribute="width" constant="14" id="MAn-xX-e2J"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="qingkong"/>
+                    <connections>
+                        <action selector="ClickDeleteImageV:" destination="-1" eventType="touchUpInside" id="Lmy-J3-MjS"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -113,21 +126,21 @@
                 <constraint firstItem="Eq4-ut-qNv" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="FqI-YB-JJA"/>
                 <constraint firstItem="E9e-Uj-dVT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="FsZ-oK-5wJ"/>
                 <constraint firstItem="cTs-eb-iQO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="20" id="GSl-ix-FZA"/>
-                <constraint firstItem="LV5-Gq-j7q" firstAttribute="top" secondItem="NKh-xf-pcP" secondAttribute="top" constant="10" id="Gvo-8T-qmS"/>
+                <constraint firstItem="VrS-cf-VSx" firstAttribute="top" secondItem="IsK-K8-yKm" secondAttribute="bottom" constant="20" id="M5U-VQ-SMd"/>
+                <constraint firstItem="IsK-K8-yKm" firstAttribute="top" secondItem="E9e-Uj-dVT" secondAttribute="bottom" constant="20" id="O8y-Nr-BDA"/>
                 <constraint firstAttribute="trailing" secondItem="E9e-Uj-dVT" secondAttribute="trailing" constant="10" id="QK0-gb-aFx"/>
+                <constraint firstItem="IsK-K8-yKm" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="TAU-aD-DBd"/>
                 <constraint firstItem="I8h-dl-M90" firstAttribute="centerY" secondItem="sod-n6-ucT" secondAttribute="centerY" id="YmB-4M-CUt"/>
                 <constraint firstItem="NKh-xf-pcP" firstAttribute="top" secondItem="E9e-Uj-dVT" secondAttribute="bottom" constant="20" id="c0D-Od-Zi6"/>
                 <constraint firstItem="cTs-eb-iQO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dYf-Be-vjW"/>
                 <constraint firstItem="sod-n6-ucT" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dd8-gD-JrL"/>
-                <constraint firstItem="CgF-qZ-1Sc" firstAttribute="top" secondItem="E9e-Uj-dVT" secondAttribute="bottom" constant="20" id="e6R-Oi-aXN"/>
+                <constraint firstItem="NKh-xf-pcP" firstAttribute="leading" secondItem="IsK-K8-yKm" secondAttribute="trailing" constant="20" id="ggT-Y9-oAd"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Eq4-ut-qNv" secondAttribute="trailing" constant="10" id="hRq-WN-oSk"/>
-                <constraint firstItem="VrS-cf-VSx" firstAttribute="leading" secondItem="CgF-qZ-1Sc" secondAttribute="leading" id="kLd-WH-dd1"/>
-                <constraint firstItem="VrS-cf-VSx" firstAttribute="top" secondItem="CgF-qZ-1Sc" secondAttribute="bottom" constant="20" id="l0f-k7-i29"/>
+                <constraint firstItem="LV5-Gq-j7q" firstAttribute="top" secondItem="E9e-Uj-dVT" secondAttribute="bottom" constant="30" id="oDh-45-R7r"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="Eq4-ut-qNv" secondAttribute="bottomMargin" constant="49" id="swd-Mt-5Gq"/>
+                <constraint firstItem="IsK-K8-yKm" firstAttribute="leading" secondItem="VrS-cf-VSx" secondAttribute="leading" id="tD7-wq-pmr"/>
                 <constraint firstItem="I8h-dl-M90" firstAttribute="leading" secondItem="sod-n6-ucT" secondAttribute="trailing" constant="20" id="ucT-f1-Kta"/>
-                <constraint firstItem="CgF-qZ-1Sc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="vLy-Dd-oiG"/>
-                <constraint firstItem="NKh-xf-pcP" firstAttribute="leading" secondItem="CgF-qZ-1Sc" secondAttribute="trailing" constant="20" id="whV-cR-7N0"/>
-                <constraint firstItem="NKh-xf-pcP" firstAttribute="leading" secondItem="LV5-Gq-j7q" secondAttribute="trailing" constant="30" id="y1q-N0-oqu"/>
+                <constraint firstItem="NKh-xf-pcP" firstAttribute="leading" secondItem="LV5-Gq-j7q" secondAttribute="trailing" constant="30" id="wTM-36-9CX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
@@ -138,7 +151,6 @@
         <image name="biaoqianbg" width="60" height="25"/>
         <image name="btn_fabuanniu" width="345" height="44"/>
         <image name="camera" width="30" height="27.5"/>
-        <image name="pic_dongtai1" width="315" height="184"/>
         <image name="qingkong" width="14" height="14"/>
     </resources>
 </document>

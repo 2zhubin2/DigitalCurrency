@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBNewInformationModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBInformationDetail_oneCell : UITableViewCell
+
+@property(nonatomic,strong)ZBNewInformationModel *model;
 
 @end
 

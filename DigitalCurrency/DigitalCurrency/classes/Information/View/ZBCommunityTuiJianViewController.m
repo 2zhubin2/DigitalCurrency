@@ -17,6 +17,7 @@
 
 @property(nonatomic,weak)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,assign)int page;
 
 @end
 
@@ -35,7 +36,8 @@ static NSString *ID = @"CommunityTuiJianCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self ZBLoadData:0];
+//    _page = 0;
+//    [self ZBLoadData:0];
     // Do any additional setup after loading the view from its nib.
     [self setupTableView];
     
@@ -44,12 +46,24 @@ static NSString *ID = @"CommunityTuiJianCell";
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = NO;
+    self.page = 0;
+    [self.tableView.mj_footer resetNoMoreData];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+       if (appDelegate.login == YES) {
+           [self ZBLoadData:0];
+       }else{
+           self.dataArray = nil;
+           [self.tableView reloadData];
+       }
+    
+    
 }
 
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
-    tableView.frame = CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
+    tableView.frame = CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 -44);
        
     [tableView registerNib:[UINib nibWithNibName:@"ZBCommunityTuiJianTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
        
@@ -65,7 +79,77 @@ static NSString *ID = @"CommunityTuiJianCell";
     // 告诉tableView所有cell的估算高度
     tableView.estimatedRowHeight = 70;
     _tableView = tableView;
+    
+    //上拉刷新初始化
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+        // 设置文字
+        [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+        [header setTitle:@"释放并刷新" forState:MJRefreshStatePulling];
+        [header setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
+        
+         self.tableView.mj_header = header;
+       
+       //下拉加载初始化
+       MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+        // 设置文字
+        [footer setTitle:@"点击或上拉刷新" forState:MJRefreshStateIdle];
+        [footer setTitle:@"加载更多 ..." forState:MJRefreshStateRefreshing];
+        [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+        
+        self.tableView.mj_footer = footer;
 }
+
+#pragma  mark - 上拉刷新
+-(void)refresh
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.login == YES) {
+        [self ZBLoadData:0];
+        self.page = 0;
+        [self.tableView.mj_footer resetNoMoreData];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header endRefreshing];
+           });
+    }else{
+        self.dataArray = nil;
+        [self.tableView reloadData];
+        [MBProgressHUD showError:@"请登录"];
+        [self.tableView.mj_header endRefreshing];
+      
+    }
+    
+    
+}
+
+#pragma  mark - 下拉加载
+-(void)loadMore
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.login == YES) {
+        if (_page == 3) {
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        //        self.tableView.mj_footer.hidden = YES;
+                    });
+                
+            }else{
+                [self ZBLoadData:_page];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.tableView.mj_footer endRefreshing];
+                   });
+                _page+=1;
+            }
+    }else{
+        self.dataArray = nil;
+        [self.tableView reloadData];
+        [MBProgressHUD showError:@"请登录"];
+        [self.tableView.mj_footer endRefreshing];
+    }
+    
+    
+}
+
 
 
 
@@ -86,7 +170,13 @@ static NSString *ID = @"CommunityTuiJianCell";
         NSDictionary *data = responseObject;
         NSMutableArray *tempArray = [NSMutableArray new];
         tempArray = [ZBCommunityTuiJianModel mj_objectArrayWithKeyValuesArray:data[@"data"][@"list"]];
-        self.dataArray = tempArray;
+        
+        if (page == 0) {
+            self.dataArray = tempArray;
+        }else{
+            [self.dataArray addObjectsFromArray:tempArray];
+        }
+//        self.dataArray = tempArray;
         
         [self.tableView reloadData];
             
