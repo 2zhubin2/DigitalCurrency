@@ -71,6 +71,9 @@
                     <state key="normal" title="#BTC" backgroundImage="biaoqianbg">
                         <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="cilckLabel_one:" destination="-1" eventType="touchUpInside" id="yQr-6j-fVX"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8h-dl-M90">
                     <rect key="frame" x="100" y="435" width="60" height="25"/>
@@ -82,6 +85,9 @@
                     <state key="normal" title="#数字货币" backgroundImage="biaoqianbg">
                         <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="cilckLabel_one:" destination="-1" eventType="touchUpInside" id="YbZ-F4-6FX"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="说点什么吧..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTs-eb-iQO">
                     <rect key="frame" x="20" y="64" width="78" height="16"/>
@@ -89,16 +95,6 @@
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eq4-ut-qNv">
-                    <rect key="frame" x="10" y="777" width="394" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="qOz-S2-mjg"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="btn_fabuanniu"/>
-                    <connections>
-                        <action selector="clickFaBu:" destination="-1" eventType="touchUpInside" id="Nze-wx-spN"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsK-K8-yKm">
                     <rect key="frame" x="20" y="274" width="105" height="105"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -113,9 +109,19 @@
                         <constraint firstAttribute="height" constant="14" id="KJp-bq-i90"/>
                         <constraint firstAttribute="width" constant="14" id="MAn-xX-e2J"/>
                     </constraints>
-                    <state key="normal" backgroundImage="qingkong"/>
+                    <state key="normal" title=" " backgroundImage="qingkong"/>
                     <connections>
                         <action selector="ClickDeleteImageV:" destination="-1" eventType="touchUpInside" id="Lmy-J3-MjS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ara-m9-tkD">
+                    <rect key="frame" x="10" y="803" width="394" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="MQ1-se-IFs"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="btn_fabuanniu"/>
+                    <connections>
+                        <action selector="clickOne:" destination="-1" eventType="touchUpInside" id="DqU-Ch-FI0"/>
                     </connections>
                 </button>
             </subviews>
@@ -123,21 +129,21 @@
             <constraints>
                 <constraint firstItem="sod-n6-ucT" firstAttribute="top" secondItem="VrS-cf-VSx" secondAttribute="bottom" constant="20" id="12O-E8-K9F"/>
                 <constraint firstItem="E9e-Uj-dVT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="10" id="E1Z-e4-RHm"/>
-                <constraint firstItem="Eq4-ut-qNv" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="FqI-YB-JJA"/>
                 <constraint firstItem="E9e-Uj-dVT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="FsZ-oK-5wJ"/>
                 <constraint firstItem="cTs-eb-iQO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="20" id="GSl-ix-FZA"/>
                 <constraint firstItem="VrS-cf-VSx" firstAttribute="top" secondItem="IsK-K8-yKm" secondAttribute="bottom" constant="20" id="M5U-VQ-SMd"/>
                 <constraint firstItem="IsK-K8-yKm" firstAttribute="top" secondItem="E9e-Uj-dVT" secondAttribute="bottom" constant="20" id="O8y-Nr-BDA"/>
                 <constraint firstAttribute="trailing" secondItem="E9e-Uj-dVT" secondAttribute="trailing" constant="10" id="QK0-gb-aFx"/>
                 <constraint firstItem="IsK-K8-yKm" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="TAU-aD-DBd"/>
+                <constraint firstItem="ara-m9-tkD" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="Woa-0T-3L9"/>
                 <constraint firstItem="I8h-dl-M90" firstAttribute="centerY" secondItem="sod-n6-ucT" secondAttribute="centerY" id="YmB-4M-CUt"/>
                 <constraint firstItem="NKh-xf-pcP" firstAttribute="top" secondItem="E9e-Uj-dVT" secondAttribute="bottom" constant="20" id="c0D-Od-Zi6"/>
                 <constraint firstItem="cTs-eb-iQO" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dYf-Be-vjW"/>
                 <constraint firstItem="sod-n6-ucT" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="dd8-gD-JrL"/>
                 <constraint firstItem="NKh-xf-pcP" firstAttribute="leading" secondItem="IsK-K8-yKm" secondAttribute="trailing" constant="20" id="ggT-Y9-oAd"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Eq4-ut-qNv" secondAttribute="trailing" constant="10" id="hRq-WN-oSk"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ara-m9-tkD" secondAttribute="trailing" constant="10" id="gmC-aJ-7PG"/>
+                <constraint firstAttribute="bottom" secondItem="ara-m9-tkD" secondAttribute="bottom" constant="49" id="lIY-VM-1Bx"/>
                 <constraint firstItem="LV5-Gq-j7q" firstAttribute="top" secondItem="E9e-Uj-dVT" secondAttribute="bottom" constant="30" id="oDh-45-R7r"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="Eq4-ut-qNv" secondAttribute="bottomMargin" constant="49" id="swd-Mt-5Gq"/>
                 <constraint firstItem="IsK-K8-yKm" firstAttribute="leading" secondItem="VrS-cf-VSx" secondAttribute="leading" id="tD7-wq-pmr"/>
                 <constraint firstItem="I8h-dl-M90" firstAttribute="leading" secondItem="sod-n6-ucT" secondAttribute="trailing" constant="20" id="ucT-f1-Kta"/>
                 <constraint firstItem="NKh-xf-pcP" firstAttribute="leading" secondItem="LV5-Gq-j7q" secondAttribute="trailing" constant="30" id="wTM-36-9CX"/>

@@ -185,10 +185,11 @@ static NSString *ID_three = @"CommentCell";
     if (indexPath.section == 0) {
         ZBInformationDetail_oneCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_one];
         cell.model = self.model;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else{
         ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_two];
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     return nil;

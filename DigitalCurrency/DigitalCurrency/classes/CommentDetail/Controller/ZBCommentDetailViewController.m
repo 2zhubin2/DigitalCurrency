@@ -105,10 +105,12 @@ static NSString *ID_twe = @"CommentCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_twe];
+    
     if (indexPath.section == 0) {
-        
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else{
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
          return cell;
     }
     return nil;

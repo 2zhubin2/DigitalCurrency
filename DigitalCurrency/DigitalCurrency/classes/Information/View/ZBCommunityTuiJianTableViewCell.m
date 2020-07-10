@@ -44,6 +44,7 @@
         _view_imagebgH.constant = 0;
     }else{
         [self.image_V sd_setImageWithURL:[NSURL URLWithString:model.picture]];
+        [self.image_V sd_setImageWithURL:[NSURL URLWithString:model.picture] placeholderImage:[UIImage imageNamed:@"pic_dongtai1"]];
     }
    
     _zanCount_label.text = model.zanCount;
@@ -68,7 +69,7 @@
 
 -(void)setupImageView{
     UIImageView *imagview = [[UIImageView alloc] init];
-//    imagview.image = [UIImage imageNamed:@"pic_dongtai1"];
+    imagview.image = [UIImage imageNamed:@"pic_dongtai1"];
     _image_V = imagview;
     imagview.contentMode = UIViewContentModeScaleToFill;
     [self.view_imagebg

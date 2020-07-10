@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *tab_back_view;
 
+
 @property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
@@ -37,8 +38,9 @@ static NSString *ID = @"HomeCell";
     [super viewDidLoad];
     
     [self dataLoad];
-//    NSLog(@"%ld",_dataArray.count);
-    // Do any additional setup after loading the view from its nib.
+
+    
+
     _search_backImageView.image = [UIImage imageNamed:@"bg_search1"];
     
     [_tableView registerNib:[UINib nibWithNibName:@"ZBHomeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
@@ -51,8 +53,50 @@ static NSString *ID = @"HomeCell";
     
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.showsHorizontalScrollIndicator = NO;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+   
     
     [self notificationCenterConfig];
+    
+     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+       
+        
+        // 设置文字
+        [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+        [header setTitle:@"释放并刷新" forState:MJRefreshStatePulling];
+        [header setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
+        
+         self.tableView.mj_header = header;
+
+        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+         
+        // 设置文字
+        [footer setTitle:@"点击或上拉刷新" forState:MJRefreshStateIdle];
+        [footer setTitle:@"加载更多 ..." forState:MJRefreshStateRefreshing];
+        [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+        
+        self.tableView.mj_footer = footer;
+    
+}
+
+
+-(void)refresh
+{
+    [self dataLoad];
+    [self.tableView.mj_footer resetNoMoreData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self.tableView.mj_header endRefreshing];
+       });
+    
+}
+-(void)loadMore
+{
+
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            });
+  
     
 }
 
@@ -93,7 +137,7 @@ static NSString *ID = @"HomeCell";
 #pragma maek - tableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.dataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ZBHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -102,6 +146,7 @@ static NSString *ID = @"HomeCell";
             cell.model = self.dataArray[indexPath.row];
        
     }
+     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return cell;
 }
@@ -166,7 +211,9 @@ static NSString *ID = @"HomeCell";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 
 @end

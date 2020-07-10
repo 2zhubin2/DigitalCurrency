@@ -7,14 +7,17 @@
 //
 
 #import "ZBBianJiZiLiaoViewController.h"
+#import "SelectPhotoManager.h"
 
-@interface ZBBianJiZiLiaoViewController ()
+@interface ZBBianJiZiLiaoViewController ()<selectPhotoDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *topImageV;
 @property (strong, nonatomic) IBOutlet UIImageView *bgImageV;
 @property (strong, nonatomic) IBOutlet UITextField *sex_FV;
 @property (strong, nonatomic) IBOutlet UITextField *nickName_F;
 @property (strong, nonatomic) IBOutlet UITextField *sigure_F;
 
+@property (nonatomic,strong)SelectPhotoManager *photoManger;
+@property(nonatomic,copy)NSString *saveUrl;
 
 @end
 
@@ -39,7 +42,18 @@
     
 }
 - (IBAction)clickCamera:(UIButton *)sender {
-    [MBProgressHUD showError:@"暂不支持修改头像"];
+    
+    if (!_photoManger) {
+        _photoManger = [[SelectPhotoManager alloc]init];
+        _photoManger.delegate = self;
+    }
+       [_photoManger startSelectPhotoWithImageName:@"选择头像"];
+            __weak typeof (self)mySelf = self;
+            _photoManger.successHandle = ^(SelectPhotoManager *manager, UIImage *image) {
+                mySelf.topImageV.image = image;
+               
+            };
+//    [MBProgressHUD showError:@"暂不支持修改头像"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -61,15 +75,22 @@
 }
 
 - (IBAction)cilckWanChen:(UIButton *)sender {
-    if (self.nickName_F.text.length != 0) {
-        if (self.sigure_F.text.length != 0) {
-             [self reSetZiLiao];
-        }else{
-        [MBProgressHUD showError:@"请输入个性签名"];
-        }
+    
+    if (_saveUrl == nil) {
+        [self uoLoadPicture];
     }else{
-        [MBProgressHUD showError:@"请输入昵称"];
+        if (self.nickName_F.text.length != 0) {
+               if (self.sigure_F.text.length != 0) {
+                    [self reSetZiLiao];
+               }else{
+               [MBProgressHUD showError:@"请输入个性签名"];
+               }
+           }else{
+               [MBProgressHUD showError:@"请输入昵称"];
+           }
     }
+    
+   
    
 }
 
@@ -159,7 +180,8 @@
     NSDictionary *tempdict = @{
         @"id" : appDelegate.mineUserInfoModel.userID,
         @"nickName" : self.nickName_F.text,
-        @"signature":self.sigure_F.text
+        @"signature":self.sigure_F.text,
+        @"head":self.saveUrl
     };
     
     [manager PUT:@"http://api.yysc.online/user/personal/updateUser" parameters:tempdict headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -169,9 +191,11 @@
             NSMutableDictionary *userPlist = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] mutableCopy];
             [userPlist setObject:self.nickName_F.text forKey:@"nickName"];
             [userPlist setObject:self.sigure_F.text forKey:@"signature"];
+            [userPlist setObject:self.saveUrl forKey:@"head"];
             [userPlist writeToFile:path atomically:YES];
             appDelegate.mineUserInfoModel.nickName = self.nickName_F.text;
             appDelegate.mineUserInfoModel.signature = self.sigure_F.text;
+            appDelegate.mineUserInfoModel.head = self.saveUrl;
             [MBProgressHUD showSuccess:@"修改成功" ];
 //            [[NSNotificationCenter defaultCenter] postNotificationName:@"edit" object:self];
             [self.navigationController popViewControllerAnimated:YES];
@@ -184,6 +208,36 @@
         [MBProgressHUD showError:@"网络错误"];
         NSLog(@"%@",error);
     }];
+}
+
+
+#pragma mark -上传图片
+
+-(void)uoLoadPicture{
+    
+    NSDictionary *dict = @{
+        @"file" : self.topImageV.image
+    };
+    [NetworkTool.shared postReturnString:@"http://image.yysc.online/upload" fileName:@"iconImage" image:self.topImageV.image viewcontroller:nil params:dict success:^(id _Nonnull response) {
+        [MBProgressHUD showSuccess:@"上传图片中"];
+        self.saveUrl = response;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+           if (self.nickName_F.text.length != 0) {
+                if (self.sigure_F.text.length != 0) {
+                    [self reSetZiLiao];
+                }else{
+                    [MBProgressHUD showError:@"请输入个性签名"];
+                }
+                }else{
+                    [MBProgressHUD showError:@"请输入昵称"];
+                }
+        });
+//        NSLog(@"%@",self.saveUrl);
+    } failture:^(NSError * _Nonnull error) {
+        [MBProgressHUD showError:@"上传图片失败"];
+    }];
+    
 }
 
 /*

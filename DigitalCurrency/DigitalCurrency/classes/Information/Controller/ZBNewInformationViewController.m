@@ -199,7 +199,7 @@ static NSString *ID = @"NewInformationCell";
        
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            //
+            [MBProgressHUD showError:@"网络错误"];
         }];
         
     
@@ -219,6 +219,7 @@ static NSString *ID = @"NewInformationCell";
 
         cell.model = self.dataArray[indexPath.row];
     cell.typeFlag = YES;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
  
 
     

@@ -10,5 +10,5 @@ target 'DigitalCurrency' do
 	pod 'FSScrollContentView'
 	pod 'SVProgressHUD'
  	pod 'MJRefresh'
-# 	pod 'Alamofire','=4.9.1'∫
+ 	pod 'Alamofire','=4.9.1'
 end

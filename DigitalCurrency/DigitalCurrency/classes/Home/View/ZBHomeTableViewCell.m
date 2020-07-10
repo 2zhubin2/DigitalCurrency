@@ -38,7 +38,7 @@
     }
     
     
-    switch (self.row_num) {
+    switch (self.row_num%5) {
         case 0:
             _image_v_head.image = [UIImage imageNamed:@"icon_btc"];
             break;

@@ -72,6 +72,45 @@ static NSString *ID = @"CommunityGuanZhuCell";
     tableView.estimatedRowHeight = 70;
     _tableView = tableView;
     
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+          
+           
+           // 设置文字
+           [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+           [header setTitle:@"释放并刷新" forState:MJRefreshStatePulling];
+           [header setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
+           
+            self.tableView.mj_header = header;
+
+           MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+            
+           // 设置文字
+           [footer setTitle:@"点击或上拉刷新" forState:MJRefreshStateIdle];
+           [footer setTitle:@"加载更多 ..." forState:MJRefreshStateRefreshing];
+           [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+           
+           self.tableView.mj_footer = footer;
+    
+}
+
+-(void)refresh
+{
+    [self RefreshGuanZhu];
+    [self.tableView.mj_footer resetNoMoreData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self.tableView.mj_header endRefreshing];
+       });
+    
+}
+-(void)loadMore
+{
+
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            });
+  
+    
 }
 
 #pragma mark - tableViewDataSource
@@ -115,11 +154,13 @@ static NSString *ID = @"CommunityGuanZhuCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBCommunityGuanZhuHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_h];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.section == 0) {
         return cell;
     }else{
         ZBCommunityGuanZhuCell *cell_new = [tableView dequeueReusableCellWithIdentifier:ID];
         cell_new.model = self.dataArray[indexPath.row];
+        cell_new.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell_new;
         
     }

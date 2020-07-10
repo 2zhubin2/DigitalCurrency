@@ -26,14 +26,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJ1-Dy-c4K">
                     <rect key="frame" x="10" y="124" width="394" height="200"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morentouxiang" translatesAutoresizingMaskIntoConstraints="NO" id="Psr-Wh-PRb">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morentouxiang" translatesAutoresizingMaskIntoConstraints="NO" id="Psr-Wh-PRb">
                             <rect key="frame" x="85" y="70" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="STt-af-tft"/>
                                 <constraint firstAttribute="height" constant="60" id="UOh-O0-t1X"/>
                             </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morentouxiang" translatesAutoresizingMaskIntoConstraints="NO" id="0UJ-4D-Zte">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morentouxiang" translatesAutoresizingMaskIntoConstraints="NO" id="0UJ-4D-Zte">
                             <rect key="frame" x="249" y="70" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="KA4-0X-h5g"/>

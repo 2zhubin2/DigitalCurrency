@@ -26,6 +26,7 @@
 #import "ZBMineUserInfoModel.h"
 #import "AppDelegate.h"
 #import "ZBloginViewController.h"
+#import "DigitalCurrency-Swift.h"
 
 #define ZBScreenW  [UIScreen mainScreen].bounds.size.width
 #define ZBScreenH  [UIScreen mainScreen].bounds.size.height

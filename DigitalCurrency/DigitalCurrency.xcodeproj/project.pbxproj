@@ -80,6 +80,11 @@
 		B34AC41224A9CBBF00BFA9D5 /* ZBIndustryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC41024A9CBBF00BFA9D5 /* ZBIndustryViewController.xib */; };
 		B34AC41A24A9D1B800BFA9D5 /* ZBFabuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AC41824A9D1B800BFA9D5 /* ZBFabuViewController.m */; };
 		B34AC41B24A9D1B800BFA9D5 /* ZBFabuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */; };
+		B34AF10D24B7F84900A2CCED /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AF10C24B7F84900A2CCED /* NetworkTool.swift */; };
+		B34AF11124B8186200A2CCED /* ZBSetting_newVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AF10F24B8186200A2CCED /* ZBSetting_newVC.m */; };
+		B34AF11224B8186200A2CCED /* ZBSetting_newVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AF11024B8186200A2CCED /* ZBSetting_newVC.xib */; };
+		B34AF11624B829C300A2CCED /* ZBsettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34AF11424B829C300A2CCED /* ZBsettingCell.m */; };
+		B34AF11724B829C300A2CCED /* ZBsettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34AF11524B829C300A2CCED /* ZBsettingCell.xib */; };
 		B34FEA3924B4022600DB54F6 /* ZBBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34FEA3824B4022600DB54F6 /* ZBBaseTabBarController.m */; };
 		B34FEA3C24B4409C00DB54F6 /* ZBMineGuanZhuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B34FEA3B24B4409C00DB54F6 /* ZBMineGuanZhuModel.m */; };
 		B34FEA3F24B4452500DB54F6 /* ZBDongTaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B34FEA3E24B4452500DB54F6 /* ZBDongTaiModel.m */; };
@@ -297,6 +302,14 @@
 		B34AC41824A9D1B800BFA9D5 /* ZBFabuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBFabuViewController.m; sourceTree = "<group>"; };
 		B34AC41924A9D1B800BFA9D5 /* ZBFabuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBFabuViewController.xib; sourceTree = "<group>"; };
 		B34AC41C24A9D47900BFA9D5 /* DigitalCurrency.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DigitalCurrency.pch; sourceTree = "<group>"; };
+		B34AF10B24B7F84800A2CCED /* DigitalCurrency-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DigitalCurrency-Bridging-Header.h"; sourceTree = "<group>"; };
+		B34AF10C24B7F84900A2CCED /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
+		B34AF10E24B8186200A2CCED /* ZBSetting_newVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSetting_newVC.h; sourceTree = "<group>"; };
+		B34AF10F24B8186200A2CCED /* ZBSetting_newVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSetting_newVC.m; sourceTree = "<group>"; };
+		B34AF11024B8186200A2CCED /* ZBSetting_newVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSetting_newVC.xib; sourceTree = "<group>"; };
+		B34AF11324B829C300A2CCED /* ZBsettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBsettingCell.h; sourceTree = "<group>"; };
+		B34AF11424B829C300A2CCED /* ZBsettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBsettingCell.m; sourceTree = "<group>"; };
+		B34AF11524B829C300A2CCED /* ZBsettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBsettingCell.xib; sourceTree = "<group>"; };
 		B34FEA3724B4022600DB54F6 /* ZBBaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBBaseTabBarController.h; sourceTree = "<group>"; };
 		B34FEA3824B4022600DB54F6 /* ZBBaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBBaseTabBarController.m; sourceTree = "<group>"; };
 		B34FEA3A24B4409C00DB54F6 /* ZBMineGuanZhuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBMineGuanZhuModel.h; sourceTree = "<group>"; };
@@ -530,6 +543,9 @@
 				B349741A24ADAB37001005A4 /* ZBSettingViewController.h */,
 				B349741B24ADAB37001005A4 /* ZBSettingViewController.m */,
 				B349741C24ADAB37001005A4 /* ZBSettingViewController.xib */,
+				B34AF10E24B8186200A2CCED /* ZBSetting_newVC.h */,
+				B34AF10F24B8186200A2CCED /* ZBSetting_newVC.m */,
+				B34AF11024B8186200A2CCED /* ZBSetting_newVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -544,6 +560,9 @@
 		B349741924ADAAFC001005A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B34AF11324B829C300A2CCED /* ZBsettingCell.h */,
+				B34AF11424B829C300A2CCED /* ZBsettingCell.m */,
+				B34AF11524B829C300A2CCED /* ZBsettingCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -702,6 +721,7 @@
 		B349BEDC24AF13C40011CAD4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B349BEBB24AED1B40011CAD4 /* SignIn */,
 				B349BEE624AF144A0011CAD4 /* ZBCommentCell.h */,
 				B349BEE724AF144A0011CAD4 /* ZBCommentCell.m */,
 				B349BEE824AF144A0011CAD4 /* ZBCommentCell.xib */,
@@ -861,7 +881,6 @@
 				B34AB5EC24B01A030091FEAC /* CommentDetail */,
 				B349BEDD24AF13CB0011CAD4 /* InformationDetail */,
 				B349BED924AF13C40011CAD4 /* DynamicDetail */,
-				B349BEBB24AED1B40011CAD4 /* SignIn */,
 				B349741624ADAAFC001005A4 /* setting */,
 				C7788DA524AB4D6200669EDC /* Other */,
 				B34AC41324A9D1A300BFA9D5 /* Fabu */,
@@ -1344,8 +1363,10 @@
 		C7788DA524AB4D6200669EDC /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				B34AF10C24B7F84900A2CCED /* NetworkTool.swift */,
 				C7788DAF24AB50F100669EDC /* Masonry */,
 				C7788DA624AB4D7600669EDC /* MBProgressHUD */,
+				B34AF10B24B7F84800A2CCED /* DigitalCurrency-Bridging-Header.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1437,6 +1458,7 @@
 				TargetAttributes = {
 					B34AC3CD24A9C97B00BFA9D5 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -1469,6 +1491,7 @@
 				B34AC3E124A9C97D00BFA9D5 /* LaunchScreen.storyboard in Resources */,
 				B34AB5FD24B02C760091FEAC /* ZBForwardViewController.xib in Resources */,
 				C7CC03A824ACD7AE00EBA000 /* ZBCommunityGuanZhuHeaderCell.xib in Resources */,
+				B34AF11224B8186200A2CCED /* ZBSetting_newVC.xib in Resources */,
 				B348850224AC6D7D00A23201 /* ZBViewController.xib in Resources */,
 				B33C5B5224AF2C9400B1991C /* ZBInformationDetail_oneCell.xib in Resources */,
 				B349BEEA24AF144A0011CAD4 /* ZBCommentCell.xib in Resources */,
@@ -1478,6 +1501,7 @@
 				B35B9F2F24B316E900BEA360 /* ZBSignInSuccessView.xib in Resources */,
 				B349741024AD731D001005A4 /* ZBSearchOneCollectionViewCell.xib in Resources */,
 				B34AC40D24A9CBAC00BFA9D5 /* ZBMineViewController.xib in Resources */,
+				B34AF11724B829C300A2CCED /* ZBsettingCell.xib in Resources */,
 				B348850724AC737D00A23201 /* ZBNewInformationTableViewCell.xib in Resources */,
 				B349741E24ADAB37001005A4 /* ZBSettingViewController.xib in Resources */,
 				C7788DD724AB5E3E00669EDC /* ZBNewInformationViewController.xib in Resources */,
@@ -1572,6 +1596,7 @@
 				C7788DA124AB493800669EDC /* TopView.m in Sources */,
 				C7788D8C24AB493800669EDC /* CodeTool.m in Sources */,
 				C7788DD124AB50F100669EDC /* MASViewConstraint.m in Sources */,
+				B34AF10D24B7F84900A2CCED /* NetworkTool.swift in Sources */,
 				B34AB60324B05BFA0091FEAC /* ZBNewInformationModel.m in Sources */,
 				C7788D9024AB493800669EDC /* BaseViewController.m in Sources */,
 				B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */,
@@ -1641,6 +1666,7 @@
 				B348850B24AC811700A23201 /* ZBIndustryStormTableViewCell.m in Sources */,
 				B35B9F0124B2CB9100BEA360 /* userModel.m in Sources */,
 				B34AB5F324B01A2E0091FEAC /* ZBCommentDetailViewController.m in Sources */,
+				B34AF11624B829C300A2CCED /* ZBsettingCell.m in Sources */,
 				B34AC3E424A9C97D00BFA9D5 /* main.m in Sources */,
 				C783386724AE19C900DCF4FA /* ZBBianJiZiLiaoViewController.m in Sources */,
 				B34FEA4724B478C900DB54F6 /* ZBSignInRecordModel.m in Sources */,
@@ -1669,6 +1695,7 @@
 				C7788DA224AB493800669EDC /* ZCBaseViewController.m in Sources */,
 				C7CC03A724ACD7AE00EBA000 /* ZBCommunityGuanZhuHeaderCell.m in Sources */,
 				C7788D9D24AB493800669EDC /* LCPNetWorkManager.m in Sources */,
+				B34AF11124B8186200A2CCED /* ZBSetting_newVC.m in Sources */,
 				C7788D9224AB493800669EDC /* QHDetailViewController.m in Sources */,
 				C7788DD224AB50F100669EDC /* MASViewAttribute.m in Sources */,
 				C7788DAD24AB4D7600669EDC /* MBProgressHUD+XMG.m in Sources */,
@@ -1827,17 +1854,23 @@
 			baseConfigurationReference = 88BFB1DBF177BF1C0B3A75E0 /* Pods-DigitalCurrency.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DigitalCurrency/DigitalCurrency.pch";
 				INFOPLIST_FILE = DigitalCurrency/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = scrb.DigitalCurrency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DigitalCurrency/classes/Other/DigitalCurrency-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "DigitalCurrency-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
@@ -1848,17 +1881,22 @@
 			baseConfigurationReference = E5E12C486B3CE90D409B7178 /* Pods-DigitalCurrency.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DigitalCurrency/DigitalCurrency.pch";
 				INFOPLIST_FILE = DigitalCurrency/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = scrb.DigitalCurrency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DigitalCurrency/classes/Other/DigitalCurrency-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "DigitalCurrency-Swift.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};

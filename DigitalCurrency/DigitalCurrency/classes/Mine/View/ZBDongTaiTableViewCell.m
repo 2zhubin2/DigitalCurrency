@@ -63,6 +63,8 @@
 //    if (_view_imageSuper.subviews.count == 0) {
 //        _view_imageSuperH.constant = 1;
 //    }
+    _head_btn.layer.cornerRadius = 30;
+    _head_btn.clipsToBounds = YES;
     [self setupShadowColor];
     
     

@@ -13,7 +13,8 @@
 #import "ZBCommunityTuiJianUserModel.h"
 
 
-@interface ZBCommunityTuiJianViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface ZBCommunityTuiJianViewController ()<UITableViewDelegate,UITableViewDataSource,ZBDongTaiDetailViewControllerDelegate>
 
 @property(nonatomic,weak)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
@@ -37,9 +38,10 @@ static NSString *ID = @"CommunityTuiJianCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    _page = 0;
-//    [self ZBLoadData:0];
+    [self ZBLoadData:0];
     // Do any additional setup after loading the view from its nib.
     [self setupTableView];
+    
     
 }
 
@@ -51,7 +53,7 @@ static NSString *ID = @"CommunityTuiJianCell";
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
        if (appDelegate.login == YES) {
-           [self ZBLoadData:0];
+//           [self ZBLoadData:0];
        }else{
            self.dataArray = nil;
            [self.tableView reloadData];
@@ -183,7 +185,7 @@ static NSString *ID = @"CommunityTuiJianCell";
        
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            //
+           [MBProgressHUD showError:@"网络错误"];
         }];
         
     
@@ -201,15 +203,25 @@ static NSString *ID = @"CommunityTuiJianCell";
     
     ZBCommunityTuiJianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.model = self.dataArray[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //    NSLog(@"%ld",_dataArray.count);
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZBDongTaiDetailViewController *vc = [[ZBDongTaiDetailViewController alloc] init];
+    vc.delegate = self;
     vc.model = self.dataArray[indexPath.row];
+    vc.indexPath = indexPath;
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+
+#pragma mark - ZBDongTaiDetailViewControllerDelegate
+
+- (void)DongTaiDetailViewControllerPingBi:(NSIndexPath *)indexPath{
+    [self.dataArray removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
 }
 
 /*

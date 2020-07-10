@@ -12,6 +12,7 @@
 #import "ZBcommmentModel.h"
 #import "ZBcommentTalkModel.h"
 #import "ZBForwardViewController.h"
+#import "ZBFanKuiZXViewController.h"
 
 @interface ZBDongTaiDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate,ZBCommentHeaderCellDelegate>
 
@@ -46,7 +47,17 @@ static NSString *ID_twe = @"CommentCell";
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
        self.navigationItem.leftBarButtonItem = leftItem;
-       self.navigationItem.title = @"动态详情";
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if ([appDelegate.mineUserInfoModel.userID.stringValue isEqualToString:self.model.userId]){
+        //
+    }else{
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStyleDone target:self action:@selector(gengduo)];
+        self.navigationItem.rightBarButtonItem = rightItem;
+    }
+    
+    
+    self.navigationItem.title = @"动态详情";
     
     [self PLJson];
     
@@ -57,6 +68,37 @@ static NSString *ID_twe = @"CommentCell";
     _sousuobg_View.layer.cornerRadius = 14;
 }
 
+
+-(void)gengduo{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+                  
+                  
+        UIAlertAction *jubaoAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                 
+                ZBFanKuiZXViewController *vc = [ZBFanKuiZXViewController new];
+                vc.model = self.model;
+                [self.navigationController pushViewController:vc animated:YES];
+                      
+            }];
+              
+        UIAlertAction *pingbiAction = [UIAlertAction actionWithTitle:@"屏蔽" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    if ([self.delegate respondsToSelector:@selector(DongTaiDetailViewControllerPingBi:)]) {
+                        [self.delegate DongTaiDetailViewControllerPingBi:self.indexPath];
+                    }
+                    [self.navigationController popViewControllerAnimated:YES];
+            }];
+                  
+              
+        UIAlertAction *quexiaoAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+            }];
+                  
+
+               [actionSheet addAction:jubaoAction];
+               [actionSheet addAction:pingbiAction];
+               [actionSheet addAction:quexiaoAction];
+               [self presentViewController:actionSheet animated:YES completion:nil];
+}
 
 - (IBAction)clickComment:(UIButton *)sender {
     
@@ -240,10 +282,12 @@ static NSString *ID_twe = @"CommentCell";
         ZBCommentHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_one];
         cell.delegate = self;
         cell.model = self.model;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else{
         ZBCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_twe];
         cell.model = self.comment_dataArray[indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     

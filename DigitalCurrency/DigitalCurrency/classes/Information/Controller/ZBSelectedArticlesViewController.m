@@ -155,7 +155,7 @@ static NSString *ID = @"NewInformationCell";
        
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            //
+          [MBProgressHUD showError:@"网络错误"];
         }];
         
     
@@ -173,6 +173,7 @@ static NSString *ID = @"NewInformationCell";
     ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.model = self.dataArray[indexPath.row];
     cell.typeFlag = NO;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

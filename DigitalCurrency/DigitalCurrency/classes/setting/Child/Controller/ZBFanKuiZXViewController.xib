@@ -20,28 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bH2-Vw-uNm">
-                    <rect key="frame" x="10" y="64" width="105" height="105"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8n-76-S2H">
-                            <rect key="frame" x="37.5" y="39" width="30" height="27.5"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="AiZ-jv-kv1"/>
-                                <constraint firstAttribute="height" constant="27.5" id="zPP-F3-0FD"/>
-                            </constraints>
-                            <state key="normal" backgroundImage="camera"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="U8n-76-S2H" firstAttribute="centerX" secondItem="bH2-Vw-uNm" secondAttribute="centerX" id="NKH-jr-WPL"/>
-                        <constraint firstAttribute="width" constant="105" id="Ptz-ds-VKW"/>
-                        <constraint firstItem="U8n-76-S2H" firstAttribute="centerY" secondItem="bH2-Vw-uNm" secondAttribute="centerY" id="U4S-US-ejX"/>
-                        <constraint firstAttribute="height" constant="105" id="qmM-Nj-MVd"/>
-                    </constraints>
-                </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0XG-av-P2Y">
-                    <rect key="frame" x="10" y="229" width="394" height="191"/>
+                    <rect key="frame" x="10" y="176.5" width="394" height="191"/>
                     <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="191" id="52k-jR-j01"/>
@@ -51,33 +31,33 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyv-oy-qdp">
-                    <rect key="frame" x="355" y="399" width="29" height="16"/>
+                    <rect key="frame" x="355" y="346.5" width="29" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S36-1I-fHu">
-                    <rect key="frame" x="0.0" y="425" width="414" height="1"/>
+                    <rect key="frame" x="0.0" y="372.5" width="414" height="1"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Zog-cf-Wsl"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CI2-kf-HmG">
-                    <rect key="frame" x="341.5" y="399" width="8.5" height="16"/>
+                    <rect key="frame" x="341.5" y="346.5" width="8.5" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfV-Xe-JtA">
-                    <rect key="frame" x="0.0" y="223" width="414" height="1"/>
+                    <rect key="frame" x="0.0" y="170.5" width="414" height="1"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="iyZ-0U-Y2x"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="说点什么吧..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9O-a0-lsa">
-                    <rect key="frame" x="20" y="239" width="78" height="16"/>
+                    <rect key="frame" x="20" y="186.5" width="78" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -95,11 +75,9 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="0XG-av-P2Y" firstAttribute="centerY" secondItem="Q5M-cg-NOt" secondAttribute="centerY" multiplier="0.6" id="1HK-y7-xO5"/>
                 <constraint firstItem="b9O-a0-lsa" firstAttribute="top" secondItem="cfV-Xe-JtA" secondAttribute="bottom" constant="15" id="EuI-zU-jbP"/>
-                <constraint firstItem="0XG-av-P2Y" firstAttribute="top" secondItem="bH2-Vw-uNm" secondAttribute="bottom" constant="60" id="FfG-s5-27K"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="0XG-av-P2Y" secondAttribute="trailing" constant="10" id="Kmd-HX-B88"/>
-                <constraint firstItem="bH2-Vw-uNm" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="Mns-vQ-mg9"/>
-                <constraint firstItem="bH2-Vw-uNm" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="NPg-yd-bH5"/>
                 <constraint firstItem="BGi-zb-tJW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Peu-r1-eur"/>
                 <constraint firstItem="0XG-av-P2Y" firstAttribute="top" secondItem="cfV-Xe-JtA" secondAttribute="bottom" constant="5" id="SIZ-10-Vhs"/>
                 <constraint firstItem="0XG-av-P2Y" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="TSx-X6-gP5"/>
@@ -123,6 +101,5 @@
     </objects>
     <resources>
         <image name="btn_tijiao" width="345" height="44"/>
-        <image name="camera" width="30" height="27.5"/>
     </resources>
 </document>

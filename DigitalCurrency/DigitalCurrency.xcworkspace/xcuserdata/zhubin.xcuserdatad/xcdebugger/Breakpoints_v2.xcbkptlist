@@ -88,8 +88,8 @@
             filePath = "DigitalCurrency/classes/DynamicDetail/Controller/ZBDongTaiDetailViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "-PLJson"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,8 +152,8 @@
             filePath = "DigitalCurrency/classes/Mine/Controller/ZBMineViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
             landmarkName = "-ZBLoadData_three:"
             landmarkType = "7">
          </BreakpointContent>
@@ -360,8 +360,8 @@
             filePath = "DigitalCurrency/classes/Mine/Controller/ZBMineViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "-ZBLoadData_two:"
             landmarkType = "7">
          </BreakpointContent>
@@ -376,8 +376,8 @@
             filePath = "DigitalCurrency/classes/Information/View/ZBCommunityGuanZhuViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "-RefreshGuanZhu"
             landmarkType = "7">
          </BreakpointContent>
@@ -456,8 +456,8 @@
             filePath = "DigitalCurrency/classes/DynamicDetail/Controller/ZBDongTaiDetailViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "-CommentHeaderCellClickFenXiang:"
             landmarkType = "7">
          </BreakpointContent>
@@ -472,8 +472,8 @@
             filePath = "DigitalCurrency/classes/DynamicDetail/Controller/ZBDongTaiDetailViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
             landmarkName = "-CommentHeaderCellClickFenXiang:"
             landmarkType = "7">
          </BreakpointContent>
@@ -488,8 +488,8 @@
             filePath = "DigitalCurrency/classes/Mine/Controller/ZBMineViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
@@ -616,8 +616,8 @@
             filePath = "DigitalCurrency/classes/Fabu/Controller/ZBFabuViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "-ZBbeginFabu"
             landmarkType = "7">
          </BreakpointContent>
@@ -632,8 +632,8 @@
             filePath = "DigitalCurrency/classes/Fabu/Controller/ZBFabuViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-ZBbeginFabu"
             landmarkType = "7">
          </BreakpointContent>
@@ -648,10 +648,122 @@
             filePath = "DigitalCurrency/classes/setting/Child/Controller/ZBBianJiZiLiaoViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D3F2712-6862-4C6F-9705-C72ECE97EE71"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Fabu/Controller/ZBFabuViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "-uoLoadPicture"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E9B8278-D290-40BC-8D89-120027A8B603"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Fabu/Controller/ZBFabuViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-uoLoadPicture"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80F9A086-CBCB-4E72-8B3E-3C0CA079A567"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Fabu/Controller/ZBFabuViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-ClickDeleteImageV:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D7C66DC-D58A-4F36-B1B5-6AFDC4EA1AC5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Mine/Controller/ZBMineViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E9A6629-9FBE-4B88-8952-21F348A3A6D3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Mine/Controller/ZBMineViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1FF1935-7843-484E-B926-70ED660FC9B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/setting/Child/Controller/ZBBianJiZiLiaoViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-uoLoadPicture"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E14436CC-C81C-4AE4-B16B-325B8AAD20D4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigitalCurrency/classes/Fabu/Controller/ZBFabuViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "ZBFabuViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

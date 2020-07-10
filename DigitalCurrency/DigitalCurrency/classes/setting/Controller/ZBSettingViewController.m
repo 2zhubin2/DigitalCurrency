@@ -105,7 +105,10 @@
        }else{
            [[NSNotificationCenter defaultCenter] postNotificationName:@"tuichuLogin" object:self];
        }
-    
+    NSString *path_temp = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user_temp.plist"];
+    if ([fileMger removeItemAtPath:path_temp error:&error]) {
+        //
+    }
     [self.navigationController popViewControllerAnimated:YES];
     
 }

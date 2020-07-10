@@ -32,6 +32,8 @@
    
     _touxiang_one.layer.cornerRadius = 30;
     _touxiang_two.layer.cornerRadius = 30;
+    _touxiang_one.clipsToBounds = YES;
+    _touxiang_two.clipsToBounds = YES;
     _preSelectBtn = _btn_one;
     _preSelectBtn.selected = YES;
     
@@ -49,6 +51,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self determineWhetherToLogin_temp];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (![appDelegate.mineUserInfoModel.head containsString:@"<html>"] && appDelegate.mineUserInfoModel.head.length != 0) {
 
@@ -84,6 +87,11 @@
         [tempDic writeToFile:path atomically:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
         _tempUserInfoModel = temp;
+        //存入临时用户数据
+        NSString *path_temp = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user_temp.plist"];
+        NSDictionary *tempDic_temp = [temp mj_keyValues];
+        [tempDic_temp writeToFile:path_temp atomically:YES];
+        
         [MBProgressHUD showSuccess:@"切换账号成功"];
     }
     
@@ -104,6 +112,11 @@
         [tempDic writeToFile:path atomically:YES];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
         _tempUserInfoModel = temp;
+        //存入临时用户数据
+        NSString *path_temp = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user_temp.plist"];
+        NSDictionary *tempDic_temp = [temp mj_keyValues];
+        [tempDic_temp writeToFile:path_temp atomically:YES];
+        
         [MBProgressHUD showSuccess:@"切换账号成功"];
     }
    
@@ -119,6 +132,24 @@
 
 - (void)AddCountViewControllerAddSuccess:(ZBMineUserInfoModel *)model{
     _tempUserInfoModel = model;
+    NSString *path_temp = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user_temp.plist"];
+    NSDictionary *tempDic_temp = [model mj_keyValues];
+    [tempDic_temp writeToFile:path_temp atomically:YES];
+}
+
+
+#pragma mark - 判断是否存储临时账号
+/**判断是否存储临时账号*/
+- (void)determineWhetherToLogin_temp
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user_temp.plist"];
+    ZBMineUserInfoModel *temp = [ZBMineUserInfoModel mj_objectWithFile:path];
+    if (temp == nil) {
+        //
+    }else{
+        self.tempUserInfoModel = temp;
+    }
+
 }
 
 /*
