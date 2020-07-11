@@ -18,6 +18,7 @@
 
 @property (nonatomic,strong)SelectPhotoManager *photoManger;
 @property(nonatomic,copy)NSString *saveUrl;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *Top_H;
 
 @end
 
@@ -25,14 +26,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    
+    if (@available(iOS 13.0, *)) {
+        
+        //
+        
+    } else {
+        _Top_H.constant = 71;
+    }
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
              self.navigationItem.leftBarButtonItem = leftItem;
              self.navigationItem.title = @"编辑资料";
     
-//    _topImageV.image = [UIImage imageNamed:@"morentouxiang2"];
+
     _bgImageV.image = [UIImage imageNamed:@"bg_bianjiziliao"];
     _topImageV.layer.cornerRadius = 50;
     _topImageV.clipsToBounds = YES;
@@ -41,6 +50,8 @@
     _sigure_F.text = appDelegate.mineUserInfoModel.signature;
     
 }
+
+#pragma mark - 点击相机
 - (IBAction)clickCamera:(UIButton *)sender {
     
     if (!_photoManger) {
@@ -53,7 +64,6 @@
                 mySelf.topImageV.image = image;
                
             };
-//    [MBProgressHUD showError:@"暂不支持修改头像"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -74,6 +84,7 @@
     [self selectSex];
 }
 
+#pragma mark - 修改完成
 - (IBAction)cilckWanChen:(UIButton *)sender {
     
     if (_saveUrl == nil) {
@@ -94,7 +105,7 @@
    
 }
 
-
+#pragma mark - 选择性别
 -(void)selectSex{
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 //    actionSheet.title = @"选择性别";
@@ -113,15 +124,7 @@
      }];
     //修改按钮的颜色，同上可以使用同样的方法修改内容，样式
     [zeroAction setValue:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forKey:@"_titleTextColor"];
-   
-    
-//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"保密" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
-//    [actionSheet setValue:string forKey:@"_attributedTitle"];
 
-    
-    
-    
-    
     UIAlertAction *OneAction = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
 //        NSLog(@"点击了取消");
         self.sex_FV.text = @"男";
@@ -141,18 +144,6 @@
     }];
     [quexiaoAction setValue:[UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0] forKey:@"_titleTextColor"];
     
-    /*
-     UILabel *label = [[UILabel alloc] init];
-     label.frame = CGRectMake(174,628.5,26.5,13);
-     label.numberOfLines = 0;
-     [self.view addSubview:label];
-
-     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"取消" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0]}];
-
-     label.attributedText = string;
-     */
-
-//    [actionSheet addAction:cancel_action];
     [actionSheet addAction:zeroAction];
     [actionSheet addAction:OneAction];
     [actionSheet addAction:twoAction];
@@ -161,6 +152,7 @@
 }
 
 
+#pragma mark - 修改资料
 -(void)reSetZiLiao{
     [MBProgressHUD showMessage:@"正在修改..."];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -212,7 +204,6 @@
 
 
 #pragma mark -上传图片
-
 -(void)uoLoadPicture{
     
     NSDictionary *dict = @{
@@ -240,14 +231,5 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

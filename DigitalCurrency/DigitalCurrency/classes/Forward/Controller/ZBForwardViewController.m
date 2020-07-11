@@ -15,11 +15,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *NickNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;
 @property (strong, nonatomic) IBOutlet UIButton *TSPLBtn;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *Top_H;
 
 @end
 
 @implementation ZBForwardViewController
 
+#pragma mark - 重写setModel
 - (void)setModel:(ZBCommunityTuiJianModel *)model{
     _model = model;
     if (model.picture.length != 0 && ![model.picture containsString:@"<html>"]) {
@@ -31,15 +33,29 @@
     _contentLabel.text = model.content;
 }
 
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
-             self.navigationItem.leftBarButtonItem = leftItem;
-             self.navigationItem.title = @"分享";
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(BeginFaSong)];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    //版本适配
+    if (@available(iOS 13.0, *)) {
+        
+        //
+        
+    } else {
+        _Top_H.constant = 70;
+    }
+    
+    //初始化NavigationItem
+    [self setupNavigationItem];
 
+    //初始化view
+    [self setupView];
+}
+
+#pragma mark - 初始化view
+-(void)setupView{
+    
     if (_model.picture.length != 0 && ![_model.picture containsString:@"<html>"]) {
 
         [_image_V sd_setImageWithURL:[NSURL URLWithString:_model.picture] placeholderImage:[UIImage imageNamed:@"morentouxiang"]];
@@ -49,8 +65,28 @@
     _contentLabel.text = _model.content;
 
     _text_V.delegate = self;
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeBack)];
+    [self.view addGestureRecognizer:swipe];
 }
 
+
+#pragma mark - 初始化NavigationItem
+-(void)setupNavigationItem{
+    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
+               self.navigationItem.leftBarButtonItem = leftItem;
+               self.navigationItem.title = @"分享";
+      UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(BeginFaSong)];
+      self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+#pragma mark - 轻扫返回
+-(void)swipeBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - 开始分享
 -(void)BeginFaSong{
 //    NSLog(@"BeginFaSong");
     if (_text_V.text.length != 0) {
@@ -61,24 +97,28 @@
    
 }
 
+#pragma mark - 点击退出
 -(void)backMine{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - viewWillAppear
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = NO;
 }
 
-
+#pragma mark - 开始编辑TextV
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    NSLog(@"开始编辑");
+//    NSLog(@"开始编辑");
     _tishiLabel.hidden = YES;
 }
 
+#pragma mark - 点击同时评论
 - (IBAction)ClickTSPL:(UIButton *)sender {
     sender.selected = !sender.isSelected;
 }
 
-#pragma mark - 分享功能
+#pragma mark - 开始分享
 -(void)ZBbeginFenXiang{
 //        [MBProgressHUD showMessage:@"正在修改..."];
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -127,7 +167,7 @@
     
 }
 
-#pragma mark - 发布评论功能
+#pragma mark - 发布评论
 -(void)ZBbeginFabuPL{
     
 //    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
@@ -173,14 +213,5 @@
         
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

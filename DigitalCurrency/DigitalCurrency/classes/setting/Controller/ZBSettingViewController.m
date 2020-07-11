@@ -23,20 +23,25 @@
 
 @implementation ZBSettingViewController
 
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-  
     _top_view.image = [UIImage imageNamed:@"bg_set1"];
     _btm_view.image = [UIImage imageNamed:@"bg_set2"];
     
+    //初始化NavigationItem
+    [self setupNavigationItem];
+    
+    
+}
+
+#pragma mark - 初始化NavigationItem
+-(void)setupNavigationItem{
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
     self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.title = @"设置";
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -48,17 +53,21 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+#pragma mark - 编辑资料
 - (IBAction)BianJiZiLiao:(id)sender {
     
     ZBBianJiZiLiaoViewController *vc = [ZBBianJiZiLiaoViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - 修改资料
 - (IBAction)XiuGaiZiLiaoClick:(id)sender {
     
     ZBResetPassWordViewController *vc = [ZBResetPassWordViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - 切换账号
 - (IBAction)QieHuanZhangHaoClick:(id)sender {
     
     ZBQieHuanZhangHaoViewController *vc= [[ZBQieHuanZhangHaoViewController alloc] init];
@@ -66,6 +75,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - 注销账号
 - (IBAction)ZhuXiaoZhangHaoClick:(id)sender {
     ZBZhuXiaoViewController *vc = [[ZBZhuXiaoViewController alloc] init];
     
@@ -73,12 +83,15 @@
     
 }
 
+#pragma mark - 关于我们
 - (IBAction)guanyuwomClick:(id)sender {
     
     ZBGuanYuWMViewController *vc = [ZBGuanYuWMViewController new];
     
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - 反馈中心
 - (IBAction)fankuizxClick:(id)sender {
     /*
     ZBFanKuiZXViewController *vc = [ZBFanKuiZXViewController new];

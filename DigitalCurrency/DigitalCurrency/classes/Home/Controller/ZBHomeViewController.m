@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *search_backImageView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *tab_back_view;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *shouye_TopH;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageV_TopH;
 
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
@@ -39,47 +41,77 @@ static NSString *ID = @"HomeCell";
     
     [self dataLoad];
 
+    if (@available(iOS 13.0, *)) {
+        
+        //
+        
+    } else {
+        _shouye_TopH.constant = 30;
+        _imageV_TopH.constant = 20;
+    }
     
-
+    //设置搜索图片
     _search_backImageView.image = [UIImage imageNamed:@"bg_search1"];
     
-    [_tableView registerNib:[UINib nibWithNibName:@"ZBHomeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
+    //初始化backview
+    [self setupBackView];
+    
+    //初始化tableview
+    [self setup_TableView];
+   
+    //添加通知
+    [self notificationCenterConfig];
+    
+    //设置上拉加载，下拉刷新
+    [self setTableViewRefresh];
+    
+}
+
+#pragma mark - 初始化backview
+-(void)setupBackView{
     _tab_back_view.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
     _tab_back_view.layer.shadowOffset = CGSizeMake(2,2);
     _tab_back_view.layer.shadowOpacity = 1;
     _tab_back_view.layer.shadowRadius = 5;
     _tab_back_view.layer.cornerRadius = 10;
     
+}
+
+#pragma mark - 初始化tableview
+-(void)setup_TableView{
+    
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.showsHorizontalScrollIndicator = NO;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-   
-    
-    [self notificationCenterConfig];
-    
-     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
-       
-        
-        // 设置文字
-        [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
-        [header setTitle:@"释放并刷新" forState:MJRefreshStatePulling];
-        [header setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
-        
-         self.tableView.mj_header = header;
-
-        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
-         
-        // 设置文字
-        [footer setTitle:@"点击或上拉刷新" forState:MJRefreshStateIdle];
-        [footer setTitle:@"加载更多 ..." forState:MJRefreshStateRefreshing];
-        [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
-        
-        self.tableView.mj_footer = footer;
+    [_tableView registerNib:[UINib nibWithNibName:@"ZBHomeTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
     
 }
 
+#pragma mark - 设置上拉加载，下拉刷新
+-(void)setTableViewRefresh{
+    
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    
+     
+     // 设置文字
+     [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+     [header setTitle:@"释放并刷新" forState:MJRefreshStatePulling];
+     [header setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
+     
+      self.tableView.mj_header = header;
 
+     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+      
+     // 设置文字
+     [footer setTitle:@"点击或上拉刷新" forState:MJRefreshStateIdle];
+     [footer setTitle:@"加载更多 ..." forState:MJRefreshStateRefreshing];
+     [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+     
+     self.tableView.mj_footer = footer;
+}
+
+#pragma mark - 下拉刷新
 -(void)refresh
 {
     [self dataLoad];
@@ -89,6 +121,8 @@ static NSString *ID = @"HomeCell";
        });
     
 }
+
+#pragma mark - 上拉加载
 -(void)loadMore
 {
 
@@ -106,9 +140,7 @@ static NSString *ID = @"HomeCell";
 }
 
 
-/**
- 加载关注界面网络数据
- */
+#pragma mark - 加载网络数据
 - (void)dataLoad{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -134,8 +166,7 @@ static NSString *ID = @"HomeCell";
     self.navigationController.tabBarController.selectedIndex = 3;
 }
 
-#pragma maek - tableViewDelegate
-
+#pragma mark - tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
@@ -172,7 +203,6 @@ static NSString *ID = @"HomeCell";
 }
 
 #pragma mark - 点击搜索按钮
-
 - (IBAction)clickSearchBtn:(id)sender {
     ZBSearchViewController *vc = [[ZBSearchViewController alloc] init];
     
@@ -184,7 +214,6 @@ static NSString *ID = @"HomeCell";
 #pragma mark - 通知相关
 - (void)notificationCenterConfig{
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:kNotificationMessagePush object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:@"jumpFabu0"object:nil];
 }
 
@@ -211,6 +240,7 @@ static NSString *ID = @"HomeCell";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - tableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

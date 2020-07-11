@@ -52,6 +52,7 @@
 }
 
 
+#pragma mark - 记录新账号信息
 -(void)beginLogin{
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:self.name_F.text forKey:@"phone"];
@@ -104,14 +105,5 @@
     [_name_F endEditing:YES];
     [_password_F endEditing:YES];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -35,21 +35,15 @@ static NSString *ID = @"NewInformationCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
+
     //初始化页数
     _page = 0;
     
     //设置头部View
      [self setupHeaderView];
     
-
-    
     //设置tableView
     [self setupTableView];
-    
-    
-    
     
    
 }
@@ -61,15 +55,18 @@ static NSString *ID = @"NewInformationCell";
     [self ZBLoadData:0];
     
 }
+
+#pragma mark - 设置头部View
 -(void)setupHeaderView{
     
 
     ZBViewController *vc = [[ZBViewController alloc] init];
-//    [self addChildViewController:vc];
     _headerView = vc.view;
     
    
 }
+
+#pragma mark - 设置tableView
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
@@ -81,6 +78,8 @@ static NSString *ID = @"NewInformationCell";
       tableView.showsVerticalScrollIndicator = NO;
        tableView.showsHorizontalScrollIndicator = NO;
     tableView.tableHeaderView = _headerView;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickHeaderView)];
+    [_headerView addGestureRecognizer:tap];
     tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 200);
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -119,9 +118,6 @@ static NSString *ID = @"NewInformationCell";
     header.stateLabel.textColor = [UIColor blackColor];
     header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];*/
     
-   
-    
- 
     
 //    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
@@ -134,6 +130,10 @@ static NSString *ID = @"NewInformationCell";
     self.tableView.mj_footer = footer;
     
     
+}
+
+-(void)ClickHeaderView{
+    self.navigationController.tabBarController.selectedIndex = 1;
 }
 
 -(void)refresh
@@ -165,6 +165,7 @@ static NSString *ID = @"NewInformationCell";
     
 }
 
+#pragma mark - 加载网络数据
 -(void)ZBLoadData:(int )page{
     
     
@@ -173,9 +174,6 @@ static NSString *ID = @"NewInformationCell";
     [par setObject:[NSString stringWithFormat:@"%d",1 + page] forKey:@"pageNum"];
     [par setObject:@10 forKey:@"pageSize"];
     [par setObject:[NSDate date] forKey:@"date"];
-    
-  
-    
     
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -205,10 +203,7 @@ static NSString *ID = @"NewInformationCell";
     
 }
 
-
-
 #pragma mark - tableViewDataSource
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
@@ -220,19 +215,17 @@ static NSString *ID = @"NewInformationCell";
         cell.model = self.dataArray[indexPath.row];
     cell.typeFlag = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
- 
-
-    
-    
     
     return cell;
 }
 
+#pragma mark - tableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZBInformationDetailHeaderVC *vc = [[ZBInformationDetailHeaderVC alloc] init];
     vc.model = self.dataArray[indexPath.row];
     vc.typeFlag = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 @end

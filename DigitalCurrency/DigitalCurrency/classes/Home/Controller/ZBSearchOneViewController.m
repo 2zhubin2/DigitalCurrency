@@ -28,6 +28,7 @@ static NSString *ID = @"SearchOne";
 //    self.view.backgroundColor = [UIColor grayColor];
 }
 
+#pragma mark - 初始化顶部View
 -(void)setupTopView{
     UIView *view = [[UIView alloc] init];
 //    view.backgroundColor = [UIColor redColor];
@@ -44,6 +45,7 @@ static NSString *ID = @"SearchOne";
     
 }
 
+#pragma mark - 初始化ColloctionView
 -(void)setupColloctionView{
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -80,14 +82,5 @@ static NSString *ID = @"SearchOne";
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

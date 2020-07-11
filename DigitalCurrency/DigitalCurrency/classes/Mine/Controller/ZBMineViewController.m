@@ -39,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *signatureLabel;
 @property(nonatomic,assign)int page;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *top_H;
 
 
 @end
@@ -71,7 +72,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"MineShow" object:nil];
+    
     self.page = 0;
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = NO;
@@ -103,7 +104,13 @@ static NSString *ID_fensi = @"MineFenSiCell";
     [super viewDidLoad];
     self.tableView.delegate = self;
 
-    
+    if (@available(iOS 13.0, *)) {
+           
+           //
+           
+       } else {
+           _top_H.constant = 30;
+       }
     //初始化页数
        _page = 0;
     
@@ -119,44 +126,53 @@ static NSString *ID_fensi = @"MineFenSiCell";
     self.selectBtn = _guanzhu_btn;
     self.selectBtn.selected = YES;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"ZBMineGuanZhuTableViewCell" bundle:nil] forCellReuseIdentifier:ID_guanzhu];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ZBDongTaiTableViewCell" bundle:nil] forCellReuseIdentifier:ID_dongtai];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ZBMineFenSiCell" bundle:nil] forCellReuseIdentifier:ID_fensi];
-    
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.showsHorizontalScrollIndicator = NO;
-    
-    // 告诉tableView所有cell的真实高度是自动计算（根据设置的约束来计算）
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-   // 告诉tableView所有cell的估算高度
-   self.tableView.estimatedRowHeight = 70;
-    
-     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
-       
-        
-        // 设置文字
-        [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
-        [header setTitle:@"释放并刷新" forState:MJRefreshStatePulling];
-        [header setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
-        
-         self.tableView.mj_header = header;
-
-        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
-         
-        // 设置文字
-        [footer setTitle:@"点击或上拉刷新" forState:MJRefreshStateIdle];
-        [footer setTitle:@"加载更多 ..." forState:MJRefreshStateRefreshing];
-        [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
-        
-        self.tableView.mj_footer = footer;
+    //设置tableview
+    [self setupTableView];
     
    
+    
+   //添加通知
     [self notificationCenterConfig];
     
 }
 
+#pragma mark - 设置tableview
+-(void)setupTableView{
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ZBMineGuanZhuTableViewCell" bundle:nil] forCellReuseIdentifier:ID_guanzhu];
+      [self.tableView registerNib:[UINib nibWithNibName:@"ZBDongTaiTableViewCell" bundle:nil] forCellReuseIdentifier:ID_dongtai];
+      [self.tableView registerNib:[UINib nibWithNibName:@"ZBMineFenSiCell" bundle:nil] forCellReuseIdentifier:ID_fensi];
+      
+      self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+      self.tableView.showsVerticalScrollIndicator = NO;
+      self.tableView.showsHorizontalScrollIndicator = NO;
+      
+      // 告诉tableView所有cell的真实高度是自动计算（根据设置的约束来计算）
+      self.tableView.rowHeight = UITableViewAutomaticDimension;
+     // 告诉tableView所有cell的估算高度
+     self.tableView.estimatedRowHeight = 70;
+    
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+         
+          
+          // 设置文字
+          [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+          [header setTitle:@"释放并刷新" forState:MJRefreshStatePulling];
+          [header setTitle:@"加载中 ..." forState:MJRefreshStateRefreshing];
+          
+           self.tableView.mj_header = header;
 
+          MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+           
+          // 设置文字
+          [footer setTitle:@"点击或上拉刷新" forState:MJRefreshStateIdle];
+          [footer setTitle:@"加载更多 ..." forState:MJRefreshStateRefreshing];
+          [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+          
+          self.tableView.mj_footer = footer;
+}
+
+#pragma mark - 下拉刷新
 -(void)refresh
 {
     self.page = 0;
@@ -180,6 +196,8 @@ static NSString *ID_fensi = @"MineFenSiCell";
        });
     
 }
+
+#pragma mark - 上拉加载
 -(void)loadMore
 {
     if (_page == 3) {
@@ -210,8 +228,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
     
 }
 
-
-
+#pragma mark - 点击头像
 - (IBAction)clickHead:(id)sender {
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -228,8 +245,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
     
 }
 
-
-
+#pragma mark - 设置
 - (IBAction)clickSetting:(id)sender {
     
     
@@ -249,6 +265,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
     
 }
 
+#pragma mark - 关注
 - (IBAction)guanzhuClick:(UIButton *)sender {
     [self selButton:sender];
      AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -268,7 +285,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
        }
 }
 
-
+#pragma mark - 动态
 - (IBAction)dongtaiClick:(UIButton *)sender {
      [self selButton:sender];
     
@@ -279,6 +296,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
     
 }
 
+#pragma mark - 签到
 - (IBAction)ClickSignIn:(id)sender {
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -307,7 +325,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
 }
 
 
-#pragma mark - 加载数据
+#pragma mark - 加载数据1
 -(void)ZBLoadData_one:(int )page{
     
      AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -344,6 +362,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
     
 }
 
+#pragma mark - 加载数据2
 -(void)ZBLoadData_two:(int )page{
     
      AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -384,7 +403,7 @@ static NSString *ID_fensi = @"MineFenSiCell";
     
 }
 
-#pragma mark - 获取发布的动态
+#pragma mark - 获取发布的动态3
 -(void)ZBLoadData_three:(NSNumber *)page
 {
     
@@ -419,21 +438,6 @@ static NSString *ID_fensi = @"MineFenSiCell";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD showError:@"网络错误"];
     }];
-    /*
-    [manager POST:@"http://api.yysc.online/user/talk/getTalkList/0" parameters:@{
-        @"_orderByDesc" : @"publishTime",
-        @"userId" : appDelegate.mineUserInfoModel.userID,
-        @"_pageSize" : pageSize
-    }
-         progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if(responseObject != nil){
-            NSError *error;
-            weakSelf.dataArray_three = [MTLJSONAdapter modelsOfClass:[PopularNewsModel class] fromJSONArray:responseObject[@"data"][@"list"] error:&error];
-            [self.tableView reloadData];
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD showError:@"网络错误"];
-    }];*/
 }
 
 
@@ -481,12 +485,10 @@ static NSString *ID_fensi = @"MineFenSiCell";
             break;
     }
     
-//    ZBMineGuanZhuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_guanzhu];
-    
-    return cell;
+    return nil;
 }
 
-
+#pragma mark - tableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
      [tableView deselectRowAtIndexPath:indexPath animated:NO];

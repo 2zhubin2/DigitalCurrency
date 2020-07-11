@@ -33,11 +33,10 @@ static NSString *ID = @"IndustryStormCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     _page = 6;
     [self ZBLoadData:6];
-    // Do any additional setup after loading the view from its nib.
-//        self.view.backgroundColor = [UIColor lightGrayColor];
+ 
     //设置tableView
     [self setupTableView];
     
@@ -51,6 +50,7 @@ static NSString *ID = @"IndustryStormCell";
        [self ZBLoadData:6];
 }
 
+#pragma mark - 设置tableView
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
@@ -123,6 +123,7 @@ static NSString *ID = @"IndustryStormCell";
     
 }
 
+#pragma  mark - 设置headerView
 -(void)setup_headerView{
      UIView *view = [[UIView alloc] init];
      UILabel *label = [[UILabel alloc] init];
@@ -139,6 +140,7 @@ static NSString *ID = @"IndustryStormCell";
      
 }
 
+#pragma  mark - 加载网络数据
 -(void)ZBLoadData:(int )page{
     
     
@@ -147,10 +149,6 @@ static NSString *ID = @"IndustryStormCell";
     [par setObject:[NSString stringWithFormat:@"%d",1 + page] forKey:@"pageNum"];
     [par setObject:@10 forKey:@"pageSize"];
     [par setObject:[NSDate date] forKey:@"date"];
-    
-  
-    
-    
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
    
@@ -166,12 +164,9 @@ static NSString *ID = @"IndustryStormCell";
                }else{
             [self.dataArray addObjectsFromArray:tempArray];
             }
-//        self.dataArray = tempArray;
         
         [self.tableView reloadData];
-            
-       
-        
+
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [MBProgressHUD showError:@"网络错误"];
         }];
@@ -207,15 +202,5 @@ static NSString *ID = @"IndustryStormCell";
           return dateStr;
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

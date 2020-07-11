@@ -47,11 +47,12 @@ static NSString *ID = @"CommunityGuanZhuCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib
     
+    //设置tableview
     [self setupTableView];
     
 }
 
-
+#pragma mark - 设置tableview
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 -44) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
@@ -93,15 +94,25 @@ static NSString *ID = @"CommunityGuanZhuCell";
     
 }
 
+#pragma  mark - 上拉刷新
 -(void)refresh
 {
-    [self RefreshGuanZhu];
-    [self.tableView.mj_footer resetNoMoreData];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    [self.tableView.mj_header endRefreshing];
-       });
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.login == YES) {
+        [self RefreshGuanZhu];
+        [self.tableView.mj_footer resetNoMoreData];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header endRefreshing];
+        });
+    }else{
+        self.dataArray = nil;
+        [self.tableView reloadData];
+    }
+   
     
 }
+
+#pragma  mark - 下拉加载
 -(void)loadMore
 {
 
@@ -114,8 +125,6 @@ static NSString *ID = @"CommunityGuanZhuCell";
 }
 
 #pragma mark - tableViewDataSource
-
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 1) {
         UIView *view = [[UIView alloc] init];
@@ -198,14 +207,5 @@ static NSString *ID = @"CommunityGuanZhuCell";
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

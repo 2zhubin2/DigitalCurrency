@@ -12,14 +12,20 @@
 #import "ZBSignInRecordModel.h"
 
 @interface ZBSignInViewController ()
-
+/** 日历实例*/
 @property(nonatomic,strong)YXCalendarView *calendar;
+/** 放置日历的View*/
 @property (strong, nonatomic) IBOutlet UIView *calender_view;
+/** 签到按钮*/
 @property (strong, nonatomic) IBOutlet UIButton *SIgnInBtn;
+/** 签到成功View*/
 @property(nonatomic,weak)UIViewController *SignInSuccessVC;
-
+/** 显示连续签到天数的label*/
 @property (strong, nonatomic) IBOutlet UILabel *continueDay;
+/** 签到记录*/
 @property(nonatomic,strong)NSMutableArray *dataArray;
+/** 顶部高度约束*/
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *Top_H;
 
 @end
 
@@ -33,48 +39,57 @@
 }
 
 
-
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //更新签到数据
     [self RefreshSignIn];
+    
+    //版本适配
+    if (@available(iOS 13.0, *)) {
+        //
+    } else {
+        _Top_H.constant = 74;
+    }
+    
+    //初始化NavigationItem
+    [self setupNavigationItem];
+    
+    //初始化日历
+    [self steupCalendar];
+}
+
+#pragma mark - 初始化NavigationItem
+-(void)setupNavigationItem{
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
        self.navigationItem.leftBarButtonItem = leftItem;
        self.navigationItem.title = @"设置";
     self.navigationController.navigationBar.hidden = NO;
-    
-//    [self CurIsSignIn];
-    
-    
-    [self steupCalendar];
-    
-  
-    
-    
-    
 }
 
+#pragma mark - 初始化日历
 -(void)steupCalendar{
     
     [self.calender_view.subviews.lastObject removeFromSuperview];
-      _calendar = [[YXCalendarView alloc] initWithFrame:CGRectMake(0, 0, ZBScreenW - 60, [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Month]) Date:[NSDate date] Type:CalendarType_Month];
+    _calendar = [[YXCalendarView alloc] initWithFrame:CGRectMake(0, 0, ZBScreenW - 60, [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Month]) Date:[NSDate date] Type:CalendarType_Month];
         
-        __weak typeof(_calendar) weakCalendar = _calendar;
-        _calendar.refreshH = ^(CGFloat viewH) {
+    __weak typeof(_calendar) weakCalendar = _calendar;
+    _calendar.refreshH = ^(CGFloat viewH) {
             [UIView animateWithDuration:0.3 animations:^{
     //            weakCalendar.frame = CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, viewH);
             }];
-            
         };
-        _calendar.sendSelectDate = ^(NSDate *selDate) {
-            NSLog(@"%@",[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]);
+    _calendar.sendSelectDate = ^(NSDate *selDate) {
+//    NSLog(@"%@",[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]);
         };
-        [self.calender_view addSubview:_calendar];
+    [self.calender_view addSubview:_calendar];
 }
 
+#pragma mark - 点击签到按钮
 - (IBAction)cilckSignIn:(UIButton *)sender {
     
-
     sender.layer.cornerRadius = 20;
     sender.layer.borderColor = [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0].CGColor;
     sender.layer.borderWidth = 1;
@@ -86,18 +101,24 @@
     
 }
 
-
+#pragma mark - 退出当前页面
 -(void)backMine{
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - viewWillAppear
 - (void)viewWillAppear:(BOOL)animated{
+    
     self.tabBarController.tabBar.hidden = YES;
+    
+    //判断今日是否签到
     [self CurIsSignIn];
 }
 
 #pragma mark - 用户签到记录（仅当月）
 -(void)RefreshSignIn{
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:appDelegate.mineUserInfoModel.userID forKey:@"userId"];
@@ -135,8 +156,6 @@
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:appDelegate.mineUserInfoModel.userID forKey:@"userId"];
     
-
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:@"http://api.yysc.online/user/sign/hasSign" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dict = responseObject;
@@ -160,9 +179,6 @@
                     [self.SIgnInBtn setTitle:@"已签到" forState:UIControlStateNormal];
                     self.SIgnInBtn.enabled = NO;
                    }
-                 
-                   
-                
                    
                }else{
                   //
@@ -191,7 +207,6 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUD];
             ZBSignInSuccessView *view = [[ZBSignInSuccessView alloc] init];
-//                [self steupCalendar];
                 [self.calendar SingInSuccess];
             [self.navigationController.view addSubview:view];
             [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -201,20 +216,17 @@
                      make.right.equalTo(self.view);
             }];
         });
-                
+ 
         }else{
             [MBProgressHUD hideHUD];
             [MBProgressHUD showError:@"签到失败"];
-        }
-        
+            }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failure");
+            [MBProgressHUD showError:@"网络错误"];
         }];
-        
-    
 }
 
-
+#pragma mark - 转化时间戳
 -(NSString *)timetampTostring:(NSInteger)timestamp{
     
     NSString *tempTime =[[NSNumber numberWithLong:timestamp] stringValue];
@@ -240,9 +252,8 @@
     return timeStr;
 }
 
-
+#pragma mark - 获取当前时间的字符串
 -(NSString *)curYearMD{
-    
     
     //获取当前时间日期
           NSDate *date=[NSDate date];
@@ -253,14 +264,6 @@
           return dateStr;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

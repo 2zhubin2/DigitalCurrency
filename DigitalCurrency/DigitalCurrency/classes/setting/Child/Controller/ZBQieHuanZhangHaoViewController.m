@@ -42,6 +42,8 @@
     
 }
 
+
+#pragma mark - setTempUserInfoModel
 - (void)setTempUserInfoModel:(ZBMineUserInfoModel *)tempUserInfoModel{
     _tempUserInfoModel = tempUserInfoModel;
     if (![tempUserInfoModel.head containsString:@"<html>"] && tempUserInfoModel.head.length != 0) {
@@ -71,7 +73,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+#pragma mark - 点击左侧按钮
 - (IBAction)clickBtnOne:(UIButton *)sender {
     
     _preSelectBtn.selected = NO;
@@ -97,6 +99,8 @@
     
     
 }
+
+#pragma mark - 点击右侧按钮
 - (IBAction)clickBtn_two:(UIButton *)sender {
     
     _preSelectBtn.selected = NO;
@@ -122,6 +126,8 @@
    
     
 }
+
+#pragma mark - 点击添加
 - (IBAction)addClick:(id)sender {
     ZBAddCountViewController *vc = [[ZBAddCountViewController alloc] init];
     vc.delegate = self;
@@ -129,7 +135,6 @@
 }
 
 #pragma mark - ZBAddCountViewControllerDelegate
-
 - (void)AddCountViewControllerAddSuccess:(ZBMineUserInfoModel *)model{
     _tempUserInfoModel = model;
     NSString *path_temp = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user_temp.plist"];
@@ -152,14 +157,5 @@
 
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

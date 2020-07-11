@@ -36,9 +36,10 @@ static NSString *ID = @"NewInformationCell";
     //初始化页数
     _page = 3;
     
+    // 加载网络数据
     [self ZBLoadData:3];
-    // Do any additional setup after loading the view from its nib.
-//        self.view.backgroundColor = [UIColor grayColor];
+
+    //设置tableview
     [self setupTableView];
 }
 
@@ -49,6 +50,7 @@ static NSString *ID = @"NewInformationCell";
     [self ZBLoadData:3];
 }
 
+#pragma mark - 设置tableview
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
@@ -121,7 +123,7 @@ static NSString *ID = @"NewInformationCell";
     
 }
 
-
+#pragma mark - 加载网络数据
 -(void)ZBLoadData:(int )page{
     
     
@@ -178,6 +180,7 @@ static NSString *ID = @"NewInformationCell";
     return cell;
 }
 
+#pragma mark - tableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ZBInformationDetailHeaderVC *vc = [[ZBInformationDetailHeaderVC alloc] init];
     vc.model = self.dataArray[indexPath.row];
@@ -185,14 +188,6 @@ static NSString *ID = @"NewInformationCell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

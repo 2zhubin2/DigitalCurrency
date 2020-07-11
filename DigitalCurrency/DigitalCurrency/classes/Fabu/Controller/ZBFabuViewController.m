@@ -22,6 +22,7 @@
 
 @property(nonatomic,copy)NSString *saveUrl;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *Top_H;
 
 
 @end
@@ -32,12 +33,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    if (@available(iOS 13.0, *)) {
+        
+        //
+        
+    } else {
+        _Top_H.constant = 70;
+    }
+    
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
                 self.navigationItem.leftBarButtonItem = leftItem;
                 self.navigationItem.title = @"发布";
-    //调用相机
-//    [self setphotoImage];
-    
+
     self.text_FV.delegate = self;
 }
 
@@ -60,17 +67,15 @@
 
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-//    NSLog(@"开始编辑");
     _TiShiLabel.hidden = YES;
 }
 - (void)textViewDidChange:(UITextView *)textView{
     //
 }
+
+#pragma mark - 点击相机
 - (IBAction)clickCamera:(UIButton *)sender {
-//    UIImagePickerController *pickVC = [[UIImagePickerController alloc]init];
-//    pickVC.delegate = self;
-//    [self presentViewController:pickVC animated:YES completion:nil];
-    
+
     if (!_photoManger) {
           _photoManger = [[SelectPhotoManager alloc]init];
           _photoManger.delegate = self;
@@ -98,58 +103,25 @@
               };
 }
 
+#pragma mark - 删除图片
 - (IBAction)ClickDeleteImageV:(UIButton *)sender {
     
     if (self.pic_BgView.subviews.count != 0) {
         [self.pic_BgView.subviews.lastObject removeFromSuperview];
         self.deldeteImageVBtn.hidden = YES;
-//        NSLog(@"%@",self.image_V);
     }
 }
 
-
-
 - (IBAction)clickOne:(UIButton *)sender {
-    [MBProgressHUD showSuccess:@"点击成功..."];
+//    [MBProgressHUD showSuccess:@"点击成功..."];
     if (self.pic_BgView.subviews.count != 0) {
-
+        
         [self uoLoadPicture];
-
 
     }else{
         [MBProgressHUD showError:@"图片不能为空"];
     }
 }
-
-
-
-
-////获取选择的图片
-//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-//    [picker dismissViewControllerAnimated:YES completion:nil];
-//    UIImage *pickImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-//
-//    UIImageView *image_v = [[UIImageView alloc] init];
-//    image_v.image = pickImage;
-//    image_v.contentMode = UIViewContentModeScaleToFill;
-//    self.image_V =  image_v;
-//    if (self.pic_BgView.subviews.count != 0) {
-//        [self.pic_BgView.subviews.lastObject removeFromSuperview];
-//    }
-//    [self.pic_BgView addSubview:image_v];
-//    self.deldeteImageVBtn.hidden = NO;
-//    [image_v mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.pic_BgView);
-//        make.left.equalTo(self.pic_BgView);
-//        make.bottom.equalTo(self.pic_BgView);
-//        make.right.equalTo(self.pic_BgView);
-//
-//    }];
-//
-////    _addImageView.image = pickImage;
-//}
-
-
 
 #pragma mark -发送post请求，实现发布功能
 -(void)ZBbeginFabu{
@@ -176,11 +148,6 @@
         if ([success isEqualToString:@"1"]) {
             [MBProgressHUD showSuccess:@"发布成功..."];
 
-            //延时执行代码
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                 [MBProgressHUD hideHUD];
-//
-//                });
         }else{
             [MBProgressHUD hideHUD];
             [MBProgressHUD showError:@"发布失败，重新输入"];
@@ -196,7 +163,6 @@
 
 
 #pragma mark -上传图片
-
 -(void)uoLoadPicture{
     
     NSDictionary *dict = @{
@@ -209,22 +175,11 @@
             [MBProgressHUD hideHUD];
             [self ZBbeginFabu];
         });
-//        NSLog(@"%@",self.saveUrl);
     } failture:^(NSError * _Nonnull error) {
         [MBProgressHUD showError:@"上传图片失败"];
     }];
     
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

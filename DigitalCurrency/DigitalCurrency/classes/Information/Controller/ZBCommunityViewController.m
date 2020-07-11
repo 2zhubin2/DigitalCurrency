@@ -32,54 +32,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+   
+    //初始化scrollView
+    [self setupScrollview];
     
-//        [self.view addSubview:view];
-//        _title_view = view;
+    //初始化所有顶部标题
+    [self setupAllTitleButton:self.title_view];
     
+    
+}
+
+#pragma mark - 初始化scrollView
+-(void)setupScrollview{
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.frame = CGRectMake(0, zbStatuBarH + 44, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 -44);
-    _scrollView = scrollView;
-    [self.view addSubview:scrollView];
-    scrollView.pagingEnabled = YES;
-    scrollView.contentSize = CGSizeMake(zbStatuBarW * 2, ZBScreenH - zbStatuBarH - 44 - 49 -44);
-    scrollView.bounces = NO;
-    scrollView.delegate = self;
-    
+      scrollView.backgroundColor = [UIColor redColor];
+      if (@available(iOS 13.0, *)) {
+                           
+          scrollView.frame = CGRectMake(0, zbStatuBarH + 44, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 -44);
+                           
+                       } else {
+         scrollView.frame = CGRectMake(0,62, zbStatuBarW, ZBScreenH -64 - 49 -44);
+                       }
+      
+      _scrollView = scrollView;
+      [self.view addSubview:scrollView];
+      scrollView.pagingEnabled = YES;
+      scrollView.contentSize = CGSizeMake(zbStatuBarW * 2, ZBScreenH - zbStatuBarH - 44 - 49 -44);
+      scrollView.bounces = NO;
+      scrollView.delegate = self;
     
     ZBCommunityTuiJianViewController *tuijian_vc = [[ZBCommunityTuiJianViewController alloc] init];
     tuijian_vc.title = @"推荐";
     [self addChildViewController:tuijian_vc];
     [self.scrollView addSubview:tuijian_vc.view];
     tuijian_vc.view.frame = CGRectMake(0, 0 , scrollView.bounds.size.width, scrollView.bounds.size.height);
-//    [tuijian_vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(scrollView);
-//        make.left.equalTo(scrollView);
-//        make.bottom.equalTo(scrollView);
-//        make.right.equalTo(scrollView);
-//    }];
     
     ZBCommunityGuanZhuViewController *guanzhu_vc = [[ZBCommunityGuanZhuViewController alloc] init];
     guanzhu_vc.title = @"关注";
     [self addChildViewController:guanzhu_vc];
     [self.scrollView addSubview:guanzhu_vc.view];
     guanzhu_vc.view.frame = CGRectMake(zbStatuBarW, 0 , scrollView.bounds.size.width, scrollView.bounds.size.height );
-//    [guanzhu_vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(scrollView);
-//        make.left.equalTo(scrollView.mas_right);
-//        make.bottom.equalTo(scrollView);
-//        make.right.equalTo(scrollView.mas_right).multipliedBy(2);
-//    }];
-    [self setupAllTitleButton:self.title_view];
-    
-    
 }
-//- (void)viewWillAppear:(BOOL)animated{
-//    self.tabBarController.tabBar.hidden = YES;
-//}
 
-
-
+#pragma mark - 初始化所有顶部标题
 -(void)setupAllTitleButton:(UIView *)view{
     
     
@@ -92,7 +87,11 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         UIViewController *vc = self.childViewControllers[i];
 //        [btn setTitle:vc.title forState:UIControlStateNormal];
+      
+               
         btn.frame = CGRectMake(btnX, 0, btnW, btnH);
+    
+        
         [view addSubview:btn];
         btn.tag = 1000 + i;
         
@@ -111,8 +110,17 @@
         [btn addSubview:blankBarView];
         blankBarView.bounds = CGRectMake(0, 0, 5, 5);
         blankBarView.layer.cornerRadius = 2.5;
-        CGPoint temp = CGPointMake(btn.titleLabel.center.x, CGRectGetMaxY(btn.titleLabel.frame) + 3);
-        blankBarView.center = temp;
+        
+        if (@available(iOS 13.0, *)) {
+                      
+                     CGPoint temp = CGPointMake(btn.titleLabel.center.x, CGRectGetMaxY(btn.titleLabel.frame) + 3);
+            blankBarView.center = temp;
+                      
+                  } else {
+                     CGPoint temp = CGPointMake(btn.titleLabel.center.x, CGRectGetMaxY(btn.titleLabel.frame) + 10);
+                      blankBarView.center = temp;
+                  }
+        
         blankBarView.hidden = YES;
         
         [self.btns addObject:btn];
@@ -148,23 +156,13 @@
     _scrollView.contentOffset = CGPointMake(zbStatuBarW * (btn.tag - 1000), 0);
 }
 
+#pragma mark - ScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-//    NSLog(@"123");
     NSInteger page = scrollView.contentOffset.x / zbStatuBarW;
        UIButton *btn = self.btns[page];
        [self selButton:btn];
 }
  
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

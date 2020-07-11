@@ -18,21 +18,17 @@
 
 @implementation ZBimageCodeView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
+#pragma mark - awakeFromNib
 - (void)awakeFromNib{
     [super awakeFromNib];
     
+    //添加点击手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setRefreshImage)];
            [self.imageV addGestureRecognizer:tap];
 }
 
+#pragma mark - initWithFrame
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -43,21 +39,27 @@
     return self;
 }
 
+#pragma mark - 点击刷新
 - (IBAction)clickFresh:(id)sender {
     _refreshBtn.hidden = YES;
     [self setRefreshImage];
 }
+
+#pragma mark - 点击退出
 - (IBAction)ClicktuIchu:(id)sender {
     
     [self removeFromSuperview];
     
 }
+
+#pragma mark - 点击确认
 - (IBAction)clickqueren:(id)sender {
     
     [self sendVerification_code];
     
 }
 
+#pragma mark - 更新验证码图片
 -(void)setRefreshImage{
     
     NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/system/sendVerify"];
@@ -74,6 +76,8 @@
     }]resume];
      
 }
+
+#pragma mark - 获取验证码
 -(void)sendVerification_code{
    
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
@@ -109,6 +113,7 @@
     
 }
 
+#pragma mark - touchesBegan
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self removeFromSuperview];
 }

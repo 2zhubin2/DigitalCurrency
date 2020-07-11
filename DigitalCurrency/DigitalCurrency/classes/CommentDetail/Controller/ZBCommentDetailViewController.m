@@ -35,10 +35,12 @@ static NSString *ID_twe = @"CommentCell";
 -(void)backMine{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = NO;
 }
 
+#pragma mark - 初始化TableView
 -(void)setupTableView{
    
         

@@ -37,9 +37,16 @@ static NSString *ID = @"CommunityTuiJianCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    _page = 0;
-    [self ZBLoadData:0];
-    // Do any additional setup after loading the view from its nib.
+
+     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+           if (appDelegate.login == YES) {
+              [self ZBLoadData:0];
+           }else{
+               self.dataArray = nil;
+               [self.tableView reloadData];
+           }
+    
+    //设置tableview
     [self setupTableView];
     
     
@@ -62,6 +69,7 @@ static NSString *ID = @"CommunityTuiJianCell";
     
 }
 
+#pragma mark - 设置tableview
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
@@ -224,14 +232,5 @@ static NSString *ID = @"CommunityTuiJianCell";
     [self.tableView reloadData];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

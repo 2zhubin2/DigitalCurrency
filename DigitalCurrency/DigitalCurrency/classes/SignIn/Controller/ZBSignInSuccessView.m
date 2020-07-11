@@ -22,10 +22,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        //加载Xib
         return [[NSBundle mainBundle] loadNibNamed:@"ZBSignInSuccessView" owner:nil options:nil].lastObject;
     }
     return self;
 }
+
+#pragma mark - 移除签到成功弹窗
 - (IBAction)tuichuClick:(UIButton *)sender {
     [self removeFromSuperview];
 }

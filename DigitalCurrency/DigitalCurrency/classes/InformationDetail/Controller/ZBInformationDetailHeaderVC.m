@@ -22,50 +22,49 @@
 
 @implementation ZBInformationDetailHeaderVC
 
-//InformationDetail_one,  NewInformationCell , CommentCell
 static NSString *ID_one = @"InformationDetail_one";
 static NSString *ID_two = @"NewInformationCell";
 static NSString *ID_three = @"CommentCell";
 
-
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     
     _sousuobg_View.layer.cornerRadius = 20;
     
+    //初始化tableView
     [self setupTableView];
     
+    //添加通知及手势
     [self add_notifacationObserver];
     
 }
 
+#pragma mark - viewWillAppear
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden  = YES;
 }
+
+#pragma mark - 点击返回
 - (IBAction)ClickBackBtn:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - 添加通知及手势
 - (void)add_notifacationObserver{
-    // 注册键盘弹起收回通知，使输入框位置于键盘上
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
-    // tableView不会响应touchesBegan，单独添加手势响应
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)];
-    tapGesture.delegate = self;
-//    [_tableView addGestureRecognizer:tapGesture];
+  
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeBack)];
+    [self.view addGestureRecognizer:swipe];
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+#pragma mark - 清扫返回
+-(void)swipeBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-
+#pragma mark - 初始化tableView
 -(void)setupTableView{
    
         
@@ -94,11 +93,9 @@ static NSString *ID_three = @"CommentCell";
 
 
 #pragma mark - tableViewDataSource
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
@@ -135,25 +132,8 @@ static NSString *ID_three = @"CommentCell";
         label.attributedText = string;
         
          return view;
-        
-        
     }
-    /*else{
-        UIView *view = [[UIView alloc] init];
-        
-        UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake(15,10,200,12);
-        label.numberOfLines = 0;
-        [view addSubview:label];
 
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"评论区（1280条）" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
-
-        label.attributedText = string;
-        
-         return view;
-        
-    }*/
-    
     return nil;
 }
 
@@ -195,96 +175,9 @@ static NSString *ID_three = @"CommentCell";
     return nil;
 }
 
-- (IBAction)Comment_F:(UITextField *)sender {
-    
-    [sender resignFirstResponder];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.view endEditing:YES];
-
-}
-- (IBAction)cilckFenXiang:(id)sender {
-    
-    ZBForwardViewController *vc = [[ZBForwardViewController alloc] init];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    //若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
-    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
-        return NO;
-    }
-    return  YES;
-}
-/*
- // 注册键盘弹起收回通知，使输入框位置于键盘上
-   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-   // tableView不会响应touchesBegan，单独添加手势响应
-   UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)]; // 手势类型随你喜欢。
- */
 
 
 
- #pragma mark - 键盘弹出
- - (void)keyboardWillShow:(NSNotification *)notification
- {
-     NSDictionary *userInfo = [notification userInfo];
-     //获取键盘弹出的时间
-     double duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-     //获取键盘上端Y坐标
-     CGFloat keyboardY = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
-     //获取输入框下端相对于window的Y坐标
-     CGRect rect = [self.sousuobg_View convertRect:self.sousuobg_View.bounds toView:[[[UIApplication sharedApplication] delegate] window]];
-     CGPoint tmp = rect.origin;
-     CGFloat inputBoxY = tmp.y + self.sousuobg_View.frame.size.height;
-     //计算二者差值
-     CGFloat ty = keyboardY - inputBoxY;
-//     NSLog(@"position keyboard: %f, inputbox: %f, ty: %f", keyboardY, inputBoxY, ty);
-     //差值小于0，做平移变换
-     [UIView animateWithDuration:duration animations:^{
-         if (ty < 0) {
-             self.view.transform = CGAffineTransformMakeTranslation(0, ty);
-         }
-     }];
-     
- }
 
- #pragma mark - 键盘消失
- - (void)keyboardWillHide:(NSNotification *)notification
- {
-     //获取键盘弹出的时间
-     double duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-     //还原
-     [UIView animateWithDuration:duration animations:^{
-         self.view.transform = CGAffineTransformMakeTranslation(0, 0);
-     }];
- }
-
- #pragma mark - 点击屏幕其它地方关闭键盘
- - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-     [self.view endEditing:YES];
- }
-
- - (void)tapGesturedDetected:(UITapGestureRecognizer *)recognizer
-
- {
-     [self.view endEditing:YES];
- }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

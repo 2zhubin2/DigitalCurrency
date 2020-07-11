@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIView *view_one;
 @property (strong, nonatomic) IBOutlet UIView *view_two;
 @property (strong, nonatomic) IBOutlet UIView *view_three;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *Top_H;
 
 @end
 
@@ -21,20 +22,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
-       self.navigationItem.leftBarButtonItem = leftItem;
-       self.navigationItem.title = @"注销";
+    //屏幕适配
+    if (@available(iOS 13.0, *)) {
+        //
+    } else {
+        _Top_H.constant = 54;
+    }
     
+    //初始化NavigationItem
+    [self setupNavigationItem];
+    
+    //设置切角
     _view_one.layer.cornerRadius = 3;
     _view_two.layer.cornerRadius = 3;
     _view_three.layer.cornerRadius = 3;
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"backMe" object:self];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backMe_go) name:@"backMe" object:nil];
-//    ZBZhuXiaoTangChuangViewController *vc = [[ZBZhuXiaoTangChuangViewController alloc] init];
-//    [self addChildViewController:vc];
+
 }
+
+#pragma mark - 初始化NavigationItem
+-(void)setupNavigationItem{
+    
+     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
+          self.navigationItem.leftBarButtonItem = leftItem;
+          self.navigationItem.title = @"注销";
+}
+
+
 
 -(void)backMe_go{
     
@@ -44,6 +60,8 @@
 -(void)backSetting{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - 点击申请注销
 - (IBAction)shengqingClick:(id)sender {
 //    UIViewController *vc = self.childViewControllers[0];
 //    ZBZhuXiaoTangChuangViewController *vc = [[ZBZhuXiaoTangChuangViewController alloc] init];
@@ -56,18 +74,9 @@
         make.bottom.equalTo(self.view);
         make.right.equalTo(self.view);
     }];
-//
-//    [self presentViewController:vc animated:YES completion:nil];
+
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

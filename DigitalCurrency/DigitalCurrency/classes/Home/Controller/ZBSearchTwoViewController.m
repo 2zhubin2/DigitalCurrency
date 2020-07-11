@@ -29,6 +29,7 @@ static NSString *ID_three = @"NewInformationCell";
     [self setupTableView];
 }
 
+#pragma mark - 初始化TableView
 -(void)setupTableView{
     
     UITableView *tableView = [[UITableView alloc] init];
@@ -124,6 +125,7 @@ static NSString *ID_three = @"NewInformationCell";
     return nil;
 }
 
+#pragma mark - UItableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

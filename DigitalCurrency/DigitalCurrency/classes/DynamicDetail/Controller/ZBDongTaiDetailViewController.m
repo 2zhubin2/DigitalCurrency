@@ -40,10 +40,29 @@ static NSString *ID_twe = @"CommentCell";
     return _comment_dataArray;
 }
 
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view from its nib.
+    
+    //初始化NavigationItem
+    [self setupNavigationItem];
+    
+    
+    //加载评论
+    [self PLJson];
+    
+    //初始化tableView
+    [self setupTableView];
+    
+    //添加通知及手势
+    [self add_notifacationObserver];
+    
+    _sousuobg_View.layer.cornerRadius = 14;
+}
+
+#pragma mark - 初始化NavigationItem
+-(void)setupNavigationItem{
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
        self.navigationItem.leftBarButtonItem = leftItem;
@@ -55,23 +74,12 @@ static NSString *ID_twe = @"CommentCell";
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStyleDone target:self action:@selector(gengduo)];
         self.navigationItem.rightBarButtonItem = rightItem;
     }
-    
-    
     self.navigationItem.title = @"动态详情";
-    
-    [self PLJson];
-    
-    [self setupTableView];
-//    [self PLJson];
-    [self add_notifacationObserver];
-    
-    _sousuobg_View.layer.cornerRadius = 14;
 }
 
-
+#pragma mark - 点击更多
 -(void)gengduo{
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-                  
                   
         UIAlertAction *jubaoAction = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                  
@@ -92,7 +100,6 @@ static NSString *ID_twe = @"CommentCell";
         UIAlertAction *quexiaoAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
 
             }];
-                  
 
                [actionSheet addAction:jubaoAction];
                [actionSheet addAction:pingbiAction];
@@ -100,6 +107,7 @@ static NSString *ID_twe = @"CommentCell";
                [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
+#pragma mark - 点击评论
 - (IBAction)clickComment:(UIButton *)sender {
     
     if (self.text_F.text.length != 0) {
@@ -114,8 +122,6 @@ static NSString *ID_twe = @"CommentCell";
 #pragma mark - 发布评论功能
 -(void)ZBbeginFabuPL{
     
-//    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
-    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
 //    [par setObject:self.userID forKey:@"userId"];
@@ -125,8 +131,6 @@ static NSString *ID_twe = @"CommentCell";
     [par setObject:self.text_F.text forKey:@"content"];
     [par setObject:@"" forKey:@"video"];
     [par setObject:@"" forKey:@"matchId"];
-    
-    
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
    
@@ -158,6 +162,7 @@ static NSString *ID_twe = @"CommentCell";
     
 }
 
+#pragma mark - 添加通知及手势
 - (void)add_notifacationObserver{
     // 注册键盘弹起收回通知，使输入框位置于键盘上
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];//UIKeyboardDidShowNotification
@@ -167,9 +172,13 @@ static NSString *ID_twe = @"CommentCell";
     // tableView不会响应touchesBegan，单独添加手势响应
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesturedDetected:)];
     tapGesture.delegate = self;
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeBack)];
+    [self.view addGestureRecognizer:swipe];
 //    [_tableView addGestureRecognizer:tapGesture];
 }
-
+-(void)swipeBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
@@ -180,6 +189,7 @@ static NSString *ID_twe = @"CommentCell";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - 初始化tableView
 -(void)setupTableView{
    
         
@@ -324,19 +334,10 @@ static NSString *ID_twe = @"CommentCell";
  }
 
 -(void)keyboardDidShow:(NSNotification *)notifition{
-    /*
-     UILabel *label = [[UILabel alloc] init];
-     label.frame = CGRectMake(311.5,1204.5,29,14.5);
-     label.numberOfLines = 0;
-     [self.view addSubview:label];
-
-     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"发送" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0]}];
-
-     label.attributedText = string;
-     */
+ 
     [self.CommentBtn setTitleColor:[UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0] forState:UIControlStateNormal];
     self.CommentBtn.enabled = YES;
-}//keyboardDidHide:
+}
 
 -(void)keyboardDidHide:(NSNotification *)notifition{
    
@@ -368,6 +369,15 @@ static NSString *ID_twe = @"CommentCell";
  }
 
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    //若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+        return NO;
+    }
+    return  YES;
+}
+
 #pragma mark - ZBCommentHeaderCellDelegate
 
 - (void)CommentHeaderCellClickFenXiang:(ZBCommentHeaderCell *)cell{
@@ -376,15 +386,5 @@ static NSString *ID_twe = @"CommentCell";
     vc.model = cell.model;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

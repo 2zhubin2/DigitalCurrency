@@ -16,21 +16,42 @@
 @property (strong, nonatomic) IBOutlet UITextField *password_label;
 @property (strong, nonatomic) IBOutlet UITextField *confirmPassword;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *Top_H;
 
 @end
 
 @implementation ZBRegisterViewController
 
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    //版本适配
+    if (@available(iOS 13.0, *)) {
+
+    } else {
+        _Top_H.constant = 59;
+    }
+    
+    //初始化NavigationItem
+    [self setupNavigationItem];
+    
 }
 
+
+#pragma mark - 初始化NavigationItem
+-(void)setupNavigationItem{
+    
+  UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
+  self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+#pragma mark - 点击导航条左侧item
 -(void)backSetting{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - 点击获取验证码
 - (IBAction)touchCode:(id)sender {
     
     if (_name_label.text.length != 0) {
@@ -44,6 +65,8 @@
        }
 
 }
+
+#pragma mark - 点击注册
 - (IBAction)cilckBeginRegister:(id)sender {
     
     //提醒框
@@ -62,7 +85,7 @@
      }
 }
 
-
+#pragma mark - 开始注册
 -(void)beginRegist{
     //获取参数
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
@@ -92,32 +115,20 @@
         }else{
             [MBProgressHUD hideHUD];
             [MBProgressHUD showError:@"注册失败"];
-        }
-        
-        
-        
-        
+            }
+
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [MBProgressHUD hideHUD];
             [MBProgressHUD showError:@"注册失败"];
         }];
 }
 
+#pragma mark - touchesBegan
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [_name_label endEditing:YES];
     [_code_label endEditing:YES];
     [_password_label endEditing:YES];
     [_confirmPassword endEditing:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

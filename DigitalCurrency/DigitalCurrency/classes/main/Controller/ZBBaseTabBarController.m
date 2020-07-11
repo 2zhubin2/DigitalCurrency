@@ -43,6 +43,7 @@
     return self;
 }
 
+#pragma mark - 初始化子控制器
 -(void)setupController{
 //    UITabBarController *tabVC = [[UITabBarController alloc] init];
     self.delegate = self;

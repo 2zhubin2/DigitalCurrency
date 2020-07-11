@@ -40,13 +40,13 @@ static NSString *ID = @"colCell";
     // Do any additional setup after loading the view from its nib.
 //    self.view.backgroundColor = [UIColor blueColor];
     
-    
+    //添加顶部标题view
+    [self setupTopTitleView];
     
     //添加底部内容View
     [self setupBottomContaninerView];
     
-    //添加顶部标题view
-    [self setupTopTitleView];
+    
     
     //添加所有子控制器
     [self setupAllChildViewController];
@@ -57,7 +57,6 @@ static NSString *ID = @"colCell";
     //添加通知
     [self notificationCenterConfig];
     
-//    self.automaticallyAdjustsScrollViewInsets = NO;
 
     
     
@@ -68,6 +67,8 @@ static NSString *ID = @"colCell";
     self.navigationController.navigationBar.hidden = YES;
     self.tabBarController.tabBar.hidden = NO;
 }
+
+#pragma  mark - 添加所有标题按钮
 -(void)setupAllTitleButton{
     
     NSInteger count = self.childViewControllers.count;
@@ -81,8 +82,15 @@ static NSString *ID = @"colCell";
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         UIViewController *vc = self.childViewControllers[i];
 //        [btn setTitle:vc.title forState:UIControlStateNormal];
-        btn.frame = CGRectMake(btnX, 0, btnW, btnH);
         [_scrollView addSubview:btn];
+        if (@available(iOS 13.0, *)) {
+            
+           btn.frame = CGRectMake(btnX, 0, btnW, btnH);
+            
+        } else {
+          btn.frame = CGRectMake(btnX, -20, btnW, btnH);
+        }
+         
         btn.tag = 1000 + i;
         
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:vc.title attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0]}];
@@ -115,6 +123,7 @@ static NSString *ID = @"colCell";
     self.selectBtn = btn;
 }
 
+#pragma  mark - 添加所有子控制器
 -(void)setupAllChildViewController{
     
     ZBNewInformationViewController *newInformation_vc = [[ZBNewInformationViewController alloc] init];
@@ -136,34 +145,66 @@ static NSString *ID = @"colCell";
     
 }
 
+#pragma  mark - 添加底部内容View
 -(void)setupBottomContaninerView{
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+//    if (@available(iOS 13.0, *)) {
+//
+//       layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH - zbStatuBarH - 44 );
+//
+//    } else {
+//        layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH - 44 );
+//    }
     layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH - zbStatuBarH - 44 );
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     //UIcollectionView
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, zbStatuBarH + 44,zbStatuBarW , ZBScreenH - zbStatuBarH - 44 - 49) collectionViewLayout:layout];
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    [self.view addSubview:collectionView];
-    collectionView.backgroundColor = [UIColor redColor];
-    _collectionView = collectionView;
-    collectionView.showsVerticalScrollIndicator = NO;
-    collectionView.showsHorizontalScrollIndicator = NO;
-    collectionView.bounces = NO;
-    collectionView.pagingEnabled = YES;
     
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+    
+        if (@available(iOS 13.0, *)) {
+    
+          UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, zbStatuBarH + 44,zbStatuBarW , ZBScreenH -zbStatuBarH - 44  - 49) collectionViewLayout:layout];
+           collectionView.dataSource = self;
+              collectionView.delegate = self;
+              [self.view addSubview:collectionView];
+              collectionView.backgroundColor = [UIColor redColor];
+              _collectionView = collectionView;
+              collectionView.showsVerticalScrollIndicator = NO;
+              collectionView.showsHorizontalScrollIndicator = NO;
+              collectionView.bounces = NO;
+              collectionView.pagingEnabled = YES;
+              
+              [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+    
+        } else {
+       UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _scrollView.frame.origin.y + _scrollView.bounds.size.height,zbStatuBarW , ZBScreenH - CGRectGetMaxY(_scrollView.frame) - 49) collectionViewLayout:layout];
+            collectionView.dataSource = self;
+               collectionView.delegate = self;
+               [self.view addSubview:collectionView];
+               _collectionView = collectionView;
+               collectionView.showsVerticalScrollIndicator = NO;
+               collectionView.showsHorizontalScrollIndicator = NO;
+               collectionView.bounces = NO;
+               collectionView.pagingEnabled = YES;
+               [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+        }
+   
 }
+
+#pragma  mark - 添加顶部标题view
 -(void)setupTopTitleView{
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width, 44)];
-//    scrollView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:scrollView];
-    _scrollView = scrollView;
+   
+    
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width, 44)];
+            [self.view addSubview:scrollView];
+            _scrollView = scrollView;
+
+    scrollView.backgroundColor = [UIColor clearColor];
+    
 }
 
 #pragma mark - CollectionViewDataSource
@@ -173,6 +214,7 @@ static NSString *ID = @"colCell";
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    
     [cell.contentView.subviews.firstObject removeFromSuperview];
     [cell.contentView addSubview:self.childViewControllers[indexPath.row].view];
     return cell;
@@ -203,7 +245,6 @@ static NSString *ID = @"colCell";
       
       if (appDelegate.login == YES) {
           ZBFabuViewController *vc = [[ZBFabuViewController alloc] init];
-          
           [self.navigationController pushViewController:vc animated:YES];
       }else{
           ZBloginViewController *vc = [[ZBloginViewController alloc] init];

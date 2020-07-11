@@ -39,7 +39,7 @@
     
 }
 
-
+#pragma mark - 开始注销
 -(void)beginZhuXiao{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];

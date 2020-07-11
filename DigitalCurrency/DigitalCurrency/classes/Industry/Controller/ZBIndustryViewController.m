@@ -13,6 +13,8 @@
 
 @interface ZBIndustryViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *search_bg;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *shouye_TopH;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageV_TopH;
 
 @end
 
@@ -22,6 +24,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 //    self.view.backgroundColor = [UIColor orangeColor];
+    
+    if (@available(iOS 13.0, *)) {
+        
+        //
+        
+    } else {
+        _shouye_TopH.constant = 30;
+        _imageV_TopH.constant = 20;
+    }
     
     _search_bg.image =  [UIImage imageNamed:@"bg_search1"];
     CZ_NEWMarketVC *industry_vc_child = [[CZ_NEWMarketVC alloc] init];
@@ -63,14 +74,5 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -26,20 +26,49 @@
 static NSString *IDTwo = @"cellID";
 static NSString *ID = @"settingCell";
 
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    self.navigationItem.title = @"设置";
-   
+    
+    //初始化NavigationItem
+    [self setupNavigationItem];
+    
+    //设置阴影
     [self setupshadowColor];
+    
+    //初始化tablrView
+    [self setupTableView];
+}
+
+#pragma mark - 初始化NavigationItem
+-(void)setupNavigationItem{
+    
+     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backMine)];
+       self.navigationItem.leftBarButtonItem = leftItem;
+       self.navigationItem.title = @"设置";
+}
+
+#pragma mark - 初始化tablrView
+-(void)setupTableView{
     
     [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBsettingCell class]) bundle:nil] forCellReuseIdentifier:ID];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.bounces = NO;
+    _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.showsHorizontalScrollIndicator = NO;
+    if (@available(iOS 13.0, *)) {
+        
+        //
+        
+    } else {
+        _tableView.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
+    }
+    
+    
 }
 
+
+#pragma mark - viewWillAppear
 - (void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden = YES;
     self.navigationController.navigationBar.hidden = NO;
@@ -49,6 +78,7 @@ static NSString *ID = @"settingCell";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - 退出登陆
 - (IBAction)ClickTuichu:(UIButton *)sender {
     //清空用户数据
           NSError *error;
@@ -66,7 +96,7 @@ static NSString *ID = @"settingCell";
        [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+#pragma mark - 设置阴影
 -(void)setupshadowColor{
     _bg_View.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
     _bg_View.layer.shadowOffset = CGSizeMake(2,2);
@@ -79,13 +109,16 @@ static NSString *ID = @"settingCell";
 #pragma mark - tableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+   
+        return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZBsettingCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    cell.num = indexPath.row;
-     return cell;
+  
+        ZBsettingCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        cell.num = indexPath.row;
+         return cell;
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -93,7 +126,6 @@ static NSString *ID = @"settingCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     
     if (indexPath.row == 0) {
         ZBBianJiZiLiaoViewController *vc = [ZBBianJiZiLiaoViewController new];
@@ -121,47 +153,5 @@ static NSString *ID = @"settingCell";
    
 }
 
-
-/*
- - (IBAction)BianJiZiLiao:(id)sender {
-     
-     ZBBianJiZiLiaoViewController *vc = [ZBBianJiZiLiaoViewController new];
-     [self.navigationController pushViewController:vc animated:YES];
- }
- - (IBAction)XiuGaiZiLiaoClick:(id)sender {
-     
-     ZBResetPassWordViewController *vc = [ZBResetPassWordViewController new];
-     [self.navigationController pushViewController:vc animated:YES];
- }
- - (IBAction)QieHuanZhangHaoClick:(id)sender {
-     
-     ZBQieHuanZhangHaoViewController *vc= [[ZBQieHuanZhangHaoViewController alloc] init];
-     
-     [self.navigationController pushViewController:vc animated:YES];
- }
-
- - (IBAction)ZhuXiaoZhangHaoClick:(id)sender {
-     ZBZhuXiaoViewController *vc = [[ZBZhuXiaoViewController alloc] init];
-     
-     [self.navigationController pushViewController:vc animated:YES];
-     
- }
-
- - (IBAction)guanyuwomClick:(id)sender {
-     
-     ZBGuanYuWMViewController *vc = [ZBGuanYuWMViewController new];
-     
-     [self.navigationController pushViewController:vc animated:YES];
- }
- */
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

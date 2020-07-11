@@ -25,16 +25,23 @@
           self.navigationItem.title = @"举报";
     _text_FV.delegate = self;
     
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeBack)];
+    [self.view addGestureRecognizer:swipe];
+
     
     [self setupShadowColor];
     
+}
+
+-(void)swipeBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)backSetting{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+#pragma mark - 设置阴影
 -(void)setupShadowColor{
     _text_FV.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
     _text_FV.layer.shadowOffset = CGSizeMake(2,2);
@@ -43,6 +50,7 @@
     _text_FV.layer.cornerRadius = 5;
 }
 
+#pragma mark - 点击提交
 - (IBAction)tijiaoClick:(id)sender {
         if (self.text_FV.text.length != 0) {
     //        NSLog(@"开始举报");
@@ -53,12 +61,11 @@
 }
 
 
-
-
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    NSLog(@"开始编辑");
+//    NSLog(@"开始编辑");
     _TiShiLabel.hidden = YES;
 }
+
 - (void)textViewDidChange:(UITextView *)textView{
     _CountLabel.text = [NSString stringWithFormat:@"%ld",_text_FV.text.length];
     
@@ -72,7 +79,6 @@
 }
 
 #pragma mark - 开始举报
-
 -(void)ZBbeginJuBao{
      AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 //    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
@@ -84,10 +90,7 @@
     [par setObject:self.model.talkId forKey:@"talkId"];
     [par setObject:self.text_FV.text forKey:@"content"];
     [par setObject:@"" forKey:@"contact"];
-    
-    
-    
-    
+
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
    
     [manager POST:@"http://api.yysc.online/user/talk/reportTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -117,14 +120,5 @@
         
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

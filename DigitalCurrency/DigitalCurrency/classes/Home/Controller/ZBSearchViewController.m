@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *image_view;
 @property (strong, nonatomic) IBOutlet UIView *bg_view;
 @property (strong, nonatomic) IBOutlet UITextField *search_F;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *View_topH;
 
 @end
 
@@ -21,11 +22,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     _image_view.image = [UIImage imageNamed:@"bg_search2"];
     [self addChildVC];
     _search_F.text = @"";
-//    [self loadViewOneOrTwo];
+    if (@available(iOS 13.0, *)) {
+        
+        //
+        
+    } else {
+        _View_topH.constant = 20;
+    }
 }
 - (IBAction)clickQueXiao:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
