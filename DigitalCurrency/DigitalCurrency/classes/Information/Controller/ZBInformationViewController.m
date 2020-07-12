@@ -156,7 +156,7 @@ static NSString *ID = @"colCell";
 //    } else {
 //        layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH - 44 );
 //    }
-    layout.itemSize = CGSizeMake(zbStatuBarW, ZBScreenH - zbStatuBarH - 44 );
+    layout.itemSize = CGSizeMake(zbStatuBarW , ZBScreenH - zbStatuBarH - 44 -49);
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -166,7 +166,7 @@ static NSString *ID = @"colCell";
     
         if (@available(iOS 13.0, *)) {
     
-          UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, zbStatuBarH + 44,zbStatuBarW , ZBScreenH -zbStatuBarH - 44  - 49) collectionViewLayout:layout];
+          UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, zbStatuBarH + 44 ,zbStatuBarW , ZBScreenH -zbStatuBarH - 44  - 49) collectionViewLayout:layout];
            collectionView.dataSource = self;
               collectionView.delegate = self;
               [self.view addSubview:collectionView];

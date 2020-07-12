@@ -36,6 +36,8 @@ static NSString *ID = @"NewInformationCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.view.backgroundColor = UIColor.blueColor;
+    
     //初始化页数
     _page = 0;
     
@@ -70,8 +72,15 @@ static NSString *ID = @"NewInformationCell";
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
-    tableView.frame = CGRectMake(0, zbStatuBarH, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
-       
+    tableView.frame = CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
+//    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.view).offset(0);
+//        make.left.equalTo(self.view).offset(0);
+//        make.bottom.equalTo(self.view).offset(0);
+//        make.right.equalTo(self.view).offset(0);
+//    }];
+
+
     [tableView registerNib:[UINib nibWithNibName:@"ZBNewInformationTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
        
       tableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -81,6 +90,12 @@ static NSString *ID = @"NewInformationCell";
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickHeaderView)];
     [_headerView addGestureRecognizer:tap];
     tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 200);
+//    [tableView.tableHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(tableView);
+//        make.left.equalTo(self.view);
+//        make.right.equalTo(self.view);
+//        make.height.equalTo(tableView).multipliedBy(0).offset(200);
+//    }];
     tableView.delegate = self;
     tableView.dataSource = self;
         
@@ -226,6 +241,7 @@ static NSString *ID = @"NewInformationCell";
     vc.typeFlag = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 
 @end

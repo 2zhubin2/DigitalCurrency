@@ -33,6 +33,8 @@ static NSString *ID = @"NewInformationCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = UIColor.darkGrayColor;
+    
     //初始化页数
     _page = 3;
     
@@ -54,7 +56,7 @@ static NSString *ID = @"NewInformationCell";
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
-    tableView.frame = CGRectMake(0, zbStatuBarH, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
+    tableView.frame = CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
        
     [tableView registerNib:[UINib nibWithNibName:@"ZBNewInformationTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
        

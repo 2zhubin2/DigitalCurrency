@@ -54,7 +54,7 @@ static NSString *ID = @"IndustryStormCell";
 -(void)setupTableView{
     UITableView *tableView = [[UITableView alloc] init];
     [self.view addSubview:tableView];
-    tableView.frame = CGRectMake(0, zbStatuBarH, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
+    tableView.frame = CGRectMake(0, 0, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49);
        
     [tableView registerNib:[UINib nibWithNibName:@"ZBIndustryStormTableViewCell" bundle:nil] forCellReuseIdentifier:ID];
        

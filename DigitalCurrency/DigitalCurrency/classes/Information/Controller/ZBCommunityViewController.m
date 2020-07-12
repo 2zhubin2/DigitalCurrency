@@ -48,7 +48,7 @@
       scrollView.backgroundColor = [UIColor redColor];
       if (@available(iOS 13.0, *)) {
                            
-          scrollView.frame = CGRectMake(0, zbStatuBarH + 44, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 -44);
+          scrollView.frame = CGRectMake(0, 44, zbStatuBarW, ZBScreenH - zbStatuBarH - 44 - 49 -44);
                            
                        } else {
          scrollView.frame = CGRectMake(0,62, zbStatuBarW, ZBScreenH -64 - 49 -44);
@@ -120,9 +120,9 @@
                      CGPoint temp = CGPointMake(btn.titleLabel.center.x, CGRectGetMaxY(btn.titleLabel.frame) + 10);
                       blankBarView.center = temp;
                   }
-        
+        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
         blankBarView.hidden = YES;
-        
+//        btn.backgroundColor = UIColor.redColor;
         [self.btns addObject:btn];
   
         
