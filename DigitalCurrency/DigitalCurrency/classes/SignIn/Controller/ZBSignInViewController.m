@@ -208,6 +208,7 @@
             [MBProgressHUD hideHUD];
             ZBSignInSuccessView *view = [[ZBSignInSuccessView alloc] init];
                 [self.calendar SingInSuccess];
+                [self RefreshSignIn];
             [self.navigationController.view addSubview:view];
             [view mas_makeConstraints:^(MASConstraintMaker *make) {
                      make.top.equalTo(self.view);
