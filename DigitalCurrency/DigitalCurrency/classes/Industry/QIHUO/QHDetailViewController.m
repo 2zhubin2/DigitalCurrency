@@ -107,7 +107,9 @@ CG_INLINE void dispatch_queue_after_S(CGFloat time ,dispatch_block_t block) {
     //    [saveB setBackgroundImage:UIImageWithName(@"J") forState:UIControlStateNormal];
     //    [saveB addTarget:self action:@selector(saveInplist) forControlEvents:UIControlEventTouchUpInside];
     //    [super setNavigationrightBtn:saveB];
-    [self setLeftButtonWithImageName:@"ic_back" bgImageName:@""];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backPre)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+//    [self setLeftButtonWithImageName:@"ic_back" bgImageName:@""];
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backPre)];
     [self.view addGestureRecognizer:swipe];
     
@@ -115,7 +117,7 @@ CG_INLINE void dispatch_queue_after_S(CGFloat time ,dispatch_block_t block) {
 }
 -(void)backPre{
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

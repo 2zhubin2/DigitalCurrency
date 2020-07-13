@@ -371,7 +371,7 @@ static CGFloat const weeksH = 20;       //周高度
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
       for (ZBSignInRecordModel *model in self.dataArray) {
              NSString *dateStr = [NSString stringWithFormat:@"%@",[self timetampTostring:model.time.integerValue]];
-             NSLog(@"%@",dateStr);
+//             NSLog(@"%@",dateStr);
              [array addObject:dateStr];
          }
             self.middleView.eventArray = array;

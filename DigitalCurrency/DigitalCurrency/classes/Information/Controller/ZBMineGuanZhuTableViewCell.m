@@ -66,7 +66,7 @@
     // Configure the view for the selected state
 }
 - (IBAction)clickGuanZhu:(UIButton *)sender {
-    NSLog(@"123");
+//    NSLog(@"123");
 }
 
 @end

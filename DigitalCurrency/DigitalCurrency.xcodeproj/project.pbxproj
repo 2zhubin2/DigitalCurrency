@@ -1364,14 +1364,14 @@
 		C7E2F0B124B9A0A300252D55 /* CalendarKJ */ = {
 			isa = PBXGroup;
 			children = (
-				C7E2F0B224B9A0A300252D55 /* YXMonthView.h */,
-				C7E2F0B324B9A0A300252D55 /* YXDayCell.h */,
-				C7E2F0B424B9A0A300252D55 /* YXCalendarView.m */,
-				C7E2F0B524B9A0A300252D55 /* YXMonthView.m */,
-				C7E2F0B624B9A0A300252D55 /* YXDayCell.m */,
 				C7E2F0B724B9A0A300252D55 /* YXCalendar */,
-				C7E2F0BA24B9A0A300252D55 /* YXDayCell.xib */,
 				C7E2F0BB24B9A0A300252D55 /* YXCalendarView.h */,
+				C7E2F0B424B9A0A300252D55 /* YXCalendarView.m */,
+				C7E2F0B324B9A0A300252D55 /* YXDayCell.h */,
+				C7E2F0B624B9A0A300252D55 /* YXDayCell.m */,
+				C7E2F0BA24B9A0A300252D55 /* YXDayCell.xib */,
+				C7E2F0B224B9A0A300252D55 /* YXMonthView.h */,
+				C7E2F0B524B9A0A300252D55 /* YXMonthView.m */,
 			);
 			path = CalendarKJ;
 			sourceTree = "<group>";
