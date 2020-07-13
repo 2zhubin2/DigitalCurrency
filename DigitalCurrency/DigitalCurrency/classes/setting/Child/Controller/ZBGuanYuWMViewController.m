@@ -20,7 +20,7 @@
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style: UIBarButtonItemStyleDone target:self action:@selector(backSetting)];
     self.navigationItem.leftBarButtonItem = leftItem;
-    self.navigationItem.title = @"注销";
+    self.navigationItem.title = @"关于我们";
 }
 -(void)backSetting{
     [self.navigationController popViewControllerAnimated:YES];

@@ -99,7 +99,7 @@
                         make.right.equalTo(mySelf.pic_BgView);
 
                     }];
-
+                
               };
 }
 
@@ -144,9 +144,10 @@
 
         NSDictionary *data = responseObject;
 //        NSLog(@"%@",data);
-        NSString *success = [NSString stringWithFormat:@"%@",data[@"code"]];
+        NSString *success = [NSString stringWithFormat:@"%@",data[@"success"]];
         if ([success isEqualToString:@"1"]) {
-            [MBProgressHUD showSuccess:@"发布成功..."];
+            [MBProgressHUD showSuccess:@"发布成功"];
+            [self.navigationController popViewControllerAnimated:YES];
 
         }else{
             [MBProgressHUD hideHUD];
@@ -154,7 +155,7 @@
         }
 
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            [MBProgressHUD showError:@"发布失败，重新输入"];
+            [MBProgressHUD showError:@"网络错误"];
         }];
    
 

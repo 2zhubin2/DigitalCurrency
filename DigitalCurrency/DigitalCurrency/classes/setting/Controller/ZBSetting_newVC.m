@@ -61,7 +61,7 @@ static NSString *ID = @"settingCell";
         //
         
     } else {
-        _tableView.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
     }
     
     
