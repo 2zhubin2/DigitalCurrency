@@ -11,6 +11,7 @@
 #import "ZBSearchViewController.h"
 #import "ZBHomeTableViewModel.h"
 #import "ZBFabuViewController.h"
+#import "ZBHomeHeaderView.h"
 
 @interface ZBHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *search_backImageView;
@@ -70,16 +71,23 @@ static NSString *ID = @"HomeCell";
 
 #pragma mark - 初始化backview
 -(void)setupBackView{
-    _tab_back_view.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
-    _tab_back_view.layer.shadowOffset = CGSizeMake(2,2);
-    _tab_back_view.layer.shadowOpacity = 1;
-    _tab_back_view.layer.shadowRadius = 5;
+//    _tab_back_view.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
+//    _tab_back_view.layer.shadowOffset = CGSizeMake(2,2);
+//    _tab_back_view.layer.shadowOpacity = 1;
+//    _tab_back_view.layer.shadowRadius = 5;
     _tab_back_view.layer.cornerRadius = 10;
     
 }
 
 #pragma mark - 初始化tableview
 -(void)setup_TableView{
+    
+    ZBHomeHeaderView *Header_view = [[ZBHomeHeaderView alloc] init];
+//    UIView *view = [[UIView alloc] init];
+//    view.backgroundColor = UIColor.greenColor;
+//    self.tableView.tableHeaderView = view;
+    self.tableView.tableHeaderView =Header_view;
+    self.tableView.tableHeaderView.frame = CGRectMake(0,0, 0, 200);
     
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.showsHorizontalScrollIndicator = NO;
@@ -158,13 +166,7 @@ static NSString *ID = @"HomeCell";
     
 }
 
-- (IBAction)clickbanner:(id)sender {
-    self.navigationController.tabBarController.selectedIndex = 1;
-}
 
-- (IBAction)clickJianxun:(id)sender {
-    self.navigationController.tabBarController.selectedIndex = 3;
-}
 
 #pragma mark - tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -178,6 +180,10 @@ static NSString *ID = @"HomeCell";
        
     }
      cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.layer.shadowColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:0.32].CGColor;
+//    cell.layer.shadowOffset = CGSizeMake(2,2);
+//    cell.layer.shadowOpacity = 1;
+//    cell.layer.shadowRadius = 2;
 
     return cell;
 }
@@ -215,6 +221,16 @@ static NSString *ID = @"HomeCell";
 - (void)notificationCenterConfig{
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(justPush:) name:@"jumpFabu0"object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickbanner) name:@"clickbanner" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickJianxun) name:@"clickJianxun" object:nil];
+}
+
+-(void)clickbanner{
+        self.navigationController.tabBarController.selectedIndex = 1;
+}
+
+-(void)clickJianxun{
+        self.navigationController.tabBarController.selectedIndex = 3;
 }
 
 - (void)justPush:(NSNotification *) notification {

@@ -28,6 +28,10 @@ static NSString *ID = @"SearchOne";
 //    self.view.backgroundColor = [UIColor grayColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 #pragma mark - 初始化顶部View
 -(void)setupTopView{
     UIView *view = [[UIView alloc] init];

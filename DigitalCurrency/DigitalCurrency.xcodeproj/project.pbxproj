@@ -12,6 +12,8 @@
 		B33C5B4D24AF279000B1991C /* ZBInformationDetailHeaderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33C5B4B24AF279000B1991C /* ZBInformationDetailHeaderVC.xib */; };
 		B33C5B5124AF2C9400B1991C /* ZBInformationDetail_oneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C5B4F24AF2C9400B1991C /* ZBInformationDetail_oneCell.m */; };
 		B33C5B5224AF2C9400B1991C /* ZBInformationDetail_oneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33C5B5024AF2C9400B1991C /* ZBInformationDetail_oneCell.xib */; };
+		B33D620F24BDA7200002E29F /* ZBHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B33D620E24BDA7200002E29F /* ZBHomeHeaderView.m */; };
+		B33D621124BDA7480002E29F /* ZBHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33D621024BDA7480002E29F /* ZBHomeHeaderView.xib */; };
 		B34884FC24AC508C00A23201 /* ZBDongTaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884FA24AC508C00A23201 /* ZBDongTaiTableViewCell.m */; };
 		B34884FD24AC508C00A23201 /* ZBDongTaiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34884FB24AC508C00A23201 /* ZBDongTaiTableViewCell.xib */; };
 		B348850124AC6D7D00A23201 /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884FF24AC6D7D00A23201 /* ZBViewController.m */; };
@@ -195,6 +197,9 @@
 		B33C5B4E24AF2C9400B1991C /* ZBInformationDetail_oneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBInformationDetail_oneCell.h; sourceTree = "<group>"; };
 		B33C5B4F24AF2C9400B1991C /* ZBInformationDetail_oneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBInformationDetail_oneCell.m; sourceTree = "<group>"; };
 		B33C5B5024AF2C9400B1991C /* ZBInformationDetail_oneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBInformationDetail_oneCell.xib; sourceTree = "<group>"; };
+		B33D620D24BDA7200002E29F /* ZBHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBHomeHeaderView.h; sourceTree = "<group>"; };
+		B33D620E24BDA7200002E29F /* ZBHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBHomeHeaderView.m; sourceTree = "<group>"; };
+		B33D621024BDA7480002E29F /* ZBHomeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBHomeHeaderView.xib; sourceTree = "<group>"; };
 		B34884F924AC508C00A23201 /* ZBDongTaiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBDongTaiTableViewCell.h; sourceTree = "<group>"; };
 		B34884FA24AC508C00A23201 /* ZBDongTaiTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBDongTaiTableViewCell.m; sourceTree = "<group>"; };
 		B34884FB24AC508C00A23201 /* ZBDongTaiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBDongTaiTableViewCell.xib; sourceTree = "<group>"; };
@@ -876,6 +881,9 @@
 				B349740C24AD731D001005A4 /* ZBSearchOneCollectionViewCell.h */,
 				B349740D24AD731D001005A4 /* ZBSearchOneCollectionViewCell.m */,
 				B349740E24AD731D001005A4 /* ZBSearchOneCollectionViewCell.xib */,
+				B33D620D24BDA7200002E29F /* ZBHomeHeaderView.h */,
+				B33D620E24BDA7200002E29F /* ZBHomeHeaderView.m */,
+				B33D621024BDA7480002E29F /* ZBHomeHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1523,6 +1531,7 @@
 				B33C5B4D24AF279000B1991C /* ZBInformationDetailHeaderVC.xib in Resources */,
 				B35B9F2524B306EC00BEA360 /* ZBFreepwViewController.xib in Resources */,
 				B349BEE524AF13F80011CAD4 /* ZBDongTaiDetailViewController.xib in Resources */,
+				B33D621124BDA7480002E29F /* ZBHomeHeaderView.xib in Resources */,
 				B349740B24AD6D3A001005A4 /* ZBSearchViewController.xib in Resources */,
 				B34AC40824A9CB9C00BFA9D5 /* ZBInformationViewController.xib in Resources */,
 				B348850C24AC811700A23201 /* ZBIndustryStormTableViewCell.xib in Resources */,
@@ -1592,6 +1601,7 @@
 				B34AB60324B05BFA0091FEAC /* ZBNewInformationModel.m in Sources */,
 				C7788D9024AB493800669EDC /* BaseViewController.m in Sources */,
 				B34AC3D924A9C97B00BFA9D5 /* ViewController.m in Sources */,
+				B33D620F24BDA7200002E29F /* ZBHomeHeaderView.m in Sources */,
 				C7E2F0CE24B9A0A300252D55 /* ZBSignInSuccessView.m in Sources */,
 				B35B9F2124B306EC00BEA360 /* ZBResetPassWordViewController.m in Sources */,
 				C7788DE024AB5EAD00669EDC /* ZBIndustryStormViewController.m in Sources */,
