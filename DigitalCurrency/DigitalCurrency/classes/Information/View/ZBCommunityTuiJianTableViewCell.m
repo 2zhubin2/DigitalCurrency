@@ -60,6 +60,7 @@
     [self setupshadowColor];
     _head_iamgeV.layer.cornerRadius = 30;
     _head_iamgeV.clipsToBounds = YES;
+    [_contentLabel setValue:@(23) forKey:@"lineSpacing"];
     
 //    if (_view_imagebg.subviews.count == 0) {
 //        _view_imagebgH.constant = 1;

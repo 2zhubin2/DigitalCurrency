@@ -45,6 +45,8 @@
     [super awakeFromNib];
     // Initialization code
     [self setupshadowColor];
+    
+     [_content_label setValue:@(20) forKey:@"lineSpacing"];
 }
 
 -(void)setupshadowColor{

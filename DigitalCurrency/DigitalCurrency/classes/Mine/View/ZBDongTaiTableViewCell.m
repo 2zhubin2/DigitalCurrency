@@ -66,6 +66,7 @@
     _head_btn.layer.cornerRadius = 30;
     _head_btn.clipsToBounds = YES;
     [self setupShadowColor];
+    [_contentLabel setValue:@(20) forKey:@"lineSpacing"];
     
     
 }

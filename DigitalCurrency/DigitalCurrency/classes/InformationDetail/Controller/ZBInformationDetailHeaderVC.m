@@ -137,7 +137,7 @@ static NSString *ID_three = @"CommentCell";
         UIView *view = [[UIView alloc] init];
         
         UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake(15.5,10,200,12);
+        label.frame = CGRectMake(16.5,5,100,12);
         label.numberOfLines = 0;
         [view addSubview:label];
 
@@ -152,7 +152,12 @@ static NSString *ID_three = @"CommentCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44;
+    if (section == 0) {
+        return 44;
+    }else{
+        return 15;
+    }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -162,7 +167,7 @@ static NSString *ID_three = @"CommentCell";
             return 1;
             break;
         case 1:
-            return 2;
+            return 4;
             break;
 //        case 2:
 //            return 10;

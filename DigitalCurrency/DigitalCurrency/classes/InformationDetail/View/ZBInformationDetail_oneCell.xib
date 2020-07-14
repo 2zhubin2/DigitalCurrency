@@ -10,41 +10,52 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InformationDetail_one" rowHeight="507" id="KGk-i7-Jjw" customClass="ZBInformationDetail_oneCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="507"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InformationDetail_one" rowHeight="497" id="KGk-i7-Jjw" customClass="ZBInformationDetail_oneCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="507"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="中国财经网" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc5-pT-sTk">
-                        <rect key="frame" x="20" y="10" width="56.5" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国财经网" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc5-pT-sTk">
+                        <rect key="frame" x="20" y="10" width="58" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="PXZ-yo-y7q"/>
+                            <constraint firstAttribute="height" constant="16" id="Uqr-Om-HAD"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨天 6:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFP-Po-tK2">
-                        <rect key="frame" x="86.5" y="10" width="50.5" height="14"/>
+                        <rect key="frame" x="88" y="10" width="52" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="52" id="hTu-fl-7Pb"/>
+                            <constraint firstAttribute="height" constant="16" id="uvL-EF-Od7"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BgF-Zf-lWj">
-                        <rect key="frame" x="10" y="34" width="2" height="53"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BgF-Zf-lWj">
+                        <rect key="frame" x="10" y="36" width="2" height="75"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="9cg-VF-D5X"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="近期各类财经新闻频频提及的“央行数字货币”，想必已深入大家脑海。那么，有望在不久后亮相的数字货币，与“投资市场”中那些短期内动辄“飙涨”几倍甚至上百倍的“虚拟货币”是一回事吗？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-3C-okM">
-                        <rect key="frame" x="22" y="34" width="278" height="73"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="近期各类财经新闻频频提及的“央行数字货币”，想必已深入大家脑海。那么，有望在不久后亮相的数字货币，与“投资市场”中那些短期内动辄“飙涨”几倍甚至上百倍的“虚拟货币”是一回事吗？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-3C-okM">
+                        <rect key="frame" x="22" y="36" width="278" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="ZVj-1f-zm1"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY7-Up-k9W">
-                        <rect key="frame" x="20" y="108" width="280" height="371"/>
-                        <string key="text">央行数字货币，是指中央发行的数字货币，属于央行负债，具有国家信用背书，与法定货币等值。其功能属性与纸钞完全一样，只不过是数字化形态。通过上述阐述我们总结出，数字货币首先是货币，但是虚拟货币和不法分子发行的所谓代币，则并没有货币属性，而只是某种狭义区间的权益证明。中国互联网金融协会区块链工作组组长李礼辉曾撰文指出：“数字货币必须具备法定地位、国家主权背书，明确发行责任主体。以比特币等为代表的虚拟货币和代币没有国别，没有主权背书，没有合格发行主体，没有国家信用支撑，这些都不是数字货币。”中国人民银行上海总部近期公开指出，近年来与虚拟货币相关的炒作（如ICO、IFO、IEO、IMO和STO等）花样翻新、投机盛行，价格暴涨暴跌，风险快速聚积。相关融资主体通过违规发售、流通代币，向投资者筹集资金或比特币、以太坊等虚拟货币，本质上属于未经批准非法公开融资行为，涉嫌非法发售代币票券、非法发行证券以及非法集资、金融诈骗、传销等违法犯罪，严重扰乱经济金融秩序。</string>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY7-Up-k9W">
+                        <rect key="frame" x="20" y="101" width="280" height="384.5"/>
+                        <mutableString key="text">央行数字货币，是指中央发行的数字货币，属于央行负债，具有国家信用背书，与法定货币等值。其功能属性与纸钞完全一样，只不过是数字化形态。通过上述阐述我们总结出，数字货币首先是货币，但是虚拟货币和不法分子发行的所谓代币，则并没有货币属性，而只是某种狭义区间的权益证明。中国互联网金融协会区块链工作组组长李礼辉曾撰文指出：“数字货币必须具备法定地位、国家主权背书，明确发行责任主体。以比特币等为代表的虚拟货币和代币没有国别，没有主权背书，没有合格发行主体，没有国家信用支撑，这些都不是数字货币。”中国人民银行上海总部近期公开指出，近年来与虚拟货币相关的炒作（如ICO、IFO、IEO、IMO和STO等）花样翻新、投机盛行，价格暴涨暴跌，风险快速聚积。相关融资主体通过违规发售、流通代币，向投资者筹集资金或比特币、以太坊等虚拟货币，本质上属于未经批准非法公开融资行为，涉嫌非法发售代币票券、非法发行证券以及非法集资、金融诈骗、传销等违法犯罪，严重扰乱经济金融秩序。</mutableString>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -53,25 +64,26 @@
                 <constraints>
                     <constraint firstItem="BgF-Zf-lWj" firstAttribute="top" secondItem="Mc5-pT-sTk" secondAttribute="bottom" constant="10" id="77O-hH-WYM"/>
                     <constraint firstAttribute="trailing" secondItem="qY7-Up-k9W" secondAttribute="trailing" constant="20" id="7nv-WK-wAC"/>
-                    <constraint firstItem="BgF-Zf-lWj" firstAttribute="bottom" secondItem="Q1D-3C-okM" secondAttribute="bottom" id="9Hn-4y-M9L"/>
+                    <constraint firstItem="BgF-Zf-lWj" firstAttribute="bottom" secondItem="Q1D-3C-okM" secondAttribute="bottom" constant="15" id="9Hn-4y-M9L"/>
                     <constraint firstItem="BgF-Zf-lWj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BGl-e8-lcY"/>
                     <constraint firstItem="fFP-Po-tK2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="DbI-9B-uM7"/>
                     <constraint firstItem="Q1D-3C-okM" firstAttribute="top" secondItem="Mc5-pT-sTk" secondAttribute="bottom" constant="10" id="ENE-ti-hda"/>
-                    <constraint firstItem="qY7-Up-k9W" firstAttribute="top" secondItem="Q1D-3C-okM" secondAttribute="bottom" constant="10" id="F1B-xZ-bmq"/>
+                    <constraint firstItem="qY7-Up-k9W" firstAttribute="top" secondItem="Q1D-3C-okM" secondAttribute="bottom" constant="5" id="F1B-xZ-bmq"/>
                     <constraint firstItem="qY7-Up-k9W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="GNG-fu-4RR"/>
                     <constraint firstItem="Q1D-3C-okM" firstAttribute="leading" secondItem="BgF-Zf-lWj" secondAttribute="trailing" constant="10" id="QSB-Jh-orA"/>
                     <constraint firstItem="Mc5-pT-sTk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RU5-je-Q73"/>
                     <constraint firstItem="fFP-Po-tK2" firstAttribute="leading" secondItem="Mc5-pT-sTk" secondAttribute="trailing" constant="10" id="cIF-Jo-VCA"/>
+                    <constraint firstAttribute="bottom" secondItem="qY7-Up-k9W" secondAttribute="bottom" constant="11.5" id="gDt-rK-HYv"/>
                     <constraint firstAttribute="trailing" secondItem="Q1D-3C-okM" secondAttribute="trailing" constant="20" id="pEl-ak-mzS"/>
-                    <constraint firstAttribute="bottom" secondItem="qY7-Up-k9W" secondAttribute="bottom" constant="14.5" id="qOx-JH-V8O"/>
                     <constraint firstItem="Mc5-pT-sTk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zKb-y8-1Ty"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="contentLabel" destination="qY7-Up-k9W" id="JNF-gG-h2X"/>
+                <outlet property="header_label" destination="Q1D-3C-okM" id="fTd-6b-jxq"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="134.26339285714286"/>
+            <point key="canvasLocation" x="131.8840579710145" y="130.24553571428572"/>
         </tableViewCell>
     </objects>
 </document>

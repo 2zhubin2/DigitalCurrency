@@ -11,6 +11,7 @@
 @interface ZBInformationDetail_oneCell ()
 
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *header_label;
 
 
 @end
@@ -28,6 +29,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [_header_label setValue:@(17) forKey:@"lineSpacing"];
+    [_contentLabel setValue:@(20) forKey:@"lineSpacing"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
