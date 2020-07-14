@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)ZBNewInformationModel *model;
 @property(nonatomic,assign)Boolean typeFlag;
+@property(nonatomic,assign)NSInteger row_num;
 
 @end
 

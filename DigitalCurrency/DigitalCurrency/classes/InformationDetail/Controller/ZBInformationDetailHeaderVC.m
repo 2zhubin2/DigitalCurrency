@@ -17,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITextField *sousuoText_F;
 @property (strong, nonatomic) IBOutlet UIView *sousuobg_View;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topH;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *backBtn_top_H;
 
 @end
 
@@ -39,7 +41,11 @@ static NSString *ID_three = @"CommentCell";
     //添加通知及手势
     [self add_notifacationObserver];
     
+    
+    
 }
+
+
 
 #pragma mark - viewWillAppear
 - (void)viewWillAppear:(BOOL)animated{
@@ -67,9 +73,16 @@ static NSString *ID_three = @"CommentCell";
 #pragma mark - 初始化tableView
 -(void)setupTableView{
    
+    if (@available(iOS 11.0, *)) {
+              UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+              if (mainWindow.safeAreaInsets.bottom > 0.0) {
+                  _topH.constant = -132;
+                  _backBtn_top_H.constant = 40;
+              }
+          }
         
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:@"pic_dongtai1"];
+    imageView.image = [UIImage imageNamed:@"pic_zxxq"];
     imageView.contentMode = UIViewContentModeScaleToFill;
     _tableView.tableHeaderView = imageView;
     _tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 150);
@@ -88,6 +101,7 @@ static NSString *ID_three = @"CommentCell";
        _tableView.rowHeight = UITableViewAutomaticDimension;
        // 告诉tableView所有cell的估算高度
        _tableView.estimatedRowHeight = 70;
+    
 }
 
 
@@ -170,6 +184,7 @@ static NSString *ID_three = @"CommentCell";
     }else{
         ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID_two];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.row_num = indexPath.row;
         return cell;
     }
     return nil;

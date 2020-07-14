@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,13 +37,13 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="近期各类财经新闻频频提及的“央行数字货币”，想必已深入大家脑海。那么，有望在不久后亮相的数字货币，与“投资市场”中那些短期内动辄“飙涨”几倍甚至上百倍的“虚拟货币”是一回事吗？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-3C-okM">
-                        <rect key="frame" x="22" y="34" width="278" height="53"/>
+                        <rect key="frame" x="22" y="34" width="278" height="73"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY7-Up-k9W">
-                        <rect key="frame" x="20" y="95" width="280" height="384.5"/>
+                        <rect key="frame" x="20" y="108" width="280" height="371"/>
                         <string key="text">央行数字货币，是指中央发行的数字货币，属于央行负债，具有国家信用背书，与法定货币等值。其功能属性与纸钞完全一样，只不过是数字化形态。通过上述阐述我们总结出，数字货币首先是货币，但是虚拟货币和不法分子发行的所谓代币，则并没有货币属性，而只是某种狭义区间的权益证明。中国互联网金融协会区块链工作组组长李礼辉曾撰文指出：“数字货币必须具备法定地位、国家主权背书，明确发行责任主体。以比特币等为代表的虚拟货币和代币没有国别，没有主权背书，没有合格发行主体，没有国家信用支撑，这些都不是数字货币。”中国人民银行上海总部近期公开指出，近年来与虚拟货币相关的炒作（如ICO、IFO、IEO、IMO和STO等）花样翻新、投机盛行，价格暴涨暴跌，风险快速聚积。相关融资主体通过违规发售、流通代币，向投资者筹集资金或比特币、以太坊等虚拟货币，本质上属于未经批准非法公开融资行为，涉嫌非法发售代币票券、非法发行证券以及非法集资、金融诈骗、传销等违法犯罪，严重扰乱经济金融秩序。</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,7 +71,7 @@
             <connections>
                 <outlet property="contentLabel" destination="qY7-Up-k9W" id="JNF-gG-h2X"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="134.93303571428569"/>
+            <point key="canvasLocation" x="131.8840579710145" y="134.26339285714286"/>
         </tableViewCell>
     </objects>
 </document>

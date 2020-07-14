@@ -175,8 +175,10 @@ static NSString *ID = @"NewInformationCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBNewInformationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+     cell.row_num = indexPath.row;
     cell.model = self.dataArray[indexPath.row];
     cell.typeFlag = NO;
+   
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;

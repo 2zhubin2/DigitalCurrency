@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *time_label;
 @property (strong, nonatomic) IBOutlet UILabel *log_label;
+@property (strong, nonatomic) IBOutlet UIImageView *image_v_head;
 
 @end
 
@@ -34,6 +35,27 @@
         _log_label.text = @"精选好文";
     }
     
+    
+}
+
+- (void)setRow_num:(NSInteger)row_num{
+    _row_num = row_num;
+    switch (self.row_num%4) {
+        case 0:
+            _image_v_head.image = [UIImage imageNamed:@"pic_zx1"];
+            break;
+        case 1:
+            _image_v_head.image = [UIImage imageNamed:@"pic_zx2"];
+        break;
+        case 2:
+            _image_v_head.image = [UIImage imageNamed:@"pic_zx3"];
+        break;
+        case 3:
+            _image_v_head.image = [UIImage imageNamed:@"pic_zx4"];
+        break;
+        default:
+            break;
+    }
 }
 
 - (void)awakeFromNib {

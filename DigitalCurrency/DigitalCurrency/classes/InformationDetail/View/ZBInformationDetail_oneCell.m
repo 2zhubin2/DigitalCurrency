@@ -21,6 +21,7 @@
     
     _model = model;
     _contentLabel.text = model.content;
+        
 
 }
 
