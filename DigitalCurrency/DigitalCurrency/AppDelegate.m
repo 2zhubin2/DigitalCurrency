@@ -41,6 +41,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoginSuccess) name:@"LoginSuccess" object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zhuxiao) name:@"zhuxiao" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tuichuLogin) name:@"tuichuLogin" object:nil];
+//    NSLog(@"%@",NSHomeDirectory());
     
     return YES;
 }

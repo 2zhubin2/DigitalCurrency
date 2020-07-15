@@ -45,58 +45,45 @@
 
 #pragma mark - 初始化子控制器
 -(void)setupController{
-//    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    
     self.delegate = self;
-//    self.tabBar.delegate = self;
     _tabVC = self;
      [[UITabBarItem appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:50/255.0 green:83/255.0 blue:250/255.0 alpha:1.0],NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
      _tabVC.tabBar.backgroundColor = [UIColor whiteColor];
      
      ZBHomeViewController *home_vc = [[ZBHomeViewController alloc] init];
-     UINavigationController *nav_home = [[UINavigationController alloc] initWithRootViewController:home_vc];
-     nav_home.navigationBar.hidden = YES;
-     nav_home.tabBarItem.title = @"首页";
-     nav_home.tabBarItem.image = [UIImage imageNamed:@"shouye_unselected"];
-     nav_home.tabBarItem.selectedImage = [UIImage imageNamed:@"shouye_selected"];
-     [_tabVC addChildViewController:nav_home];
-     
-     
-
+    [self setUpOneChildViewController:home_vc image:[UIImage imageNamed:@"shouye_unselected"] sellectImage:[UIImage imageNamed:@"shouye_selected"] title:@"首页"];
      
      ZBIndustryViewController *industry_vc = [[ZBIndustryViewController alloc] init];
-     UINavigationController *nav_industry = [[UINavigationController alloc] initWithRootViewController:industry_vc];
-     nav_industry.navigationBar.hidden = YES;
-    nav_industry.tabBarItem.title = @"行情";
-     nav_industry.tabBarItem.image = [UIImage imageNamed:@"hangqing_unselected"];
-     nav_industry.tabBarItem.selectedImage = [UIImage imageNamed:@"hangqing_selected"];
-     [_tabVC addChildViewController:nav_industry];
+    [self setUpOneChildViewController:industry_vc image:[UIImage imageNamed:@"hangqing_unselected"] sellectImage:[UIImage imageNamed:@"hangqing_selected"] title: @"行情"];
      
      ZBFaBuBaseViewController *fabu_vc = [[ZBFaBuBaseViewController alloc] init];
-     UINavigationController *nav_fabu = [[UINavigationController alloc] initWithRootViewController:fabu_vc];
-    nav_fabu.tabBarItem.title = @"发布";
-    nav_fabu.tabBarItem.image = [UIImage imageNamed:@"fabu"];
-     nav_fabu.tabBarItem.selectedImage = [UIImage imageNamed:@"fabu"];
-     [_tabVC addChildViewController:nav_fabu];
-     
+    [self setUpOneChildViewController:fabu_vc image:[UIImage imageNamed:@"fabu"] sellectImage:[UIImage imageNamed:@"fabu"] title: @"发布"];
      
      ZBInformationViewController *information_vc = [[ZBInformationViewController alloc] init];
-     UINavigationController *nav_information = [[UINavigationController alloc] initWithRootViewController:information_vc];
-     nav_information.navigationBar.hidden = YES;
-     nav_information.tabBarItem.title = @"资讯";
-     nav_information.tabBarItem.image = [UIImage imageNamed:@"zixun_unselected"];
-     nav_information.tabBarItem.selectedImage = [UIImage imageNamed:@"zixun_selected"];
-     [_tabVC addChildViewController:nav_information];
+    [self setUpOneChildViewController:information_vc image:[UIImage imageNamed:@"zixun_unselected"] sellectImage:[UIImage imageNamed:@"zixun_selected"] title: @"资讯"];
      
      ZBMineViewController *mine_vc = [[ZBMineViewController alloc] init];
-     UINavigationController *nav_mine = [[UINavigationController alloc] initWithRootViewController:mine_vc];
-     nav_mine.navigationBar.hidden = YES;
-     nav_mine.tabBarItem.title = @"我的";
-     nav_mine.tabBarItem.image = [UIImage imageNamed:@"wode_unselected"];
-     nav_mine.tabBarItem.selectedImage = [UIImage imageNamed:@"wode_selected"];
-     [_tabVC addChildViewController:nav_mine];
+    [self setUpOneChildViewController:mine_vc image:[UIImage imageNamed:@"wode_unselected"] sellectImage:[UIImage imageNamed:@"wode_selected"] title:@"我的"];
+    
+    
 }
 
-//static NSInteger tabTag = 0;
+
+
+#pragma mark - 添加一个子控制器的方法
+- (void)setUpOneChildViewController:(UIViewController *)viewController image:(UIImage *)image sellectImage:(UIImage *)image_s title:(NSString *)title{
+
+    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:viewController];
+    navC.navigationBar.hidden = YES;
+    navC.tabBarItem.title = title;
+    navC.tabBarItem.image = image;
+    navC.tabBarItem.selectedImage = image_s;
+
+    [_tabVC addChildViewController:navC];
+}
+
+
 
 #pragma mark - 实现中间item点击直接push的需求
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{

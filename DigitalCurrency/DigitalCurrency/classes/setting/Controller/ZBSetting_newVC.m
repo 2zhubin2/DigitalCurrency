@@ -14,6 +14,7 @@
 #import "ZBQieHuanZhangHaoViewController.h"
 #import "ZBBianJiZiLiaoViewController.h"
 #import "ZBResetPassWordViewController.h"
+#import <SDImageCache.h>
 
 @interface ZBSetting_newVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
